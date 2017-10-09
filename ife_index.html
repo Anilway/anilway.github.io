@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度前端技术学院项目练习</title>
+	<style>
+	*{margin:0 0;}
+		body{
+			background:#3f3f3f;
+		}
+		.banner{
+			height:48px;
+			width:100%;
+			background:#303030;
+			position: fixed;
+			top:0px;
+			left:0px;
+			z-index:1;
+		}
+		.img_h{
+			padding: 6.5px 15px 6.5px 10px;
+			float:left;
+		}
+		.banner_menu{
+			float:right;
+			font-family: "幼圆";
+			font-size:18px;
+			color:white;
+			height:48px;
+			margin-top:10px;
+		}
+		.b_menu{
+			float:left;
+			margin-right:10px;
+			line-height: 100%;
+			padding:5px;
+		}
+		.b_menu:hover{
+			background:#48BEEF;
+			border-radius:5px;
+		}
+		.title{
+			font-family: "Avant Garde";
+			color:white;
+			font-weight: bold;
+			font-size:20px;
+			border:solid #3f3f3f 3px;
+			border-radius:8px;
+			width:280px;
+			height:30px;
+			text-align:center;
+			line-height:30px;
+			float:left;
+			margin-top:6px;
+		}
+		.title:hover{background:gray;}
+		a{
+			text-decoration:none;
+			color:white;
+		}
+		.content{
+			height:100%;
+			width:700px;
+			/*border-top:2px white solid;
+			border-bottom:2px white solid;*/
+			margin:100px auto;
+			padding:50px 50px;
+			color:white;
+			background:black;
+			opacity:0.8;
+			box-shadow: 20px 20px 10px #272822;
+		}
+		.box{
+			margin-left: 150px;
+		}
+		#page2,#page3{
+			margin-top:30px;
+		}
+		.guide{
+			height:35px;
+			width:150px;
+			background:#272822;
+			font-size:20px;
+			font-weight:bold;
+			line-height:35px;
+			text-align: center;
+			color:#48BEEF;
+		}
+		.task{
+			height:30px;
+			padding:10px;
+			line-height: 30px
+		}
+		.task:hover{
+			background:#48BEEF;
+			border-radius:5px;
+		}
+		a .task:hover{
+			font-weight:bold;
+			color:black;
+			font-size:20px;
+		}
+		#top1{
+			width:50px;
+			height:50px;
+			border-radius:50%;
+			background:black;
+			text-align:center;
+			line-height:50px;
+			font-size:30px;
+			font-weight:bold;
+			position:fixed;
+			left:90%;
+			bottom:20%;
+			box-shadow: 5px 2px 5px #272822;
+		}
+	</style>
+</head>
+<body>
+	<!-- 导航条 -->
+	<div class="banner">
+		<div class="img_h"><a href="#" title="Anilway"><img src="img/img_h.png" alt="头像" height="35px" width="35px"></a></div>
+		<!-- https://github.com/Anilway -->
+		<!-- title -->
+		<div class="title">Baidu IFE Progect Practice</div>
+		<!-- right menu -->
+		<div class="banner_menu">
+		<div class="b_menu"><a href="http://ife.baidu.com/college/detail/id/9" target="_blank">小薇学院</a></div>
+		<div class="b_menu"><a href="http://ife.baidu.com/college/detail/id/10" target="_blank">斌斌学院</a></div>
+		<div class="b_menu"><a href="http://ife.baidu.com/college/detail/id/11" target="_blank">耀耀学院</a></div>
+		</div>
+	</div>
+
+	<!-- content -->
+	<div class="content">
+		<!-- 1 -->
+		<div class="guide" id="page1">小薇学院</div>
+		<hr color="#272822"/>
+		<div class="box">
+		<a href="#"><div class="task" id="task">任务01：零基础HTML编码</div></a>
+		<a href="#"><div class="task" id="task">任务02：零基础HTML及CSS编码（一）</div></a>
+		<a href="#"><div class="task" id="task">任务03：三栏式布局</div></a>
+		<a href="#"><div class="task" id="task">任务04：定位和居中问题</div></a>
+		<a href="#"><div class="task" id="task">任务05：零基础HTML及CSS编码（二）</div></a>
+		<a href="#"><div class="task" id="task">任务06：通过HTML及CSS模拟报纸排版</div></a>
+		<a href="#"><div class="task" id="task">任务07：实现常见的技术产品官网的页面架构及样式布局</div></a>
+		<a href="#"><div class="task" id="task">任务08：响应式网络（栅格化）布局</div></a>
+		<a href="#"><div class="task" id="task">任务09：使用HTML/CSS实现一个复杂页面</div></a>
+		<a href="#"><div class="task" id="task">任务10：Flebox布局练习</div></a>
+		<a href="#"><div class="task" id="task">任务11：移动Web页面布局实践</div></a>
+		<a href="#"><div class="task" id="task">任务12：学习CSS3的新特性</div></a>
+		</div>
+		<!-- 2 -->
+		<div class="guide" id="page2">斌斌学院</div>
+		<hr color="#272822"/>
+		<div class="box">
+		<a href="#"><div class="task" id="task">任务01：零基础JavaScript编码（一）</div></a>
+		<a href="#"><div class="task" id="task">任务02：零基础JavaScript编码（二）</div></a>
+		<a href="#"><div class="task" id="task">任务03：零基础JavaScript编码（三）</div></a>
+		<a href="#"><div class="task" id="task">任务04：基础JavaScript练习（一）</div></a>
+		<a href="#"><div class="task" id="task">任务05：基础JavaScript练习（二）</div></a>
+		<a href="#"><div class="task" id="task">任务06：基础JavaScript练习（三）</div></a>
+		<a href="#"><div class="task" id="task">任务07：JavaScript和树（一）</div></a>
+		<a href="#"><div class="task" id="task">任务08：JavaScript和树（二）</div></a>
+		<a href="#"><div class="task" id="task">任务09：JavaScript和树（三）</div></a>
+		</div>		
+		<!-- 3 -->
+		<div class="guide" id="page3">耀耀学院</div>
+		<hr color="#272822"/>
+		<div class="box">
+		<a href="#"><div class="task" id="task">任务01：表单（一）单个表单的检验</div></a>
+		<a href="#"><div class="task" id="task">任务02：表单（二）多个表单的动态校验</div></a>
+		<a href="#"><div class="task" id="task">任务03：表单（三）联动</div></a>
+		<a href="#"><div class="task" id="task">任务04：听指令的小方块（一）</div></a>
+		<a href="#"><div class="task" id="task">任务05：听指令的小方块（二）</div></a>
+		<a href="#"><div class="task" id="task">任务06：UI组件之浮出层</div></a>
+		<a href="#"><div class="task" id="task">任务07：UI组件之排序表格</div></a>
+		<a href="#"><div class="task" id="task">补充任务：开源JavaScript库使用统计</div></a>
+		<a href="#"><div class="task" id="task">综合实战：在线德州扑克（一）</div></a>
+		<a href="#"><div class="task" id="task">综合实战：在线德州扑克（二）</div></a>
+		<a href="#"><div class="task" id="task">综合实战：在线德州扑克（三）</div></a>
+		</div>
+	</div>
+	<!-- 回到顶部 -->
+	<script>
+		function pageScroll(){
+				window.scrollBy(0,-650);
+				scrolldelay=setTimeout('pageScroll()',100);
+				if(document.documentElement.scrollTop==0)clearTimeout(scrolldelay);
+			}
+	</script>
+	<a href="javascript:pageScroll();" title="回到顶部"><div id="top1">↑</div></a>
+</body>
+</html>
