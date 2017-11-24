@@ -58,9 +58,9 @@
     <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
 
     <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon1.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon1.png">
+    <link rel="apple-touch-icon" href="/img/favicon1.png">
 
     <!--iOS -->
     <meta name="apple-mobile-web-app-title" content="Title">
@@ -129,13 +129,13 @@
   #scheme-Paradox .sidebar_archives-count,
   #scheme-Paradox .sidebar-colored .sidebar-header,
   #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
+    background-color: #222 !important;
   }
 
   /* Sidebar User Drop Down Menu Text Color */
   #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
   #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
+    color: #222 !important;
   }
 
   #post_entry-right-info,
@@ -148,25 +148,25 @@
   .sidebar-colored .sidebar-nav > .open > a:hover,
   .sidebar-colored .sidebar-nav > .open > a:focus,
   #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
+    color: #222 !important;
   }
 
   .toTop {
-    background: #757575 !important;
+    background: #222 !important;
   }
 
   .material-layout .material-post>.material-nav,
   .material-layout .material-index>.material-nav,
   .material-nav a {
-    color: #757575;
+    color: #222;
   }
 
   #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
+    background-color: #222;
   }
 
   #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
+    color: #222;
   }
 
   .post-toc a:hover {
@@ -181,7 +181,7 @@
 
     <style>
       body{
-        background-color: #222222;
+        background-color: #F5F5F5;
       }
 
       /* blog_info bottom background */
@@ -234,7 +234,7 @@
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="tags | Anilway">
-    <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
+    <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
     <meta property="og:description" content="">
     
 
@@ -243,7 +243,7 @@
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="tags | Anilway">
     <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="http://yoursite.com" />
 
@@ -326,7 +326,7 @@
 
 <div class=" material-tagscloud">
     <div class="material-post mdl-grid">
-        <a href="/tags/JS/" style="font-size: 16px; color: #757575">JS</a> <a href="/tags/测试/" style="font-size: 35px; color: #212121">测试</a>
+        <a href="/tags/hexo/" style="font-size: 16px; color: #757575">hexo</a>
     </div>
 </div>
 
@@ -356,7 +356,7 @@
 <aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
     <div id="sidebar-main">
         <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header1.jpg);">
     <!-- Top bar -->
     <div class="top-bar"></div>
 
@@ -371,7 +371,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="Anilway's avatar">
+        <img src="/img/touxiang.jpg" alt="Anilway's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -443,7 +443,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -461,7 +461,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/小技巧/">小技巧<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/新分类/">新分类<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/新分类1/">新分类1<span class="sidebar_archives-count">1</span></a>
+                
             </ul>
         </li>
         
@@ -496,9 +496,17 @@
         
     
         <li>
-            <a href="/links" title="友情链接">
+            <a href="/links" title="友链接">
                 
-                友情链接
+                友链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图片集">
+                
+                图片集
             </a>
         </li>
         
