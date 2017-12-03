@@ -37,6 +37,8 @@
     
     <title>
         
+            JS学习路径总结 | 
+        
         Anilway
     </title>
 
@@ -47,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Anilway">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",JavaScript">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -96,6 +98,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -231,15 +236,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Anilway">
+    <meta property="og:title" content="JS学习路径总结 | Anilway">
     <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="JavaScript"> 
 
+    
+        <meta property="article:published_time" content="Wed Nov 29 2017 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Nov 29 2017 16:47:42 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Anilway">
+    <meta name="twitter:title" content="JS学习路径总结 | Anilway">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -247,35 +255,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com" />
+        <link rel="canonical" href="http://yoursite.com/2017/11/29/2017-11-29-js-learn-way/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
+
+
 <script type="application/ld+json">
 {
-    "@context": "http://schema.org",
-    "@type": "Website",
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2017/11/29/2017-11-29-js-learn-way/index.html",
+    "headline": "JS学习路径总结",
+    "datePublished": "Wed Nov 29 2017 00:00:00 GMT+0800",
+    "dateModified": "Wed Nov 29 2017 16:47:42 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Anilway",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.jpg"
+        },
+        "description": "Make yourself better!"
+    },
     "publisher": {
         "@type": "Organization",
         "name": "Anilway",
-        "logo": "/img/favicon1.png"
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon1.png"
+        }
     },
-    "url": "http://yoursite.com",
-    "image": {
-        "@type": "ImageObject",
-        "url": "/img/favicon1.png"
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://yoursite.com"
-    },
-    "description": ""
+    "keywords": ",JavaScript",
+    "description": "",
 }
 </script>
-
-
 
 
     
@@ -309,486 +325,504 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
+                    <!-- Post TOC -->
+
     
-        <!-- Paradox Header -->
-        <!-- Daily pic -->
-<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
-
-    <!-- Pic & Slogan -->
-    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/1.jpg)">
-        <p class="index-top-block-slogan"><a href="#">
-        
-            
-                Make yourself better!
-            
-        
-        </a></p>
-    </div>
-
-    <!-- Avatar & Name -->
-    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-        <!-- Author Avatar -->
-        <div id="author-avatar">
-            <img src="/img/touxiang.jpg" width="32px" height="32px" alt="avatar">
-        </div>
-        <div>
-            <strong>Anilway</strong>
-        </div>
-    </div>
-</div>
-
-        <!-- Blog info -->
-<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
-
-    <!-- Search -->
-    
-    <!-- Google -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
-        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
-            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
-        </label>
-
-        <form autocomplete="off" id="search-form" method="get" action="//google.com/search" accept-charset="UTF-8" class="mdl-textfield__expandable-holder" target="_blank">
-            <input class="mdl-textfield__input search-input" type="search" name="q" id="search" placeholder="">
-            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
-
-            <input type="hidden" name="sitesearch" value="http://yoursite.com">
-        </form>
-    </div>
-
-
-
-
-
-
-
-    <!-- LOGO -->
-    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
-        <a href="#" target="_blank">
-            <img src="/img/12.png" alt="logo" />
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
         </a>
     </div>
+    -->
 
-    <!-- Infomation -->
-    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
-        <!-- Blog Title -->
-        <div>
-            <strong>Anilway</strong>
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS知识概况"><span class="post-toc-number">1.</span> <span class="post-toc-text">JS知识概况</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#学习路径"><span class="post-toc-number">2.</span> <span class="post-toc-text">学习路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础入门"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">基础入门</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进阶入门（一）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">进阶入门（一）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进阶入门（二）"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">进阶入门（二）</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg)">
+    
+            <p class="article-headline-p">
+                JS学习路径总结
+            </p>
         </div>
-        <div class="section-spacer"></div>
 
-        <!-- Pages -->
-        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">view_carousel</i>
-            <span class="visuallyhidden">Pages</span>
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Anilway</strong>
+        <span>11月 29, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
         </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
-            
-                <a class="index_share-link" href="/about/index.html" title="关于我">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        关于我
-                    </li>
-                </a>
-            
-                <a class="index_share-link" href="/timeline" title="时间轴">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        时间轴
-                    </li>
-                </a>
-            
-                <a class="index_share-link" href="/tags" title="标签云">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        标签云
-                    </li>
-                </a>
-            
-                <a class="index_share-link" href="/links" title="友链接">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        友链接
-                    </li>
-                </a>
-            
-                <a class="index_share-link" href="/gallery" title="图片集">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        图片集
-                    </li>
-                </a>
-            
-        </ul>
+    -->
 
-        <!-- Menu -->
-        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">more_vert</i>
-            <span class="visuallyhidden">show menu</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
-            
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/11/29/2017-11-29-js-learn-way/">
+    
+</ul>
 
-            
+    
 
-            
-                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Anilway&url=http://yoursite.com&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到微博
-                    </li>
-                </a>
-            
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
+    </ul>
+    
 
-            
-                <a class="index_share-link" href="https://twitter.com/intent/tweet?text=Anilway&url=http://yoursite.com&via=Anilway" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Twitter
-                    </li>
-                </a>
-            
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
 
-            
-                <a class="index_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Facebook
-                    </li>
-                </a>
-            
+    
 
-            
-                <a class="index_share-link" href="https://plus.google.com/share?url=http://yoursite.com" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Google+
-                    </li>
-                </a>
-            
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS学习路径总结&url=http://yoursite.com/2017/11/29/2017-11-29-js-learn-way/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
 
-            
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS学习路径总结&url=http://yoursite.com/2017/11/29/2017-11-29-js-learn-way/index.html&via=Anilway" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
 
-            
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/29/2017-11-29-js-learn-way/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
 
-            
-        </ul>
-    </div>
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/29/2017-11-29-js-learn-way/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
 </div>
 
-    
-    <div class="locate-thumbnail-symbol"></div>
+                
 
-    <!-- Pin on top -->
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
+        <script src="\assets\js\APlayer.min.js"> </script><p>在我开始决定做程序员的时候，还是个对编程一无所知的小白。在学习过程中，走了不少弯路。我相信大家愿意学习某个新知识，是不乏学习动力的，常常遇到的问题在于在什么都不了解的情况下，如何开始学习。需要学什么，要什么教材，要怎么训练等等。也就是学习资源的寻找和选取上。</p>
+<p>我现在也是初入门选手，也刚刚经历完入门的洗礼，在独自的摸索中，终于找到一些窍门，现在总结出来，就像是新手村的地图攻略，希望能助你一臂之力。</p>
+<p><br><br></p>
+<h2 id="JS知识概况"><a href="#JS知识概况" class="headerlink" title="JS知识概况"></a>JS知识概况</h2><p>首先，我们看看JS部分会有那些要学习的。心里先有个谱。</p>
+<p>JS的主体内容分三个部分：</p>
+<p><img src="https://t1.picb.cc/uploads/2017/11/29/bdSP6.png" alt=""></p>
+<p>可以看出JS的基本知识概况。要事先申明的是，我在这里写出的只是我认为在JS入门时要学习的最基本的东西，<code>并不是这里并不是JS的全部内容</code>，比如Ajax、正则表达式、面向对象编程、cookie、兼容性、JS库等等都没列出来。我们学习东西要按认知规律来学习，一下子把所有的内容全部列出来，只会徒增心理压力，和畏难情绪，没有什么好处。后面来慢慢充实这个知识结构图。</p>
+<p>也许你现在看到ECMAScript、BOM、DOM这几个词都不知道是什么意思。可以参看文末对它们的解释。</p>
+<p>JS分为三块，其中ECMAScript是真真的JS语言部分，我也列的稍微详细一点，中间要弄清楚的几个问题是很重要的，也相对抽象，要多花力气想清楚。而DOM和BOM实际上并不是JS真正的程序部分，但是JS因为可以操作DOM和BOM才能极大的发挥它的作用，仅仅只有ECMAScript部分是没什么意思的。</p>
+<p>然后是DOM和BOM部分。这个部分是很容易学习上手的。基本上，多数视频教程都会先把JS基本语法和基本概念交给你，然后你就可以操作DOM和BOM了。很多特效就是通过操作DOM来实现的，比如轮播图、下拉菜单、各种运动效果等等，这个也是很容易就看到效果和激发学习兴趣的。</p>
+<p>所以，你在学习的时候，会找到很多视频，里面大多都只是点到为止，讲讲JS语法、大部分课时讲讲DOM，再顺带讲讲BOM和其他一些知识。学到这里，你大概可以用JS实现一般的网页效果了，比如模拟淘宝网、bilibili网站。</p>
+<p>然后你可能就迷茫了，会疑问我现在JS是不是入门了，现在到底算什么程度？其实到这一步你已经学到一大半JS的入门知识了，只需要再前进一小步，就算是入门了。</p>
+<p>接下来，你需要花精力去好好研究JS语法本身，这是你在学习JS的时候花主要精力的地方。前面只是在用JS语法操作DOM、BOM，让你很熟练的运用JS语法。但是你会发现，你对JS语言本身没有多少了解。比如你会常常听说：</p>
+<ul>
+<li>JS中值类型之外一切都是对象</li>
+<li>引用类型、执行环境、作用域链、原型、原型链、闭包</li>
+</ul>
+<p>也许你会多少了解一点全局变量和局部变量。但是上面出现的名词只是一直见到，但不知道是啥，好像每次搜索，网上都是在讨论这些东西，好像比较复杂，不好搞懂？恩！这才是你学习JS的关键。</p>
+<p>抽象是肯定有点儿，但是搞懂，也不困难，你需要花点精力就是。做好心理准备。</p>
+<p>总结一下这部分，我想表达的主要意思是：</p>
+<p>在学习JS的时候，通过DOM来入门JS，但是不要恋战，学会之后，要把主要精力放在学习ECMAScript部分上，搞清楚JS语言本质上的东西，比如：引用类型、执行环境、作用域链、原型、原型链、闭包这几个东西。</p>
+<p><br><br></p>
+<h2 id="学习路径"><a href="#学习路径" class="headerlink" title="学习路径"></a>学习路径</h2><p>有了上面的入门历程的了解，现在就可以好好的看看，到底通过哪些学习资源来学习JS。</p>
+<p>如果你像我一样，之前完全没有编程经验，只是有一点大学里面计算机通识教育课的基础，可能学过一点VB或者C语言。那么，我还是建议看看基础的视频教程，看看JS到底是怎么来编写的，养成好的编程习惯。</p>
+<p>PS：以上学习时间估计只是在全天学习的理想情况下做的理想估计。实际上会学习过程会慢很多，可能要好几个月！</p>
+<p><br></p>
+<h3 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h3><p>首先买好几本书备用：</p>
+<ul>
+<li>《JavaScript DOM编程艺术》目前最新版是第二版</li>
+<li>《JavaScript   高级程序设计》目前最新版是第三版</li>
+</ul>
+<p>我建议按下面的额学习顺序学习：</p>
+<table>
+<thead>
+<tr>
+<th>主要教程</th>
+<th>参考教程</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>慕课网：《前端小白入门》</td>
+<td>1、W3C网<br>2、MSN网<br>3、《JavaScript高级程序设计》前一到三章<br>4、李炎恢JavaScript视频教程（前1-9章）</td>
+<td>这个教程就是讲的最简单最基本的入门内容。但是讲的只是最最基础的部分，不全面。初学者会误解那就是全部内容，所以:<br>配合W3C、MSN网站上的文字教程来学习，对所涉及到的东西混个脸熟，补充上视频教程里面没讲到的方法、属性、函数什么的。比如：教程只讲了基本数据类型，但是Object对象就没有讲到。<br>配合《JS高程来看》，你只要反复看前三章就好了。建立好自己的基础知识图谱。<br>配合李炎恢JavaScript视频教程（前1-9章）<br>【学习建议】：<br>1、每学完一章内容，就看看参考教程里面的相同内容的讲解，对比来看，一方面是重复巩固，更重要的是补充主要教程里面没讲的知识。自己做好笔记，总结思维导图<br>2、用费曼学习法，自己学完之后，总结；试着自己讲一遍，你可以用录讲解视频的方式来检测自己<br>3、视频教程将的过于慢，推荐PC端使用PotPlayer播放器，设置1.25——1.5倍速度</td>
+</tr>
+<tr>
+<td>FreeCodeCamp</td>
+<td>—</td>
+<td>在FreeCodeCamp中文网网站去做练习，里面的大部分题目都极其基础。你只要做关于JS部分的内容就好了。不过FCC上不完全和上面视频教程的顺序一样。如果涉及到做项目，可以先略过。</td>
+</tr>
+</tbody>
+</table>
+<p>上面预计学习时间：10到15天完成。甚至更短时间就可以学完。但是重点在于掌握和消化，别在意时间。<br>接着，咱们继续学习下面的：<br><br></p>
+<table>
+<thead>
+<tr>
+<th>主要教程</th>
+<th>参考教程</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>智能社JS入门</td>
+<td>《JavaScript高级程序设计》前一到三章，可以继续往后面看</td>
+<td>主要是用来学习DOM，这个教程很容易学习，流畅连贯。主要是对DOM的进阶学习。教程详细讲解了DOM的各种操作。<br>【学习建议】：<br>1、对照视频多练习视频的Demo，三天后再编写之前的Demo，用来测试<br>2、多在脑袋里总结思考那些代码，多想想那些程序的妙处。</td>
+</tr>
+<tr>
+<td>《JavaScript DOM编程艺术》</td>
+<td>-</td>
+<td>这个是训练。照着这本书做书中的效果，最终你可以做出一个完整的网站出来。</td>
+</tr>
+<tr>
+<td>百度前端技术学院IFE</td>
+<td>FreeCodeCamp</td>
+<td>这个是对ECMAScript的复习。在百度前端技术学院网站上，有很多训练题，无论你是否报名，都可以去做。你可以先做15年、16年关于JS部分的训练题，据说简单些，然后再做2017年的训练题。这里主要偏算法，涉及DOM的少一些。主要用来训练算法。<br>然后是FCC上面，也有关于DOM、算法的练习题，用于训练</td>
+</tr>
+</tbody>
+</table>
+<p>学完上面的视频教程：预计在7-10完成。看完《JavaScript DOM编程艺术》预计5天。这两个要100%完成。到这里，你已经掌握了基础入门的内容。</p>
+<p>对于IFE和FCC上面的题目，好好做，也许你一下子做不完，慢慢做！尤其FCC上面的项目很值得一做。你最后做完了，可以获得FCC的前端学习证书。</p>
+<p>然后，到这里，你一定会手痒，想做做项目。除了完成上面的训练和项目，下面也列出了一些参考项目：</p>
+<ul>
+<li><a href="https://www.gitbook.com/book/liyuechun/js30/details" target="_blank" rel="external">30十天三十个项目挑战</a></li>
+<li><a href="http://jikeytang.github.io/" target="_blank" rel="external">豪情前端作品列表</a></li>
+<li>慕课网上的项目参考</li>
+<li>智能社、妙味网站上的学员作品</li>
+<li>模仿淘宝网、bilibili网站</li>
+<li>……</li>
+</ul>
+<p>恩！补充一点，正则表达式、cookie、Ajax在这一阶段也应该学习了，智能社JS入门会有所涉及。</p>
+<p><br></p>
+<h3 id="进阶入门（一）"><a href="#进阶入门（一）" class="headerlink" title="进阶入门（一）"></a>进阶入门（一）</h3><p>其实完成上面的JS还不算入门。更重要的是对JS语言本身的了解和认识。在这一阶段，你主要需要学习：引用类型、执行环境、作用域链、原型、原型链、闭包等等知识。</p>
+<ul>
+<li>教程是：《JavaScript高级程序设计》（1-7章）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>主要教程</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>《JavaScript高级程序设计》1-7章</td>
+<td>高程被誉为JS的圣经，俗称红宝书。打好基础，就要好好看看这本书。<br>当然，作为初学者，高程里面讲的很多东西你一下子不一定看得懂，会很费解，这再正常不过了。<br>你可以在豆瓣上看看此书的书评，就有人写到，在学习第六章面向对象程序设计的时候，花了三个月才真正理解。</td>
+</tr>
+</tbody>
+</table>
+<p>这不是说这些东西就很难。从知识密度和难度上来讲，大学时高等数学会更难一些，高数都学会了，还怕JS高程么？至于说不好懂，是在于书中的一些背景概念可能不知道造成理解困难。更何况，这本经典的书，网上有很多读书笔记和讨论内容。你不懂的地方，大家在初学的时候都不大懂，所以在网上搜搜就很容易找到过来人给的答案的。我也会在之后陆续写出我的《JS高程》学习笔记，欢迎到时候阅读。</p>
+<p>推荐一些学习《JS高程》的辅助资料：</p>
+<table>
+<thead>
+<tr>
+<th>辅助资料</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.cnblogs.com/wangfupeng1988/p/3977924.html" target="_blank" rel="external">深入理解JavaScript原型和闭包（王福明）</a></td>
+<td>这一系列教程写的极好，是难得的深入浅出的好文章。我甚至在gitbook上做了电子书版本，方便学习，可以打印pdf格式。我打印成纸质文档来学习了。（<a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" rel="external">电子书版点此</a>）</td>
+</tr>
+<tr>
+<td>……</td>
+<td>……</td>
+</tr>
+</tbody>
+</table>
+<p>《JS高级程序设计》分章节学习参考：</p>
+<table>
+<thead>
+<tr>
+<th>JS高程章节</th>
+<th>学习参考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>前1-3章</td>
+<td>基础，直接可以看懂</td>
+</tr>
+<tr>
+<td>第四章：执行环境</td>
+<td>深入理解JavaScript原型和闭包中文章：<br>1、简述执行上下文<br>2、执行上下文栈<br>3、简介作用域<br>4、作用域和上下文环境<br>5、上下文环境和作用域的关系</td>
+</tr>
+<tr>
+<td>第四章：垃圾回收机制</td>
+<td>……</td>
+</tr>
+<tr>
+<td>第五章：Lorem</td>
+<td>……</td>
+</tr>
+<tr>
+<td>第五章：Lorem</td>
+<td>……</td>
+</tr>
+<tr>
+<td>第六章：Lorem</td>
+<td>……</td>
+</tr>
+<tr>
+<td>第六章：Lorem</td>
+<td>……</td>
+</tr>
+<tr>
+<td>第六章：Lorem</td>
+<td>……</td>
+</tr>
+<tr>
+<td>第七章：Lorem</td>
+<td>……</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="进阶入门（二）"><a href="#进阶入门（二）" class="headerlink" title="进阶入门（二）"></a>进阶入门（二）</h3><p>你会发现，我前面都没有讲要学习jQuery什么的。</p>
+<p>因为掌握原生的JS才是最基础最重要的。所以，我建议把jQuery等JS库放到后面学习。这些JS库就是在JS的基础上制作的工具，方便我们使用JS的。</p>
+<p>在这一阶段，主要学习的内容有：</p>
+<ul>
+<li>基本常用的JS库：jQuery、Bootstrap等等</li>
+<li>兼容性问题</li>
+<li>移动端编程</li>
+<li>性能优化</li>
+<li>学会使用版本控制工具</li>
+<li>ES6的新内容（现在已经到ES7了好像）</li>
+<li>……</li>
+</ul>
+<p>我目前也处于在这个阶段的学习中，所以，还不能说出个子曰来。暂时就写到这里，算是对之前学习路径的总结，之后会继续更新。（2017.11.29）</p>
 
-    <!-- Normal Post -->
-    
         
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg">
     
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/12/03/2017-12-03-js-base-02-ji-ben-gai-nian/">JS基础总结02:基本概念</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-             JS总结，视频测试：
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/12/03/2017-12-03-js-base-02-ji-ben-gai-nian/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Anilway's avatar">
-            </div>
-            <div>
-                <strong>Anilway</strong>
-                <span>12月 03, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/JS基础入门/">JS基础入门</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
+    
 </div>
 
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg">
-    
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/12/01/2017-12-01-js-base-01-yin-ru-js/">JS基础总结01:引入JS文件</a></p>
-    </div>
+                
 
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-             从这一篇开始，我准备把目前学习过的JS方面的理论...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/12/01/2017-12-01-js-base-01-yin-ru-js/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Anilway's avatar">
-            </div>
-            <div>
-                <strong>Anilway</strong>
-                <span>12月 01, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/JS基础入门/">JS基础入门</a>
-              </span>
-            
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
 
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #222;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" style="display: none">阅读评论（请确保 disqus 可以正常加载）</button>
 </div>
 
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="img/Document.png">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/11/30/2017-11-30-js-patch-01/">JS拾遗：函数作为返回值的简化过程</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-             在学习闭包的时候，常常会看到这样的例子：...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/11/30/2017-11-30-js-patch-01/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Anilway's avatar">
-            </div>
-            <div>
-                <strong>Anilway</strong>
-                <span>11月 30, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/JS基础入门/">JS基础入门</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/11/29/2017-11-29-js-learn-way/">JS学习路径总结</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-             在我开始决定做程序员的时候，还是个对编程一无所知...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/11/29/2017-11-29-js-learn-way/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Anilway's avatar">
-            </div>
-            <div>
-                <strong>Anilway</strong>
-                <span>11月 29, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/JS基础入门/">JS基础入门</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/img/tom388066.jpg">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/20/2017-09-20-hello-world/">Hello World</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-             Welcome to 
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/20/2017-09-20-hello-world/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Anilway's avatar">
-            </div>
-            <div>
-                <strong>Anilway</strong>
-                <span>9月 20, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 20 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2017/11/29/2017-11-29-js-learn-way/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2017/11/29/2017-11-29-js-learn-way/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
 </script>
 
-    
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.btn_click_load').css('display','none');
+        })(),
+        error: function() {
+          $('.btn_click_load').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
 </div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/11/30/2017-11-30-js-patch-01/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/09/20/2017-09-20-hello-world/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -1161,12 +1195,6 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
-    <!-- Swiftye -->
-    
-
-    <!-- Local Search-->
-    
-
 
 <!-- UC Browser Compatible -->
 <script>
@@ -1180,6 +1208,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -1192,6 +1224,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
