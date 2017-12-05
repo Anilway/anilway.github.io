@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Mon Dec 04 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Dec 05 2017 04:24:03 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Dec 05 2017 13:21:30 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -270,7 +270,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/index.html",
     "headline": "JS基础总结03:简单数据类型",
     "datePublished": "Mon Dec 04 2017 00:00:00 GMT+0800",
-    "dateModified": "Tue Dec 05 2017 04:24:03 GMT+0800",
+    "dateModified": "Tue Dec 05 2017 13:21:30 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -523,7 +523,7 @@ console.log(typeof(age));//undefined,并没有声明age变量，但还是会返�
 <p>讲到这里呢，如果变量将来用来保存字符串，那么可以将字符串初始化为<code>&quot;null&quot;</code>。</p>
 <blockquote>
 <p>JS的设计者希望用<code>null</code>表示一个空的值，而<code>undefined</code>表示值未定义。实时证明，这并没有什么卵用。大多数情况下，我们都应该用<code>null</code>。<span style="color:red"><code>undefined</code>仅仅在判断函数参数是否传递的情况下才有用。</span></p>
-<p>引自：<a href="">《廖雪峰的JavaScript全栈教程》</a></p>
+<p>引自：<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000" target="_blank" rel="external">《廖雪峰的JavaScript全栈教程》</a></p>
 </blockquote>
 <h2 id="3-number"><a href="#3-number" class="headerlink" title="3.number"></a>3.number</h2><p>数字有三种：整数、浮点数（小数）、NaN（Not a Number非数值）。</p>
 <p><strong>表示</strong></p>
@@ -591,12 +591,12 @@ console.log(typeof(age));//undefined,并没有声明age变量，但还是会返�
 <ul>
 <li>前导零，比如：01203中的第一个零就是前导零。</li>
 <li><code>parseInt()</code>和<code>parseFloat()</code>专门用来把字符串转换为数值。不建议一上来就用<code>Number()</code>转换。</li>
-<li><strong>注意：</strong>用不同的函数转换数据得到的结果不一定相同。详见：<a href="">XXX文章</a></li>
+<li><strong>注意：</strong>用不同的函数转换数据得到的结果不一定相同。详见：<a href="https://www.cnblogs.com/beiz/p/5047303.html" target="_blank" rel="external">Javascript中Number()、parseIn()和parseFloat()的区别</a></li>
 </ul>
 <h2 id="4-string"><a href="#4-string" class="headerlink" title="4.string"></a>4.string</h2><p>string类型表示由零或多个16位Unicode字符组成的字符序列，即字符串。用<code>&quot;</code>或<code>&#39;</code>表示。</p>
 <ul>
 <li>ECMAScript中字符串的数据是不可改变的，也就是说，字符串一旦创建，它们的值就不能改变。要改变某个变量保存的字符串，首先要销毁原来的字符串，再用新字符串填充该变量。</li>
-<li>任何字符串的长度可以通过length属性取得。如果包含<a href="">双字节字符</a>，那么获得的长度可能不精确。</li>
+<li>任何字符串的长度可以通过length属性取得。如果包含<a href="https://zhidao.baidu.com/question/390608642.html" target="_blank" rel="external">双字节字符</a>，那么获得的长度可能不精确。</li>
 </ul>
 <p><strong>数值转换：</strong> </p>
 <table>
@@ -626,7 +626,7 @@ num.toString(8);  //14
 num.toString(10); //12
 num.toString(16); //c
 </code></pre>
-<p>关于<code>str.toString()</code>和<code>String()</code>还有更多要了解的地方，详见：<a href="">XXX文章</a></p>
+<p>关于<code>str.toString()</code>和<code>String()</code>还有更多要了解的地方，详见：<a href="http://www.jb51.net/article/109235.htm" target="_blank" rel="external">js中toString()和String()区别详解</a></p>
 <p><strong>刚才犯傻，在想，如果要转换的不是数字<code>str.toString()</code>还能按转换进制吗？</strong></p>
 <p><strong>答曰：</strong>这个指定转换进制的参数只对数字有效，对于非数字，本来就谈不上按进制转换，就算加上该参数，也不会影响转换。再转念一想，其实能转换成字符串的的就只有数字、boolean、undefined和null，所以，基本上大部分要转换的就是数字。</p>
 <p><strong>补充：转义序列</strong></p>
@@ -701,7 +701,7 @@ num.toString(16); //c
 <li><code>null</code>和<code>undefined</code>转换布尔型为<code>false</code></li>
 </ul>
 <p>总结起来，就是：0、NaN、空字符串、undefined、null都会转换为false。它们都是无、没有。</p>
-<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6.总结"></a>6.总结</h2><p><img src="img/2017120402.png" alt=""></p>
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6.总结"></a>6.总结</h2><p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/2017120402.png" alt=""></p>
 <h2 id="7-补充"><a href="#7-补充" class="headerlink" title="7.补充"></a>7.补充</h2><p><strong><code>typeof</code>操作符</strong></p>
 <ul>
 <li>用来检测变量类型</li>
@@ -713,7 +713,7 @@ num.toString(16); //c
 </ul>
 <p><strong><code>console.log()</code></strong></p>
 <p>调试信息用，在控制台查看输出内容。</p>
-<h2 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h2><p>[1].<a href="">XXX文章</a><br>[2].<a href="">XXX文章</a><br>[3].<a href="">XXX文章</a></p>
+<h2 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h2><p>[1].<a href="https://www.cnblogs.com/beiz/p/5047303.html" target="_blank" rel="external">Javascript中Number()、parseIn()和parseFloat()的区别</a><br>[2].<a href="http://www.jb51.net/article/109235.htm" target="_blank" rel="external">js中toString()和String()区别详解</a><br>[3].<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000" target="_blank" rel="external">《廖雪峰的JavaScript全栈教程》</a></p>
 
         
     
