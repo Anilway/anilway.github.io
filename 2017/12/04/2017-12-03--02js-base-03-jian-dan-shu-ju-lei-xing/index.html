@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Mon Dec 04 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Dec 05 2017 13:21:30 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Dec 05 2017 14:54:51 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -270,7 +270,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/index.html",
     "headline": "JS基础总结03:简单数据类型",
     "datePublished": "Mon Dec 04 2017 00:00:00 GMT+0800",
-    "dateModified": "Tue Dec 05 2017 13:21:30 GMT+0800",
+    "dateModified": "Tue Dec 05 2017 14:54:51 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -520,7 +520,7 @@ console.log(typeof(age));//undefined,并没有声明age变量，但还是会返�
 <li>如果我们设定的变量会用来保存对象，那么最好将变量初始化为null。</li>
 <li><code>undefined</code>值是<code>null</code>的派生值，所以<code>undefined==null</code>返回值为<code>true</code>。</li>
 </ul>
-<p>讲到这里呢，如果变量将来用来保存字符串，那么可以将字符串初始化为<code>&quot;null&quot;</code>。</p>
+<p>讲到这里呢，如果变量将来用来保存字符串，那么可以将字符串初始化为<code>&quot;&quot;</code>。</p>
 <blockquote>
 <p>JS的设计者希望用<code>null</code>表示一个空的值，而<code>undefined</code>表示值未定义。实时证明，这并没有什么卵用。大多数情况下，我们都应该用<code>null</code>。<span style="color:red"><code>undefined</code>仅仅在判断函数参数是否传递的情况下才有用。</span></p>
 <p>引自：<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000" target="_blank" rel="external">《廖雪峰的JavaScript全栈教程》</a></p>
@@ -713,7 +713,11 @@ num.toString(16); //c
 </ul>
 <p><strong><code>console.log()</code></strong></p>
 <p>调试信息用，在控制台查看输出内容。</p>
-<h2 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h2><p>[1].<a href="https://www.cnblogs.com/beiz/p/5047303.html" target="_blank" rel="external">Javascript中Number()、parseIn()和parseFloat()的区别</a><br>[2].<a href="http://www.jb51.net/article/109235.htm" target="_blank" rel="external">js中toString()和String()区别详解</a><br>[3].<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000" target="_blank" rel="external">《廖雪峰的JavaScript全栈教程》</a></p>
+<p><strong>个人疑问</strong></p>
+<ul>
+<li>字符串本来就是简单数据类型，为什么会有String对象？</li>
+</ul>
+<h2 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h2><p>[1].<a href="https://www.cnblogs.com/beiz/p/5047303.html" target="_blank" rel="external">Javascript中Number()、parseIn()和parseFloat()的区别</a><br>[2].<a href="http://www.jb51.net/article/109235.htm" target="_blank" rel="external">js中toString()和String()区别详解</a><br>[3].<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000" target="_blank" rel="external">《廖雪峰的JavaScript全栈教程》</a><br>[4].<a href="https://stackoverflow.com/questions/4539253/what-is-console-log" target="_blank" rel="external">what is console log?</a><br>[5].<a href="http://www.jb51.net/article/59121.htm" target="_blank" rel="external">JavaScript中的console.log()函数详细介绍</a></p>
 
         
     
@@ -816,6 +820,14 @@ num.toString(16); //c
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2017/12/05/2017-12-05-js-patch-02/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -933,7 +945,7 @@ num.toString(16); //c
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -951,7 +963,7 @@ num.toString(16); //c
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">5</span></a>
+                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">6</span></a>
             </ul>
         </li>
         
