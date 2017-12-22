@@ -37,7 +37,7 @@
     
     <title>
         
-            JS拾遗02： Number()、parseIn()和parseFloat()的区别 | 
+            JS基础总结08:function函数部分总结(转载) | 
         
         Anilway
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Anilway">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",JavaScript,JS拾遗">
+    <meta name="keywords" content=",JavaScript,JS基础总结">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -236,18 +236,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="JS拾遗02： Number()、parseIn()和parseFloat()的区别 | Anilway">
+    <meta property="og:title" content="JS基础总结08:function函数部分总结(转载) | Anilway">
     <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="JS拾遗"> 
+    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="JS基础总结"> 
 
     
-        <meta property="article:published_time" content="Tue Dec 05 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Wed Dec 06 2017 02:59:23 GMT+0800" />
+        <meta property="article:published_time" content="Thu Dec 21 2017 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Dec 21 2017 23:22:34 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="JS拾遗02： Number()、parseIn()和parseFloat()的区别 | Anilway">
+    <meta name="twitter:title" content="JS基础总结08:function函数部分总结(转载) | Anilway">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -255,7 +255,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/12/05/2017-12-05-js-patch-02/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2017/12/21/2017-12-21-js-base-08-01-function/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -267,10 +267,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/12/05/2017-12-05-js-patch-02/index.html",
-    "headline": "JS拾遗02： Number()、parseIn()和parseFloat()的区别",
-    "datePublished": "Tue Dec 05 2017 00:00:00 GMT+0800",
-    "dateModified": "Wed Dec 06 2017 02:59:23 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2017/12/21/2017-12-21-js-base-08-01-function/index.html",
+    "headline": "JS基础总结08:function函数部分总结(转载)",
+    "datePublished": "Thu Dec 21 2017 00:00:00 GMT+0800",
+    "dateModified": "Thu Dec 21 2017 23:22:34 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -288,7 +288,7 @@
             "url": "/img/favicon1.png"
         }
     },
-    "keywords": ",JavaScript,JS拾遗",
+    "keywords": ",JavaScript,JS基础总结",
     "description": "",
 }
 </script>
@@ -348,6 +348,15 @@
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概念"><span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数调用"><span class="post-toc-text">函数调用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#返回函数的函数"><span class="post-toc-text">返回函数的函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建匿名函数"><span class="post-toc-text">创建匿名函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自执行函数的三种写法"><span class="post-toc-text">自执行函数的三种写法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js创建动态函数："><span class="post-toc-text">js创建动态函数：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#回调函数"><span class="post-toc-text">回调函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法和函数的区别"><span class="post-toc-text">方法和函数的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js全局函数"><span class="post-toc-text">js全局函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的几个作用"><span class="post-toc-text">函数的几个作用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#作为一个类构造器使用"><span class="post-toc-text">作为一个类构造器使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#作为闭包使用"><span class="post-toc-text">作为闭包使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#作为构造函数调用"><span class="post-toc-text">作为构造函数调用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作为值的函数"><span class="post-toc-text">作为值的函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#prototype属性"><span class="post-toc-text">prototype属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#call-和apply"><span class="post-toc-text">call()和apply()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#高阶函数"><span class="post-toc-text">高阶函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数arguments"><span class="post-toc-text">参数arguments</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的递归"><span class="post-toc-text">函数的递归</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#思维导图"><span class="post-toc-text">思维导图</span></a></li></ol>
+    </ul>
+    
 
 
 
@@ -365,10 +374,10 @@
     <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(img/Document.png)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg)">
     
             <p class="article-headline-p">
-                JS拾遗02： Number()、parseIn()和parseFloat()的区别
+                JS基础总结08:function函数部分总结(转载)
             </p>
         </div>
 
@@ -387,7 +396,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Anilway</strong>
-        <span>12月 05, 2017</span>
+        <span>12月 21, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -409,7 +418,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/12/05/2017-12-05-js-patch-02/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/12/21/2017-12-21-js-base-08-01-function/">
     
 </ul>
 
@@ -423,7 +432,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/JS拾遗/">JS拾遗</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
+        <a class="post_tag-link" href="/tags/JS基础总结/">JS基础总结</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
     </ul>
     
 
@@ -440,7 +449,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS拾遗02： Number()、parseIn()和parseFloat()的区别&url=http://yoursite.com/2017/12/05/2017-12-05-js-patch-02/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS基础总结08:function函数部分总结(转载)&url=http://yoursite.com/2017/12/21/2017-12-21-js-base-08-01-function/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -449,7 +458,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS拾遗02： Number()、parseIn()和parseFloat()的区别&url=http://yoursite.com/2017/12/05/2017-12-05-js-patch-02/index.html&via=Anilway" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS基础总结08:function函数部分总结(转载)&url=http://yoursite.com/2017/12/21/2017-12-21-js-base-08-01-function/index.html&via=Anilway" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -458,7 +467,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/05/2017-12-05-js-patch-02/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/21/2017-12-21-js-base-08-01-function/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -467,7 +476,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/05/2017-12-05-js-patch-02/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/21/2017-12-21-js-base-08-01-function/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -492,94 +501,333 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="\assets\js\APlayer.min.js"> </script><p>有3个函数可以把非数值转化成数值：Number()、parseInt()和parseFloat()。第一个函数，即转型函数Number()可以用于任何数据类型，而另两个函数则专门用于把字符串转换成数值。这个3个函数对于同样的输入会有不同的结果。</p>
-<p>Number()函数的转换规则如下：</p>
+        <script src="\assets\js\APlayer.min.js"> </script><blockquote>
+<p>本文转载自：<a href="https://segmentfault.com/a/1190000000660786" target="_blank" rel="external">https://segmentfault.com/a/1190000000660786</a></p>
+</blockquote>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。</p>
+</blockquote>
+<p><code>js</code> 支持两种函数：一类是语言内部的函数（如<code>eval()</code> ），另一类是自己创建的。</p>
+<p>在 <code>JavaScript</code> 函数内部声明的变量（使用 var）是局部变量，所以只能在函数内部访问它。（该变量的作用域是局部的）。</p>
+<p>您可以在不同的函数中使用名称相同的局部变量，因为只有声明过该变量的函数才能识别出该变量。</p>
+<h2 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h2><p>有如下四种调用<code>js</code>函数的方式：</p>
+<ul>
+<li>作为函数</li>
+<li>作为方法</li>
+<li>作为构造函数</li>
+<li>通过<code>call()</code>和<code>apply()</code></li>
+</ul>
+<h2 id="返回函数的函数"><a href="#返回函数的函数" class="headerlink" title="返回函数的函数"></a>返回函数的函数</h2><pre><code class="javascript">1. 当函数无明确返回值时，返回的值就是`undefined`。
+
+2. 当函数有返回值时，返回值是什么就返回什么。
+</code></pre>
+<p>我们可以通过使用 <code>return</code> 语句实现将函数返回调用它的地方。</p>
+<p>在使用 <code>return</code> 语句时，函数会停止执行，并返回指定的值。</p>
+<p>函数通常会返回一个唯一值，那么这个值也可能是另一个函数：</p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+    //函数表达式
+    var box = function(){
+        var a=1;
+        return function(){
+            alert(a++)
+        }
+            alert(a);//永远不会执行
+    }
+    alert(box());//弹出&quot;function(){alert(a++)}&quot;
+&lt;/script&gt;
+</code></pre>
+<p>在这里，我们只需将返回值赋值给某个变量，然后就可以像使用一般函数那样调用它了：</p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+    var box = function(){
+        var a=1;
+        return function(){
+            alert(++a)
+        }
+    }
+    var newFunc = box();
+    newFunc();//2
+&lt;/script&gt;
+</code></pre>
+<p>如果想让返回的函数立即执行，亦可以使用<code>box()()</code>来执行这段代码。</p>
+<hr>
+<p><code>ECMAScript</code>所有函数的参数都是按值传递的，言下之意就是参数不会按引用传递。</p>
+<p>PS：如果存在按引用传递的话，那么函数里的那个变量将会是全局变量，在外部也可以访问。</p>
+<pre><code class="javascript">（1）值类型：数值、布尔值、null、undefined。
+（2）引用类型：对象、数组、函数。
+</code></pre>
+<p><code>引用类型值</code>：指的是那些保存在堆内存中的对象，意思是，变量中保存的实际上只是一个指针，这个指针执行内存中的另一个位置，由该位置保存对象；</p>
+<h2 id="创建匿名函数"><a href="#创建匿名函数" class="headerlink" title="创建匿名函数"></a>创建匿名函数</h2><pre><code class="javascript">function(){
+    return ‘hi’;     //单独的匿名函数是无法运行的，就算能运行也无法调用，因为没有名字
+}
+</code></pre>
+<p>这种匿名函数的用法在<code>JQuery</code>中非常多。直接声明一个匿名函数，立即使用。用匿名函数的好处就是省得定义一个用一次就不用的函数，而且免了命名冲突的问题，<code>js</code>中没有命名空间的概念，因此很容易函数名字冲突，一旦命名冲突以最后声明的为准。</p>
+<p>在<code>javascript</code>语言里任何匿名函数都是属于<code>window</code>对象。在定义匿名函数时候它会返回自己的内存地址，如果此时有个变量接收了这个内存地址，那么匿名函数就能在程序里被使用了，因为匿名函数也是在全局执行环境构造时候定义和赋值，所以匿名函数的<code>this</code>指向也是<code>window</code>对象</p>
+<pre><code class="javascript">(function(){
+   console.log(this === window);//true
+})();
+</code></pre>
+<p><strong>通过自我执行来执行匿名函数：</strong></p>
+<pre><code class="javascript">//通过自我执行来执行匿名函数
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+  (function (){         // (匿名函数)()；第一圆括号放匿名函数，第二个圆括号执行
+       alert(&#39;Lee&#39;);
+  })();
+&lt;/script&gt;
+</code></pre>
+<p><strong>把匿名函数自我执行的返回值赋给变量：</strong></p>
+<pre><code class="javascript">//把匿名函数自我执行的返回值赋给变量
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var box =  (function (){           
+           alert(&#39;Lee&#39;);
+      })();         //弹出”Lee”；
+    alert(box);   //弹出 undefined
+&lt;/script&gt;
+
+var box= (function () {
+    return &#39;hi&#39;;
+})();
+console.log(box);//hi
+</code></pre>
+<p><strong>自我执行匿名函数的传参：</strong></p>
+<pre><code class="javascript">//自我执行匿名函数的传参
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+    (function (age){
+         alert(age);
+    })(100);          //弹出100
+&lt;/script&gt;
+</code></pre>
+<h3 id="自执行函数的三种写法"><a href="#自执行函数的三种写法" class="headerlink" title="自执行函数的三种写法"></a>自执行函数的三种写法</h3><pre><code class="javascript">var result = function (){
+    alert(2);
+}();
+</code></pre>
+<p>另一种语法也可得到同样结果：</p>
+<pre><code class="javascript">var result = (function () {
+    console.log(2);
+})();
+</code></pre>
+<p>将函数返回值分配给变量：</p>
+<pre><code class="javascript">var result = (function () {
+    return 2;
+}());
+</code></pre>
+<h2 id="js创建动态函数："><a href="#js创建动态函数：" class="headerlink" title="js创建动态函数："></a><code>js</code>创建动态函数：</h2><p>　　<code>js</code>支持创建动态函数，动态函数必须用<code>Function</code>对象来定义（Function是<code>js</code>中的一个对象，是固定不变的，规定<code>Function</code>对象的”F”必须大写，当是<code>function</code>的时候，我们知道是定义函数的时候所使用的一个关键字：<code>function funName(x，y)</code>，当是<code>Function</code>的时候（F大写的时候），我们知道是<code>js</code>中的对象）</p>
+<p>创建动态函数的基本格式：<code>var 变量名 = new Function(&quot;参数1&quot;，&quot;参数2&quot;，&quot;参数n&quot;，&quot;执行语句&quot;);</code></p>
+<p><strong>看下面的一段代码：</strong></p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+    var square = new Function (&quot;x&quot;,&quot;y&quot;,&quot;var sum ; sum = x+y;return sum;&quot;);
+    alert(&quot;square(2,3)的结果是：&quot;+square(2,3));  //square(2,3)的结果是：5
+&lt;/script&gt;
+</code></pre>
+<p><code>square</code>是动态创建的函数，在<code>Function</code>对象后面的括号里的每一部分内容都必须是字符串形式的，也就是说都必须用引号（””或者是’’）括起来</p>
+<p><strong>这段代码：</strong></p>
+<pre><code class="javascript">var square = new Function (&quot;x&quot;,&quot;y&quot;,&quot;var sum ; sum = x+y;return sum;&quot;);
+</code></pre>
+<p><strong>和下面这段代码：</strong></p>
+<pre><code class="javascript">    //函数声明
+    function square (x,y){
+          var sum;
+          sum = x+y;
+          return sum;
+     }
+</code></pre>
+<p>是一摸一样的，只不过一个是<code>动态函数</code>，一个是<code>静态函数</code>。<br>我们为什么要把代码分成一小段一小段的代码呢？，把一个字符串分成了若干个独立的字符串的优点就在于我们可以通过修改其中的某些字符串来随时改变函数的作用。</p>
+<h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p>回调就是一个函数的调用过程。那么就从理解这个调用过程开始吧。函数a有一个参数，这个参数是个函数b，当函数a执行完以后执行函数b。那么这个过程就叫回调。</p>
+<p>其实中文也很好理解：回调，回调，就是回头调用的意思。函数a的事先干完，回头再调用函数b。</p>
+<p>这里必须清楚一点：函数b是你以参数形式传给函数a的，那么函数b就叫回调函数。</p>
+<p>在jquery里的绝大多数效果函数都涉及到callback函数。<a href="http://www.w3school.com.cn/jquery/jquery_ref_effects.asp" target="_blank" rel="external">jquery效果函数</a><br><strong>例如：</strong></p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+        $(&quot;div&quot;).show(1000,function(){
+            //callback function
+        });
+&lt;/script&gt;
+</code></pre>
+<p>这里的<code>callback function</code>换成实例可以是：</p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+    $(&quot;div&quot;).show(1000,function(){
+        console.log(&quot;hello world&quot;)
+    });
+&lt;/script&gt;
+</code></pre>
+<p><code>Callback</code>实际上是，当一个函数执行完后，现执行的那个函数就是所谓的<code>callback</code>函数。怎么样？很好理解吧……</p>
+<h2 id="方法和函数的区别"><a href="#方法和函数的区别" class="headerlink" title="方法和函数的区别"></a>方法和函数的区别</h2><pre><code class="javascript">var arr = [1,2,3,4,5]
+var a =12;   // 变量：自由的
+arr.a= 5;     //属性：属于一个对象
+function show()     //函数：自由的
+{
+     alert(‘a’);
+}
+arr.fn = function()   //方法：属于一个对象
+{
+     alert(‘b’);
+}
+</code></pre>
+<p>其实方法就是函数，只不过方法是有所属的对象。</p>
+<p>我们所熟知的，将函数绑定到 <code>click</code> 事件<br><strong>语法：</strong></p>
+<pre><code class="javascript">$(selector).click(function)
+</code></pre>
 <table>
 <thead>
 <tr>
-<th>转换对象</th>
-<th>转换规则</th>
+<th>参数</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>数字值</td>
-<td>只是简单的传入和返回</td>
-</tr>
-<tr>
-<td>Boolean值</td>
-<td><code>true</code>转换为1；<code>false</code>转换为0</td>
-</tr>
-<tr>
-<td>null</td>
-<td>返回0</td>
-</tr>
-<tr>
-<td>undefined</td>
-<td>返回NaN</td>
-</tr>
-<tr>
-<td>字符串</td>
-<td>如果字符串中只包含数字，则将其转换为十进制数值，即<code>“1”</code>会变成1，<code>“123”</code>会变成123，而<code>“011”</code>会变成11（前面的0被忽略了）<br>如果字符串中只包含有效的浮点格式，如<code>“1.1”</code>，则将其转换为对应浮点数值（同样，也会忽略前导零）<br>如果字符串中只包含有效的十六进制格式，例如<code>“0xf”</code>，则将其转换为相同大小的<span style="color:red">十进制整数值</span>；<br>如果字符串是空的（不包含任何字符），则将其转换为0；<br>如果字符串中包含除上述格式之外的字符，则将其转换为<code>NaN</code>。</td>
-</tr>
-<tr>
-<td>对象</td>
-<td>则调用对象的<code>valueOf()</code>方法，然后依照前面的规则转换返回的值。如果转换的结果是<code>NaN</code>，则调用对象的<code>toString()</code>方法，将返回的字符串再按前面的规则转换。</td>
+<td>function</td>
+<td>可选。规定当发生 click 事件时运行的函数.</td>
 </tr>
 </tbody>
 </table>
-<p>根据前面这么多规则使用<code>Number()</code>把各种数据转换为数值确实有点复杂。下面是几个具体例子：</p>
-<pre><code class="javascript">var num1 = Number(&quot;Hello world!&quot;); //NaN
-var num2 = Number(&quot;&quot;);             //0
-var num3 = Number(&quot;000011&quot;);       //11
-var num4 = Number(&quot;true&quot;);         //1
-</code></pre>
-<p>　　首先，字符串<code>“Hello world!”</code>会被转换为<code>NaN</code>，因为其中不包含任何有意义的数字值。空字符串会被转换为0。字符串<code>“000011”</code>会被转换为11，因为忽略了前导零。最后，<code>true</code>值被转换为1。</p>
-<p>　　由于<code>Number()</code>函数在转换字符串时比较复杂而且不够合理，因此在处理整数的时候更常用的是<code>parseInt()</code>函数。parseInt()函数在转换 字符串时，更多的是看其是否符合数值模式。它会忽略字符串前面的空格，直至找到第一个非空格字符。如果第一个字符不是数字字符或者<span style="color:red">负号</span>，<code>parseInt()</code>就会返回<code>NaN</code>；也就是说，用<code>parseInt()</code>转换空字符串会返回<code>NaN</code>（<code>Number()</code>对空字符串返回0）。如果第一个 字符是数字字符，<code>parseInt()</code>会继续解析第二个字符，直到解析完所有后续字符或者遇到了一个非数字字符。例如，<code>“123blue”</code>会被转换为 1234，因为<code>“blue”</code>会被完全忽略。类似地，<code>“22.5”</code>会被转换成22，因为小数点并不是有效的数字字符。</p>
-<p>　　如果字符串中的第一个字 符是数字字符，<code>parseInt()</code>也能够识别出各种整数格式（即十进制、八进制、十六进制）。也就是说，如果字符串以<code>“0x”</code>开头且后跟数字字符，就会 将其当作一个十六进制整数；如果字符串以<code>“0”</code>开头且后跟数字字符，则将其当作一个八进制数来解析。</p>
-<p>为了更好地理解parseInt()函数的转换规则，下面给出了一些例子：</p>
-<pre><code class="javascript">var num1 = parseInt(&quot;1234blue&quot;); //1234
-var num2 = parseInt(&quot;&quot;);         //NaN
-var num3 = parseInt(&quot;0xA&quot;)       //10(十六进制)
-var num4 = parseInt(&quot;22.5&quot;);     //22
-var num5 = parseInt(&quot;070&quot;);      //56(八进制)
-var num6 = parseInt(&quot;70&quot;);       //70(十进制)
-var num7 = parseInt(&quot;0xF&quot;)       //15(十六进制)
-</code></pre>
-<p>　　理解这几个例子时，最关键的是要注意<code>parseInt()</code>解析<code>“070”</code>和“70”的不同方式。此时<code>“070”</code>中的前导零表示这是一个八进制（而非 十进制）格式的字符串，因此结果是56(注意这个结果与调用<code>Number()</code>函数不同)。而<code>“70”</code>，由于没有前导零，因此就被转换成了70。为了消除在 使用<code>parseInt()</code>函数时可能导致的上述困惑，ECMAScript也为这个函数提供了第二个参数：转换时使用的基数（即多少进制）。</p>
-<p>如果要知道要解析的值是十六进制格式的字符串，那么指定基数16作为第二个参数，可以保证得到正确的结果，例如：</p>
-<pre><code class="javascript"> var num = parseInt(&quot;0xAF&quot;, 16); //175
-</code></pre>
-<p>实际上，如果指定了16作为第二个参数，字符串可以不带前面的<code>“0x”</code>，如下所示：</p>
-<pre><code class="javascript">var num1 = parseInt(&quot;AF&quot;, 16); //175
-var num2 = parseInt(&quot;AF&quot;);     //NaN
-</code></pre>
-<p>　　这个例子中的第一个转换成功了，而第二个则失败了。差别在于第一个转换传入了基数，明确告诉parseInt()要解析一个十六进制格式的字符串；而第二个转换发现第一个字符不是数字字符，因此就自动终止了。</p>
-<p>指定基数会影响到转换的输出结果。例如：</p>
-<pre><code class="javascript">var num1 = parseInt(&quot;10&quot;, 2);  //2
-var num2 = parseInt(&quot;10&quot;, 8);  //8
-var num3 = parseInt(&quot;10&quot;, 10); //10
-var num4 = parseInt(&quot;10&quot;, 16); //16
-</code></pre>
-<p>由于不指定基数则意味着让parseInt()决定如何解析输入的字符串，因此为了避免错误的解析，我们建议无论在什么情况下都明确指定基数——特别是在像下面这样处理八进制的情况下：</p>
-<pre><code class="javascript">var num1 = parseInt(&quot;010&quot;);     //8
-var num2 = parseInt(&quot;010&quot;, 8);  //8
-var num3 = parseInt(&quot;010&quot;, 10); //10
-</code></pre>
-<p>　　在这个例子中，<code>“010”</code>会因为第二个参数不同而被转换成不同的值。第一行的转换很直观，即让<code>parseInt()</code>决定如何转换。由于第一个字符是 <code>“0”</code>而后面也是数字字符，因而<code>parseInt()</code>假设它是一个八进制数。实际上，<code>parseInt()</code>的这个默认行为域第二行转换中明确了基数行为是 一致的。第三行传入基数10，因此<code>parseInt()</code>就会忽略字符串中的前导零，而只解析其余的数字符。</p>
-<p>　　多数情况下，我们要解析的都是十进制数值，因此始终将10作为第二个参数是非常必要的。</p>
-<p>　　与<code>parseInt()</code>函数类似，<code>parseFloat()</code>也是从第一个字符（位置0）开始解析每个字符。而且也是一直解析到字符串末尾，或者解析到遇见一 个无效的浮点数字字符为止。也就是说，字符串中的第一个小数点是有效的，而第二个小数点是无效的，因此它后面的字符串将被忽略。举例来 说，<code>“22.34.5”</code>将会被转换为22.34。</p>
-<p>　　除了第一个小数点有效之外，<code>parseFloat()</code>与<code>parseInt()</code>的第二个区别 在于它始终都会忽略前导零。<code>parseFloat()</code>可以识别前面讨论过的所有浮点数值格式，也包括十进制整数格式。但十六进制格式的字符串始终会被转换 为0。由于<code>parseFloat()</code>只解析十进制值，因此它没有用第二个参数指定基数的用法。最后还要注意一点：如果字符串包含的是一个可解析为整数的数 （没有小数点，或者小数点后面都是零），<code>parseFloat()</code>会返回整数。以下是使用<code>parseFloat()</code>转换数值的几个典型示例：</p>
-<pre><code class="javascript">var num1 = parseFloat(&quot;1234blue&quot;); //1234
-var num2 = parseFloat(&quot;0xA&quot;);      //0
-var num3 = parseFloat(&quot;22.5&quot;);     //22.5
-var num4 = parseFloat(&quot;22.34.5&quot;);  //22.34
-var num5 = parseFloat(&quot;0908.5&quot;);   //908.5
-var num6 = parseFloat(&quot;3.125e7&quot;);  //31250000
+<p>这种形式在<code>jquery</code>中经常见到。它是将<code>function</code>当做该方法的参数，向该方法添加一个事件处理函数。</p>
+<h2 id="js全局函数"><a href="#js全局函数" class="headerlink" title="js全局函数"></a>js全局函数</h2><p>全局函数与内置对象的属性或方法不是一个概念。全局函数它不属于任何一个内置对象。<br>JavaScript 中包含以下 7 个全局函数，用于完成一些常用的功能：</p>
+<pre><code class="javascript">escape( )、eval( )、isFinite( )、isNaN( )、parseFloat( )、
+parseInt( )、unescape( )。
 </code></pre>
 <hr>
-<p><strong>参考文献</strong> </p>
-<p>本文摘自：《JavaScript高级程序设计》（第三版）30~32页，为增加可读性，内容略作修改。</p>
+<h2 id="函数的几个作用"><a href="#函数的几个作用" class="headerlink" title="函数的几个作用"></a>函数的几个作用</h2><h3 id="作为一个类构造器使用"><a href="#作为一个类构造器使用" class="headerlink" title="作为一个类构造器使用"></a>作为一个类构造器使用</h3><pre><code class="javascript">function Class(){}
+Class.prototype={};
+var item=new Class();
+</code></pre>
+<h3 id="作为闭包使用"><a href="#作为闭包使用" class="headerlink" title="作为闭包使用"></a>作为闭包使用</h3><pre><code class="javascript">(function(){
+    //独立作用域
+})();
+</code></pre>
+<h3 id="作为构造函数调用"><a href="#作为构造函数调用" class="headerlink" title="作为构造函数调用"></a>作为构造函数调用</h3><p>所谓构造函数，就是通过这个函数生成一个新对象（object）。</p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt; 
+        function Test(){//大写，以区分普通函数
+            this.x = 10;
+        }
+
+        var obj = new Test();
+        alert(obj.x); //弹出 10；
+ &lt;/script&gt;
+</code></pre>
+<p>可以使用 <code>new</code> 运算符结合像 <code>Object()</code>、<code>Date()</code> 和 <code>Function()</code> 这样的预定义的构造函数来创建对象并对其初始化。面向对象的编程其强有力的特征是定义自定义构造函数以创建脚本中使用的自定义对象的能力。创建了自定义的构造函数，这样就可以创建具有已定义属性的对象。下面是自定义函数的示例（注意 <code>this</code> 关键字的使用）。</p>
+<pre><code class="javascript">function Circle (xPoint, yPoint, radius) {
+    this.x = xPoint;  // 圆心的 x 坐标。
+    this.y = yPoint;  // 圆心的 y 坐标。
+    this.r = radius;  // 圆的半径。
+}
+</code></pre>
+<p>调用 Circle 构造函数时，给出圆心点的值和圆的半径（所有这些元素是完全定义一个独特的圆对象所必需的）。结束时 Circle 对象包含三个属性。下面是如何例示 <code>Circle</code> 对象。</p>
+<pre><code class="javascript">var aCircle = new Circle(5, 11, 99);
+</code></pre>
+<p>使用构造器函数的优点是，它可以根据参数来构造不同的对象。 缺点是构造时每个实例对象都会生成重复调用对象的方法，造成了内存的浪费。</p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+    function Test(name){
+        this.occupation = &quot;coder&quot;;
+        this.name = name;
+        this.whoAreYou = function(){
+            return &quot;I&#39;m &quot; + this.name + &quot;and I&#39;m a &quot; + this.occupation;
+        }
+    }
+    var obj = new Test(&#39;trigkit4&#39;);//利用同一个构造器创建不同的对象
+    var obj2 = new Test(&#39;student&#39;);
+
+    obj.whoAreYou();//&quot;I&#39;m trigkit4 and I&#39;m a corder&quot;
+    obj2.whoAreYou();//&quot;I&#39;m student and I&#39;m a corder&quot;     
+ &lt;/script&gt;
+</code></pre>
+<p>依照惯例，我们应该将构造器函数的首字母大写，以便显著地区别于一般的函数。</p>
+<hr>
+<p>以下两种形式的定义函数方式是等价的。</p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+    var test = function(){
+        alert(&quot;Hello World&quot;);
+    }
+    alert(typeof(test));//output function
+&lt;/script&gt;
+</code></pre>
+<p>这里明确定义了一个变量<code>test</code>，他的初始值被赋予了一个<code>function</code>实体<br><br></p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+    function test(){
+        alert(&quot;Hello World&quot;);
+    }
+    alert(typeof(test));//output function
+&lt;/script&gt;
+</code></pre>
+<p><br><br>看看下面这种定义式函数形式：</p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+        function test(){
+            alert(&quot;Hello World&quot;);
+        };
+        test();//居然输出Hello，很奇怪不是吗？
+
+        function test(){
+            alert(&quot;Hello&quot;);
+        };
+        test();//正常滴输出了Hello
+&lt;/script&gt;
+</code></pre>
+<p>很显然，第一个函数并没有起到作用，很奇怪不是吗？我们知道，<code>javascript</code>解析引擎并不是一行一行地执行代码，而是一段一段地执行代码。在同一段程序的分析执行中，定义式的函数语句会被优先执行，所以第一个定义的代码逻辑已经被第二个覆盖了，所以两次调用相同函数，只会执行第二个。</p>
+<h2 id="作为值的函数"><a href="#作为值的函数" class="headerlink" title="作为值的函数"></a>作为值的函数</h2><p>函数在<code>js</code>中不仅是一种语法，也是一个值。也就是说可以将函数赋值给变量，存储在对象的属性或数组的元素中，作为参数传入另一个函数中。<br>函数的名字实际是看不见的，它仅仅是变量的名字，这个变量指代函数对象</p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+     function square(x,y){
+         return x*y;
+     }
+     var s = square; //s和square指代同一个函数
+     square(2,3);//6
+     s(2,4);//8
+&lt;/script&gt;
+</code></pre>
+<p>除了可以将函数赋值给变量，同样可以将函数赋值给对象的属性，当函数作为对象的属性调用时，函数就称为方法</p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+     var obj = {square:function(x,y){ //对象直接量
+         return x*y;
+     }};
+     var ect = obj.square(2,3);
+&lt;/script&gt;
+</code></pre>
+<h2 id="prototype属性"><a href="#prototype属性" class="headerlink" title="prototype属性"></a>prototype属性</h2><p>每一个函数都包含prototype属性，这个属性指向一个对象的引用，这个对象称为原型对象。<br>详见：<a href="http://segmentfault.com/blog/trigkit4/1190000000662547" target="_blank" rel="external">javascript学习总结（五）原型和原型链</a></p>
+<h2 id="call-和apply"><a href="#call-和apply" class="headerlink" title="call()和apply()"></a>call()和apply()</h2><p><code>apply()</code>函数有两个参数：第一个参数是上下文，第二个参数是参数组成的数组。如果上下文是null，则使用全局对象代替。例如：</p>
+<pre><code class="javascript">function.apply(this,[1,2,3])
+</code></pre>
+<p><code>call()</code>的第一个参数是上下文，后续是实例传入的参数序列，例如：</p>
+<pre><code class="javascript">function.call(this,1,2,3);
+</code></pre>
+<h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>这里的高阶函数可不是高数里的那个高阶函数，所谓高阶函数就是操作函数的函数，它接收一个或多个函数作为参数，并返回新函数</p>
+<h2 id="参数arguments"><a href="#参数arguments" class="headerlink" title="参数arguments"></a>参数arguments</h2><p>当函数被调用时，会得到一个免费奉送的参数数组，那就是<code>arguments</code>数组。通过它，函数可以访问所有它被调用时传递给他的参数列表。这使得编写一个无需指定参数个数的函数成为可能。</p>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+    var sum = function(){
+        var i ,sum =0;
+        for(i = 0;i&lt;arguments.length;i+=1){
+            sum+=arguments[i];
+        }
+        return sum;
+    };
+    document.writeln(sum(4,5,23,13,35,46,-10));//116
+&lt;/script&gt;
+</code></pre>
+<p>在<code>ECMAScript</code>中的参数在内部是用一个数组来表示的，函数接收到的始终都是这个数组，而不关心数组中包含哪些参数</p>
+<pre><code class="javascript">function add(num1,num2){
+    num = num1 + num2;
+    return num;
+}
+
+var result = 12,count = 20;
+alert(add(result,count));//32;命名的参数只提供便利，解析器不会验证命名参数
+</code></pre>
+<p>实际上，<code>arguments</code>并不是一个真正的数组，它只是一个类数组的对象，它拥有一个<code>length</code>属性，但他缺少所有数组的方法。另外，<code>arguments</code>对象的长度是由传入的参数个数决定的，而不是由定义函数时的命名参数的个数决定的</p>
+<p>函数在定义或者声明的时候，所有的参数都是形参，因此，我们可以根据实际情况来命名参数，函数也只有在被调用时才会传入实参。而每个函数在被调用时都会自动取得两个特殊变量：<a href="http://segmentfault.com/blog/trigkit4/1190000000660679" target="_blank" rel="external">this</a> 和 <a href="http://segmentfault.com/blog/trigkit4/1190000000660786#articleHeader16" target="_blank" rel="external">arguments</a></p>
+<h2 id="函数的递归"><a href="#函数的递归" class="headerlink" title="函数的递归"></a>函数的递归</h2><p>函数的递归，即一个函数在通过名字调用自身的情况下构成的：</p>
+<p>通过使用<code>argument.callee</code>代替函数名：</p>
+<pre><code class="javascript">//arguments.callee是一个指向正在执行的函数的指针
+&lt;script&gt;
+    function factorial(num){
+        if(num&lt;=1){
+            return 1;
+        }else{
+            return num*arguments.callee(num-1);
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>最后附上一张前辈总结的思维导图：</p>
+<p><img src="img/201712210201.jpg" alt=""></p>
 
         
     
@@ -633,8 +881,8 @@ var num6 = parseFloat(&quot;3.125e7&quot;);  //31250000
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2017/12/05/2017-12-05-js-patch-02/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2017/12/05/2017-12-05-js-patch-02/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2017/12/21/2017-12-21-js-base-08-01-function/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2017/12/21/2017-12-21-js-base-08-01-function/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -683,7 +931,7 @@ var num6 = parseFloat(&quot;3.125e7&quot;);  //31250000
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/" id="post_nav-newer" class="prev-content">
+        <a href="/2017/12/21/2017-12-06-js-base-08-function/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -697,7 +945,7 @@ var num6 = parseFloat(&quot;3.125e7&quot;);  //31250000
 
     <!-- Next Nav -->
     
-        <a href="/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/" id="post_nav-older" class="next-content">
+        <a href="/2017/12/06/2017-12-06-js-base-06-qiang-zhi-lei-xing-zhuan-huan/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
