@@ -37,7 +37,7 @@
     
     <title>
         
-            JS拾遗03： 一些零碎的小知识 | 
+            知乎Live：前端工程师入门与进阶 | 
         
         Anilway
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Anilway">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",JavaScript,JS拾遗">
+    <meta name="keywords" content=",JavaScript,JS基础总结,知乎,Live,前端">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -236,18 +236,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="JS拾遗03： 一些零碎的小知识 | Anilway">
+    <meta property="og:title" content="知乎Live：前端工程师入门与进阶 | Anilway">
     <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="JS拾遗"> 
+    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="JS基础总结"> <meta property="og:article:tag" content="知乎"> <meta property="og:article:tag" content="Live"> <meta property="og:article:tag" content="前端"> 
 
     
-        <meta property="article:published_time" content="Wed Dec 06 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Wed Dec 06 2017 15:49:53 GMT+0800" />
+        <meta property="article:published_time" content="Wed Dec 27 2017 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Dec 27 2017 22:46:03 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="JS拾遗03： 一些零碎的小知识 | Anilway">
+    <meta name="twitter:title" content="知乎Live：前端工程师入门与进阶 | Anilway">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -255,7 +255,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/12/06/2017-12-06-is-patch-03/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2017/12/27/2017-12-27-zhihu-Live/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -267,10 +267,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/12/06/2017-12-06-is-patch-03/index.html",
-    "headline": "JS拾遗03： 一些零碎的小知识",
-    "datePublished": "Wed Dec 06 2017 00:00:00 GMT+0800",
-    "dateModified": "Wed Dec 06 2017 15:49:53 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2017/12/27/2017-12-27-zhihu-Live/index.html",
+    "headline": "知乎Live：前端工程师入门与进阶",
+    "datePublished": "Wed Dec 27 2017 00:00:00 GMT+0800",
+    "dateModified": "Wed Dec 27 2017 22:46:03 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -288,7 +288,7 @@
             "url": "/img/favicon1.png"
         }
     },
-    "keywords": ",JavaScript,JS拾遗",
+    "keywords": ",JavaScript,JS基础总结,知乎,Live,前端",
     "description": "",
 }
 </script>
@@ -354,7 +354,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、-amp-amp-和"><span class="post-toc-text">1、&&和||</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、-可以用来把变量转换为布尔值"><span class="post-toc-text">2、!可以用来把变量转换为布尔值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、一些题目"><span class="post-toc-text">3、一些题目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、常见的强制类型转换"><span class="post-toc-text">4、常见的强制类型转换</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问答部分："><span class="post-toc-text">问答部分：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前端如何入门？"><span class="post-toc-text">前端如何入门？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、对前端有大致的了解"><span class="post-toc-text">1、对前端有大致的了解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、深入学习前端"><span class="post-toc-text">2、深入学习前端</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#怎么去提高前端"><span class="post-toc-text">怎么去提高前端</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#个人知识管理"><span class="post-toc-text">个人知识管理</span></a></li></ol>
     </ul>
     
 
@@ -374,10 +374,10 @@
     <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(img/Document.png)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg)">
     
             <p class="article-headline-p">
-                JS拾遗03： 一些零碎的小知识
+                知乎Live：前端工程师入门与进阶
             </p>
         </div>
 
@@ -396,7 +396,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Anilway</strong>
-        <span>12月 06, 2017</span>
+        <span>12月 27, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -418,7 +418,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/12/06/2017-12-06-is-patch-03/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/12/27/2017-12-27-zhihu-Live/">
     
 </ul>
 
@@ -432,7 +432,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/JS拾遗/">JS拾遗</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
+        <a class="post_tag-link" href="/tags/JS基础总结/">JS基础总结</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Live/">Live</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/前端/">前端</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/知乎/">知乎</a>
     </ul>
     
 
@@ -449,7 +449,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS拾遗03： 一些零碎的小知识&url=http://yoursite.com/2017/12/06/2017-12-06-is-patch-03/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=知乎Live：前端工程师入门与进阶&url=http://yoursite.com/2017/12/27/2017-12-27-zhihu-Live/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -458,7 +458,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS拾遗03： 一些零碎的小知识&url=http://yoursite.com/2017/12/06/2017-12-06-is-patch-03/index.html&via=Anilway" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=知乎Live：前端工程师入门与进阶&url=http://yoursite.com/2017/12/27/2017-12-27-zhihu-Live/index.html&via=Anilway" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -467,7 +467,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/06/2017-12-06-is-patch-03/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/27/2017-12-27-zhihu-Live/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -476,7 +476,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/06/2017-12-06-is-patch-03/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/27/2017-12-27-zhihu-Live/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -501,82 +501,215 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="\assets\js\APlayer.min.js"> </script><h3 id="1、-amp-amp-和"><a href="#1、-amp-amp-和" class="headerlink" title="1、&amp;&amp;和||"></a>1、<code>&amp;&amp;</code>和<code>||</code></h3><p>a&amp;&amp; b :如果执行a后返回true，则执行b并返回b的值；如果执行a后返回false，则整个表达式返回a的值，b不执行；</p>
-<p>a || b :如果执行a后返回true，则整个表达式返回a的值，b不执行；如果执行a后返回false，则执行b并返回b的值；</p>
-<p>&amp;&amp; 优先级高于 ||;</p>
-<p>转换规则:</p>
+        <script src="\assets\js\APlayer.min.js"> </script><blockquote>
+<p>主讲人：<a href="https://www.zhihu.com/lives/824618968198291456" target="_blank" rel="external">justjavac</a></p>
+</blockquote>
+<h2 id="问答部分："><a href="#问答部分：" class="headerlink" title="问答部分："></a>问答部分：</h2><div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">前端的基础知识，计算机专业基础知识感觉还行。前端后台都有做过，现在觉得自己要深入。但是只看框架源码和自己写demo感觉并不能提高，要如何提升？</div>
+
+<blockquote>
+<p>仅仅掌握前端基础知识（HTML、CSS、JS）还不够，因为我们要想成为前端程序员，首先要成为程序员。所以还要掌握一些前端之外的基础知识。</p>
+<p>……</p>
+<p>最能提高自己的方式是：<strong>让别人去review自己的代码。</strong></p>
+<p>因为你可能写过很多，做过很多，但是你不知道自己的问题在哪儿。也不知道自己做的是好是坏。那么只有在别人，哪怕水平不如你，或者是水平比你高的人都可以review你的代码。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">趁机提个问题，大家都推荐GitHub来锻炼自己，我想请教c神怎么把那些项目结合自己会的知识来提升自己，不知道从何入手，是在这个项目上修改还是？</div>
+
+<blockquote>
+<p>其实很多人都想靠实战去提升自己，其实这个要建立在自己有一个全面的知识架构，对自己的知识或者基本功都非常扎实的基础上。如果上来就满目的去实战一些东西，那么可能会走一些弯路。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">是不是做项目前端框架都应该用最新的技术啊</div>
+
+<blockquote>
+<p>这个如果是直接回答的话，那肯定是用最新的。但是，可以这么说，大部分人进入企业开发，有80%是在维护老项目。实际的开发中，不是一步提升到最新的技术，是慢慢提升慢慢更新。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">初学者能用什么项目进行练习，而不会感觉特别难啊</div>
+
+<blockquote>
+<p>初学者可以进行练习的项目包括很多。</p>
+<p><strong>第一步：先练好JS。</strong></p>
+<p>当你连JS的时候，不要做一些特别炫的效果，那些没用。包括我面试了很多人，他们展示了很多作品，都是一些感觉非常炫的H5的动画，还有一些其他的。我感觉那些东西基本上可以说直接被我去忽略的。因为我去面试不是去考察面试者我会用什么框架，或是我知道哪个API，或是我知道哪个动画怎么去实现，其实完全不是这么回事儿。</p>
+<p>那我主要是看哪些方面呢？</p>
 <ul>
-<li>对象为true</li>
-<li>非零数字为true</li>
-<li>非空字符串为true</li>
-<li>其他为false</li>
+<li>第一是：面试者的代码是否整齐，条理分明。</li>
 </ul>
-<p>所谓的短路操作就是：</p>
+<p>如果他写一流面条代码，实际上是很酷的效果，那拜拜，没用。</p>
 <ul>
-<li>在<code>&amp;&amp;</code>中，只要第一个操作数为false，则返回第一个操作数；</li>
-<li>在<code>||</code>中，只要第一个操作数为true，则返回第一个操作数。</li>
+<li>第二个考察的是：页面再炫没用。但是你的页面很简单，但是你的逻辑很复杂，很有条理，那么这个也是可以的。</li>
 </ul>
-<p>例子：</p>
-<pre><code class="javascript">console.log(10&amp;&amp;0);//返回0
-console.log(&quot;&quot;||&quot;abc&quot;);//返回&quot;abc&quot;
-</code></pre>
-<p>更多相关的题目可以访问：<a href="http://www.jb51.net/article/88781.htm" target="_blank" rel="external">全面解析JavaScript中“&amp;&amp;”和“||”操作符(总结篇)</a></p>
-<p><br></p>
-<h3 id="2、-可以用来把变量转换为布尔值"><a href="#2、-可以用来把变量转换为布尔值" class="headerlink" title="2、!可以用来把变量转换为布尔值"></a>2、<code>!</code>可以用来把变量转换为布尔值</h3><p>比如：</p>
-<pre><code class="javascript">console.log(!!&quot;a&quot;);//true
-</code></pre>
-<p><br></p>
-<h3 id="3、一些题目"><a href="#3、一些题目" class="headerlink" title="3、一些题目"></a>3、一些题目</h3><p><strong><span style="color:green">1、<code>typeof</code>可以识别哪些变量类型?</span></strong>（考察变量类型）</p>
-<p>答：只能区分值类型的具体类型：<code>undefined</code>、<code>number</code>、<code>string</code>、<code>boolean</code><br>对于null，识别类型为<code>object</code>;<br>不能区分具体的引用类型值。一般都为<code>object</code>，除了<code>function</code>类型可以识别外。</p>
-<p><strong><span style="color:green">2、何时使用<code>===</code>和<code>==</code>?</span></strong>（考察强制类型转换）</p>
-<p>答：判断对象属性是否存在时适合使用<code>==</code>：这个是jQuery里面推荐的使用用法。</p>
-<pre><code class="javascript">if(obj.a==null){……};//相当于obj.a===null或者obj.a===undefined
-</code></pre>
-<p>判断函数的参数是否存在时适合使用<code>==</code>：</p>
-<pre><code class="javascript">function(a,b){
-  if(a==null){//相当于a===null或者a===undefined
-    ……
-  }
-};
-</code></pre>
-<p>其他情况一律使用<code>===</code>。</p>
-<p><strong><span style="color:green">3、JS中有哪些内置函数？</span></strong>（考察数据封装对象）</p>
-<p>答：Object、Array、Number、String、Boolean、Function、RegExp、Error</p>
-<p>注意：Math不是内置函数，是内置对象。</p>
-<p><strong><span style="color:green">4、JS变量按储存方式分为哪些类型？并描述其特点</span></strong></p>
-<p>答：按储存方式分为：值类型和引用类型。<br>值类型复制是复制一个副本，引用类型复制是复制对象指针。</p>
-<p><strong><span style="color:green">5、如何理解JSON？</span></strong></p>
-<p>答：JSON是一种数据类型，在JS中JSON也是一种对象，它有两个API（属性？）：</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span style="color:red"><code>JSON.stringify()</code></span></td>
-<td>将 JavaScript 值转换为 JSON 字符串。</td>
-</tr>
-<tr>
-<td><span style="color:red"><code>JSON.parse()</code></span></td>
-<td>从一个字符串中解析出json对象。注意：单引号写在{}外，每个属性名都必须用双引号，否则会抛出异常。</td>
-</tr>
-</tbody>
-</table>
-<p>举例：</p>
-<pre><code class="javascript">JSON.stringify({a:10,b:20});    // &#39;{&quot;a&quot;:10,&quot;b&quot;:20}&#39;
-JSON.parse(&#39;{&quot;a&quot;:10,&quot;b&quot;:20}&#39;);  //{a:10,b:20}
-</code></pre>
-<p><br></p>
-<h3 id="4、常见的强制类型转换"><a href="#4、常见的强制类型转换" class="headerlink" title="4、常见的强制类型转换"></a>4、常见的强制类型转换</h3><p>常见的强制类型转换有：</p>
+<p>那么，如果是JS的话，我推荐你去做：一个计算器。这个计算器的代码你可以用很多方式去实现，你可以用函数式，你可以用过程式，也可以用面向对象式。那么只要你的调理够清楚，那么完全可以。</p>
 <ul>
-<li>字符串拼接——非字符串先转换为字符串，再进行拼接</li>
-<li><code>==</code>运算——</li>
-<li><code>if</code>语句——把变量强制转换为布尔类型</li>
-<li>逻辑运算符：<code>&amp;&amp;</code>、<code>||</code>、<code>!</code></li>
+<li>第三点考察的是：你写的代码强壮不强壮。</li>
 </ul>
+<p>强壮不强壮的意思是：如果我输入一个<code>a+b</code>，你的程序是给我什么东西呢？还是你的程序直接崩溃，在控制台里直接抛Error。这就是你考虑的全面不全面。</p>
+<ul>
+<li>还有一点就是：你的代码调试性高不高。</li>
+</ul>
+<p>就是出现问题，能不能立马调试出来，找到问题，改正问题。</p>
+<p>那么这个是初学者通过训练可以去达到的一个目标。</p>
+<p><strong>第二步：进阶</strong></p>
+<ul>
+<li>进阶：代码的扩展性。</li>
+</ul>
+<p>如果是进阶的话，比如计算器，现在只支持加减乘除，现在还需要加括号，我要开方。那么你在扩展的时候有没有扩展性。这个可以作为进阶的一个东西。</p>
+<p>前面主要讲的都是一些JS的东西，涉及到整个前端开发的话，你可以分技能的去练习。就像咱们玩游戏一样，你要不停的去点亮前端技能树。对于前端技能树的整理，网上已经有很多文章，比如CSS的布局，那么你可以找一些针对布局的项目进行练习。比如JS的闭包，你都可以去找一些专项的练习。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">什么是前端工程师？</div>
+
+<blockquote>
+<p>这是一个非常大的问题。我理解的前端工程师的话，所以展示层的东西都可以归结为前端，包括一些安卓的、IOS的，或者是Falsh的……只要是展示给用户的都是前端工程。</p>
+<p>我把自己定位叫web前端工程师。</p>
+<p>也就是我做的事儿是把这个软件或者是一些数据以web的形式展示给最终用户，所以说我定位是web前端工程师。</p>
+<p>有了这个前端工程师的定位，就有了很多不同的技术，不同的框架。我最喜欢的框架是React，因为我觉得它最符合前端工程师的理念，或者说它的设计非常好。或者说作为一个前端的引领者，它把展示给用户的东西定义为视图。因为React也只做视图层，叫view。</p>
+<p>所有的前端都是有状态的，它把视图定义成：<code>v=fs</code>。如果把<code>s</code>作为状态的话，视图就是状态到显示的一个映射。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">平时做业务居多，如果在做业务的过程中提升技术呢</div>
+
+<blockquote>
+<p>其实80%以上的（前端）程序员都在写业务代码，真正写底层代码、写库代码，去封装一些组件给其他开发者用的，除了一些比较成熟的开发公司会有的话，包括一些小公司或者一些外包型公司，基本上都没有。大部分都是去写业务。</p>
+<p>那么在业务的话，怎么去提升自己呢？</p>
+<blockquote>
+<p>No need care!</p>
+</blockquote>
+<p>就是不用太关注一些底层，不如说我之前会关注V8的一些东西和性能优化。<strong>业务代码最不重要的就是性能，最重要的是可维护性。</strong>也就是你写的代码，一个月之后再回过头来看它，你还能不能看懂？</p>
+<p>包括很多东西，比如说我们公司，之前的代码很是混乱，现在的话，包括做一些简单的review，会给他们提一些建议。比如：少用变量，多用常量。基本上不提倡使用for循环、while循环，基本上都是用函数式的map、radius、every、sum。这么写出来的话，代码的可读性就比之前高了很多。这只是从代码级别。</p>
+<p>从架构级别上。提到业务代码，大部分人认为是后端的事儿，后端会写很多业务代码。那么前端和后端最大的不同就是，任何一个公司来说，它的业务是非常稳定的，比如说你是一个商店，那么你的业务就是卖东西。比如说知乎，业务也很固定。那么对前端来说的话，前端的业务展示是非常复杂的，也就是前端比后端要多变，那么它的业务大部分还是去处理展示层的业务。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">我已经可以独立完成独立项目，算是初学者吗</div>
+
+<blockquote>
+<p>我见过有很多一年经验的、两年经验的，也能独立项目。我给他们的定位其实还是初学者。包括一些有五年经验的来我们公司面试，问了几个问题，我告诉他你只要三个月的额经验，然后重复了五年。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">如果是js仅仅掌握，那要如何提升自己？具体怎么实现？</div>
+
+<blockquote>
+<p>首先，提升自己的编程思维和编程能力，就是我前面说的那些。比如说可以去刷题，比如可以用JS去做C语言的一些题目。因为我看到的大部分书都没有去训练JS的解题能力，或者是编程能力、算法能力。都是用JS做一些网页特效。</p>
+<p>还有一种方式是阅读别人的代码。阅读别人的代码能获得什么东西呢？就是有很多你自己写的东西你不知道好与坏，那么你可以去阅读别人的代码。我印象最深的一个代码不是JS的，是Java的。我阅读过SUM公司工程师写的代码，印象最深的一个就是二分查找，它其中有一段代码是变动的，是一个commit，commit修改只修改了一处地方，这个地方很神奇，他把<code>a+b&gt;c</code>改成了<code>a&gt;c-b</code>，也就是之前是一个加法，后来改成了减法，这个功能实际上是一样的。那么这段代码实际上是什么意思呢？我最初理解，用减法是不是性能高或者怎么样。后来我又去看他的注释，这个我之前也是小白，已经是五六年前的事儿吧，我就去看注释，看他到底为什么这么写。</p>
+<p>为什么要这么写呢？因为<code>a+b&gt;c</code>有一个安全隐患，<code>a+b</code>可能会溢出，如果它表示的超出整形的范围就会溢出。改成减法的话，不管怎么算绝对不会溢出。可以从这么一个小的改动可以看到工程师费了很大的心思。</p>
+<p>也就是去看一些别人的代码，可以发现非常神奇。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">怎么才可以让自己的代码的可读性变高？可维护性更强一些？</div>
+
+<blockquote>
+<p>代码的可读性，网上有很多这方面的文章，包括前一阵子，Github上最火的一个库，也是经常会上一些周榜和日榜，一个叫Claim JavaScript吧，好像就是类似的一个名字。然后那里面有一些类似的东西，包括有一些中文版，中文版的话，在知乎专栏上有，是叫一个什么熊财神的大哈，他翻译的，那篇文章是非常不错的。</p>
+<p>那篇文章主要是针对于JavaScript怎么去提高一些代码的可读性、包括一些变量的定义，和一些代码结构的调整。</p>
+<p>如果是其他的的话，可以去看马丁·富勒写的很多的书和文章，他那里面有一点，就是函数一定要短小，不能超过20行。我们公司，我们基本上会要求他们，或者说是建议他们，代码不要超过一屏。也就是如果你在浏览器、编辑器里面一屏看不完这个函数，就把这个函数拆成n个函数。这样的话，读起来会非常的顺畅，一目了然。</p>
+<p>至于可维护性，这个要比可读性要难很多。这个基本上要去看一些设计模式的，这个是经典中的经典。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">错误的前端学习方式是指哪些？</div>
+
+<blockquote>
+<p>所谓错误的前端学习方式，就是那些填鸭式的学习方式，或者是只停留于肤浅的学习方式。包括：没有系统的学习JS。</p>
+<p>比如，对于前端来说，相对于后端，是非常容易入门的，大部分人都停留在入门的水平上。比如写一个页面，大部分人都停留在写一个页面上。或者说他的学习方式是什么样的呢？比如：那一个页面，我想实现类似于京东的购物车，然后就开始去做。遇到什么问题，比如鼠标滑上去要出现一个下拉菜单，然后实现不了，然后去网上找一段代码，贴上去，诶，这个实现了，感觉很有成就感。</p>
+<p>其实，你做完一个东西，你的目的并不是为了编程而编程，你真正把这个页面做出来，其实你并没有成就感，你不应该有成就感。你的成就感应该来自于，你学习了某些知识，掌握了某个技能。你不能把自己的知识作为无数个点，你要把这些点穿成一条线，把这个线连城一条面。也就是你的知识要是系统的全面的，而不是零散的。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">JS图书推荐</div>
+
+<blockquote>
+<p>如果让我去推荐JS的书的话，首先我不会去推荐《JS权威指南》，那上面的知识点太多了，包括我自己都没有完整的看过一遍。我只是把它作为一个参考指南，偶尔拿出来翻翻。</p>
+<p>我推荐的是：</p>
+<ul>
+<li>《JavaScript高级程序设计》</li>
+</ul>
+<p>这本书前边都在讲JS的语法知识，让你系统全面的掌握JS，后边的话就会讲到DOM操作和前端相关的一些知识。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">今年前端对应届生的要求到哪个层次呢？如需要会什么技术栈？对即将找实习或找工作的学生有哪些面试建议？</div>
+
+<blockquote>
+<p>应届生的话，我什么都不会去考察。比如说技术栈，或者是他掌握了什么框架，或者是什么技术，这个都是一笔带过的。我是看一些简历。比如说你的简历上写的精通Ajax，或者是精通原生JS操作DOM，或者是熟悉jQuery。你简历上些什么我就问什么。如果你简历上说精通原生JS操作DOM，我就会考察你怎么去查找父节点，或者考察你怎么去查找它的第二个兄弟节点。</p>
+<p>我要问问你，你理解的精通到底精通到什么程度。你口中的熟悉到底是怎么样才叫熟悉。是熟悉它的API，还是熟悉它的原理。</p>
+<p>就是你写什么我问什么。比如，你一直在学Vue框架，我非要问你React，这个是没有必要的。</p>
+<p>也就是问你一些基础的东西，看你掌握的深入不深入，第二是全面不全面。一定要系统的去掌握某一门知识。</p>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">前端有什么好的工具吗 例如 cmder picpick这样的</div>
+
+<blockquote>
+<p>前端的工具的话，应该说非常的多，不知道你具体需要什么方面的一些工具。比如说前端的话有一些编程的工具、调试的工具，或者是我们经常用的一些测性能的工具、安全的工具、浏览器兼容的工具。</p>
+<p>我觉得最重要的是近些年新兴起的一些打包的工具、构建的工具、持续部署的一些工具。</p>
+</blockquote>
+<p><div style="padding:5px;border:gray 2px solid; border-radius:5px;background:gray;color:white ">内存泄漏，遇到的最多，有时候做的时候也许也不知道，应该如何查找？/div&gt;</div></p>
+<blockquote>
+<p>至于内存泄漏，一般的话也就是两种方式。</p>
+<ul>
+<li>第一种：是review</li>
+</ul>
+<p>一些潜在的可能内存泄漏的代码可以被review出来。如果review没有。进入到版本库的时候，我们可以去第一是在测试的时候，通过Chrome自带的一些工具可以去查找内存的泄漏。第二种是通过一些线上的监控。</p>
+</blockquote>
+<h2 id="前端如何入门？"><a href="#前端如何入门？" class="headerlink" title="前端如何入门？"></a>前端如何入门？</h2><p>如果要成为一个前端程序员，首先要成为程序员。那么我们去学习其他语言，比如C语言或者java，python。我们要学习的话，我们要学一些语言的基本知识，然后再是平台的一些知识，或者是语言提供的一些库，或者是平台提供的一些库。</p>
+<p>那么很多人在学习<code>JavaScript</code>可能会有一种误解，因为JavaScript有个Script。一说到Script，很多人认为是一种脚本语言，那么它的功能有限，可能是做一些网页特效或者做一些什么东西的。</p>
+<h3 id="1、对前端有大致的了解"><a href="#1、对前端有大致的了解" class="headerlink" title="1、对前端有大致的了解"></a>1、对前端有大致的了解</h3><p>首先要对前端有一些大致的了解，比如做一些HTML页面，写CSS，然后用JS弹出一个特效。</p>
+<h3 id="2、深入学习前端"><a href="#2、深入学习前端" class="headerlink" title="2、深入学习前端"></a>2、深入学习前端</h3><p>对前端有一些基本的了解之后，就要深入学习前端。我有一个建议就是：</p>
+<blockquote>
+<p><strong>在学习JS时，要忘掉Demo，忘掉浏览器。</strong></p>
+</blockquote>
+<p>也就是先把JS的语法掌握清楚。比如：</p>
+<ul>
+<li>先学数据类型</li>
+<li>再学语法结构（JS有不同于其他语言的，与其他语言比较，求同、求异）</li>
+</ul>
+<p><strong>学习误区：前端发展很快，看以前的书是不是就过时了。是不是直接从ES6开始学。然后突然网上一看，ES6也过时了，我去学ES7、ES8、ES9……</strong></p>
+<hr>
+<p>其实我对入门者还有一个建议，就是不要直接去使用框架。我学React的时候看过的最好的一篇文章叫做：<a href="http://qianduan.guru/2016/03/27/Learning-React-Without-Using-React-Part1/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">抛开 React 学习 React</a></p>
+<p>所有前端框架，怎么说呢，第一是，我们之所以使用框架，是为了解决之前出现的问题。也就是可能前端开发，包括一些后端开发，出现了很多很多问题，那么很多比较天才的工程师就开发了各种框架，然后去完成这些任务，去解决之前的很多问题。那么再一点就是，使用框架是为了解决将来可能会出现的问题。比如代码的变动，添加需求，使用框架可以在变动最小的情况下去迎接一些变化。</p>
+<p>所以，在学习一个框架之前，一定要知道为什么要使用这个框架，一定要知道这个框架的缺点。</p>
+<hr>
+<p>很多初学者，在学校学习，或者初入职场，还容易进入一个误区。这个，也是我之前带的一个人遇到过。</p>
+<p>大概意思是：</p>
+<p>之前福特说过一句经典的话，就是目标是什么？</p>
+<p>他这句话，大概意思就是说，如果我去问用户要什么，用户肯定告诉我说他要一匹更快的马。但是福特最后没有去养马，他最后发明了汽车。那么，他说的是目标是什么。</p>
+<p>我把这句话改一下，叫：<strong>目的是什么？</strong></p>
+<p>你要知道你编程的目的，或者说你成为程序员的目的。</p>
+<p>是我印象深刻的是，我之前创业的时候找过一批员工，也是我们老师推荐过来的。他写了一个代码。具体我忘了，但是我现在可以举一个例子出来。比如：写个代码从1累加到n。</p>
+<p>他是怎么写的呢?定义一个i变量，<code>for</code>循环<code>n</code>次，然后累加。</p>
+<p>当时我就问他，你写代码的目的是什么？对吧。很多人不知道目的。他说：老师就是这么教的。确实是，大部分老师都是这么教。但是老师教你这个代码的目的是为了让你学习for循环，不是让你把它的结果计算出来。真正要你把这个结果计算出来，你应该用高斯的方法啊。比如：1加到100，高斯就是<code>1+100</code>,<code>2+99</code>……最后结果得到5050.</p>
+<p>首先你要知道，你不要为了编程而编程，你要为了解决问题而编程。</p>
+<hr>
+<p>还有就是一定要有程序员的思维方式。也就是你要成为一个程序员，而不是去百度，去Google，去Github去拷贝各种代码，去粘贴各种代码，去完成一个项目。不要是项目驱动它，而是目标驱动它。</p>
+<p>怎么去训练思维方式呢？这个我可以举一个简单的例子：</p>
+<p>这是我之前考察思维方式的面试题。在我所有的面试过程中，就有一个人让我印象深刻。也就是他是能答出来的。这个考察什么呢？当时我就问了一个很简单的问题，就是：编程计算根号7.</p>
+<p>当时他愣了很久，因为对于大部分人，当时第一面做这道题都是很难的。然后我就提示他一下，我说计算根号7，你应该怎样去计算？首先你要知道根号7是介于0和7之间的一个数。如果是保留三位小数，你可以换一种思维方式去考虑这件事。也就是0.001到7.000，那么这之间所有的数都有个特点，都是排列有序的。在写排列有序的数中找一个数的平方等于7，应该怎么实现？</p>
+<p>大部分人我提到这个，一说有序，一说去找到一个数，首先第一个，如果有程序员思维，应该马上蹦出一个词来，二分查找。也就是完全可以用二分查找法去计算根号7的结果，并保留三位小数。</p>
+<p>如果你还学过其他的知识，比二分查找还要更快的，通过六七次的迭代就能得到结果，也就是牛顿的迭代法。</p>
+<p>那么前面的话，基本上是属于二分查找的灵活应用，或者是二分查找的一个变种。就是我们之所以去学习算法，而不是去死记算法。计算机是一个理科而不是文科，所以你不要去通过背诵的方式去学习，要真正的理解它。理解它的原理，理解它的实现或者是它的应用场景。</p>
+<p>对于二分查找还有一个比较有意思的点，这个其实不是二分查找。这个好像是BAT的一个面试题：</p>
+<p>有一种玻璃杯，需要对玻璃杯进行检测。现在有两个杯子，怎么去检测呢？有一种大楼，比如大楼高100层。这个杯子从100层大楼扔下去刚好会碎。刚好会随就是说把杯子从第50层扔下去，咣当，没事儿。你在51层把杯子扔下去就碎了，这就是刚好会碎。</p>
+<p>这个算法要解决什么问题呢？现在给你两个杯子，这两个杯子是一样的，你通过不停的扔杯子，找到杯子刚好在那一层会碎。</p>
+<p>两个杯子，大部分人一想，是二分查找。但是，这个和二分查找完全不一样。这个有什么不一样呢？</p>
+<p>如果你在第50层一扔，咣当，没碎，那么你可以在50层到100层之间的第75层去扔。这个好像是二分查找，但是你考虑另一种情况，如果碎了，那怎么办？你碎了的话，你不能从第0层到第25层，再从第1层到第25层再扔。如果再碎了，完了，你没有求到结果。这个就不是二分差的变种，你需要其他的一些算法。</p>
+<hr>
+<h2 id="怎么去提高前端"><a href="#怎么去提高前端" class="headerlink" title="怎么去提高前端"></a>怎么去提高前端</h2><ul>
+<li>去看一些别人的代码，比自己水平高的代码。</li>
+<li>还有一个提高前端，我的建议是学习一些其他语言。学习其他语言，第一个是开阔自己的思路，学习不同的思维方式。比如JS是一个混杂型的语言，既可以面向过程，又可以面向函数，又可以面向对象。那么你去学习一些只面向过程或者只面向对象的语言，可以去开发你的一些思路、思维方式。</li>
+</ul>
+<p>还有一个很多人关心的问题，我怎样去成为一个很牛的JS程序员。或者是我怎样成为一个大牛。</p>
+<p>这个在《提问的智慧》一书里面有一个非常好的讲解，它说到一个事实，你看一些大牛好像一进到这个行业就是大牛，他们好像生来就是大牛。我们从来没看到他在各种社区去提问，或者是去各种论坛去提问，他们什么都会。</p>
+<p>其实不是，大部分人他们都会有很多问题，只是他们在提问之前，自己就把问题解决了。因为他们提问的时候，他们知道怎么去提问。提问之前他肯定要搜索很多东西，等到真正想提问的时候就会发现自己想提的问题已经被自己解决了。你就会发现网上少了一个问题，多了一篇文章，或者是一篇博客，关于解决什么什么问题的方案。</p>
+<hr>
+<p>前端最容易犯的一个错误就是追求炫酷和最新的东西。我今年看的所有的简历中，做CSS3动画的最多，实现了一个非常炫酷的动画。</p>
+<p>有一些当面给我演示的时候，比如有一些点出现什么bug之类的，面试者的解释就是：这个，可能做的不够完善，但这页面非常炫。言外之意就是我虽然做的不够完善，但是我可以做出这么炫酷的页面。</p>
+<p>其实这个关注点和面试官的关注点完全相反。</p>
+<p>面试官不关注你做的很炫很酷的东西，而只关注你做的东西bug少或有没有bug。或者是遇到bug你怎么解决bug。一般遇到这个，他当场给我展示的话，我会告诉他这个确实是个bug，现在把这个bug解决。在这些人中，有90%的人没有解决这个问题。也就是说他们对前端的一些知识，包括CSS3的用法都不是很熟悉。他们知识知道CSS3能做动画，效果很炫，于是我做一个很炫的东西然后去面试。</p>
+<hr>
+<p>对于怎么科学的读书的话，我建议大家看一本书，叫《如何阅读一本书》。</p>
+<p>这个是书被名字耽误的最严重的一本书。因为这本书非常经典，包括我自己，已经读了好几遍了。一遍又一遍的去读，每一次都会有新的体会。有很多人一看，这是面向小学生的一本书，其实这是对这本书最大的误解。</p>
+<p><img src="img/201712270101.jpg" alt=""></p>
+<hr>
+<p>大部分人学习的一个误区就是不够系统化。</p>
+<p>就是所有的知识，你一定要把知识做成一个面，要系统的学习JS、CSS、HTML。比如说它一些文档，如果你学习这个知识，已经学了半年，或者是一年，那么它所有的标签文档，JS自带的一些函数，你至少有一半以上，或者是百分之七八十都是应该去看过一遍的。</p>
+<p>很多人就会质疑我。他们说，这些知识，CSS这么多标签，大部分学的都用不到。我告诉他，不是说你学的用不到，是因为你不知道，所以根本不可能用到。</p>
+<p>比如举一个最简单的例子：CSS3的Flexbox布局，这个可以很好的做垂直居中，如果你不去学这个东西的话，你所有的垂直居中都不会去这么做，而是用之前的方式。因为在你的印象中，只有哪一种方式实现。所以，你还是要去扩展一些知识，多学一些东西，学完了才能用到，订正在项目里边。而不是说我学完了用不到，是因为你没学。</p>
+<hr>
+<h2 id="个人知识管理"><a href="#个人知识管理" class="headerlink" title="个人知识管理"></a>个人知识管理</h2><p>这个是我很早以前在业余时间做的，你可以看到有很多都已经停止服务了。</p>
+<p><img src="img/201712270102.jpg" alt=""></p>
+<p>这个的话，是个人知识管理的东西，也就是我业余时间，第一是看编程类的书，第二是看数学类的、历史类的和经管类的经济类的书。</p>
+<p>那么我认为对我影响最深的还是经济类的，就是扩展思维的、经济管理类的书。它有一个理念就是你所有的东西都要去经营管理，包括你的时间，你都要去经营去管理。还有一个就是我们每个人的知识，也需要去经营管理。</p>
+<p>我们的知识该怎么去管理？就是知识包括那几个方面？这个就不=不止局限于前端了，比如说知识管理包括去学习知识，我们怎么去学习知识，怎么去获取知识。当我们去获取了知识，怎么去系统的保存。保存的目的是为了便于以后去索引查找，最终目的是去使用这个知识。怎么去使用这个知识。</p>
+<p>这张也是对我职业生涯影响最大的一张图。这张图跟随我已经有七八年的历史了。我放在我打电脑里，每次有个什么GoogleRader分享会，我都会拿出来给别人看。</p>
+<p>这个里面有很多GoogleRader和其他的东西都不存在了，但是我觉得这张图的理念是非常好的。有机会的话我会画一张新图。一些比较好的，比如掘金，比如知乎，放到里面。</p>
+<hr>
+<p><img src="img/201712270103.png" alt=""></p>
+<p>这个思维导图也是珍藏很久的，这个就更经典了，我相信大部分人应该都看过这个。这张图取自阮一峰老师翻译的那本《黑客与画家》，这个也是硅谷创业之父写的一本书，非常经典。这里面讲到如何创造财富。</p>
+<hr>
+<p>未完，待续……</p>
 
         
     
@@ -630,8 +763,8 @@ JSON.parse(&#39;{&quot;a&quot;:10,&quot;b&quot;:20}&#39;);  //{a:10,b:20}
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2017/12/06/2017-12-06-is-patch-03/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2017/12/06/2017-12-06-is-patch-03/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2017/12/27/2017-12-27-zhihu-Live/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2017/12/27/2017-12-27-zhihu-Live/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -680,21 +813,13 @@ JSON.parse(&#39;{&quot;a&quot;:10,&quot;b&quot;:20}&#39;);  //{a:10,b:20}
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/06/2017-12-06-js-base-07-yu-ju/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/" id="post_nav-older" class="next-content">
+        <a href="/2017/12/25/2017-12-25-js-base-09-object-oritented-programing/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
