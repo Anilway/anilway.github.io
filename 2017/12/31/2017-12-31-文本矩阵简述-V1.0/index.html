@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            文本矩阵简述 V1.0 | 
+        
+        Anilway
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Anilway">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",阅读">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon1.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon1.png">
+    <link rel="apple-touch-icon" href="/img/favicon1.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Anilway">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #222 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #222 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #222 !important;
+  }
+
+  .toTop {
+    background: #222 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #222;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #222;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #222;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="文本矩阵简述 V1.0 | Anilway">
+    <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="阅读"> 
+
+    
+        <meta property="article:published_time" content="Sun Dec 31 2017 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Jan 01 2018 16:12:28 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="文本矩阵简述 V1.0 | Anilway">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2017/12/31/2017-12-31-文本矩阵简述-V1.0/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2017/12/31/2017-12-31-文本矩阵简述-V1.0/index.html",
+    "headline": "文本矩阵简述 V1.0",
+    "datePublished": "Sun Dec 31 2017 00:00:00 GMT+0800",
+    "dateModified": "Mon Jan 01 2018 16:12:28 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Anilway",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.jpg"
+        },
+        "description": "Make yourself better!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Anilway",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon1.png"
+        }
+    },
+    "keywords": ",阅读",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1"><span class="post-toc-text">1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2"><span class="post-toc-text">2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3"><span class="post-toc-text">3</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1"><span class="post-toc-text">3.1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2"><span class="post-toc-text">3.2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3"><span class="post-toc-text">3.3</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4"><span class="post-toc-text">4</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1"><span class="post-toc-text">4.1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2"><span class="post-toc-text">4.2</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5"><span class="post-toc-text">5</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6"><span class="post-toc-text">6</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7"><span class="post-toc-text">7</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8"><span class="post-toc-text">8</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9"><span class="post-toc-text">9</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10"><span class="post-toc-text">10</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-1"><span class="post-toc-text">10.1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-2"><span class="post-toc-text">10.2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-3"><span class="post-toc-text">10.3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-4"><span class="post-toc-text">10.4</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-5"><span class="post-toc-text">10.5</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-6"><span class="post-toc-text">10.6</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-7"><span class="post-toc-text">10.7</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11"><span class="post-toc-text">11</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-1"><span class="post-toc-text">11.1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-1-1"><span class="post-toc-text">11.1.1</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-1-2"><span class="post-toc-text">11.1.2</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-1-3"><span class="post-toc-text">11.1.3</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-2"><span class="post-toc-text">11.2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-2-1"><span class="post-toc-text">11.2.1</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-2-2"><span class="post-toc-text">11.2.2</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-3"><span class="post-toc-text">11.3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-4"><span class="post-toc-text">11.4</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-5"><span class="post-toc-text">11.5</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12"><span class="post-toc-text">12</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-1"><span class="post-toc-text">12.1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-2"><span class="post-toc-text">12.2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-3"><span class="post-toc-text">12.3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-4"><span class="post-toc-text">12.4</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-5"><span class="post-toc-text">12.5</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#12-5-1"><span class="post-toc-text">12.5.1</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-6"><span class="post-toc-text">12.6</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#12-6-1"><span class="post-toc-text">12.6.1</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#12-6-2"><span class="post-toc-text">12.6.2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#12-6-2-1"><span class="post-toc-text">12.6.2.1</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#12-6-2-2"><span class="post-toc-text">12.6.2.2</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#12-6-2-3"><span class="post-toc-text">12.6.2.3</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#12-6-2-4"><span class="post-toc-text">12.6.2.4</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#12-6-3"><span class="post-toc-text">12.6.3</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#12-6-4"><span class="post-toc-text">12.6.4</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-7"><span class="post-toc-text">12.7</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg)">
+    
+            <p class="article-headline-p">
+                文本矩阵简述 V1.0
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Anilway</strong>
+        <span>12月 31, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/12/31/2017-12-31-文本矩阵简述-V1.0/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/阅读/">阅读</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=文本矩阵简述 V1.0&url=http://yoursite.com/2017/12/31/2017-12-31-文本矩阵简述-V1.0/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=文本矩阵简述 V1.0&url=http://yoursite.com/2017/12/31/2017-12-31-文本矩阵简述-V1.0/index.html&via=Anilway" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/31/2017-12-31-文本矩阵简述-V1.0/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/31/2017-12-31-文本矩阵简述-V1.0/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="\assets\js\APlayer.min.js"> </script><blockquote>
+<p>本文转载自网络</p>
+<p>文/<a href="https://g.luciaz.me/extdomains/webcache.googleusercontent.com/search?q=cache:UcVMNNjS_80J:https://m.douban.com/note/170688812/+&amp;cd=1&amp;hl=zh-CN&amp;ct=clnk&amp;gl=us" target="_blank" rel="external">vivo</a> 2011-09-04 05:33:06</p>
+</blockquote>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>矩阵（matrix）是一个从线性代数里借用的概念，用来描述复杂的、可以从不同维度切分的文本系统，每一种拣选、组合原则即是一行，而被此原则选中的所有元素组成一列，组成矩阵的基本单位是一本本主题、风格、范围等一目了然的书籍，也可以是从所有文本里析取的其他抽象元素。 </p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>之所以论述文本，只因为它是人类精神文化成果迄今为止发展最充分最完善的符号表达方式，也是任何知识人可以简便掌握且高效运用、进行再生产的工具（不是图像，它信息含量太低；不是音乐，它基本只有娱乐消费价值，个人很难再生产优秀的作品；不是电影，它成长时间太短，目前无法完成高等数学之类抽象而有深度的思考，一般人也没有充足的资源去创作、生产电影供人消费）。 </p>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>文本矩阵的整体容量无限大，可就个人所处时代，就个人实际所能了解、阅读、消化、运用的容量而论，存在一个极限，此极限大概是15亿汉字符、6000本书，概略核算如下： </p>
+<h3 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h3><p>综合各种数据，人基本上阅读中等难度文本的速度在20000字/小时左右，而平均来说，每天读50000-100000正经文字已经到了头，再多可能已经是无关紧要的媒体新闻、娱乐八卦，取中间值75000字/天，从而人一生的阅读总量是75000（字）X365（天）X60（年）=16亿4250万≈15亿字，相当于两部《四库全书》。 </p>
+<h3 id="3-2"><a href="#3-2" class="headerlink" title="3.2"></a>3.2</h3><p>现在一本书的中等体量大略是25万字，750字/页，333.33页，所以一个人一生能从头至尾读完的书是150000000/250000=6000本。 </p>
+<h3 id="3-3"><a href="#3-3" class="headerlink" title="3.3"></a>3.3</h3><p>有人说自己也许每天读书时间更长，8小时以上，所以能读一本15、6万字的小说，但问题在于：A）现代小说是一种低密度低知识含量的文本，读起来快且能够持续，而除了读这些，我们还会读《高等数学》、《纯粹理性批判》、《资治通鉴》；B）某一天读书8小时以上容易，但谁可以如是坚持60年不辍，要不要工作，要不要社交，要不要处理家务，要不要休闲娱乐等等？因此平均每天阅读75000字已经是极限，可能钱锺书都无法超越。 </p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p>给出极限（3）只是作为参考，实际上我们个人没有必要试图去触摸、超越此极限值，因为： </p>
+<h3 id="4-1"><a href="#4-1" class="headerlink" title="4.1"></a>4.1</h3><p>一个人极大可能不是职业阅读者，完成本职工作外能读书的精力、时间有限，即使是职业阅读者，比如高校老师，也一般会受各种干扰而不能全神贯注地自由读书，要去上课，要参加会议，要研究课题，要撰写专著等。 </p>
+<h3 id="4-2"><a href="#4-2" class="headerlink" title="4.2"></a>4.2</h3><p> 即便由于特别的机缘达到了此极限，反而有可能成了低效阅读。阅读重要，不断地深入思考、消化、熔炼更重要。康德读书量肯定比不上钱锺书，但明显康德在人类文化史上的地位更高。只要钱锺书自觉缩减自己的阅读量，他的成就也许会更大，原因非常简单，同质阅读的边际收益递减，而且任何门类书籍的阅读只要超过某个量，一定只是碰到更多的垃圾读物。 </p>
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p>结合上述分析，比较理想的一生阅读量是在极限的基础上打对折，也即认真读书30年，读3000本左右，而考虑到人免不了要读一些垃圾书、一些读了却没丝毫收获的名著，又有一些读了一半却再也没兴趣没勇气读竟，所以真正能纳入个人文本矩阵的有效书籍大概是2000本，5亿字符。 </p>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><p>2000、3000本书，5亿字符绝对不是小数目，有人写《中国读者理想藏书》，包含2500本书，张之洞《书目答问》收书2000种，《四部丛刊》也就500种，有人写《一生的读书计划》，只有130本书，有人写《女人一生的读书计划》，只有100本书，还有林林总总《影响世界的100本书》之类，无论是藏书单还是读书单，无论是2500还是100，仔细去观察，什么年龄层次的读者都能发现自己有些书没收藏，有些书没从头到尾读过。而且，就是把所有垃圾书都算上，很多人一生的阅读量实际上无法超越500本，去过一些朋友家，工科糙哥文艺女青都有，他们的书架上无非零零落落摆几十上百本，一般是高校教材、MBA/GRE考试书以及一些流行读物、著名小说，30岁如此，50岁也许还是类似于此。 </p>
+<h2 id="7"><a href="#7" class="headerlink" title="7"></a>7</h2><p>2000、3000本书，5亿字符同时不是一个不可超越的数字，只要从小养成了阅读的习惯，一年读30-40本书丝毫不困难，不过是平均一两周时间读完奥斯丁的《理智与情感》，估计兴趣浓烈且时间充足的话，一般人周末两天时间就能读毕。把这样的阅读习惯从15岁保持到75岁，完全可以轻松读到2000、3000本，把自己一生珍爱的理想藏书读完。但是，V在这里主张有志读书之人要更勤奋精进些，当下争取一年读书在60-80本之间。一是充分利用年轻时的健康体质、优良记性、丰裕时间，二是无论如何到了50、60岁一个读书人总该系统整理自己的阅读成果，甚至写出著作，而不是还像个青年人无所事事，闭门读书。 </p>
+<h2 id="8"><a href="#8" class="headerlink" title="8"></a>8</h2><p>现在谈到的只是构筑文本矩阵容量、数量的问题，即2000本书，5亿字符，然而更重要的是文本矩阵的质量、优化程度。康德500本藏书最终生成的是影响深远的《三大批判》，无数人2000本书造就的只是一个平庸的作家，一个平凡的人文社科教授，甚或连他们都不如。打个比方就是，同样作为动力、燃料系统，有的是垃圾焚化厂，有的是内燃机发电机组，有的则是核聚变裂变反应堆，它们之间的效率和能量有天渊之别。 </p>
+<h2 id="9"><a href="#9" class="headerlink" title="9"></a>9</h2><p>我们的目标是——不是“没有蛀牙”，而是建构有成为核反应堆可能的高效文本矩阵。 </p>
+<h2 id="10"><a href="#10" class="headerlink" title="10"></a>10</h2><p>高效文本矩阵的第一个特征是天罗地网式的完备性、广泛性、包容性。 </p>
+<h3 id="10-1"><a href="#10-1" class="headerlink" title="10.1"></a>10.1</h3><p>一个国家强大而完善的武装力量，必然包括陆军、海军、空军、警察等，一个完整的家，必然有客厅、卧室、书房、厨房、厕所、阳台等，一所著名的综合性大学，必然包含文学、哲学、历史、宗教、新闻、外语、政治、经济、管理、法律、社会、心理、医学、生物、数学、物理、化学、工程、建筑、计算机等专业，哈佛、牛津如此，北大、复旦也是如此，一座藏书丰富的图书馆，不论是采用杜威分类法还是中图分类法，它囊括的图书门类与综合性大学的专业、科系基本同构，它们——国家武装、家庭功能区、综合性大学专业、大型图书馆分类——都是自足完备的独立系统，基本可以满足所有人绝大多数的需要。同理，一个强大的、包容度高的文本矩阵，必然要与精神文化生产、保存的基地——高校、图书馆——类似或同构，只有这样才能满足个人旺盛广泛的精神文化需要。 </p>
+<h3 id="10-2"><a href="#10-2" class="headerlink" title="10.2"></a>10.2</h3><p>可是高校科系、专业的分类委实太过详细，超过20种，每个专业读一个学士硕士学位，总共都要花费80、100、120、140年，大大逾越了人的寿命界限，所以必须有效收缩战线，推出拳头产品、招牌特长，V个人认为6、8、10个专业或者方向已经足够，如果想更精深，3、4、5也未尝不可。根据对人类文化史的考察，大概如下知识领域尤其重要：文学、历史、哲学、宗教（古来沿袭已久的学问），经济、政治、科技/电脑、外语（建构了当代人基本的知识体系）。 </p>
+<h3 id="10-3"><a href="#10-3" class="headerlink" title="10.3"></a>10.3</h3><p>也可以从其他角度来进一步确认上面8个知识领域的重要性，比如说个人需要理论：一个人的基本需求无非利（money）、色（sex）、权（power）、名（fame），认知（真）、伦理（善）、审美（美）、综合、超越（圣），利的代表就是经济，权的代表就是政治，对共时态自然的认知就是科技，对历时态社会的认知就是历史，审美就是文学，而伦理、超越的企图包含在宗教里，无所不包的是哲学，外语稍微有点特别，对应于我们这个全球化信息化的时代。甚至我们可以用海德格尔天（Himmel）、地（Erde）、人（Sterbliche）、神（Goettliche）这样的分析结构来辨析认定，哲学是天问，科技是地问，经济、政治、历史是人对社会、他人与自我的理解，文学是人和天神缪斯结合的产物，宗教就是神迹。 </p>
+<h3 id="10-4"><a href="#10-4" class="headerlink" title="10.4"></a>10.4</h3><p>当然个人可以根据自己的特殊嗜好、特别的成长路径添加某一不包含于上述8种的门类，诸如医学、法律、社会、新闻等，但V自己对这些领域一直不怎么看重。一个人只要身体健康，不作奸犯科，又不是医生、律师，可能不需要怎么关注医学、法律领域的成就。社会学基本理论也许是杂糅的怪胎，懂了文学、历史、哲学、宗教、经济、政治、科技（电脑）、外语，不懂社会学关系也不大，高兴了自己综合综合甚至能创立一派社会理论。研读新闻学大概不如学文学来得货真价实，现实生活中也的确无数记者编辑是文学科班出身。 </p>
+<h3 id="10-5"><a href="#10-5" class="headerlink" title="10.5"></a>10.5</h3><p>科技一门包罗万象、内容深湛，如何去自己研读？V的结论是科技无法踏实地去学，除非你去读或者已经读过一个理工类的本科、研究生，4年、6年跟着教授锱铢积累。强调科技的重要性，不是炫耀性地制造进入壁垒，而是说：A）有了微积分、量子力学、有机化学、模拟电路、C++语言等理工科知识才能使我们更深入、更准确地理解周围的自然世界、物质世界、逻辑世界；B）自然科学知识是训练我们理性、谨严的逻辑思维的高效方式，可以使我们混乱的大脑充分条理化、清晰化，更适应时代的建构机制。不曾读、不能读理工科也有次优的补救措施，那就是大量阅读优秀的科普书籍，读200本以上。一个理工科学生4年时间只能读30、50门课程，但它们基本都算得上高密度、高思维含量，要用极大稀释过的科普书替代的话，需要把总数字提高4倍，普通的书籍4年也恰好能读200本上下。 </p>
+<h3 id="10-6"><a href="#10-6" class="headerlink" title="10.6"></a>10.6</h3><p> 除了核心门类、主干课程，我们不妨也同时对一些感兴趣的边缘、枝叶领域拾遗补阙，3、5本，10本、几十本地去读，矩阵的总容量是2000，随便在里面穿插几十上百种异质文本不会带来什么影响，反而在一定程度补充完善我们的知识结构，使之浑然一体、滴水不漏。 </p>
+<h3 id="10-7"><a href="#10-7" class="headerlink" title="10.7"></a>10.7</h3><p>综上所述，文学、历史、哲学、宗教、经济、政治、科技/电脑、外语8种门类具有极大的广泛性、代表性、包容度，它截取了文本世界正态分布的中间一段，由它们组成的文本矩阵基本上是一所综合性高校、一座省市级图书馆、一个大型图书城的同构体，更为关键的是，它不复是异体的漠然的疏离的外在物，经过努力它们能完全吸纳、植入个人的眼睛、大脑，记忆、理解、思考、想象，是居家的更随身携带的精神文化的全息微型宇宙（holographic mini universe）。宇宙囊括天地、并吞八荒，它的历时演化构成了我们这个无比美妙复杂的世界，当一个人能把完善的精神小宇宙纳入体内，且勤奋熔炼铸造，会发生什么样奇迹呢？ </p>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><p>高效文本矩阵的第二个特征是一一追溯至创造性典籍的原教旨主义、本源性、代表性、彻底性。 </p>
+<h3 id="11-1"><a href="#11-1" class="headerlink" title="11.1"></a>11.1</h3><p>8大门类非常广博，但无疑同时也最空洞、最大话、最不着边际，我们需要找到理想的办法使之落到实处，来具体填充拟定的框架。首先可以想到的一点自然是鸟瞰概观，研究清楚每一门类在空间的共时态上在时间的历时态上到底包含哪些知识。因此基本的起点是读深浅不一、方向不一的入门概论，西洋、中国的形态发展史、理论发展史。以经济学为例，萨缪尔森、斯蒂格利茨的《经济学》、平狄克《微观经济学》、多恩布什《宏观经济学》、克鲁格曼《国际经济学》、米什金《货币金融学》、斯皮格尔《经济思想的成长》都肯定要在入门的时候就仔细研读，同时，市面上能找到的优秀的《欧美经济史》、《中国经济史》、《西方经济思想史》、《中国经济思想史》等也要一一拜读，它们从概论、历史演变的视角让人可以一睹学科全貌，做到心中有数、格局完整。 </p>
+<h4 id="11-1-1"><a href="#11-1-1" class="headerlink" title="11.1.1"></a>11.1.1</h4><p> 读概论、概述时务必选择此学科内最优秀最典范的教科书，非大师之作不读。 </p>
+<h4 id="11-1-2"><a href="#11-1-2" class="headerlink" title="11.1.2"></a>11.1.2</h4><p>读此类书一定要认真踏实，把自己当作一个必须通过专业考试的本科学生，阅读时任何细节都不放过，都要深刻领会理解，而且争取做到可以记诵关键内容。当然如此，不然怎么去参加结业考试，开卷吗？ </p>
+<h4 id="11-1-3"><a href="#11-1-3" class="headerlink" title="11.1.3"></a>11.1.3</h4><p>同一类书以一本为主干，但最好同时再找几本来对比阅读，例如说，西方哲学史除了阅读芝加哥大学版、北大版、复旦版、罗素版，也无妨读读文德尔班版、黑格尔版、Frederick Copleston的九卷本《A History Of Philosophy》，大致了解下各种解读有什么不同。 </p>
+<h3 id="11-2"><a href="#11-2" class="headerlink" title="11.2"></a>11.2</h3><p>上面所说只是学科性阅读的引子，还没进入正题。读过一些概论性的文本之后，我们最迫切的需要是一本本学科基本典籍地读，去读核心文本。读政治学，概论、历史类阅读引子先过关，马上从柏拉图《理想国》、亚里士多德《政治学》、西塞罗《论共和国》、马基雅维利《君主论》起，中间经《政府论》、《社会契约论》，一直读到《正义论》、《无政府、国家与乌托邦》、《认真对待权利》等，读50本政治典籍、100本典籍、150本典籍，直至抵达政治哲学基本文献阅读的极限——凡是重要的经典都读过，凡是没读过的都无足轻重，都算不上创造性的示范作品，绝大多数人也没读过。其他学科的读法与此类似，可以举一反三。 </p>
+<h4 id="11-2-1"><a href="#11-2-1" class="headerlink" title="11.2.1"></a>11.2.1</h4><p>如何知道哪些是基本典籍？非常简单，去观察本学科理论发展史里不得不提到的重要人物，什么是他们的代表作。参阅各种书目、典籍提要，有哪些作品会交叉入选。咨询可以信赖的资深专业人士，让他们予以指导。 </p>
+<h4 id="11-2-2"><a href="#11-2-2" class="headerlink" title="11.2.2"></a>11.2.2</h4><p>按照什么次序去读基本典籍？V个人认为通常依照历史顺序阅读，比如经济学、政治学、宗教等，只有先读了前人作品才能真正清楚后来者对前贤的理论进行了如何的修正、补充、颠覆，大师之作一般都有明确的针对性，而不是闭门造车、信口开河，例如潘恩的《常识》一书明显是针对柏克的《法国革命论》，诺齐克写《无政府、国家与乌托邦》正是为了批评罗尔斯的《正义论》。也可以逆序去读，哲学、文学等就能够如此，对某一个问题、题材、风格感兴趣，不妨从后到前追本溯源，萨特读不明白就去读海德格尔，海德格尔读不明白就去读胡塞尔，胡塞尔读不明白就去读黑格尔，黑格尔读不明白再去读康德。当然还有一种可能的次序是没有次序，随便选手边的、当前有兴趣的来读，V通常不主张这样，阅读时最好带着疑惑、问题去读，而不是无缘无故、随机漫步，像个没头苍蝇。 </p>
+<h3 id="11-3"><a href="#11-3" class="headerlink" title="11.3"></a>11.3</h3><p>基本典籍地读才是本源性的阅读。文本的世界无边无际，但绝大多数作品无非是典范文本繁衍的不肖子孙后代，是它们的拙劣模仿、剽窃、改装、拼凑，空洞化、琐碎化，既不能开创性地刷新、改造、扭转人们的整体精神视野，也不能把一种重要的理论、技巧、风格推向至精至纯，达到、超越时代的极限可能边界。它们萎靡柔弱，陈腐可笑，琐屑无聊，至多也只能成为王元化、余英时、杨义、刘小枫、汪丁丁、秦晖、甘阳、朱学勤，在我们这个廖化当先锋的堕落时代里摇旗呐喊，独领风骚，面对斯密、面对尼采、面对李白、面对鲁迅的创造性巨大贡献，我们的确有道理有权利对他们嗤之以鼻、不屑一顾。无数的文本只是附属的文本、二道贩子的文本，如藤萝寄生于大树、苔藓寄生于岩石、虱子细菌寄生于人体，充斥着混乱的逻辑、拷贝的知识、改头换面的见解、平庸苍白的文采、莫名其妙又无足轻重的情绪，只要我们踏实读过寄生作者们读过的经典之作，就是无情拆解了他们的秘术、花招、看家本领，我们只要愿意，可能写出来的书比他们的还要精彩，那我们为什么还要读寄生性文本，为何不直接去读带给我们无限灵感、启示、震撼、素材、话题的本源性典籍？ </p>
+<h3 id="11-4"><a href="#11-4" class="headerlink" title="11.4"></a>11.4</h3><p>基本典籍地读才是代表性的阅读。巨匠大师创制典籍，必然要博学穷观，吞噬一切能吸收的精华，融会贯通而又自出心裁，他们既总结了前人的各种大大小小成就，又肇始了后人不同层次的种种追随模拟，因此具有广泛的代表性，可以完全覆盖、包裹大量类似文本、同质文本。我们阅读典籍，不仅可以辨认、推测大师读过但在历史中湮灭了的一些文本，更可以先知先觉地推演即将到来的无数仰慕者的文本，它们如何浅陋地分析、解读大师，又如何邯郸学步地依葫芦画瓢，还如何卖弄从其他二三流匠人那里学来的聪明、习气。读一本大师之作，再加上我们的思考、分析、推演、排列组合，其效果就等于读了前前后后几十本、几百本，甚至几千本几万本不入流作品。不读《史记》、《汉书》、《资治通鉴》却去读钱穆、唐德刚、严耕望、黄仁宇、葛剑雄，不读《鲁迅全集》却去读王瑶、钱理群、林非、汪晖、吴中杰、郜元宝的鲁迅研究，岂不是买椟还珠、本末倒置、抓住芝麻漏掉西瓜？ </p>
+<h3 id="11-5"><a href="#11-5" class="headerlink" title="11.5"></a>11.5</h3><p>基本典籍地读才是彻底性的阅读。彻底性意味着最高最深最广最远，最引人入胜、最卓落不凡，是文本的珠穆朗玛山峰、马里亚纳海沟，除了它们，你再也不能找到更优秀的原创文本，它们就是精神的极限、边界线。无知浅薄的人，最开始会爱上薛涌、于丹、韩寒、和菜头，慢慢会发现余秋雨、周国平、王怡、许知远等可能更有知识才华，进而又开始佩服余光中、刘小枫、朱学勤、林毅夫、陈志武，直到某一天，或者30岁或者40岁，终于发现庄周、司马迁、韩愈、李白、苏轼、王阳明、亚里士多德、塞万提斯、牛顿、凯恩斯、诺齐克才真正是难以逾越的巅峰，他们不但走到了自己时代的最前沿，而且到了21世纪依然对人类的心智构成严峻挑战。在他们之外，没有更高的肩膀可以站立，就是世界尽头，就是昂首天外，就是一片荒芜，就是孤独凄凉，前不见古人，后不见来者。 </p>
+<h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><p>高效文本矩阵的第三个特征需要阅读者积极认真的参与，是最基层最微观的机制，彻头彻尾体现阅读的条理性、细节性、琐屑性。 </p>
+<h3 id="12-1"><a href="#12-1" class="headerlink" title="12.1"></a>12.1</h3><p>有人读书堪称狂飙突进，文字只要囫囵吞枣、走马观花地过了眼就算大功告成，就此鸣锣收兵。此类的读书法固然勇猛、壮观，但也不得不付出皮相肤浅的沉痛代价。网眼过大的渔网，能指望在文字的海洋里打捞到什么奇珍异宝？文本过眼不等于过脑，更不等于过心（姑且假设心灵是一种更高的精神器官，关涉人所谓的灵魂），而实际上只有经过大脑沉思、心灵涵蕴的文字方能彻底内化、吸收，成为文本矩阵的有效构成因子。如前所述的门类、具体典籍都只是矩阵的宏观、中观层次，而最要紧的是微观层次，它的“微”直抵书里的每一个字符、词汇、句子成分、语句、段落、节、章、篇。在节、章、篇的层面我们要考察其逻辑性、条理性及整体的气势、气韵，在语句、段落的层面我们审查判断见识、知识细节、论证技巧、修辞手法、情感强度，在字符、词汇、句子成分的层面我们检查思维的严谨性、准确性，词语的表现力、敏感度，要做到如此的细致精微，岂是浮光掠影、蜻蜓点水的阅读所能梦想和抵达？ </p>
+<h3 id="12-2"><a href="#12-2" class="headerlink" title="12.2"></a>12.2</h3><p>条理性貌似最容易做到，其实非常难以企及。不是说分出了一二三四五章，1、2、3、4、5点，首先、其次、然后、再及、最后等就等于有逻辑有条理，你必须先搞清楚为什么是五章而不是三章十章，五章之间有没有互相交叉、重复的内容，交叉了是为了立体式充分描述或者根本就是赘语，即使有五章，什么列在第一什么是第五有没有讲究，它们之间是平行关系是递进关系或者干脆就是在衰减。整体上没逻辑没条理的文本比比皆是，即使经典名著也不能幸免于外。《神曲》里地狱、炼狱、天堂三界排布当然有道理，但谁能说说地狱里的先后九层有什么逻辑关系？可能是并行结构，调整次序也没什么问题，可在V的眼里，巨匠之作根本容不得任何随意变动，作品结构的细微安排都曾经深思熟虑、反复调整过。上文提到的《法国革命论》更是一个典型的代表，虽然气势磅礴，情感丰沛，但根本找不到柏克由A说到B、由B说到C、由C说到D有什么必然的逻辑关联。从流飘荡、任意东西？飘逸潇洒固然没得说，但还是要斥为文青习性、诗人气质，根本不适合出现在论理性的皇皇巨著里。 </p>
+<h3 id="12-3"><a href="#12-3" class="headerlink" title="12.3"></a>12.3</h3><p>其实章篇层次的条理化、清晰化尚且是简单的工作，试着去翻翻我们的教材，无不体现着整饬有序的文本构造美学，主要原因可能是此类书籍经过无数代的精心打磨，早已有了现成的结构，再者作为书来说撰写周期长，有充分的时间删改调整。可一到2000-20000字的文章，有些人的颠倒错乱就体现得淋漓尽致，任由思绪随意飘荡，临时怎么想就怎么写，一点不顾及文章的主题、章节的中心、自然段的目的，不能在每一部分集中火力瞄准靶标彻底解决问题，同一话题和内容在文章前中后反复出现，夹缠不清，令人如堕五里云雾，不知所云。如此这类的文本，V素来深恶痛绝。说到结构清晰，写作者也许都应该向几何证明或者计算机程序代码学习，每一个步骤、模块都目的明确，简洁精练，完整封装，它是漂亮整洁的模范建筑，而不是汶川大地震后充斥着断壁残垣的废墟。如果做不到这些，可能还不如学着像王阳明、王廷相、叔本华、尼采一样写零碎散乱的语录体、箴言体。 </p>
+<h3 id="12-4"><a href="#12-4" class="headerlink" title="12.4"></a>12.4</h3><p>条理化、逻辑化地读，就是要随时准备归纳一个段落的中心大意，像个乖巧的小学高年级学生一样，并且观察作者如何井井有条、水到渠成地论述了他的观点，换我们自己来写，可不可以同样轻松自如，望尘莫及就拜师学艺，现炒现卖剽窃模仿。如果陈述混乱，半天也理不清头绪，我们不妨试着看能不能通过删减合并语句把它改造明白清楚。作者的一条论证是否在逻辑上成立，我们能不能接受他的前提约定或者假设，论述过程中有没有传动链条的断裂、错位，最终结论可不可以合乎情理地导出，即使推导完毕，有没有予以结论精准清晰地表达？在阅读时这都是需要一一检视的因素，我们不但要服善思齐，我们更要能批判性地读、颠覆性地读，同作者言谈甚欢，更同作者拔刀相见，裸身肉搏。读即是写，把自己混乱的头脑注入作者的轨道共同来写，让作者的混乱思维在我们的逻辑里整饬规训，读写互动提升、改进。不但总结段落大意，我们甚至更要还原、重构文本篇章节组成的整体框架，体味它是否宏大、完整、匀称、精巧，什么地方优美自然值得效仿，什么地方别出心裁而值得省思，什么地方陈陈相因而令人鄙弃，什么地方扭曲残缺而必须引以为戒。一句话，读的条理性就是把文本所有皮筋肉剔除净尽，我们直接审查裸裎面前的硬核、骨架。 </p>
+<h3 id="12-5"><a href="#12-5" class="headerlink" title="12.5"></a>12.5</h3><p>文本的整体气势、气韵是个神秘玄妙的因素，我们好像可以明显感觉到有的文章苍白干枯，读之令人生厌，但有的文章却元气充足、酣畅淋漓，可终究不大容易明确说出造成这种分别的一二三。比如说，庄子、韩愈、李贽、鲁迅、荷马、西塞罗、柏克、叔本华的文章算是气势磅礴、气韵生动，起承转合轻快流利，每一部分又都是浓墨重彩，一气呵成，如排山倒海，汪洋恣肆，不可拘圄，可以比拟为郭靖的降龙十八掌，杨过的无锋重剑、黯然销魂掌，力大气雄，无坚不摧。但是亚里士多德、金岳霖总让人觉得干燥枯瘠、沉闷乏味，如贫家之女、寒寺之僧。可能这和文体有关系，更跟个人的禀赋、生活历练有关联。阅读的时候我们要特别留意这类气势雄浑的文章，反复涵咏、揣摩，也许可以体会到一些奥秘。 </p>
+<h4 id="12-5-1"><a href="#12-5-1" class="headerlink" title="12.5.1"></a>12.5.1</h4><p>在此，V想重提以前说过的“身体性阅读”这一概念来补充阐释文本的气势、气韵，也就是说，读书的主要目的起初不能是写出什么鸿篇巨制，而应该是养气蓄志，基本也类似于陈寅恪所言：“士之读书治学，盖将以脱心志于俗谛之桎梏。”所以，阅读的过程就是让词语、段落震荡心灵，心灵生产温暖澎湃的血液，同时把血液运送至四肢百骸的过程，它给人气度、血性、胆识、神魄，它是古老的精神修炼术，要根本上给日常行动的肉体充电，而不是给言谈书写雪中送炭、锦上添花。只有这样改变读书态度，一个人方能将阅读得到滋养的气和生命本身的气、生活经验带来的气合并在一起，来共同形成个人的能量场，如果一个人还去写作的话，就是用整个肉体和精神熔炼在一起的能储去书写，而不是去轻巧地摆弄把玩暂时过耳过目的词汇、风景、事物。鲁迅的《野草》，气魄之澎湃、意志之决绝、情感之激烈、色彩之秾艳，远远为周作人、张爱玲之流莫及，V相信这是因为鲁迅是在用听起来有些神秘的肉体精神综合气场在书写，而不是其他人相对单纯的知识式生活经验式写作。鲁迅的阅读具有身体性，所以他的写作也具有身体性，呈现着赤身肉搏的激烈、残酷、高昂，惊魂动魄。 </p>
+<h3 id="12-6"><a href="#12-6" class="headerlink" title="12.6"></a>12.6</h3><p> 条理、气势申察吸纳一番，随着文本的具体延展我们就走到了语句、段落的层次。单独的一句话、一段话，最关键的莫过于见识、洞察（insight）——深入地去看，内部地去看，本地知情人地去看，看到别人看不到的关键东西，而不是像远道观光客一般只知道在风景画册都会收录的著名景点前抒发幽情，拍照留念。观光客们一路上自然觉得处处稀奇古怪、风光无限，从而心满意足、兴高采烈，可要命的缺点就是肤浅，要他们讲讲到底见到什么好风景，说出来的不外乎是导游册上烂熟的陈词滥调（cliché）。以V的阅读经验来说，即使著名作者的典范文本，也一般和种种借尸还魂的cliché脱不了干系，一本25万字的书，能有2.5万字识见不凡、略有新意已经算得上是优秀，剩下的十分之九不是妇孺皆知的常识，就是鹦鹉学舌的结果——他人知识公开或私密的贩运，此类文字基本上一概可以删除。阅读，所以也就成了甄别拣选桃子、鸡蛋的农家活，臭鸡蛋、烂桃子悉数剔除，留下来的优良品洗刷干净装进筐备用。而这个筐，就是我们正在描述的文本矩阵。 </p>
+<h4 id="12-6-1"><a href="#12-6-1" class="headerlink" title="12.6.1"></a>12.6.1</h4><p>什么算是眼力惊人、见识卓绝，这是一个关涉鉴赏力和判断力的问题。常常感叹我们的时代一点都不缺乏知识广博富赡之人，可是无数人就是没有眼光，鉴赏力、判断力低下，白白浪费气力去捧臭脚。大体来说，见识的形成，需要正反馈放大机制，见识和见识互相发现，首先向略有见识的人学习，借他们的眼光来刷新、提高自己的眼光，让自己也略有见识，而后再用自己略有见识的眼光寻找更有见识之人，进一步刷新、提升自己的眼光，如此循环往复无数次，到了一定程度自己可能也会优入圣域，站在见识不凡者之列，真正有能力去鉴别事物的妍蚩优劣。在此，要有两种人生态度，一谦虚，不故步自封，二精进，不懒惰懈怠。再就是强调一个人人都懂但不见得人人能做到的道理：操千曲而后晓声，观千剑而后识器。 </p>
+<h4 id="12-6-2"><a href="#12-6-2" class="headerlink" title="12.6.2"></a>12.6.2</h4><p>见识、洞察、思想、智慧不能只停留在书本里，不然它就只是别人的见识、智慧，像别人的老婆、汽车、别墅一样与我无关，幸运的是思想智慧的私人产权从来没严格界定，我们能够想方设法让它也属于自己，纳入私己的文本矩阵。最彻底最完全的占有策略当然是背诵，可是读一本书就背诵2.5万字，总共记诵5000万字的确是Mission Impossible，人可以是阅读机器，但目前来看尚不是U盘、光盘、硬盘这样的记忆机器，因此，我们必须退而求其次寻求大脑之外的辅助记忆体、存储体。结合V的实际经验，可以总结出4种方法： </p>
+<h5 id="12-6-2-1"><a href="#12-6-2-1" class="headerlink" title="12.6.2.1"></a>12.6.2.1</h5><p>纸质笔记簿上一笔一画地手工抄录。钱锺书《容安馆札记》就是这么苦干蛮干的半成品，我们是否记得中学课本上有个叫张溥的人，他的书房名为“七录斋”，到底是什么典故？V在大学、研究生早期用过这样的方法，现在已彻底放弃，原因比较简单，效率太低因而不可能把一本书的闪光点摘录殆尽，所以在抄写时不得不舍弃、割爱，而V想要的是涸泽而渔、敲骨吸髓式的收纳，不丢弃任何一滴过眼过脑的智慧。 </p>
+<h5 id="12-6-2-2"><a href="#12-6-2-2" class="headerlink" title="12.6.2.2"></a>12.6.2.2</h5><p>书买回家直接在上面点校批注。黄侃、陈寅恪、毛泽东是这一派的典范人物，兹不详述。不过V从来不在书上写阅读感悟，至多校改一些错别字，最经常干的事情是用红色、蓝色圆珠笔在关键词、语句、段落上密密麻麻划线，突显一切觉得有价值、令人有所悟解的文本。划线文本在划线时重读一次，同时以备此后快速定位阅读，至于其他留白的文本，都属于打入冷宫，从此可读可不读之列，它们的存在意义不过是作为重点文本再次阅读时的语境参考而已。 </p>
+<h5 id="12-6-2-3"><a href="#12-6-2-3" class="headerlink" title="12.6.2.3"></a>12.6.2.3</h5><p>阅读电子文件，同时拷贝或OCR存档。复制、OCR都很简单，不用细谈，难处在于收集到欲读之书的TXT化文件、图像版文件，此类技能，V没日没夜研究了5年，而V的朋友Dasha，恐怕研究的时日在10年以上，纵使如此，常常也依然只能望洋兴叹。电子摘录时有些细节需要注意，比如说电子文本质量不佳，错讹满目，这时需要找图像版文件或者印刷纸本校对。还有，摘录时要在文件中标明版本、页码，以免不容易还原至原始印刷书，TXT摘录内容可以用搜索引擎反查迅速核对语境、出处，而图像文件显然不能，要靠页码标记定位。 </p>
+<h5 id="12-6-2-4"><a href="#12-6-2-4" class="headerlink" title="12.6.2.4"></a>12.6.2.4</h5><p>径直在电子文档上批注。电子摘录的好处显而易见，汰除芜杂、留存菁华，可以全文检索，二度利用时能自由复制、编辑，但弊端则在于摘录文本与原始语境割裂，没有上下文供准确深入理解。在这个时候，我们可以借助于Acrobat Pro的强大功能来实现电子批注。不过到底什么书会选择电子批注略有讲究，V个人的抉择是一般只在Acrobat里批注概论、通史、研究等属于文献综述而不够格称为一家之言的作品。说是“批注”，其实也算不上，V依然是只圈划有兴趣的段落、语句、关键词。 </p>
+<h4 id="12-6-3"><a href="#12-6-3" class="headerlink" title="12.6.3"></a>12.6.3</h4><p>抄录、圈划、复制、OCR，用尽十八般武艺，积聚在筐-矩阵里的一堆文本用来作甚？它们用来随时重读、反复读，甚至背诵。重读一本书的25万字和从前一样慢，需要10个小时以上，但重读摘录下的2.5万字，只需一小时，即使5000万字的笔记全部重读一次，我们也只需要2-3年时间。人是善于遗忘或者说记忆容量有限的动物，只有反复的辛苦劳作才能使我们真正记住、理解、掌握该记住、该理解、该掌握的东西，让它们像刀痕一样永恒地长在肉体上、心灵里，从而得以随时自由调用、索引、排列组合。不过V只主张反复阅读、深思窃为己有的洞见、智慧，不怎么提倡背诵，即使一个人记忆力卓越，也不要勉强记诵，能记下就记下，记不下也无妨，因为记诵下的语句可能会带来影响的焦虑，让人出口就本能地引述别人的话语，而不是自己随机生成的说法，从而完全把剽窃借鉴的痕迹消弭干净，但这也只是V的一个暂时观察，或者根本就是自己偷懒的勉强借口，算不得定论。当然，有的人喜欢钱锺书一般炫耀性地给学问开国际博览会，则是其他一套既辛苦又巧妙的机制。 </p>
+<h4 id="12-6-4"><a href="#12-6-4" class="headerlink" title="12.6.4"></a>12.6.4</h4><p>洞察、智慧类段落和语句的囤积，对它们的重读、反复读，只类似于把水稻、小麦、玉米、土豆等主粮收割回家，脱粒晒干装进粮仓，即使离开一桌简单筵席都差一大截，我们没有猪牛羊肉鸡鸭鹅鱼肉，也没有萝卜、白菜、黄瓜、番茄，还没有油盐酱醋茶、姜葱、辣椒，更没有米其林三星大厨的高超技艺。因此要继续在语句、段落层次认真阅读。 </p>
+<h3 id="12-7"><a href="#12-7" class="headerlink" title="12.7"></a>12.7</h3><p> 作为知识的资料、细节、素材、数据就是我们的猪牛羊肉鸡鸭鹅鱼肉，相对于见识、思想此类高阶的、综合的、价值的、议论的、形而上的陈述与判断，资料性知识就具有一阶性、分散性、描述性、叙述性、形而下性，它可能是CPI增长数值，海湾战争中美军死亡人数，也可能是章太炎与黄侃交往的趣闻轶事，更可能是12世纪基督教的一份会议记录，它只是真实地或者虚假地描述、记载自然界、社会或者心灵世界发生的事实，并不给出分析和评判。它们林林总总、庞大无比又杂乱无章，而正是它们，塑造着、瓦解着、支撑着、背叛着、嘲讽着我们的每一种见解、思想与智慧。书籍，常常并没有我们所赋予的高尚意义，它不过是肉体的延伸，扩展感官功能的装置、器具，是我们的千里眼与顺风耳，用以间接地、不亲历其境地观察、体验发生在历史上的和周围的事实，我们读书，只是因为没钱没时间开着敞篷车或者乘坐豪华邮轮周游世界而已，只是因为没有时空穿梭机让自己重回大唐盛世或者日不落帝国而已。</p>
+<p>——未完待续——</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #222;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" style="display: none">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2017/12/31/2017-12-31-文本矩阵简述-V1.0/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2017/12/31/2017-12-31-文本矩阵简述-V1.0/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.btn_click_load').css('display','none');
+        })(),
+        error: function() {
+          $('.btn_click_load').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/12/31/2017-12-31-js-base-09-01-oo/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header1.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.jpg" alt="Anilway's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        更多
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hanway.robot@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="电子书">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">book</i>
+                        
+                        电子书
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="网址导航">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">tab</i>
+                        
+                        网址导航
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">18</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/categories/其他/">其他<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/旁征博引/">旁征博引<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about/index.html" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友链接">
+                
+                友链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图片集">
+                
+                图片集
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Anilway" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Anilway
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
