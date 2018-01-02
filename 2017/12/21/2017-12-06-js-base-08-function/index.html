@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Thu Dec 21 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Dec 22 2017 16:40:59 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Jan 02 2018 00:33:32 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -270,7 +270,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/12/21/2017-12-06-js-base-08-function/index.html",
     "headline": "JS基础总结08:函数",
     "datePublished": "Thu Dec 21 2017 00:00:00 GMT+0800",
-    "dateModified": "Fri Dec 22 2017 16:40:59 GMT+0800",
+    "dateModified": "Tue Jan 02 2018 00:33:32 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -690,6 +690,7 @@ alert(typeof a);//number
 </code></pre>
 <p>可是，如果我把函数名赋值给其他变量，就无法执行该函数了：</p>
 <pre><code class="javascript">var foo=sum;
+sum=1;
 alert(foo(5));
 </code></pre>
 <p>所以，用<code>arguments.callee</code>就消除这种紧密耦合的现象：</p>
@@ -723,6 +724,7 @@ outer();//警告框中显示outer()函数的源代码
 <li><code>callee</code>是函数内部<code>arguments</code>的属性，保存的是该函数的指针。<code>arguments.callee</code>相当于函数名</li>
 <li><code>caller</code>是函数的属性，保存的是引用该函数的函数的指针。<code>函数名.caller</code>=<code>arguments.callee.caller</code></li>
 </ul>
+<p>这就像是单词employer（雇主）和employee（雇员）。比如<code>fun2</code>调用<code>fun1</code>，那么<code>fun1.caller</code>的意思就像是<code>fun1</code>的雇主是<code>fun2</code>。</p>
 <p>在ES5下还定义了<code>arguments.caller</code>属性。定义<code>arguments.callee</code>属性是为了分清<code>arguments.caller</code>和函数的<code>caller</code>属性。</p>
 <table>
 <thead>
@@ -759,7 +761,7 @@ outer();//警告框中显示outer()函数的源代码
   return num1+num2;
 }
 alert(foo.length);//2
-alert(foo(1,2,3));//3
+foo(1,2,3);//3
 </code></pre>
 <p>至于<code>prototype</code>涉及到原型、原型链之类的，会在后面的博文中详细解释，在此暂不写。</p>
 <h3 id="apply-和call"><a href="#apply-和call" class="headerlink" title="apply()和call()"></a><code>apply()</code>和<code>call()</code></h3><p><span style="color:purple">每个函数都包含两个非继承而来的方法：<code>apply()</code>和<code>call()</code></span></p>
@@ -816,7 +818,7 @@ function sum2(num1,num2){
 <p>参见：<a href="http://uule.iteye.com/blog/1158829" target="_blank" rel="external">JS中的call()和apply()方法</a></p>
 <p>本篇博文主要对函数做了一些总结，你在看这个将<code>call()</code>继承的时候，注意里面的函数是构造函数，在构造对象。所以，要从函数思维转变到对象思维里面去，以免理解困难。</p>
 <h3 id="bind"><a href="#bind" class="headerlink" title="bind()"></a><code>bind()</code></h3><blockquote>
-<p>bind() 函数会创建一个新函数（称为绑定函数），新函数与被调函数（绑定函数的目标函数）具有相同的函数体（在 ECMAScript 5 规范中内置的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="external"><code>call</code></a>属性）。当<strong>新函数</strong>被调用时 this 值绑定到 bind() 的第一个参数，该参数不能被重写。绑定函数被调用时，bind() 也接受预设的参数提供给原函数。一个绑定函数也能使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="external"><code>new</code></a>操作符创建对象：这种行为就像把原函数当成构造器。提供的 this 值被忽略，同时调用时的参数被提供给模拟函数。</p>
+<p>bind() 函数会创建一个新函数（称为绑定函数），新函数与被调函数（绑定函数的目标函数）具有相同的函数体（在 ECMAScript 5 规范中内置的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="external"><code>call</code></a>属性）。当<strong>新函数</strong>被调用时 ，this 值绑定到 bind() 的第一个参数，该参数不能被重写。绑定函数被调用时，bind() 也接受预设的参数提供给原函数。一个绑定函数也能使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="external"><code>new</code></a>操作符创建对象：这种行为就像把原函数当成构造器。提供的 this 值被忽略，同时调用时的参数被提供给模拟函数。</p>
 <p>来源：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="external">Function.prototype.bind()</a></p>
 </blockquote>
 <p>例如：</p>
@@ -832,6 +834,13 @@ foo();//blue
 </code></pre>
 <p>上面的例子中，<code>sayColor()</code>为被调函数，通过使用<code>bind()</code>方法创建出一个新函数，变量<code>foo</code>作为指针接收这个新函数，即新函数为<code>foo()</code>，函数<code>foo()</code>即为绑定函数。<code>bind()</code>的第一个参数为指定的作用域（上下文），或者说是指定的this值，上面的例子中指定的为对象o，所以，调用<code>foo()</code>结果为blue。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/201712210101.png" alt=""></p>
+<div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">思考：对于自调匿名函数有没有函数提升？</div>
+
+<p>比如：</p>
+<pre><code class="javascript">(function(){
+  alert(&quot;Hi!&quot;)
+})();
+</code></pre>
 
         
     
@@ -935,7 +944,7 @@ foo();//blue
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/21/2017-12-21-js-patch-04/" id="post_nav-newer" class="prev-content">
+        <a href="/2017/12/21/2017-12-21-js-base-08-01-function/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -1059,7 +1068,7 @@ foo();//blue
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">18</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">18</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -1077,7 +1086,7 @@ foo();//blue
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/categories/其他/">其他<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/旁征博引/">旁征博引<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">18</span></a></li><li><a class="sidebar_archives-link" href="/categories/其他/">其他<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/旁征博引/">旁征博引<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
