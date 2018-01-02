@@ -645,7 +645,7 @@ var person2=new Person(&quot;Bob&quot;,&quot;Doctor&quot;);
 <p>这样，person1和person2共享了在全局作用域中的<code>sayName()</code>函数。但是，<code>sayName()</code>在全局作用域中，原本可以被其他作用域中的函数之类的调用，现在却只能被区区某一类对象（是某一个构造函数下的对象实例）调用，这样对于全局作用于函数有些名不副实，有些大材小用，有些浪费。而且，如果有很多方法，就要定义多个全局作用域函数，都要放在构造函数外面，这样就没有封装性了。</p>
 <h2 id="5、原型模式"><a href="#5、原型模式" class="headerlink" title="5、原型模式"></a>5、原型模式</h2><p>对于共享，你一定还记得引用类型值的复制。（参见《JS高程》（第三版）P69）</p>
 <blockquote>
-<p><img src="img/201801020100.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/201801020100.PNG" alt=""></p>
 <p>复制操作结束后，两个变量实际上将引用同一个对象。因此，改变其中一个变量，就会影响另<br>一个变量，如下面的例子所示：</p>
 <pre><code class="javascript">var obj1 = new Object();
 var obj2 = obj1;
@@ -680,7 +680,7 @@ human1.sayName();      //CC
 <li>每个函数都有原型属性<code>prototype</code>，这个原型属性的值原型对象里面有个<code>constructor</code>属性，指向构造函数</li>
 <li>该类型下的每个对象实例有个_proto_属性，这个属性对脚本是不可见的。该属性指向原型对象，也就是说和<code>prototype</code>的地址值一样。</li>
 </ul>
-<p><img src="img/2018010201.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/2018010201.PNG" alt=""></p>
 <p>我们可以用代码描述更容易理解：</p>
 <pre><code class="javascript">//因为函数也是对象（new Function()）;所以我们可以把Human构造函数看成对象：
 var Human={
@@ -697,7 +697,7 @@ human1._proto_=Human.prototype;
 human2._proto_=Human.prototype;
 </code></pre>
 <p>我们再用内存的方式理解一下：</p>
-<p><img src="img/201801020102.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/201801020102.PNG" alt=""></p>
 <p>这不就是引用类型值的复制吗？是不是和一开始的那张图很类似，没错！原理就是这样的。</p>
 <p>现在回过头来想一想，在原型模式下，是实例和原型对象之间的连接，和之前创建对象模式中的实例和构造函数的连接不同。</p>
 <p>然后，我们也可以理解，为什么原型模式下的实例，实际上是一个空对象了：</p>
