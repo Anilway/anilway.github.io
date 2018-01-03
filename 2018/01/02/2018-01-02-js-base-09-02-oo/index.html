@@ -243,7 +243,7 @@
 
     
         <meta property="article:published_time" content="Tue Jan 02 2018 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Jan 02 2018 16:55:31 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Jan 03 2018 23:29:21 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -270,7 +270,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/01/02/2018-01-02-js-base-09-02-oo/index.html",
     "headline": "JS基础总结09:面向对象程序设计——创建对象的演变",
     "datePublished": "Tue Jan 02 2018 00:00:00 GMT+0800",
-    "dateModified": "Tue Jan 02 2018 16:55:31 GMT+0800",
+    "dateModified": "Wed Jan 03 2018 23:29:21 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -354,7 +354,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、用Object实例创建对象"><span class="post-toc-text">1、用Object实例创建对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、用字面量法创建对象"><span class="post-toc-text">2、用字面量法创建对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、工厂模式"><span class="post-toc-text">3、工厂模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、构造函数模式"><span class="post-toc-text">4、构造函数模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、原型模式"><span class="post-toc-text">5、原型模式</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、用Object实例创建对象"><span class="post-toc-text">1、用Object实例创建对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、用字面量法创建对象"><span class="post-toc-text">2、用字面量法创建对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、工厂模式"><span class="post-toc-text">3、工厂模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、构造函数模式"><span class="post-toc-text">4、构造函数模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、原型模式"><span class="post-toc-text">5、原型模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-基本概述"><span class="post-toc-text">5.1 基本概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-读取属性的方式"><span class="post-toc-text">5.2 读取属性的方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-3-原型的简写语法"><span class="post-toc-text">5.3 原型的简写语法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-4-原型模式的问题"><span class="post-toc-text">5.4 原型模式的问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、混合模式"><span class="post-toc-text">6、混合模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7、动态原型模式"><span class="post-toc-text">7、动态原型模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8、寄生构造函数模式"><span class="post-toc-text">8、寄生构造函数模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9、稳妥构造函数模式"><span class="post-toc-text">9、稳妥构造函数模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li></ol>
     </ul>
     
 
@@ -643,7 +643,7 @@ var person1=new Person(&quot;Anna&quot;,&quot;teacher&quot;);
 var person2=new Person(&quot;Bob&quot;,&quot;Doctor&quot;);
 </code></pre>
 <p>这样，person1和person2共享了在全局作用域中的<code>sayName()</code>函数。但是，<code>sayName()</code>在全局作用域中，原本可以被其他作用域中的函数之类的调用，现在却只能被区区某一类对象（是某一个构造函数下的对象实例）调用，这样对于全局作用于函数有些名不副实，有些大材小用，有些浪费。而且，如果有很多方法，就要定义多个全局作用域函数，都要放在构造函数外面，这样就没有封装性了。</p>
-<h2 id="5、原型模式"><a href="#5、原型模式" class="headerlink" title="5、原型模式"></a>5、原型模式</h2><p>对于共享，你一定还记得引用类型值的复制。（参见《JS高程》（第三版）P69）</p>
+<h2 id="5、原型模式"><a href="#5、原型模式" class="headerlink" title="5、原型模式"></a>5、原型模式</h2><h3 id="5-1-基本概述"><a href="#5-1-基本概述" class="headerlink" title="5.1 基本概述"></a>5.1 基本概述</h3><p>对于共享，你一定还记得引用类型值的复制。（参见《JS高程》（第三版）P69）</p>
 <blockquote>
 <p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/201801020100.PNG" alt=""></p>
 <p>复制操作结束后，两个变量实际上将引用同一个对象。因此，改变其中一个变量，就会影响另<br>一个变量，如下面的例子所示：</p>
@@ -678,7 +678,7 @@ human1.sayName();      //CC
 <p>原理如下图所示：</p>
 <ul>
 <li>每个函数都有原型属性<code>prototype</code>，这个原型属性的值原型对象里面有个<code>constructor</code>属性，指向构造函数</li>
-<li>该类型下的每个对象实例有个_proto_属性，这个属性对脚本是不可见的。该属性指向原型对象，也就是说和<code>prototype</code>的地址值一样。</li>
+<li>该类型下的每个对象实例有个_proto_属性，这个属性对脚本是不可见的。该属性指向原型对象，也就是说和<code>prototype</code>的地址值相等。</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/2018010201.PNG" alt=""></p>
 <p>我们可以用代码描述更容易理解：</p>
@@ -699,7 +699,32 @@ human2._proto_=Human.prototype;
 <p>我们再用内存的方式理解一下：</p>
 <p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/201801020102.PNG" alt=""></p>
 <p>这不就是引用类型值的复制吗？是不是和一开始的那张图很类似，没错！原理就是这样的。</p>
-<p>现在回过头来想一想，在原型模式下，是实例和原型对象之间的连接，和之前创建对象模式中的实例和构造函数的连接不同。</p>
+<blockquote>
+<p>所以，原型有动态特性。即：对原型对象做任何修改，都能立即反映在实例上。</p>
+<p>因为实例是通过指针访问原型对象的。但是要注意，如果是重写原型对象又另说，后面在讲到原型的简写语法时会详解。</p>
+<pre><code class="javascript">var friend=new Person();
+Person.prototype.sayHi=function(){alert(&quot;Hi&quot;);};
+friend.sayHi();//&quot;Hi&quot;
+//这个例子想说，先创建了对象实例friend，这个时候还没有sayHi方法，接着给原型对象添加sayHi方法，friend实例就可以立即使用。这就是原型的动态特性。
+</code></pre>
+</blockquote>
+<div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">如何确定构造函数的原型指向和实例对象的隐式原型指向相同呢？换句话说，怎样确定它们都指向同一个原型对象？</div>
+
+<blockquote>
+<p>用下面两种方法：</p>
+<p><span style="color:purple;font-weight:bold;"> - <code>isPrototypeOf()</code>：用于判断构造函数的原型指向和实例对象的隐式原型指向是否相同。</span></p>
+<pre><code class="javascript">//比如上面的例子
+alert(Human.prototype.isPrototypeOf(human1));//true
+alert(Human.prototype.isPrototypeOf(human2));//true
+</code></pre>
+<p><span style="color:purple;font-weight:bold;">- <code>Object.getPrototypeOf()</code>：可以返回对象的隐式原型指针（ES5新增）</span></p>
+<pre><code class="javascript">alert(Object.getPrototypeOf(human1)==Human.prototype);//true
+alert(Object.getPrototypeOf(human2)==Human.prototype);//true
+alert(Object.getPrototypeOf(human1).name);//CC
+alert(Object.getPrototypeOf(human2).name);//CC 这里是human2的_proto_指向的原型对象里面的&gt; name属性的值
+</code></pre>
+</blockquote>
+<p>现在回过头来想一想，在原型模式下，是实例和原型对象之间的连接，和之前构造函数模式中的实例和构造函数的连接不同。</p>
 <p>然后，我们也可以理解，为什么原型模式下的实例，实际上是一个空对象了：</p>
 <pre><code class="javascript">function Human(){};
 Human.prototype.name=&quot;CC&quot;;
@@ -722,35 +747,474 @@ human2.age=25;//你也可以给实例添加原型对象没有的属性和方法
 alert(human1.name);//CC
 alert(human2.name);//Bob
 </code></pre>
-<p>说到这呢，就要说说JS搜索实例对象的属性的方式：</p>
+<blockquote>
+<p>原型模式的重要性不仅体现在创建自定义类型方面，就连所有原生的引用类型，都是采用这种模式创建的。所有原生引用类型（Object、 Array、 String，等等）都在其构造函数的原型上定义了方法。 </p>
+<p>通过原生对象的原型，不仅可以取得所有默认方法的引用，而且也可以定义新方法。可以像修改自定义对象的原型一样修改原生对象的原型，因此可以随时添加方法。 比如：</p>
+<pre><code class="javascript">Array.prototype.sayHi=function(){alert(&quot;Hi&quot;);};
+</code></pre>
+<p>但是随意修改原生构造函数的原型不好，容易引起错误，不建议修改。</p>
+</blockquote>
+<h3 id="5-2-读取属性的方式"><a href="#5-2-读取属性的方式" class="headerlink" title="5.2 读取属性的方式"></a>5.2 读取属性的方式</h3><p>说到这呢，就要说说JS搜索实例对象的属性的方式：</p>
 <blockquote>
 <p>先搜索实例本身，如果有就返回该属性值。如果没有，再搜索原型对象，如果有，就返回该属性值。如果没有就真没有了。</p>
 </blockquote>
 <p>比如上面的例子：当代码读取<code>human1.name</code>，先搜索human1对象本身，没有name属性，再搜索原型对象，有name属性，为CC，返回CC。当代码读取<code>human2.name</code>，先搜索human2对象本身，诶！有name属性，Bob，返回Bob，完毕。</p>
 <div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">对实例对象调用属性，会有个疑问，这个属性到底是实例对象的还是原型对象的呢？</div>
 
+<blockquote>
+<p><span style="color:purple;font-weight:bold;">- <code>hasOwnProperty()</code>：检测属性是否为实例属性（字面意思是：是has——我的Own——属性Property？）</span></p>
+<pre><code class="javascript">//接前面的例子
+alert(human1.hasOwnProperty(&quot;name&quot;));//false
+alert(human2.hasOwnProperty(&quot;name&quot;));//true
+</code></pre>
+<p><span style="color:purple;font-weight:bold;">- <code>Object.keys()</code>：获取对象所有可枚举的实例属性，返回一个包含所有可枚举的字符串的数组</span></p>
+<pre><code class="javascript">console.log(Object.keys(human1));//&quot;&quot;
+console.log(Object.keys(human2));//&quot;name,age&quot;
+delete human2.name;
+console.log(Object.keys(human2));//&quot;age&quot;
+</code></pre>
+<p><span style="color:purple;font-weight:bold;">- <code>Object.getOwnPropertyNames()</code>：获取所有的实例属性，无论是否枚举都会获取</span></p>
+<pre><code class="javascript">function Human(){};
+Human.prototype.name=&quot;CC&quot;;
+var str=Object.getOwnPropertyNames(Human.prototype);
+alert(str);//&quot;consrtuctor,name&quot;
+//这个里面constructor就是不可枚举的属性
+//另外不要有思维误区，属于这个实例本身的属性就是实例属性。Human.prototype也是实例对象，它是Object的实例，因为任何对象都是Object的实例。所以，不仅仅是构造函数的实例可以用这个方法，构造函数的原型也可以用这个方法。
+</code></pre>
+<p><span style="color:purple;font-weight:bold;">- <code>hasPrototypeProperty()</code>：检测属性是否为原型属性（字面意思就是：是has——原型Prototype——属性Property？）</span></p>
+<pre><code class="javascript">alert(human1.hasPrototypeProperty(&quot;name&quot;));//true
+alert(human2.hasPrototypeProperty(&quot;name&quot;));//false
+</code></pre>
+<p><span style="color:purple;font-weight:bold;">- <code>in操作符</code> ：如果<code>in操作符</code>单独使用，可以检测实例对象能否访问该属性，无论该属性来自实例还是原型。</span></p>
+<p>（还有一种是<code>for-in</code>循环使用）</p>
+<pre><code class="javascript">alert(&quot;name&quot; in human1);//true
+alert(&quot;name&quot; in human2);//true name来自实例
+alert(&quot;age&quot; in human2);//true
+delete human2.name；//删除human2实例中的name属性
+alert(human2.name);//CC
+alert(&quot;name&quot; in human2);//true name来自原型
+</code></pre>
+<p>顺便说一下，使用<code>for-in</code>循环时，返回的是所有对象可以访问的、可枚举（enumerable）的属性，所以既有原型属性，也包括实例属性。但是，不包括被实例属性屏蔽的同名原型属性（同名可枚举的实例属性会被返回）。</p>
+</blockquote>
 <div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">为什么对象实例不能重写原型中的值？</div>
 
-
-
-<div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">如何确定构造函数的原型指向和实例对象的隐式原型指向相同呢？换句话说，怎样确定它们都指向同一个原型对象？</div>
-
-<p>用下面两种方法：</p>
-<ul>
-<li><code>isPrototypeOf()</code>：用于判断构造函数的原型指向和实例对象的隐式原型指向是否相同。</li>
-</ul>
-<pre><code class="javascript">//比如上面的例子
-alert(Human.prototype.isPrototypeOf(human1));//true
-alert(Human.prototype.isPrototypeOf(human2));//true
+<blockquote>
+<blockquote>
+<p>（————以下是第二次解释————）</p>
+</blockquote>
+<p><code>_proto_</code>是关键，它就像开关一样，是实例访问原型对象的开关，只有在搜索原型属性的时候才会开启。</p>
+<p>举个例子你就明白了：</p>
+<pre><code class="javascript">Person.prototype.name=&quot;Anna&quot;;
+var person=new Person();
+person.name;//这是访问原型中的name属性。这是_proto_在发挥作用。
+person.name=&quot;Bob&quot;;//这不是对原型中的name属性重新赋值，而是在创建实例属性name
 </code></pre>
+<p>一开始，实例对象里面没有name属性。我来调用<code>person.name</code>，代码执行的是：</p>
 <ul>
-<li><code>Object.getPrototypeOf()</code>：可以返回对象的隐式原型指针（ES5新增）</li>
+<li>先是<code>person.name</code>，在实例对象自身寻找name属性，没有。这个时候<code>_proto_</code>相当于是关闭的</li>
+<li>再是<code>person._proto_name</code>，在原型对象里面寻找name属性，由于<code>_proto_</code>是个隐形属性，是看不见的，这个时候，<code>_proto_</code>相当于是开着的。</li>
 </ul>
-<pre><code class="javascript">alert(Object.getPrototypeOf(human1)==Human.prototype);//true
-alert(Object.getPrototypeOf(human2)==Human.prototype);//true
-alert(Object.getPrototypeOf(human1).name);//CC
-alert(Object.getPrototypeOf(human2).name);//CC 这里是human2的_proto_指向的原型对象里面的name属性的值
+<p>而<code>person.name=&quot;Bob&quot;</code>并没有调动起<code>_proto_</code>属性，person和原型对象没有连接起来，就是建立自身的属性，和普通的给对象建立属性是一样的，比如：</p>
+<pre><code class="javascript">var person={};
+person.name=&quot;Bob&quot;
 </code></pre>
+<p>所以，当我们抱着更改name的值的想法来给name重新赋值的时候，<code>_proto_</code>没有发挥作用，实例和原型没有连接，实际上这是在给实例对象创建实例属性。所以，对象实例不能重写原型中的值。</p>
+<blockquote>
+<p>（————以下是第一次解释————）</p>
+</blockquote>
+<p>在《JS高程》（第三版）P150页原文是这么说的：</p>
+<blockquote>
+<p>当为对象实例添加一个属性时，这个属性就会屏蔽原型对象中保存的同名属性；换句话说，添加这个属性只会阻止我们访问原型中的那个属性，但不会修改那个属性。 </p>
+</blockquote>
+<p>也就是说，我们可以通过对象实例来访问原型对象中的属性，但是我们不能修改原型对象中的属性。如果我们为原型对象设置同名属性，那么设置的这个属性是对象实例自身的属性，而不是对原&gt;型对象中的同名属性进行修改。而且在访问的时候，会屏蔽原型对象中的同名属性。</p>
+<p>还是用前面的例子：</p>
+<pre><code class="javascript">function Human(){};
+Human.prototype.name=&quot;CC&quot;;
+var human1=new Human();
+var human2=new Human();
+human2.name=&quot;Bob&quot;;//设定的这个name属性现在是human2自己的实例属性了
+alert(human1.name);//CC
+alert(human2.name);//Bob
+//我们再来看看这两个实例对象本身
+console.log(human1);//{}
+console.log(human2);//{name:&quot;Bob&quot;}
+</code></pre>
+<p>一点疑问：<a href="https://segmentfault.com/q/1010000006671767" target="_blank" rel="external">这个例子为什么就改变原型对象的值了呢？作何解释</a></p>
+<pre><code class="javascript">function Person(name,age,job){
+   this.name=name;
+   this.age=age;
+   this.job=job;
+}
+Person.prototype.friends=[&#39;shell&#39;,&#39;dom&#39;,&#39;bom&#39;];
+Person.prototype.color=&#39;red&#39;;
+var person2=new Person(&#39;Mark&#39;,29,&#39;teach&#39;);
+person2.color=&#39;green&#39;;
+console.log(person2.color);//green
+var person1=new Person(&#39;jack&#39;,19,&#39;stu&#39;);
+console.log(person1.color);//red
+
+person1.friends.push(&#39;window&#39;);
+console.log(person1.friends);//[&quot;shell&quot;, &quot;dom&quot;, &quot;bom&quot;, &quot;window&quot;]
+console.log(person2.friends);//[&quot;shell&quot;, &quot;dom&quot;, &quot;bom&quot;, &quot;window&quot;]
+</code></pre>
+<blockquote>
+<p>你还记得引用类型值的存储方式吗？（参见《JavaScript高级程序设计》（第三版）P68）</p>
+<p>friends是一个指针，它的真正的值是一个指针值，或者叫地址值，我们假设这个值为0x21。然后再根据这个地址，找到储存在堆内存中的对象[“shell”, “dom”, “bom”]。</p>
+<p>也就是：friends=0x21————&gt;对象。</p>
+<p>一开始，为friends=0x21————&gt;[“shell”, “dom”, “bom”];</p>
+<p>然后，你person1.friends.push(‘window’);之后，就变成：</p>
+<p>friends=0x21————&gt;[“shell”, “dom”, “bom”, “window”];</p>
+<p>friends的地址值是没有变化的。</p>
+<p>你用person1.friends和person2.friends前后访问的都是这个地址值。</p>
+</blockquote>
+</blockquote>
+<h3 id="5-3-原型的简写语法"><a href="#5-3-原型的简写语法" class="headerlink" title="5.3 原型的简写语法"></a>5.3 原型的简写语法</h3><p>我们回到一开始，通过原型模式创建对象：</p>
+<pre><code class="javascript">function Human(){};
+Human.prototype.name=&quot;CC&quot;;
+Human.prototype.age=26;
+Human.prototype.sayName=function(){alert(this.name);};
+</code></pre>
+<p>每次都要写一下实在是太麻烦了，于是人们就想到：</p>
+<pre><code class="javascript">function Human(){};
+Human.prototype={
+  name:&quot;CC&quot;,
+  age:26,
+  sayName:function(){alert(this.name);}
+}
+</code></pre>
+<p>可是，这么做有个问题，就是我们以字面量的形式创建了一个新对象，原型指针指向这个新对象，而不是原来的原型对象了。</p>
+<div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">为什么原型指针指向了新对象，而不是原来的原型对象？</div>
+
+<blockquote>
+<p>你还记得最开始讲的用字面量创建对象是用Object实例创建对象的简写形式吧？</p>
+<pre><code class="javascript">var obj=new Object();//等同于obj={}
+</code></pre>
+<p>所以，上面的原型对象的偷懒写法实际上就是：</p>
+<pre><code class="javascript">function Human(){};
+Human.prototype=new Object();//新原型对象是通过Object构造函数new出来的，
+                            //所以，其constructor属性指向Object，不指向Human
+Human.prototype.name=&quot;CC&quot;;
+Human.prototype.age=26;
+Human.prototype.sayName=function(){alert(this.name);};
+</code></pre>
+<p>当我们创建一个函数，就会默认给这个函数的原型创建一个原型对象，而且，里面会有默认的<code>constructor</code>属性指向原型对象。</p>
+<p>但是现在，用偷懒的写法，原型指针就指向一个新对象了。</p>
+<p>我们再用图来解释一下：</p>
+<p><img src="img/201801020104.png" alt=""></p>
+<p>对于原原型对象，如果还存在，就是图中的情况，它存在，但是无法调用它，它的<code>constructor</code>还指向Human构造函数呢。也许，就被垃圾回收了，我目前还不得而知。</p>
+</blockquote>
+<p>从图上可以很容易理解，这个时候，新对象的<code>constructor</code>指向它的构造函数Object，但是不指向Human了。所以：</p>
+<pre><code class="javascript">function Human(){};
+Human.prototype={
+  name:&quot;CC&quot;,
+  age:26,
+  sayName:function(){alert(this.name);}
+}
+
+var human1=new Human();
+alert(human1 instanceof Object);    //true
+alert(human1 instanceof Human);     //false
+alert(human1.constructor==Object);  //true
+alert(human1.constructor==Human);   //false
+</code></pre>
+<p>在这里，我们可以回答一下前面构造函数模式中的问题：</p>
+<div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">为什么构造函数就可以创建一个特定类型的对象，它的实例用 instanceof 检测属于它的构造函数</div>
+
+<blockquote>
+<p><strong>就是因为这个构造函数的实例的<code>constructor</code>属性都指向该构造函数啊。</strong></p>
+<p><code>consturctor</code>原型属性就像是DNA一样，可以确定对象和构造函数的亲子关系，只要我们检测到对象和构造函数的<code>constructor</code>是一样的，都指向这个构造函数，那么该对象就是该构造函数的实例，该对象属于该构造函数类别。</p>
+<p>（思考：如果我给对象实例添加一个同名的constructor属性，而且指向其他的构造函数，会怎么样呢？）</p>
+<p>这么来想：某个对象obj，我们不知道它的构造函数，通过调用</p>
+<pre><code class="javascritp">alert(obj.constructor);
+</code></pre>
+<p>得到它的构造函数，假设是Fun()；那么，obj就是Fun的实例，对吧！</p>
+<p>而<code>instanceof</code>操作符字面的意思就是：属于……的实例。它就是基于<code>instanceof</code>来检测的所以：</p>
+<pre><code class="javascript">alert(obj instanceof Fun);//true
+</code></pre>
+<p>为什么构造函数就可以创建一个特定类型的对象？</p>
+<p>就是因为构造函数会有一个constructor原型属性，它的实例都可以访问这个属性，指向这个构造函数，所以，这些对象实例都是属于这个构造函数的特定对象。既然如此，假设这个构造函数叫Fun，那么这些对象实例就都属于Fun类罗。</p>
+<p>同样的道理，Array()的数组实例都属于Array类罗！</p>
+</blockquote>
+<p>我们再回过头来看偷懒的原型写法，会导致<code>constructor</code>不指向自己的构造函数，而是指向Object构造函数，所以，如果该属性真的很重，我们只要重新设定一下就可以了。</p>
+<pre><code class="javascript">function Human(){};
+Human.prototype={
+  constructor:Human,//注意这里是对constructor重新赋值哦！
+  name:&quot;CC&quot;,
+  age:26,
+  sayName:function(){alert(this.name);}
+}
+</code></pre>
+<p>用图说明就是：</p>
+<p><img src="img/201801020105.png" alt=""></p>
+<p>要注意一点的是，这种方式重设<code>constructor</code>是可以枚举的，也就是其[[Enumerable]]会设为true，原生的<code>constructor</code>是不可枚举的。所以，如果考虑到对ES5的JS引擎的兼容性，可以用<code>Object.defineProperty()</code>设定一下。</p>
+<pre><code class="javascript">Object.defineProperty(Human.prototype,&quot;constructor&quot;,{
+  enumerable:false,
+  value:Human
+});
+</code></pre>
+<div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">用偷懒的方式写原型对象，为什么不能先创建实例，在写原型对象？</div>
+
+<blockquote>
+<p>我们来看这个流程：</p>
+<ul>
+<li>首先，肯定有构造函数：<code>function Fun(){};</code>这时，其prototype指向默认的原型对象。</li>
+<li>然后先创建其实例：<code>var fun=new Fun();</code>这个时候fun的隐式原型<code>_prop_</code>是指向默认原型对象的。</li>
+<li>然后再重写原型对象：<code>Fun.prototype={……};</code>这个时候prototype指向新的原型对象了。</li>
+</ul>
+<p>问题就在于，我们把属性和方法添加在新原型对象中，而调用实例的时候，还是从原来的原型对象中搜索属性，肯定找不到我们设定的属性，所以会出错。</p>
+<p>下面来看看具体的例子：</p>
+<pre><code class="javascript">function Person(){}
+var friend = new Person();
+Person.prototype = {
+  constructor: Person,
+  name : &quot;Nicholas&quot;,
+  age : 29,
+  job : &quot;Software Engineer&quot;,
+  sayName : function () {
+          alert(this.name);
+    }
+};
+friend.sayName(); //error
+</code></pre>
+<p><img src="img/201801020106.png" alt=""></p>
+</blockquote>
+<h3 id="5-4-原型模式的问题"><a href="#5-4-原型模式的问题" class="headerlink" title="5.4 原型模式的问题"></a>5.4 原型模式的问题</h3><p>其最大的问题是由其共享本性造成的。</p>
+<p>原型中的属性是被许多实例所共享的。如果属性的值是函数、值类型都没有问题，如果是引用类型值的属性，问题就很突出了。比如：</p>
+<pre><code class="javascript">function Person(){}
+Person.prototype = {
+  constructor: Person,
+  name : &quot;Nicholas&quot;,
+  age : 29,
+  job : &quot;Software Engineer&quot;,
+  friends : [&quot;Shelby&quot;, &quot;Court&quot;],
+  sayName : function () {
+      alert(this.name);
+  }
+};
+var person1 = new Person();
+var person2 = new Person();
+person1.friends.push(&quot;Van&quot;);
+alert(person1.friends); //&quot;Shelby,Court,Van&quot;
+alert(person2.friends); //&quot;Shelby,Court,Van&quot;
+alert(person1.friends === person2.friends); //true
+</code></pre>
+<h2 id="6、混合模式"><a href="#6、混合模式" class="headerlink" title="6、混合模式"></a>6、混合模式</h2><p>为了解决上面的问题，人们就想到：<strong>组合使用构造函数模式和原型模式。</strong></p>
+<p>对于共享的部分，就放在原型里面，大家一起共用，比如：<code>sayName()</code>方法。对于不想共享的部分，比如：name、age这样个性化的属性，就放在构造函数里面，这样在创建实例时，就会给每个实例创建一份，成为实例自身的实例属性。而且。这样的话，还可以传递参数，很方便。</p>
+<blockquote>
+<p>这种构造函数与原型混成的模式，是目前在 ECMAScript 中使用最广泛、认同度最高的一种创建自定义类型的放法。可以说，这是用来定义引用类型的一种默认模式。</p>
+</blockquote>
+<pre><code class="javascript">function Person(name, age, job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = [&quot;Shelby&quot;, &quot;Court&quot;];
+}
+Person.prototype = {
+    constructor : Person,
+    sayName : function(){
+        alert(this.name);
+    }
+}
+var person1 = new Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+var person2 = new Person(&quot;Greg&quot;, 27, &quot;Doctor&quot;);
+person1.friends.push(&quot;Van&quot;);
+alert(person1.friends); //&quot;Shelby,Count,Van&quot;
+alert(person2.friends); //&quot;Shelby,Count&quot;
+alert(person1.friends === person2.friends); //false
+alert(person1.sayName === person2.sayName); //true
+</code></pre>
+<h2 id="7、动态原型模式"><a href="#7、动态原型模式" class="headerlink" title="7、动态原型模式"></a>7、动态原型模式</h2><p>人们也在想，原型对象总是在构造函数外面，可不可以把原型也放在构造函数里面呢？这样更具有封装性。</p>
+<p>动态原型模式就可以解决这个问题，它把所有的信息都放在构造函数中。</p>
+<blockquote>
+<p>特点是初始化原型。</p>
+</blockquote>
+<p>我们来看个例子：</p>
+<pre><code class="javascript">function Person(name, age, job){
+//属性
+    this.name = name;
+    this.age = age;
+    this.job = job;
+//方法
+    if (typeof this.sayName != &quot;function&quot;){ //关键部分
+        Person.prototype.sayName = function(){
+            alert(this.name);
+        };
+    }
+}
+var friend = new Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);//创建实例时会调用到构造函数
+friend.sayName();
+</code></pre>
+<p>当我们第一次调用构造函数时，构造函数里面就会判断<code>this.sayName</code>是不是函数类型，如果不是，就在原型里面添加<code>sayName</code>方法。我们初次调用构造函数的时候原型里面没有添加这个方法啊，<code>this.sayName</code>肯定不是函数类型，于是就像原型中添加了该方法。这就是初始化。</p>
+<blockquote>
+<p>要注意啊！在调用构造函数时才会调用那段判断代码。也就是只有在创建实例时，使用<code>new</code>操作符调用构造函数时，才会执行这段代码。在创建首个实例时，原型会初始化。之后创建实例就不用初始化了。</p>
+<p>也就是说，在我们写完构造函数，还没有创建实例时，构造函数中的原型对象里面是空的，没有我们自己定义的方法。（不过默认的一些还是有的），只有在第一次调用构造函数之后，原型里面才装满了我们自定义的方法。</p>
+<p>而不是在实例调用时执行那段代码！想清楚！</p>
+</blockquote>
+<p>在之后再次创建实例时，构造函数里面也会判断，<code>this.sayName</code>是不是函数类型，一看，诶！是函数类型的，说明向原型添加过该方法了，就不会再添加，直接在原型里面调用该方法。</p>
+<p>这就是动态原型模式。通过初始化原型的方式，将原型也封装在构造函数里面。</p>
+<blockquote>
+<p>换句话说，可以通过检查某个应该存在的方法是否有效，来决定是否需要初始化原型。 </p>
+</blockquote>
+<p>如果我们有多个方法需要初始化，也只要使用一个属性或方法进行判断就可以了，不必谢一大堆<code>if</code>判断，比如：</p>
+<pre><code class="javascript">if (typeof this.sayName != &quot;function&quot;){ 
+  Person.prototype.sayName = function(){alert(this.name);};
+  Person.prototype.sayAge = function(){alert(this.age);};
+  Person.prototype.sayJob = function(){alert(this.job);};
+}
+
+//也可以用原型简写的语法方式
+if (typeof this.sayName != &quot;function&quot;){ 
+  Person.prototype={
+    constructor:Person,//如果不想枚举，也可以用Object.defineProperty()设定
+    sayName: function(){alert(this.name);},
+    sayAge: function(){alert(this.age);},
+    sayJob: function(){alert(this.job);},
+  }
+}
+</code></pre>
+<h2 id="8、寄生构造函数模式"><a href="#8、寄生构造函数模式" class="headerlink" title="8、寄生构造函数模式"></a>8、寄生构造函数模式</h2><p>我们来想想这种情况：</p>
+<p>假设我们想为纯数字数组添加一个方法，比如求数组所有元素的和，且叫这个方法为add，让新创建的数组都可以使用这个方法。怎么办？</p>
+<p>如果单纯用函数的话，倒是可以在全局作用域创建<code>add()</code>函数。比如：</p>
+<pre><code class="javascript">function add(arr){
+  var sum=0;
+  for(var i=0;i&lt;arr.length;i++){
+    sum+=arr[i];
+  }
+  return sum;
+}
+</code></pre>
+<p>但是，现在我们想要为数组添加这样的方法啊！可不是单独的求和函数。</p>
+<p>如果我们在<code>Array()</code>数组构造函数的原型添加这个方法<code>Array.prototype.add=function(){……}</code>，这样不太好。因为原生构造函数是定义好的，随便添加，可能会引起想不到的错误，比如，不小心重写了同名属性，比如兼容问题等等。</p>
+<p>所以，这种情况就是：<strong>我想在不改变原来的构造函数的原型的情况下，给对象添加一些属性、方法。</strong></p>
+<p>怎么办？</p>
+<p>聪明的人类想到了寄生构造函数模式。</p>
+<ul>
+<li>我们构造一个空的构造函数</li>
+<li>然后在这个构造函数内，创建目标对象的实例，并添加属性和方法</li>
+<li>最后return出这个实例对象</li>
+</ul>
+<p><strong>听起来有点像代孕妈妈肚子里怀了别人的孩子，生出来的也是别人的孩子，和自己在DNA上没有血缘关系。</strong></p>
+<p>我们来一探究竟。看个实际的例子：</p>
+<pre><code class="javascript">function Person(name, age, job){
+  var o = new Object();
+  o.name = name;
+  o.age = age;
+  o.job = job;
+  o.sayName = function(){
+      alert(this.name);
+  };
+  return o;
+}
+var friend = new Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+friend.sayName(); //&quot;Nicholas&quot;
+</code></pre>
+<p>乍一看，这个构造函数的代码和工厂模式的代码很像，没错，一模一样。但是现在Person是构造函数，请用对待构造函数的眼光对待它。</p>
+<blockquote>
+<p><strong>构造函数在不返回值的情况下，默认会返回新对象实例。而通过在构造函数的末尾添加一个 return 语句，可以重写调用构造函数时返回的值。</strong> </p>
+</blockquote>
+<p>也就是说，如果构造函数Person的末尾没有添加<code>return o</code>，返回的还是构造函数自己的实例，但是现在不一样了，添加了返回值为<code>o</code>，那么返回的就是Object的实例。</p>
+<p>我们每次调用Person创建新对象实例，创建的不是Person类别的了，创建的是Object类的实例。</p>
+<blockquote>
+<p>所以，<strong>不能依赖instanceof来确定对象的类型。</strong></p>
+</blockquote>
+<p>因为构造函数里面是<code>var o=new Object()</code>，所以，返回出来的对象，<code>friend._proto_.constructor</code>是指向Object的，不是指向Person的，前面说过了，<code>constructor</code>就是DNA，它指向谁，这个实例就属于谁，所以，用<code>instanceof</code>检测是属于Object的，但是不属于Person。</p>
+<p>但是，这个friend对象确实是通过Person <code>new</code>出来的啊。所以，在这里不能依赖<code>instanceof</code>检测对象的类型。</p>
+<p>接着，我们再回到一开始的例子，给数组添加求和方法，就可以用寄生构造函数模式解决：</p>
+<pre><code class="javascript">function Xarr(){
+  //创建数组
+  var arr=new Array();
+  arr.push.apply(arr, arguments);//将参数添加到arr数组作为数组元素
+  //给数组添加方法
+  arr.add=function(){
+      var sum=0;
+      for(var i=0;i&lt;this.length;i++){
+          sum+=this[i];
+      };
+      return sum
+  }
+  //返回数组
+  return arr;
+}
+
+var arr1=new Xarr(1,2,3,4,5,6,7,8,9,10);
+var arr2=new Xarr(40,5,1);
+console.log(arr1.add());//55
+console.log(arr2.add());//46
+
+console.log(arr1 instanceof Array);     //true
+console.log(arr1 instanceof Xarr);      //false
+console.log(arr1.constructor==Array);   //true
+console.log(arr1.constructor==Xarr);    //false
+</code></pre>
+<p>现在对于寄生构造函数模式，现在就基本上理解了吧。</p>
+<p>但是，在我心里总有一些疑问没有解决，就像19世纪物理学头上的三朵乌云一样。</p>
+<div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">为什么一定要用new来调用构造函数呢？</div>
+
+<pre><code class="javascript">function Person(name, age, job){
+  var o = new Object();
+  o.name = name;
+  o.age = age;
+  o.job = job;
+  o.sayName = function(){
+      alert(this.name);
+  };
+  return o;
+}
+</code></pre>
+<p>恩！你其实想说的是用new调用构造函数多此一举吧。因为在前面构造函数模式里面讲过用new调用构造函数的作用是：</p>
+<ul>
+<li>创建一个对象</li>
+<li>this指向新对象（将构造函数的作用域赋给新对象）</li>
+<li>为新对象添加属性</li>
+<li>返回新对象</li>
+</ul>
+<p>但是这个构造函数里面自己都创建了新对象：<code>var o=new Object()</code>，而且结尾<code>return o</code>了。所以，用new就有点多此一举了。</p>
+<p>但这里使用<code>new</code>操作符，就是为了调用构造函数，去创建实例。至于new操作符帮我们创建对象和return对象，就理解为被我们自己主动在构造函数里面的<code>var o = new Object()</code>、<code>return o</code>覆盖了。</p>
+<div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">这个方面的疑惑解决了，我们再往下想，为什么一定非要把Person当做构造函数去用，new出一个实例出来？我们直接把Person当做工厂模式中的函数来用也可以啊！寄生构造函数可以做的工作，工厂模式也能实现；那这种寄生构造函数存在有什么意义？所以，好处在哪里？请说服我！！！</div>
+
+<p>我想，唯一的好处就是保证代码的优雅型性吧！让别人一看，就知道这是在构造一个新的对象类型的实例。</p>
+<p>高程书中的原话是：</p>
+<blockquote>
+<p><strong>除了使用new操作符并把使用的包装函数叫做构造函数之外，这个模式跟工厂模式其实是一模一样的。</strong></p>
+<p>“<strong>它们又是用在什么样的情境下呢？</strong>”至于这个问题。书里也给出了明确的回答：“<strong>我们建议在可以使用其他模式的情况下，不要使用这种模式。</strong>”</p>
+</blockquote>
+<p>书里说可以在特殊情况下用来为对象创建构造函数。至于是什么特殊情况，大概是不能用其他模式的情况下吧。</p>
+<p>看看这里的吐槽，了解了解就行了。<a href="https://www.zhihu.com/question/39363213" target="_blank" rel="external">JavaScript 中工厂模式与寄生构造函数模式有哪些不同？</a></p>
+<h2 id="9、稳妥构造函数模式"><a href="#9、稳妥构造函数模式" class="headerlink" title="9、稳妥构造函数模式"></a>9、稳妥构造函数模式</h2><p>处于安全方面的考虑，一些上古时代的老年人发明了稳妥构造函数模式。</p>
+<p>稳妥构造函数模式的特点：</p>
+<ul>
+<li>没有公共属性</li>
+<li>不用<code>new</code>操作符调用构造函数</li>
+<li>不使用this</li>
+</ul>
+<p>来看个实际的例子：</p>
+<pre><code class="javascript">function Person(name, age, job){
+  //创建要返回的对象
+  var o = new Object();
+  //可以在这里定义私有变量和函数
+
+  //添加方法
+  o.sayName = function(){
+      alert(name);
+  };
+  //返回对象
+  return o;
+}
+
+//注意，在以这种模式创建的对象中， 除了使用 sayName()方法之外，没有其他办法访问 name 的值。可以像下面使用稳妥的 Person 构造函数。
+var friend = Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+friend.sayName(); //&quot;Nicholas&quot;
+</code></pre>
+<p>我不想说什么，就引用高程中的原话吧：</p>
+<blockquote>
+<p>这样，变量 friend 中保存的是一个稳妥对象，而除了调用 sayName()方法外，没有别的方式可以访问其数据成员。即使有其他代码会给这个对象添加方法或数据成员，但也不可能有别的办法访问传入到构造函数中的原始数据。稳妥构造函数模式提供的这种安全性，使得它非常适合在某些安全执行环境——例如,ADsafe（www.adsafe.org）和 Caja（<a href="http://code.google.com/p/google-caja/）提供的环境——下使用。" target="_blank" rel="external">http://code.google.com/p/google-caja/）提供的环境——下使用。</a> </p>
+</blockquote>
+<p>其实我想吐槽的，造这么高深的名词：稳妥构造函数模式。其实就是把对象封装在函数里面使用。而且不适用<code>new</code>操作符，不就是当做一般的函数来使用的吗？只不过没有给对象设定属性，只是设定了方法，把参数传进去罢了。</p>
+<p>对于上面的<code>friend</code>对象，它自己其实只有一个实例方法，无论是实例对象本身还是它的构造函数的原型都没有我们人为定义的其他属性或方法。我们当然是没有其他的办法去访问其name值啊，除了使用<code>sayName()</code>方法之外。</p>
+<p>其实吧，就当做一般的函数去理解还直接一些，不必搞的这么复杂。</p>
+<p>以上，就是我目前对创建对象的认知！</p>
+<p>我们原型链见！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="img/201801020107.png" alt=""></p>
 
         
     
