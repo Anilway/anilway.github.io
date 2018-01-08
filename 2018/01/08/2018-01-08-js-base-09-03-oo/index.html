@@ -37,7 +37,7 @@
     
     <title>
         
-            JS基础总结04:复杂数据类型：Object | 
+            JS基础总结09:面向对象程序设计——继承 | 
         
         Anilway
     </title>
@@ -236,18 +236,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="JS基础总结04:复杂数据类型：Object | Anilway">
+    <meta property="og:title" content="JS基础总结09:面向对象程序设计——继承 | Anilway">
     <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
     <meta property="og:description" content="">
     <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="JS基础总结"> 
 
     
-        <meta property="article:published_time" content="Tue Dec 05 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Wed Dec 06 2017 14:51:22 GMT+0800" />
+        <meta property="article:published_time" content="Mon Jan 08 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Jan 08 2018 15:10:16 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="JS基础总结04:复杂数据类型：Object | Anilway">
+    <meta name="twitter:title" content="JS基础总结09:面向对象程序设计——继承 | Anilway">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -255,7 +255,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/01/08/2018-01-08-js-base-09-03-oo/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -267,10 +267,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/index.html",
-    "headline": "JS基础总结04:复杂数据类型：Object",
-    "datePublished": "Tue Dec 05 2017 00:00:00 GMT+0800",
-    "dateModified": "Wed Dec 06 2017 14:51:22 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/01/08/2018-01-08-js-base-09-03-oo/index.html",
+    "headline": "JS基础总结09:面向对象程序设计——继承",
+    "datePublished": "Mon Jan 08 2018 00:00:00 GMT+0800",
+    "dateModified": "Mon Jan 08 2018 15:10:16 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -348,6 +348,15 @@
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、原型链"><span class="post-toc-text">1、原型链</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、借用构造函数"><span class="post-toc-text">2、借用构造函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、组合继承"><span class="post-toc-text">3、组合继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、原型式继承"><span class="post-toc-text">4、原型式继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、寄生式继承"><span class="post-toc-text">5、寄生式继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、寄生组合式继承"><span class="post-toc-text">6、寄生组合式继承</span></a></li></ol>
+    </ul>
+    
 
 
 
@@ -368,7 +377,7 @@
         <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg)">
     
             <p class="article-headline-p">
-                JS基础总结04:复杂数据类型：Object
+                JS基础总结09:面向对象程序设计——继承
             </p>
         </div>
 
@@ -387,7 +396,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Anilway</strong>
-        <span>12月 05, 2017</span>
+        <span>1月 08, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -409,7 +418,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/01/08/2018-01-08-js-base-09-03-oo/">
     
 </ul>
 
@@ -440,7 +449,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS基础总结04:复杂数据类型：Object&url=http://yoursite.com/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS基础总结09:面向对象程序设计——继承&url=http://yoursite.com/2018/01/08/2018-01-08-js-base-09-03-oo/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -449,7 +458,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS基础总结04:复杂数据类型：Object&url=http://yoursite.com/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/index.html&via=Anilway" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS基础总结09:面向对象程序设计——继承&url=http://yoursite.com/2018/01/08/2018-01-08-js-base-09-03-oo/index.html&via=Anilway" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -458,7 +467,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/08/2018-01-08-js-base-09-03-oo/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -467,7 +476,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/08/2018-01-08-js-base-09-03-oo/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -492,46 +501,223 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="\assets\js\APlayer.min.js"> </script><p>Object每个实例都会有的属性和方法：</p>
-<table>
-<thead>
-<tr>
-<th>属性和方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>constructor</code></td>
-<td>创造当前对象的构造函数的指针</td>
-</tr>
-<tr>
-<td><code>hasOwnProperty(属性名)</code></td>
-<td>检查属性是否属于当前对象</td>
-</tr>
-<tr>
-<td><code>isPrototypeOf(对象)</code></td>
-<td>检查传入的对象是否是当前对象的原型</td>
-</tr>
-<tr>
-<td><code>propertyIsEnumerable(属性名)</code></td>
-<td>检查属性是否可以通过<code>for-in</code>循环枚举</td>
-</tr>
-<tr>
-<td><code>toLocaleString()</code></td>
-<td>返回对象的字符串表示，<br>该字符串与执行环境的地区对应</td>
-</tr>
-<tr>
-<td><code>toString()</code></td>
-<td>返回对象的字符串表示</td>
-</tr>
-<tr>
-<td><code>valueOf()</code></td>
-<td>返回对象的字符串、数值、布尔值表示。<br>通常与<code>toString()</code>方法的返回值相同</td>
-</tr>
-</tbody>
-</table>
-<p>其他内容待更新，先占坑。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="1、原型链"><a href="#1、原型链" class="headerlink" title="1、原型链"></a>1、原型链</h2><p><strong>关键：</strong>子类型（SubType）构造函数的原型对象也是超类型（SuperType）构造函数的实例。检索属性的方式是先检索实例属性，再检索原型属性。由于子类型的原型对象即是它自身的原型对象，又是超类型的实例。所以，当在子类型的原型对象中检索到没有检索到属性时，又可以像它的构造函数的原型对象中检索。这样，子类型的实例就可以继承超类型的属性。</p>
+<p>不仅可以继承超类型的原型属性，也可以继承超类型的实例属性。因为超类型构造函数中直接设定的属性会写入它的实例中，那么，也就是子类型原型对象中的属性。</p>
+<p><strong>问题：</strong>原型对象里面的引用类型属性被实例共享，如果遭到更改，会影响到所有实例。比如：给数组push新的元素。如果超类型中的实例属性有引用类型，那么意味着子类型的原型对象里面会有引用类型属性，就会有这样的问题。</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li><p>所有函数的默认原型都是Object的实例（通过new Object()生成的那种直接实例），所以，该对象有<code>[[prototype]]</code>指向Object构造函数的原型对象。</p>
+</li>
+<li><p>由于子类型的原型被重设为超类型的实例，所以子类型的原型对象里面没有<code>constructor</code>属性。要强调一点，<code>constructor</code>属性是原生原型对象的默认属性，JS自动配置的。但是实例对象里面是不会存在该属性的，除非你自己定义。</p>
+</li>
+<li><p>所有引用类型确实继承了Object，但是不意味着所有引用类型都是Object的直接实例。比如：子类型的实例，它确实继承了Object，有Object的所有属性，我们可以顺着原型链去找到，它也确实是Object的实例。但是子类型的实例不是Object的直接实例，所以，子类型的实例没有<code>[[prototype]]</code>指向Object。我认为实例的<code>[[prototype]]</code>默认指向它的构造函数的原型。</p>
+</li>
+<li><p>所以，正因为如此，我们需要设定好原型之后再创建实例。这样才能保证实例和构造函数的原型指向一致。如果先创建实例，然后再重置原型对象，那么实例的<code>[[prototype]]</code>只会指向之前的原型对象，而构造函数的原型却指向现在的新原型对象，这样就不一致。那么，使用<code>instanceof</code>判断就会使<code>false</code>。</p>
+</li>
+<li><p><code>instanceof</code>的判断原理：在没学原型链之前，可以认为是实例的<code>[[prototype]]</code>和构造函数的<code>prototype</code>指向一致，都指向同一个原型对象，则判断为<code>true</code>。在学完原型之后，这个概念要扩展一下，<strong>只要构造函数的<code>prototype</code>在实例的原型链上，那么<code>instanceof</code>就会判断为<code>true</code>。</strong>所以，由于原型链的关系，我们可以说instance是Object、SuperType、SubType中任何一个实例。</p>
+</li>
+<li><p>我创造了几个概念：实例属性和原型属性。直接实例和间接实例。</p>
+<ul>
+<li>实例属性：实例对象本身具有的属性。包括①从构造函数本身复制到实例对象上成为实例对象本身的属性，②我们为实例设置的属性。</li>
+<li>原型属性：存在于原型对象中的属性。所有的实例只是共享，本身不具备，除非你给实例设定同名属性。</li>
+<li>直接实例：通过调用构造函数创建的实例为该构造函数的直接实例。该实例会有内在属性<code>[[prototype]]</code>指向该构造函数的默认原型对象。</li>
+<li>间接实例：通过原型链获得裙带关系。比如子类型的直接实例也是超类型的间接实例。虽然子类型的实例也是超类型的实例，但是该实例的<code>[[prototype]]</code>不会指向超类型的原型对象，只能通过原型链访问到。</li>
+</ul>
+</li>
+<li><p>在子类型的原型重设为超类型的实例后：</p>
+<ul>
+<li>如果要添加原型属性，要注意不能用字面量法去简写，因为这样又会重置原型对象。原型链就断开了，新的原型链形成了。</li>
+<li><p>同时也要注意添加原型属性的时机，你不能先给子类型添加原型属性，然后再把原型对象替换为超类型的实例，这样的话，你添加的原型属性都在默认原型里面，新替换的原型对象里面是没有的。</p>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2、借用构造函数"><a href="#2、借用构造函数" class="headerlink" title="2、借用构造函数"></a>2、借用构造函数</h2><p>为了避免原型链在原型中对引用类型的共享，人们又发明了借用构造函数的方式继承。</p>
+<p><strong>原理：</strong>在子类型的构造函数中<code>.call(this)</code>调用超类型构造函数。this指子类型未来的实例。</p>
+<pre><code class="javascript">function SuperType(){this.name=&quot;Anna&quot;;};
+function SubType(){
+  SuperType.call(this);
+  this.age=26;
+}
+var person=new SubType();
+console.log(person.name);//Anna
+console.log(person.age);//26
+</code></pre>
+<p>我们知道<code>函数名+()</code>是对函数的调用，比如：<code>SubType()</code>；同样的，<code>函数名+.call()</code>也是对函数的调用。这是没问题的。但是你可能会对SubType()构造函数里面使用<code>SuperType.call(this)</code>造成误解，认为在构造函数时刻，就在调用超类型构造函数。其实这只是子类型构造函数的声明，并不是执行，所以，函数体里面的代码就算是调用函数，被调用的这个函数也不会执行，因为这只是外层函数的声明，并不是外层函数的调用执行，所以，内部的执行代码不会执行。</p>
+<p>只有在创建子类型的实例的时候，才会调用子类型构造函数，此时，内部的<code>SuperType.call(this)</code>才会被执行。这样，<code>new</code>操作符就会把超类型中的<code>this.name=&quot;Anna&quot;</code>复制给实例。所以，实例就有了超类型的实例属性。</p>
+<p>这样的话，子类型的实例可以同时继承子类型和超类型的实例属性。但是并不管原型什么事。</p>
+<p><strong>问题：</strong>所以问题就是方法不能被共享，会复制给每个实例，造成资源浪费。</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li><p>如果子类型和超类型有同名属性，那么在实例中这个属性会被重写：</p>
+<pre><code class="javascript">function SuperType(){this.name=&quot;Anna&quot;;};
+function SubType(){
+  SuperType.call(this);//所以要注意调用顺序
+  this.name=&quot;Bob&quot;;
+}
+var person=new SubType();
+console.log(person.name);//Bob
+</code></pre>
+<p>所以，为了确保超类型构造函数的属性不会重写子类型的属性，可以在调用超类型构造函数之后，再给子类型构造函数添加属性。</p>
+</li>
+</ul>
+<h2 id="3、组合继承"><a href="#3、组合继承" class="headerlink" title="3、组合继承"></a>3、组合继承</h2><p>组合继承就是结合原型链和借用构造函数两种继承方式的优点：</p>
+<ul>
+<li>不能共享的属性就用借用构造函数的方式继承给实例。（子类型构造函数会调用超类型构造函数）</li>
+<li>可以共享的属性就通过原型链继承给实例。（子类型原型替换为超类型实例时，会调用构造函数）</li>
+</ul>
+<pre><code class="javascript">function SuperType(name){
+      this.name = name;
+      this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+SuperType.prototype.sayName = function(){
+    alert(this.name);
+};
+function SubType(name, age){
+    //继承属性
+    SuperType.call(this, name);//按执行顺序，这是第二次调用超类型。这里是在创建实例才会被调用。
+    this.age = age;
+}
+//继承方法
+SubType.prototype = new SuperType();//按执行顺序，这是第一次调用超类型。这里直接就执行了
+SubType.prototype.constructor = SubType;//如果有需要，可以添加constructor属性
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+};
+var instance1 = new SubType(&quot;Nicholas&quot;, 29);
+instance1.colors.push(&quot;black&quot;);
+alert(instance1.colors); //&quot;red,blue,green,black&quot;
+instance1.sayName(); //&quot;Nicholas&quot;;
+instance1.sayAge(); //29
+var instance2 = new SubType(&quot;Greg&quot;, 27);
+alert(instance2.colors); //&quot;red,blue,green&quot;
+instance2.sayName(); //&quot;Greg&quot;;
+instance2.sayAge(); //27
+</code></pre>
+<p><strong>问题：</strong></p>
+<ul>
+<li><p>组合式继承的问题在于两次调用了超类型构造函数，这样效率不高</p>
+</li>
+<li><p>更大的问题在于两次复制了超类型的实例属性：</p>
+<ul>
+<li>第一次：在创建超类型实例作为子类型的原型对象时，超类型中的实例属性会复制给它的实例。这些实例属性也就是子类型的原型属性。因为超类型的实例是子类型的原型对象。</li>
+<li>第二次：在创建子类型的实例时，会调用子类型构造函数中的<code>SuperType.call(this)</code>，这样会把超类型的实例属性复制给子类型的实例，成为子类型实例的实例属性。这样就同时屏蔽了原型对象中的同名属性。</li>
+</ul>
+<p>这两次的实例属性都是从超类型复制而来。这就是问题所在，这样是很没效率的。没有必要把超类型的实例属性复制到子类型的原型对象里面的。</p>
+</li>
+</ul>
+<p>为了解决这个问题，人们又发明了寄生组合式继承。但是在此之前，也是从原型式继承发展来的。</p>
+<h2 id="4、原型式继承"><a href="#4、原型式继承" class="headerlink" title="4、原型式继承"></a>4、原型式继承</h2><p>这是一个老头子在2006年发明的。关键在于他给出的函数：</p>
+<pre><code class="javascript">function object(o){
+  function F(){}
+  F.prototype=o;
+  return new F();
+}
+</code></pre>
+<p>这个函数把传入的对象o作为内部构造函数F的原型对象，最后返回这个构造函数的实例。</p>
+<p>那么原型式继承是这样运用的：</p>
+<pre><code class="javascript">var person = {
+    name: &quot;Nicholas&quot;,
+    friends: [&quot;Shelby&quot;, &quot;Court&quot;, &quot;Van&quot;]
+};
+var anotherPerson = object(person);
+anotherPerson.name = &quot;Greg&quot;;
+anotherPerson.friends.push(&quot;Rob&quot;);
+var yetAnotherPerson = object(person);
+yetAnotherPerson.name = &quot;Linda&quot;;
+yetAnotherPerson.friends.push(&quot;Barbie&quot;);
+alert(person.friends); //&quot;Shelby,Court,Van,Rob,Barbie&quot;
+</code></pre>
+<p><strong>为什么叫做原型式继承呢？</strong></p>
+<p>从上面的例子可以看出：person就是原型对象；创建的两个新对象都<strong>共享</strong>了person的属性，也就是它们都继承自同一个原型。所以叫做原型式继承。</p>
+<p>但是这个里面也有个问题就是引用类型属性的共享，比如上例中的friends属性。和原型链继承的问题一样。</p>
+<p><strong>Object.create()方法</strong>：</p>
+<p>接收两个参数：第一个为作为原型的对象；第二个为为新对象实例定义新实例属性的属性对象（可选）。</p>
+<ul>
+<li>传入一个参数时，作用和前面的<code>object()</code>函数一样。</li>
+</ul>
+<pre><code class="javascript">var person = {
+name: &quot;Nicholas&quot;,
+friends: [&quot;Shelby&quot;, &quot;Court&quot;, &quot;Van&quot;]
+};
+var anotherPerson = Object.create(person);
+anotherPerson.name = &quot;Greg&quot;;
+anotherPerson.friends.push(&quot;Rob&quot;);
+var yetAnotherPerson = Object.create(person);
+yetAnotherPerson.name = &quot;Linda&quot;;
+yetAnotherPerson.friends.push(&quot;Barbie&quot;);
+alert(person.friends); //&quot;Shelby,Court,Van,Rob,Barbie&quot;
+</code></pre>
+<p><code>Object.create()</code>方法的第二个参数与<code>Object.defineProperties()</code>方法的第二个参数格式相同：每个属性都是通过自己的描述符定义的。以这种方式指定的任何属性都会覆盖原型对象上的同名属性。例如：</p>
+<pre><code class="javascript">var person = {
+    name: &quot;Nicholas&quot;,
+    friends: [&quot;Shelby&quot;, &quot;Court&quot;, &quot;Van&quot;]
+};
+var anotherPerson = Object.create(person, {
+    name: {
+        value: &quot;Greg&quot;
+    }
+});
+alert(anotherPerson.name); //&quot;Greg&quot;
+console.log(person);//{friends: [&quot;Shelby&quot;, &quot;Court&quot;, &quot;Van&quot;],name:Greg}
+//也就是说，第二个参数创建的属性是给实例对象创建的实例属性，没有放在原定对象里面
+</code></pre>
+<h2 id="5、寄生式继承"><a href="#5、寄生式继承" class="headerlink" title="5、寄生式继承"></a>5、寄生式继承</h2><pre><code class="javascript">function createAnother(o){
+  var clone=object(o);      //通过调用函数创建一个新对象
+  clone.sayNi=function(){   //给这个对象添加方法
+    alert(&quot;Hi&quot;);
+  };
+  return clone;             //返回这个对象
+}
+</code></pre>
+<p>寄生式继承和原型式继承的区别在于：</p>
+<ul>
+<li>原型式继承是直接通过调用object函数创造新对象实例</li>
+<li>寄生式继承是，在一个函数内部，先定义一个object函数的实例，然后再给这个实例添加方法，然后再返回这个实例。我们要创建新对象，是通过调用外部函数来创建的。</li>
+</ul>
+<p><strong>为什么叫寄生式继承？</strong></p>
+<p>外部函数就是个壳子，真正的对象还是调用内部的object函数创建的，而且在内部同时创建了新方法。所以，我们创建的新对象实例，看起来是调用外部函数创建的，实际上是内部函数创建的，外部函数只是个封装的壳子。所以，叫做寄生式继承。</p>
+<p><strong>问题</strong>：自定义的新方法是复制给实例的，实例不能共享。降低效率。</p>
+<h2 id="6、寄生组合式继承"><a href="#6、寄生组合式继承" class="headerlink" title="6、寄生组合式继承"></a>6、寄生组合式继承</h2><ul>
+<li>通过借用构造函数继承属性</li>
+<li>通过原型链继承方法</li>
+</ul>
+<p>寄生组合式继承的基本模式如下：</p>
+<pre><code class="javascript">//替换子类型的默认原型
+//为子类型的原型添加一个[[prototype]]指向超类型的原型的原型对象
+function inheritPrototype(subType, superType){
+    var prototype = object(superType.prototype); //创建对象
+    prototype.constructor = subType;             //增强对象
+    subType.prototype = prototype;               //指定对象
+}
+</code></pre>
+<p>这个就很有意思了。子类型的原型对象不直接重置为超类型的实例，而是等于object函数返回的实例。由于这个实例的构造函数F（请看前面原型式继承给出的object()函数）的原型对超类型的原型进行了浅复制（指针赋值）（也就是构造函数F的原型指向超类型的原型），所以，object函数返回的实例的隐式原型也指向超类型的原型对象。</p>
+<blockquote>
+<p>这个示例中的<code>inheritPrototype()</code>函数实现了寄生组合式继承的最简单形式。这个函数接收两个参数：子类型构造函数和超类型构造函数。在函数内部，第一步是创建超类型原型的一个副本。第二步是为创建的副本添加 <code>constructor</code>属性，从而弥补因重写原型而失去的默认的 <code>constructor</code>属性。最后一步，将新创建的对象（即副本）赋值给子类型的原型。这样，我们就可以用调用 <code>inheritPrototype()</code>函数的语句，去替换前面例子中为子类型原型赋值的语句了，例如：</p>
+</blockquote>
+<pre><code class="javascript">function SuperType(name){
+    this.name = name;
+    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+SuperType.prototype.sayName = function(){
+    alert(this.name);
+};
+function SubType(name, age){
+    SuperType.call(this, name);//用来继承超类型的实例属性
+    this.age = age;
+}
+inheritPrototype(SubType, SuperType);//替换子类型的原型对象，用来继承超类型的原型属性
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+};
+</code></pre>
+<p><img src="img/201801080101.png" alt=""></p>
+<p>在第一种原型链模式中，超类型的实例属性和原型属性都会成为子类型的原型属性。因为超类型的实例属性会进入它的实例成为实例属性，而这个实例又是子类型的原型对象。这个实例的[[prototype]]又是指向超类型的原型对象的。如果超类型的实例属性是引用类型就不好了。</p>
+<p>而现在这种寄生组合式继承既避免了这种问题，超类型的实例属性可以完全复制给子类型的实例，成为这个实例本身的实例属性。同时，子类型又可以通过原型链共享超类型原型对象里面的属性。还可以传递参数。</p>
+<blockquote>
+<p>开发人员普遍认为寄生组合式继承是引用类型最理想的继承范式。</p>
+</blockquote>
 
         
     
@@ -585,8 +771,8 @@
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2018/01/08/2018-01-08-js-base-09-03-oo/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/01/08/2018-01-08-js-base-09-03-oo/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -635,21 +821,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/05/2017-12-05-js-patch-02/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/12/05/2017-12-05-js-base-05-cao-zuo-fu/" id="post_nav-older" class="next-content">
+        <a href="/2018/01/02/2018-01-02-js-base-09-02-oo/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
