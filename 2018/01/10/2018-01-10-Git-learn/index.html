@@ -37,7 +37,7 @@
     
     <title>
         
-            JS基础总结08:函数 | 
+            Git快速入手 | 
         
         Anilway
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Anilway">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",JavaScript,JS基础总结">
+    <meta name="keywords" content=",git,教程,版本控制,web开发,github">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -236,18 +236,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="JS基础总结08:函数 | Anilway">
+    <meta property="og:title" content="Git快速入手 | Anilway">
     <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="JS基础总结"> 
+    <meta property="og:article:tag" content="git"> <meta property="og:article:tag" content="教程"> <meta property="og:article:tag" content="版本控制"> <meta property="og:article:tag" content="web开发"> <meta property="og:article:tag" content="github"> 
 
     
-        <meta property="article:published_time" content="Thu Dec 21 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Jan 02 2018 00:33:32 GMT+0800" />
+        <meta property="article:published_time" content="Wed Jan 10 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Jan 10 2018 19:07:35 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="JS基础总结08:函数 | Anilway">
+    <meta name="twitter:title" content="Git快速入手 | Anilway">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -255,7 +255,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/12/21/2017-12-06-js-base-08-function/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/01/10/2018-01-10-Git-learn/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -267,10 +267,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/12/21/2017-12-06-js-base-08-function/index.html",
-    "headline": "JS基础总结08:函数",
-    "datePublished": "Thu Dec 21 2017 00:00:00 GMT+0800",
-    "dateModified": "Tue Jan 02 2018 00:33:32 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/01/10/2018-01-10-Git-learn/index.html",
+    "headline": "Git快速入手",
+    "datePublished": "Wed Jan 10 2018 00:00:00 GMT+0800",
+    "dateModified": "Wed Jan 10 2018 19:07:35 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -288,7 +288,7 @@
             "url": "/img/favicon1.png"
         }
     },
-    "keywords": ",JavaScript,JS基础总结",
+    "keywords": ",git,教程,版本控制,web开发,github",
     "description": "",
 }
 </script>
@@ -354,7 +354,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、创建函数"><span class="post-toc-text">1、创建函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、函数声明提升不就是执行环境准备的一部分么？"><span class="post-toc-text">2、函数声明提升不就是执行环境准备的一部分么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、函数的内部属性"><span class="post-toc-text">3、函数的内部属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、函数属性和方法"><span class="post-toc-text">4、函数属性和方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#caller：保存调用该函数的函数的引用。"><span class="post-toc-text">caller：保存调用该函数的函数的引用。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#length：函数希望接收命名参数的个数"><span class="post-toc-text">length：函数希望接收命名参数的个数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#apply-和call"><span class="post-toc-text">apply()和call()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bind"><span class="post-toc-text">bind()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-什么是仓库（Repository）"><span class="post-toc-text">0.什么是仓库（Repository）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-配置用户"><span class="post-toc-text">1.配置用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-创建仓库"><span class="post-toc-text">2.创建仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-基本用法"><span class="post-toc-text">3.基本用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-文件的三种状态"><span class="post-toc-text">4.文件的三种状态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-版本标签"><span class="post-toc-text">5.版本标签</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-分支"><span class="post-toc-text">6.分支</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-远程仓库"><span class="post-toc-text">7.远程仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-多人远程合作"><span class="post-toc-text">8.多人远程合作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-其他命令"><span class="post-toc-text">9.其他命令</span></a></li></ol>
     </ul>
     
 
@@ -374,10 +374,10 @@
     <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://buddy.works/data/blog/_thumbnails/git-deployment-cover.png)">
     
             <p class="article-headline-p">
-                JS基础总结08:函数
+                Git快速入手
             </p>
         </div>
 
@@ -396,7 +396,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Anilway</strong>
-        <span>12月 21, 2017</span>
+        <span>1月 10, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -418,7 +418,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/12/21/2017-12-06-js-base-08-function/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/01/10/2018-01-10-Git-learn/">
     
 </ul>
 
@@ -432,7 +432,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/JS基础总结/">JS基础总结</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
+        <a class="post_tag-link" href="/tags/git/">git</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/github/">github</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/web开发/">web开发</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/教程/">教程</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/版本控制/">版本控制</a>
     </ul>
     
 
@@ -449,7 +449,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS基础总结08:函数&url=http://yoursite.com/2017/12/21/2017-12-06-js-base-08-function/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Git快速入手&url=http://yoursite.com/2018/01/10/2018-01-10-Git-learn/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -458,7 +458,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS基础总结08:函数&url=http://yoursite.com/2017/12/21/2017-12-06-js-base-08-function/index.html&via=Anilway" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Git快速入手&url=http://yoursite.com/2018/01/10/2018-01-10-Git-learn/index.html&via=Anilway" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -467,7 +467,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/21/2017-12-06-js-base-08-function/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/10/2018-01-10-Git-learn/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -476,7 +476,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/21/2017-12-06-js-base-08-function/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/10/2018-01-10-Git-learn/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -501,345 +501,135 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="\assets\js\APlayer.min.js"> </script><p>对于函数最基础的理解参看：<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014344992519683bcfa2e33760462fb5db8eb9430924be000" target="_blank" rel="external">《廖雪峰JavaScript教程》</a></p>
-<p>函数实质上也是对象。</p>
-<ul>
-<li>每一个函数都是Function对象的实例。</li>
-<li>函数名实际上就是函数对象的指针。所以，使用不带括号的函数名是访问函数的指针；使用带括号的函数名是调用函数。</li>
-</ul>
-<h2 id="1、创建函数"><a href="#1、创建函数" class="headerlink" title="1、创建函数"></a>1、创建函数</h2><p>有三种方式：函数声明、函数表达式、使用Function构造函数。</p>
-<p><strong>函数声明：</strong></p>
-<pre><code class="javascript">function sum(num1,num2){
-  return num1+num2;
-}
-</code></pre>
-<p><strong>函数表达式：</strong></p>
-<pre><code class="javascript">var sum=function(num1,num2){
-    return num1+num2;
-};
-</code></pre>
-<p>注意末尾的分号，相当于把函数赋值给变量sum。</p>
-<p><strong>使用Function构造函数：</strong>（其实也是函数表达式）</p>
-<pre><code class="javascript">var sum=new Function(&quot;num1&quot;,&quot;num2&quot;,&quot;return num1+num2&quot;);
-</code></pre>
-<p>使用Function构造函数来创建函数并不实用，在实际编程时很少用到，在代码执行时有两次解析（第一次是常规代码解析，第二次解析传入构造函数的字符串），不过很容易让我们理解函数也是对象。注意，最后一个参数始终被看成函数体。</p>
-<blockquote>
-<p>还要补充一种：<strong><a href="https://libuchao.com/2012/06/25/function-declaration-vs-function-expression" target="_blank" rel="external">自执行函数表达式</a></strong></p>
-<p>主要用于创建一个新的作用域，在此作用域内声明的变量不会和其它作用域内的变量冲突或混淆，大多是以匿名函数方式存在，且立即自动执行：</p>
-<pre><code class="javascript"> (function () {
-     // var x = ...
- })();
-</code></pre>
-<p> 此种自执行函数表达式也算是函数表达式。</p>
-</blockquote>
-<p>对于自执行函数表达式，请认真研读：<a href="http://weizhifeng.net/immediately-invoked-function-expression.html" target="_blank" rel="external">JavaScript中的立即执行函数表达式</a>。尤其是文章中关于为什么要使用自执行函数表达式中关于解决闭包冲突的部分、防止不同的库之间覆盖等说明。</p>
-<p><strong>函数没有重载。</strong>在同一作用域下，如果有两个同名函数，后一个函数会覆盖前一个函数。（参看《JS高程》p66和p111）。如果是不同对象的同名方法倒是不会覆盖。</p>
-<h2 id="2、函数声明提升不就是执行环境准备的一部分么？"><a href="#2、函数声明提升不就是执行环境准备的一部分么？" class="headerlink" title="2、函数声明提升不就是执行环境准备的一部分么？"></a>2、函数声明提升不就是执行环境准备的一部分么？</h2><p>先看个例子：</p>
-<pre><code class="javascript">alert(foo());//hi!
-alert(foo1);//undefined
-function foo(){
-  return &quot;hi！&quot;;
-}
-var foo1=function(){
-    return &quot;嗨！&quot;;
-}
-</code></pre>
-<p>在上面的例子中，虽然函数写在alert后面，但是使用函数声明创建的函数可以正常调用，但是使用函数表达式创建的函数就不能被正常调用。</p>
-<p>这就是函数声明提升。一般都解释说在代码执行前XXX被提升到作用域顶部。其实啊，就是执行环境的准备工作嘛！干嘛要搞的那么复杂。</p>
-<p>在代码执行前，解释器（引擎）会先对：</p>
-<ul>
-<li>函数声明——赋值</li>
-<li>this——赋值</li>
-<li>变量、函数表达式——默认赋值为undefined。（在执行的时候再赋值）</li>
-<li>参数——赋值</li>
-<li>arguments——赋值</li>
-<li>自由变量的取值作用域——赋值</li>
-</ul>
-<p>所以，什么函数声明提升、变量提升都是执行环境的准备嘛！</p>
-<p>没看懂？没关系，我现在赶时间也没详细的写，读者看看这篇文章就懂了：</p>
-<p>​    <a href="http://www.cnblogs.com/wangfupeng1988/p/3986420.html" target="_blank" rel="external">深入理解javascript原型和闭包（8）——简述【执行上下文】上</a></p>
-<p>​    <a href="http://www.cnblogs.com/wangfupeng1988/p/3987563.html" target="_blank" rel="external">深入理解javascript原型和闭包（9）——简述【执行上下文】下</a></p>
-<p>然后你再看看《JS高程》（第三版）P73 4.2执行环境及作用域是不是就懂啦！</p>
-<p>现在我们来做几个题目看看：</p>
-<ul>
-<li><a href="https://segmentfault.com/a/1190000011126068" target="_blank" rel="external">深入理解 js 函数提升和变量提升 (即声明提升)( 尾部有总结 和 面试题解析 )</a></li>
-<li>还有更多题目，先留坑，再补充</li>
-</ul>
-<p>例子：来源：<a href="https://segmentfault.com/a/1190000011326520" target="_blank" rel="external">深入解析变量声明提升和函数声明提升</a></p>
-<blockquote>
-<pre><code class="javascript">var say = function(){
-  console.log(&#39;1&#39;);
-};
+        <script src="\assets\js\APlayer.min.js"> </script><embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=17603446&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">
 
-function say(){
-  console.log(&#39;2&#39;);
-};
-
-say(); //输出：&#39;1&#39;
-</code></pre>
-<p>解析：预编译阶段进行变量声明提升和函数声明提升后，上述代码执行效果等同于：</p>
-<pre><code class="javascript">var say; //变量声明提升
-
-function say(){ //函数声明提升
-  console.log(&#39;2&#39;);
-}
-
-say = function(){ //变量赋值保持原位执行，say函数被覆盖
-  console.log(&#39;1&#39;);
-};
-
-say(); //输出&#39;1&#39;
-</code></pre>
-<p><strong><span style="color:purple">变量声明和函数声明提升的优先级</span></strong></p>
-<p><span style="color:purple">函数声明提升的优先级要高于变量声明提升。</span></p>
-<p>先看一个简单示例：</p>
-<pre><code class="javascript">console.log(say); //输出：[Function: say]
-
-function say(){
-  console.log(&#39;1&#39;);
-};
-
-var say = &#39;2&#39;;
-
-console.log(say); //输出&#39;2&#39;
-</code></pre>
-<p>解析：本例中声明的函数和变量同名都是say，且函数声明在先，变量声明在后，按理说第一次打印say值预期会是undefined，然而结果是[Function: say]。</p>
-<p>预编译阶段进行变量声明提升和函数声明提升后，上述代码执行效果等同于：</p>
-<pre><code class="javascript">var say = function (){ //函数声明（包括定义）提升
-  console.log(&#39;1&#39;);
-};
-
-var say; //只是声明，并不会覆盖say的值
-
-console.log(say); //故输出：[Function: say]
-
-say = &#39;2&#39;; //此时say会被覆盖
-
-console.log(say); //输出&#39;2&#39;
-</code></pre>
-<blockquote>
-<p>总结：同名情况下，函数声明提升优先级要高于变量声明提升，且提升后该函数声明定义不会被提升后的同名变量声明所覆盖，但是会被后续顺序执行的同名变量赋值所覆盖。</p>
-</blockquote>
-</blockquote>
-<p>优先级没看明白？再看看下面的例子：</p>
-<blockquote>
-<p>来源：<a href="https://segmentfault.com/a/1190000011856598" target="_blank" rel="external">变量和函数声明提升</a></p>
-<p>函数声明提升的优先级是高于变量声明的，这里的优先级指的是：同名的变量和函数中，函数先提升，再遇到同名的变量或函数，提升都将被编译器忽略。</p>
-<pre><code class="javascript">//同时声明变量a和函数a
-var a;
-function a() {} 
-alert(typeof a); //显示的是&quot;function&quot;，初步证明function的优先级高于var。
-
-//先声明函数后声明变量，证明上边的例子不是function覆盖了变量
-function a() {}
-var a; 
-alert(typeof a); //显示的仍是&quot;function&quot;,而不是&quot;undefined&quot;，即function的优先级高于var。
-</code></pre>
-<p>注意，上面只是说声明的情况，如果变量同时赋值，有不一样了</p>
-<pre><code class="javascript">//声明了变量的同时赋值
-function a() {}
-var a = 1;
-alert(typeof a); //number,此时不是function了。
-//说明：&quot;var a=1&quot;相当于&quot;var a;a=1&quot;,即先声明，后赋值，&quot;a=1&quot;相当于把a重新赋值了，自然就是number!
-</code></pre>
-</blockquote>
-<p>我再补充一下，如果是：</p>
-<pre><code class="javascript">var a = 1;
-function a() {}
-alert(typeof a);//number
-</code></pre>
-<p>函数声明提升优先级高于变量提升，意思是说，在执行环境准备阶段（预编译阶段），首先给a赋值为函数了，无论<code>function</code>在<code>var</code>前或者后面，然后在代码执行的时候，发现有代码<code>var a=1</code>,所以预编译阶段的a的值被覆盖为1，所以，<code>alert(typeof a)为number</code>。</p>
-<p>啰嗦一下，在执行上下文，变量a不会被赋值，在执行阶段，才会按代码内容赋值。所以，就算函数声明优先级高，对于同名变量，如果有赋值代码，在执行时，函数声明会被后面的赋值覆盖。</p>
-<p><strong>为什么要进行变量提升和函数提升呢？</strong></p>
-<blockquote>
-<p>关于为什么进行变量提升和函数提升，这个问题一直没有明确的答案，不过最近读到<a href="http://dmitrysoshnikov.com/notes/note-4-two-words-about-hoisting/" target="_blank" rel="external">Dmitry Soshnikov之前的一篇文章时</a>，多少了解了一些，下面是Dmitry Soshnikov早些年的twitter，他也对这个问题十分感兴趣：</p>
-<p><img src="http://images2015.cnblogs.com/blog/317749/201609/317749-20160927084830453-161910040.png" alt=""></p>
-<p>然后Jeremy Ashkenas想让Brendan Eich聊聊这个话题：</p>
-<p><img src="http://images2015.cnblogs.com/blog/317749/201609/317749-20160927085003891-1035941947.png" alt=""></p>
-<p>最后，Brendan Eich给出了答案：</p>
-<p><img src="http://images2015.cnblogs.com/blog/317749/201609/317749-20160927085032422-1936451758.png" alt=""></p>
-<p>大致的意思就是：由于第一代JS虚拟机中的抽象纰漏导致的，编译器将变量放到了栈槽内并编入索引，然后在（当前作用域的）入口处将<strong>变量名</strong>绑定到了<strong>栈槽内</strong>的变量。（注：这里提到的抽象是计算机术语，是对内部发生的更加复杂的事情的一种简化。）</p>
-<p>然后，Dmitry Soshnikov又提到了函数提升，他提到了相互递归（就是A函数内会调用到B函数，而B函数也会调用到A函数）：</p>
-<p><img src="http://images2015.cnblogs.com/blog/317749/201609/317749-20160928082258078-892410645.png" alt=""></p>
-<p>随后Brendan Eich很热心的又给出了答案：</p>
-<p><img src="http://images2015.cnblogs.com/blog/317749/201609/317749-20160928082526438-697971926.png" alt=""></p>
-<p>Brendan Eich很确定的说，函数提升就是为了解决相互递归的问题，大体上可以解决像ML语言这样自下而上的顺序问题。</p>
-<p>……</p>
-<p>……</p>
-<p>最后，Brendan Eich还对变量提升和函数提升做了总结：</p>
-<p><img src="http://images2015.cnblogs.com/blog/317749/201609/317749-20160928084223719-96754371.png" alt=""></p>
-<p>大概是说，变量提升是人为实现的问题，而函数提升在当初设计时是有目的的。</p>
-<p>至此，关于变量提升和函数提升，相信大家已经明白其中的真相了。</p>
-<blockquote>
-<p>来源：<a href="http://www.cnblogs.com/liuhe688/p/5891273.html" target="_blank" rel="external">JavaScript系列文章：变量提升和函数提升</a></p>
-</blockquote>
-</blockquote>
-<h2 id="3、函数的内部属性"><a href="#3、函数的内部属性" class="headerlink" title="3、函数的内部属性"></a>3、函数的内部属性</h2><p>在函数内部有两个特殊的对象：arguments和this。注意区别函数内部的属性和函数自己的属性和方法。</p>
-<p><span style="color:purple"><code>arguments</code>：是特殊的数组，用来保存函数的参数。它是类数组，有<code>length</code>属性，没有数组的其他属性。不过，<code>arguments</code>也有自己的属性，<code>callee</code>属性。</span></p>
-<p><span style="color:purple"><code>callee</code>属性：该属性是一个指针，指向arguments对应的函数。</span></p>
-<p>至于this，以后会专门再讲，在此暂时不讲。</p>
-<p><code>arguments.callee</code>的常用的作用就是可以代替函数名作为函数的指针，避免函数名更换影响函数执行。你可以把<code>arguments.callee</code>理解为当前函数。</p>
-<p>例如：阶乘函数(递归算法)</p>
-<pre><code class="javascript">function sum(num){
-  if(num&lt;=1){
-    return 1;
-  }else{
-    return num*sum(num-1);
-  }
-}
-</code></pre>
-<p>可是，如果我把函数名赋值给其他变量，就无法执行该函数了：</p>
-<pre><code class="javascript">var foo=sum;
-sum=1;
-alert(foo(5));
-</code></pre>
-<p>所以，用<code>arguments.callee</code>就消除这种紧密耦合的现象：</p>
-<pre><code class="javascript">function sum(num){
-  if(num&lt;=1){
-    return 1;
-  }else{
-    return num*arguments.callee(num-1);
-  }
-}
-var foo=sum;
-alert(foo(5));
-</code></pre>
-<h2 id="4、函数属性和方法"><a href="#4、函数属性和方法" class="headerlink" title="4、函数属性和方法"></a>4、函数属性和方法</h2><h3 id="caller：保存调用该函数的函数的引用。"><a href="#caller：保存调用该函数的函数的引用。" class="headerlink" title="caller：保存调用该函数的函数的引用。"></a><span style="color:purple"><strong><code>caller</code>：保存调用该函数的函数的引用。</strong></span></h3><ul>
-<li>ES5中出现的，ES3中并没有该属性</li>
-<li>如果是在全局作用局中调用该函数，它的值为<code>null</code></li>
-</ul>
-<p>例如：</p>
-<pre><code class="javascript">function outer(){
-  inner();
-}
-function inner(){
-  alert(inner.caller);//为了避免紧密耦合问题，可以写为alert(arguments.callee.caller)
-}
-outer();//警告框中显示outer()函数的源代码
-        //即function outer(){inner();}
-</code></pre>
-<p>在这个例子中，调用<code>inner()</code>函数的是<code>outer()</code>函数，所以警告框中弹出的是<code>ouert()</code>函数的源代码。</p>
-<p>注意和前面的<code>callee</code>区分开：</p>
-<ul>
-<li><code>callee</code>是函数内部<code>arguments</code>的属性，保存的是该函数的指针。<code>arguments.callee</code>相当于函数名</li>
-<li><code>caller</code>是函数的属性，保存的是引用该函数的函数的指针。<code>函数名.caller</code>=<code>arguments.callee.caller</code></li>
-</ul>
-<p>这就像是单词employer（雇主）和employee（雇员）。比如<code>fun2</code>调用<code>fun1</code>，那么<code>fun1.caller</code>的意思就像是<code>fun1</code>的雇主是<code>fun2</code>。</p>
-<p>在ES5下还定义了<code>arguments.caller</code>属性。定义<code>arguments.callee</code>属性是为了分清<code>arguments.caller</code>和函数的<code>caller</code>属性。</p>
 <table>
 <thead>
 <tr>
-<th>函数所处模式</th>
-<th>非严格模式下</th>
-<th>严格模式下</th>
+<th><a href="https://www.bilibili.com/video/av17603446/#page=1" target="_blank" rel="external">1.日常前戏</a></th>
+<th><a href="https://www.bilibili.com/video/av17603446/#page=2" target="_blank" rel="external">2.安装和配置</a></th>
+<th><a href="https://www.bilibili.com/video/av17603446/#page=3" target="_blank" rel="external">3.创建仓库</a></th>
+<th><a href="https://www.bilibili.com/video/av17603446/#page=4" target="_blank" rel="external">4.基本用法</a></th>
+<th><a href="https://www.bilibili.com/video/av17603446/#page=5" target="_blank" rel="external">5.三种状态</a></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>arguments.callee</code></td>
-<td>保存该函数指针</td>
-<td>报错</td>
-</tr>
-<tr>
-<td><code>arguments.caller</code></td>
-<td>undefined</td>
-<td>报错，而且不能为函数的caller属性赋值</td>
+<td><a href="https://www.bilibili.com/video/av17603446/#page=6" target="_blank" rel="external">6.标签Tag</a></td>
+<td><a href="https://www.bilibili.com/video/av17603446/#page=7" target="_blank" rel="external">7.分支branch</a></td>
+<td><a href="https://www.bilibili.com/video/av17603446/#page=8" target="_blank" rel="external">8.合并分支</a></td>
+<td><a href="https://www.bilibili.com/video/av17603446/#page=9" target="_blank" rel="external">9.远程仓库</a></td>
+<td><a href="https://www.bilibili.com/video/av17603446/#page=10" target="_blank" rel="external">10.多人远程合作</a></td>
 </tr>
 </tbody>
 </table>
-<p>这样做是为了加强这门语言的安全性，这样第三方代码就不能在相同的环境里窥视其他代码了。？？？</p>
-<p><span style="color:purple">函数是对象，所以每个函数都有属性和方法。每个函数都包含<code>length</code>和<code>prototype</code>两个属性。</span></p>
-<h3 id="length：函数希望接收命名参数的个数"><a href="#length：函数希望接收命名参数的个数" class="headerlink" title="length：函数希望接收命名参数的个数"></a><strong><code>length</code>：函数希望接收命名参数的个数</strong></h3><p>可别误以为是<code>arguments</code>的属性哦！</p>
-<ul>
-<li><code>函数名.length</code>：函数希望接收的命名参数的个数</li>
-<li><code>arguments.length</code>：函数实际接收的参数的个数</li>
+<h2 id="0-什么是仓库（Repository）"><a href="#0-什么是仓库（Repository）" class="headerlink" title="0.什么是仓库（Repository）"></a>0.什么是仓库（Repository）</h2><p>仓库是什么东西啊？项目是什么东西啊？在git中，把项目叫做仓库，其实本质上就是文件夹，就是目录。</p>
+<h2 id="1-配置用户"><a href="#1-配置用户" class="headerlink" title="1.配置用户"></a>1.配置用户</h2><pre><code class="javascript">//配置
+git config --global user.name &quot;君の名は&quot;
+git config --global user.email &quot;你的E-Mail&quot;
+//查看配置
+git config --global list
+git config -l //用这个命令也可以
+</code></pre>
+<h2 id="2-创建仓库"><a href="#2-创建仓库" class="headerlink" title="2.创建仓库"></a>2.创建仓库</h2><p><strong>方法一：把系统文件夹作为仓库：</strong></p>
+<pre><code class="javascript">//进入文件夹，然后调出git命令行，输入命令
+git init
+</code></pre>
+<p>然后Git就会自动把该文件夹作为仓库。</p>
+<p><strong>方法二：直接创建仓库：</strong></p>
+<pre><code class="javascript">//在你想要创建仓库的位置，调出git命令行，输入命令
+git init test //就会一个初始化空的test仓库
+</code></pre>
+<p><strong>方法三：远程拉取：</strong></p>
+<p>可以直接把网上的仓库拉回到本地当做本地仓库，比如github上面的。</p>
+<pre><code class="javascript">//在你想要创建仓库的位置，调出git命令行，输入命令
+git clone [url]
+//如果你想重命名仓库，可在上面的命令后面直接加上你希望的名称
+git clone [url] [name]
+</code></pre>
+<p>比如克隆这个仓库：<a href="https://github.com/Anilway/doc_trans。" target="_blank" rel="external">https://github.com/Anilway/doc_trans。</a></p>
+<pre><code class="javascript">//在clone or download按钮下复制git克隆地址，然后把该仓库拉回本地
+git clone https://github.com/Anilway/doc_trans.git
+//我希望仓库名称为Doc，那么，可输入命令
+git clone https://github.com/Anilway/doc_trans.git Doc
+</code></pre>
+<h2 id="3-基本用法"><a href="#3-基本用法" class="headerlink" title="3.基本用法"></a>3.基本用法</h2><pre><code class="javascript">//【查看仓库目录】在该仓库文件夹根目录下输入命令：
+ls -la
+//【查看仓库状态】可以查看branch marster（分支）和commit（提交，就是后悔药，历史节点）
+git status
+
+git add . //把所有文件放到暂存区
+git add [文件] //把具体的某文件保存到暂存区
+</code></pre>
+<pre><code class="javascript">//【提交版本】
+git commit -m &quot;版本描述&quot;
+
+//【查看版本记录】
+git log   //如果看完了，按下q就退回来了
+git log -p //查看该节点具体修改了啥，可以配合前面的代码使用（-p就是push）
+git log --oneline //单行查看版本
+
+//【退回到历史节点】
+git checkout [节点Id] //回到指定节点
+git checkout - //回到该版本的下一个新版本
+</code></pre>
+<p>注意，你提交的版本只提交你保存在暂存区的文件内容。如果你把修改的文件<code>git add .</code>到暂存去后，又对文件进行一次修改，那么你接着提交的版本中，不会有后面这次修改。所以，一定要把所有的修改都提交到暂存区之后，再进行版本提交。</p>
+<h2 id="4-文件的三种状态"><a href="#4-文件的三种状态" class="headerlink" title="4.文件的三种状态"></a>4.文件的三种状态</h2><ul>
+<li>modified 文件已修改</li>
+<li>staged 已暂存</li>
+<li>committed 已提交</li>
 </ul>
-<p>我们都知道函数是可以接受任意个参数的，参数都保存在<code>arguments</code>数组中。<code>函数名.length</code>表示我们写函数时，预设的参数个数。</p>
-<p>例如：</p>
-<pre><code class="javascript">function foo(num1,num2){
-  alert(arguments.length);
-  return num1+num2;
-}
-alert(foo.length);//2
-foo(1,2,3);//3
+<h2 id="5-版本标签"><a href="#5-版本标签" class="headerlink" title="5.版本标签"></a>5.版本标签</h2><p>有时候，对于重要的版本，比如已经发布的完成本，V1.0  V2.0这种，就需要对这种重要的大版本添加标签。</p>
+<pre><code class="javascript">//【添加标签】
+git tag -a [标签名] -m &quot;备注&quot; //为当前版本添加标签；-a表示annotated有注释的
+git tag [标签名]             //如果没有-a，就是简单的tag，没有描述信息
+git tag -a [标签名] -m &quot;备注&quot; [版本id] //为某具体版本添加标签
+
+//【查看标签】
+git tag //查看所有标签
+git tag [标签名] //查看某标签详细信息
 </code></pre>
-<p>至于<code>prototype</code>涉及到原型、原型链之类的，会在后面的博文中详细解释，在此暂不写。</p>
-<h3 id="apply-和call"><a href="#apply-和call" class="headerlink" title="apply()和call()"></a><code>apply()</code>和<code>call()</code></h3><p><span style="color:purple">每个函数都包含两个非继承而来的方法：<code>apply()</code>和<code>call()</code></span></p>
-<p>它们的作用相同，都是指定特殊的作用域来调用函数。</p>
-<p>比如：</p>
-<pre><code class="javascript">window.color=&#39;red&#39;;
-var o={color:&#39;blue&#39;};
-function showColor(){
-    alert(this.color);
-}
+<h2 id="6-分支"><a href="#6-分支" class="headerlink" title="6.分支"></a>6.分支</h2><pre><code class="javascript">master//默认分支。master只是默认分支的名字而已，不是什么关键词，只是大家懒得改。
 
-showColor();            //red
-showColor.call(this);   //red
-showColor.call(window); //red
-showColor.call(o);      //blue
+//【创建分支】
+git branch [分支名]
+git checkout -b [分支名] //创建分支并且换至该分支
+//【查看当前在哪个分支】：可以看到head现在指向哪个分支
+git log --all
+git log --all --oneline //精简显示
+git log --all --graph   //图示全部历史记录
 
-//apply()和call()的作用一样
-showColor();             //red
-showColor.apply(this);   //red
-showColor.apply(window); //red
-showColor.apply(o);      //blue
+//【切换分支】
+git checkout [分支名]
+
+//【合并分支】
+git merge [分支名] //把该分支和当前分支合并
+//如果合并的内容有冲突，你只要对冲突的内容进行更改，再提交就可以了
 </code></pre>
-<p>但是，<code>apply()</code>和<code>call()</code>的区别在于传递参数上：</p>
-<ul>
-<li><code>apply()</code>传递参数要写参数数组或者<code>arguments</code></li>
-<li><code>call()</code>传递参数要分别写出参数</li>
-</ul>
-<p>例如：</p>
-<pre><code class="javascript">function sum(num1,num2){
-  return num1+num2;
-}
+<h2 id="7-远程仓库"><a href="#7-远程仓库" class="headerlink" title="7.远程仓库"></a>7.远程仓库</h2><pre><code class="javascript">//【添加远程仓库】
+git remote add [远程名称] [远程地址]
 
-//用apply()为：apply(指定作用域，参数数组或者arguments对象)
-function sum1(num1,num2){
-  return sum.apply(this,arguments);//这里的arguments对象是sum1的参数数组，this指的是sum作用域
-  //或者return sum.apply(this,[num1,num2]);
-}
+//【查看远程仓库】
+git remote //列出所有的远程仓库
+git remote -v //列出所有远程仓库的详细信息，会出现：
+                 [远程名称][下载地址](fetch)
+                [远程名称][上传地址](push)
 
-//用call()为：call(指定作用域，参数1,参数2，……)
-function sum2(num1,num2){
-  return sum.call(this,num1,num2);//this指的是sum作用域，因为在这里可以看成sum对象的call方法，上面同理
-}
-
-//可是在《JS高程》P117中说sum1在执行sum()函数时传入了this作为this值（因为是在全局作用域中调用的，所以传入的是window对象）。所以，上面的this实际上是window，而不是sum？？？
+//【上传代码】
+git push -u [远程名][分支名]
 </code></pre>
-<blockquote>
-<p>1、call，apply都属于Function.prototype的一个方法，它是JavaScript引擎内在实现的，因为属于Function.prototype，所以每个Function对象实例(就是每个方法)都有call，apply属性。既然作为方法的属性，那它们的使用就当然是针对方法的了，这两个方法是容易混淆的，因为它们的作用一样，只是使用方式不同。</p>
-<p>2、语法：foo.call(this, arg1,arg2,arg3) == foo.apply(this, arguments) == this.foo(arg1, arg2, arg3);</p>
-<p>3、相同点：两个方法产生的作用是完全一样的。</p>
-<p>4、不同点：方法传递的参数不同。</p>
-<p>来源：<a href="https://www.w3cschool.cn/xqw2e7/9m2x12y0.html" target="_blank" rel="external">JavaScript中的apply()方法和call()方法使用介绍</a></p>
-</blockquote>
-<p><code>call()</code>还可以实现继承和多重继承：</p>
-<p>参见：<a href="http://uule.iteye.com/blog/1158829" target="_blank" rel="external">JS中的call()和apply()方法</a></p>
-<p>本篇博文主要对函数做了一些总结，你在看这个将<code>call()</code>继承的时候，注意里面的函数是构造函数，在构造对象。所以，要从函数思维转变到对象思维里面去，以免理解困难。</p>
-<h3 id="bind"><a href="#bind" class="headerlink" title="bind()"></a><code>bind()</code></h3><blockquote>
-<p>bind() 函数会创建一个新函数（称为绑定函数），新函数与被调函数（绑定函数的目标函数）具有相同的函数体（在 ECMAScript 5 规范中内置的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="external"><code>call</code></a>属性）。当<strong>新函数</strong>被调用时 ，this 值绑定到 bind() 的第一个参数，该参数不能被重写。绑定函数被调用时，bind() 也接受预设的参数提供给原函数。一个绑定函数也能使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="external"><code>new</code></a>操作符创建对象：这种行为就像把原函数当成构造器。提供的 this 值被忽略，同时调用时的参数被提供给模拟函数。</p>
-<p>来源：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="external">Function.prototype.bind()</a></p>
-</blockquote>
-<p>例如：</p>
-<pre><code class="javascript">window.color=&#39;red&#39;;
-var o={color:&#39;blue&#39;};
-
-function sayColor(){
-  alter(this.color);
-}
-
-var foo=sayColor.bind(o);
-foo();//blue
+<h2 id="8-多人远程合作"><a href="#8-多人远程合作" class="headerlink" title="8.多人远程合作"></a>8.多人远程合作</h2><pre><code class="javascript">//【获取远程更新】
+git pull //相当于git fetch &amp;&amp; git merge
 </code></pre>
-<p>上面的例子中，<code>sayColor()</code>为被调函数，通过使用<code>bind()</code>方法创建出一个新函数，变量<code>foo</code>作为指针接收这个新函数，即新函数为<code>foo()</code>，函数<code>foo()</code>即为绑定函数。<code>bind()</code>的第一个参数为指定的作用域（上下文），或者说是指定的this值，上面的例子中指定的为对象o，所以，调用<code>foo()</code>结果为blue。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/201712210101.png" alt=""></p>
-<div style="padding:5px;border:gray 2px solid;border-radius:5px; background:gray;color:white">思考：对于自调匿名函数有没有函数提升？</div>
+<h2 id="9-其他命令"><a href="#9-其他命令" class="headerlink" title="9.其他命令"></a>9.其他命令</h2><pre><code class="javascript">cd [下级目录]  //进入下级目录
+cd ..         //进入上级目录
+ctrl+l        //清屏，这个是按键盘，不是命令哦！  
+git --version // 查看Git版本，常用来判断Git是否安装成功
 
-<p>比如：</p>
-<pre><code class="javascript">(function(){
-  alert(&quot;Hi!&quot;)
-})();
+//连接两条命令&amp;&amp;
+git add . &amp;&amp; git commit -m &quot;完成第一章&quot;
+
+touch [文件名.扩展名]  //创建文件 win不知是否可用
 </code></pre>
 
         
@@ -894,8 +684,8 @@ foo();//blue
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2017/12/21/2017-12-06-js-base-08-function/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2017/12/21/2017-12-06-js-base-08-function/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2018/01/10/2018-01-10-Git-learn/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/01/10/2018-01-10-Git-learn/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -944,21 +734,13 @@ foo();//blue
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/21/2017-12-21-js-patch-04/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/12/06/2017-12-06-is-patch-03/" id="post_nav-older" class="next-content">
+        <a href="/2018/01/08/2018-01-08-js-base-09-03-oo/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
