@@ -37,7 +37,7 @@
     
     <title>
         
-            JS基础总结03:简单数据类型 | 
+            测试 | 
         
         Anilway
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Anilway">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",JavaScript,JS基础总结">
+    <meta name="keywords" content=",测试">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -236,18 +236,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="JS基础总结03:简单数据类型 | Anilway">
+    <meta property="og:title" content="测试 | Anilway">
     <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="JS基础总结"> 
+    <meta property="og:article:tag" content="测试"> 
 
     
-        <meta property="article:published_time" content="Mon Dec 04 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Wed Dec 06 2017 14:50:59 GMT+0800" />
+        <meta property="article:published_time" content="Wed Jan 31 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Jan 31 2018 23:21:51 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="JS基础总结03:简单数据类型 | Anilway">
+    <meta name="twitter:title" content="测试 | Anilway">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -255,7 +255,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/01/31/主题1/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -267,10 +267,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/index.html",
-    "headline": "JS基础总结03:简单数据类型",
-    "datePublished": "Mon Dec 04 2017 00:00:00 GMT+0800",
-    "dateModified": "Wed Dec 06 2017 14:50:59 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/01/31/主题1/index.html",
+    "headline": "测试",
+    "datePublished": "Wed Jan 31 2018 00:00:00 GMT+0800",
+    "dateModified": "Wed Jan 31 2018 23:21:51 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -288,7 +288,7 @@
             "url": "/img/favicon1.png"
         }
     },
-    "keywords": ",JavaScript,JS基础总结",
+    "keywords": ",测试",
     "description": "",
 }
 </script>
@@ -354,7 +354,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-undefined"><span class="post-toc-text">1.undefined</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-null"><span class="post-toc-text">2.null</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-number"><span class="post-toc-text">3.number</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-string"><span class="post-toc-text">4.string</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-Boolean"><span class="post-toc-text">5.Boolean</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-总结"><span class="post-toc-text">6.总结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-补充"><span class="post-toc-text">7.补充</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#延伸阅读"><span class="post-toc-text">延伸阅读</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#主题1"><span class="post-toc-text">主题1</span></a></li></ol>
     </ul>
     
 
@@ -377,7 +377,7 @@
         <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg)">
     
             <p class="article-headline-p">
-                JS基础总结03:简单数据类型
+                测试
             </p>
         </div>
 
@@ -396,7 +396,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Anilway</strong>
-        <span>12月 04, 2017</span>
+        <span>1月 31, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -418,7 +418,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/01/31/主题1/">
     
 </ul>
 
@@ -432,7 +432,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/JS基础总结/">JS基础总结</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
+        <a class="post_tag-link" href="/tags/测试/">测试</a>
     </ul>
     
 
@@ -449,7 +449,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS基础总结03:简单数据类型&url=http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=测试&url=http://yoursite.com/2018/01/31/主题1/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -458,7 +458,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS基础总结03:简单数据类型&url=http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/index.html&via=Anilway" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=测试&url=http://yoursite.com/2018/01/31/主题1/index.html&via=Anilway" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -467,7 +467,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/31/主题1/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -476,7 +476,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/31/主题1/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -501,236 +501,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="\assets\js\APlayer.min.js"> </script><p>这一篇就总结一下基本数据类型的特点。主要会讲到数据类型之间的转换。到后面学习越来越深入的时候，会回过头来补充，或者专门为某些数据类型写总结性的博文。</p>
-<p>说一点题外话，其实我不太想写看起来就打瞌睡的东西，喜欢用自己总结的，类比的，生动的方式来解释，用人话来解释。我相信任何抽象的东西都可以用形象的东西来类比解释。衡量自己是否学会了某些知识，就看你能不能用最简单的方式讲给行外人听，就像大家常讲的，你能不能让姥姥或者小朋友听明白。</p>
-<p>不过目前几篇都很基础，看起来还是那种瞌睡文章。</p>
-<p>好，咱们进入正题。</p>
-<h2 id="1-undefined"><a href="#1-undefined" class="headerlink" title="1.undefined"></a>1.undefined</h2><p>undefined只有一个值，就是<code>undefined</code>。字面上的意思是未定义。</p>
-<p>比如我们设定变量，但没有赋值的时候，这个变量的值就是undefined。</p>
-<p><strong>补充：</strong></p>
-<ul>
-<li>令人迷惑的一点是，对于未声明的变量执行<code>typeof</code>会返回<code>undefined</code>。比如：</li>
-</ul>
-<pre><code class="javascript">var name;
-console.log(typeof name);//undefined
-console.log(typeof(age));//undefined,并没有声明age变量，但还是会返回undefined
-</code></pre>
-<h2 id="2-null"><a href="#2-null" class="headerlink" title="2.null"></a>2.null</h2><p><code>null</code>表示一个空对象指针。</p>
-<ul>
-<li>如果我们设定的变量会用来保存对象，那么最好将变量初始化为null。</li>
-<li><code>undefined</code>值是<code>null</code>的派生值，所以<code>undefined==null</code>返回值为<code>true</code>。</li>
-</ul>
-<p>讲到这里呢，如果变量将来用来保存字符串，那么可以将变量初始化为<code>&quot;&quot;</code>。</p>
-<blockquote>
-<p>JS的设计者希望用<code>null</code>表示一个空的值，而<code>undefined</code>表示值未定义。实时证明，这并没有什么卵用。大多数情况下，我们都应该用<code>null</code>。<span style="color:red"><code>undefined</code>仅仅在判断函数参数是否传递的情况下才有用。</span></p>
-<p>引自：<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000" target="_blank" rel="external">《廖雪峰的JavaScript全栈教程》</a></p>
-</blockquote>
-<h2 id="3-number"><a href="#3-number" class="headerlink" title="3.number"></a>3.number</h2><p>数字有三种：整数、浮点数（小数）、NaN（Not a Number非数值）。</p>
-<p><strong>表示</strong></p>
-<p>​    除了用十进制，还可以用八进制和十六进制的字面值来表示。</p>
-<ul>
-<li>其中八进制第一位必须是0，然后是八进制数字序列（0-7）。这样的话，在数值转换时，ES3和ES5会出现歧义。比如070在ES3下认为是八进制的56，在ES5下认为是十进制的70。所以，八进制字面量在严格模式下无效。</li>
-<li>十六进制的前两位必须是<code>0x</code>，后面跟任意十六进制的数字（0~F），字母可大写可小写。</li>
-<li>在进行算术运算时，所有其他进制表示的数值最终都会转换为十进制的数值。</li>
-</ul>
-<p><strong>数值范围</strong></p>
-<ul>
-<li><span style="color:red"><code>Number.MIN_VALUE</code></span>：计算机保存的最小数值；<span style="color:red"><code>Number.MAX_VALUE</code></span>：计算机保存的最大值。</li>
-<li>数值超过最大值，用<span style="color:red"><code>Infinity</code></span>（正无穷大）、<span style="color:red"><code>-Infinity</code></span>（负无穷大）表示</li>
-<li><span style="color:red"><code>isFinite()</code>函数</span>用来确定数值是否在最大和最小数值之间，返回布尔值。</li>
-<li>对于极大或极小的数值，可以用e表示法（科学计数法），e相当于10的指数次幂。比如：310=3.1e2。</li>
-</ul>
-<p><strong>浮点数的特点</strong></p>
-<ul>
-<li>浮点数计算会有误差，这和浮点数的储存方式有关。比如：<code>alert(0.07*100);//7.000000000000001</code>。这一点在写透明度渐变的代码时，常需要Math.round()四舍五入浮点数。整数的计算精度会好很多。</li>
-<li>ECMScript默认将小数点后带有6个零以上的浮点值转换为科学计数法表示。比如：0.0000003会被转换为3e-7。</li>
-<li><span style="color:red">保存浮点数所需的内存空间是整数的两倍。<span></span></span></li>
-</ul>
-<p><strong>NaN</strong></p>
-<ul>
-<li>任何一个涉及NaN的操作都会返回NaN</li>
-<li>NaN与任何值都不相等，包括它本身</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>NaN的检测</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>isNaN()</code>函数</td>
-<td>用来检测参数是否为“非数值”。返回值为<code>true/false</code></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><a href="http://www.cnblogs.com/yugege/p/5277883.html" target="_blank" rel="external">用<code>isNaN()</code>检测也不是特别准确：</a></p>
-<p>虽然，JavaScript提供了isNaN来检测某个值是否为NaN，但是，这也不太精确的，因为，在调用isNaN函数之前，本身就存在了一个隐式转换的过程，它会把那些原本不是NaN的值转换成NaN的，如下：</p>
-<pre><code class="javascript">isNaN(&quot;foo&quot;);               // true
-isNaN(undefined);           // true
-isNaN({});                  // true
-isNaN({ valueOf: &quot;foo&quot; });  // true
-</code></pre>
-<p>上面代码，我们使用isNaN来测试后，发现字符串，undefined，甚至对象，结果都返回真！！！但是，我们总不能说他们也是NaN吧？总而言之，得出的结论是：isNaN检测NaN并不可靠！！！</p>
-</blockquote>
-<p>不过isNaN是否可靠这一点我个人认为还有待商榷。</p>
-<p>延伸阅读： <a href="http://blog.csdn.net/joyfixing/article/details/52920927" target="_blank" rel="external">javascript NaN和isNaN的理解</a></p>
-<p><br></p>
-<p><strong>数值转换：</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">数值转换方式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>Number()</code>函数</td>
-<td>强制将<strong>任何类型</strong>的数据转换为数字类型的数据。不能转换为数值的转换为NaN</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>parseInt()</code>函数</td>
-<td>将<strong>字符串</strong>转换为<strong>整数</strong>数值。<br>- <code>parseInt()</code>函数操作字符串可以<strong>忽略</strong>前面的<strong>空格</strong>或者<strong>前导零</strong>。<br>- <code>parseInt()</code>函数操作字符串必须<strong>以数字开头</strong>。<br>- <code>parseInt()</code>函数遇到第一个非数字或者点<code>.</code>转换结束<br>- <code>parseInt()</code>函数有两个参数，第一个为要转换的字符串，第二个为转换进制。</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>parseFloat()</code>函数</td>
-<td>将字符串转换为浮点数或整数。<br>- <code>parseFloat()</code>函数操作字符串可以<strong>忽略</strong>前面的<strong>空格</strong>或者<strong>前导零</strong>。<br>- <code>parseFloat()</code>函数操作字符串必须<strong>以数字开头</strong>。<br>- <code>parseFloat()</code>函数第一个非数字或者第二个点<code>.</code>转换结束。<br>- <code>parseFloat()</code>函数只有一个参数。</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>前导零，比如：01203中的第一个零就是前导零。</li>
-<li><code>parseInt()</code>和<code>parseFloat()</code>专门用来把字符串转换为数值。不建议一上来就用<code>Number()</code>转换。</li>
-<li><strong>注意：</strong>用不同的函数转换数据得到的结果不一定相同。详见：<a href="https://anilway.github.io/2017/12/05/2017-12-05-js-patch-02/" target="_blank" rel="external">Number()、parseIn()和parseFloat()的区别</a></li>
-</ul>
-<h2 id="4-string"><a href="#4-string" class="headerlink" title="4.string"></a>4.string</h2><p>string类型表示由零或多个16位Unicode字符组成的字符序列，即字符串。用<code>&quot;</code>或<code>&#39;</code>表示。</p>
-<ul>
-<li>ECMAScript中字符串的数据是不可改变的，也就是说，字符串一旦创建，它们的值就不能改变。要改变某个变量保存的字符串，首先要销毁原来的字符串，再用新字符串填充该变量。</li>
-<li>任何字符串的长度可以通过length属性取得。如果包含<a href="https://zhidao.baidu.com/question/390608642.html" target="_blank" rel="external">双字节字符</a>，那么获得的长度可能不精确。</li>
-</ul>
-<p><strong>数值转换：</strong> </p>
-<table>
-<thead>
-<tr>
-<th>数据转换方式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>str.toString()</code>方法</td>
-<td>可以将除<code>undefined</code>和<code>null</code>之外的任意数据转换为字符串，可指定转换进制（2,8,10,16）</td>
-</tr>
-<tr>
-<td><code>String()</code>函数</td>
-<td>可将所有类型的数据转换为字符串，包括<code>undefined</code>和<code>null</code>，不可指定进制</td>
-</tr>
-</tbody>
-</table>
-<p><code>true</code>和<code>false</code>也是可以转换的。</p>
-<p>所以，对于不明确数据类型的，尽量用<code>String()</code>转换。</p>
-<p>关于<code>toString()</code>可以指定转换进制，看下面的例子：</p>
-<pre><code class="javascript">var num=12;
-num.toString(2);  //&#39;1100&#39;(先把12转换为二进制数值，再转换为字符串，以下同理)
-num.toString(8);  //&#39;14&#39;
-num.toString(10); //&#39;12&#39;
-num.toString(16); //&#39;c&#39;
-</code></pre>
-<p>关于<code>str.toString()</code>和<code>String()</code>还有更多要了解的地方，详见：<a href="http://www.jb51.net/article/109235.htm" target="_blank" rel="external">js中toString()和String()区别详解</a></p>
-<p><strong>刚才犯傻，在想，如果要转换的不是数字<code>str.toString()</code>还能按转换进制吗？</strong></p>
-<p><strong>答曰：</strong>这个指定转换进制的参数只对数字有效，对于非数字，本来就谈不上按进制转换，就算加上该参数，也不会影响转换。再转念一想，其实能转换成字符串的的就只有数字、boolean、undefined和null，所以，基本上大部分要转换的就是数字。</p>
-<p><strong>补充：转义序列</strong></p>
-<p>用于表示非打印字符，或其他用途的字符。</p>
-<table>
-<thead>
-<tr>
-<th>字面量</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>\n</code></td>
-<td>换行</td>
-</tr>
-<tr>
-<td><code>\t</code></td>
-<td>制表</td>
-</tr>
-<tr>
-<td><code>\b</code></td>
-<td>退格</td>
-</tr>
-<tr>
-<td><code>\r</code></td>
-<td>回车</td>
-</tr>
-<tr>
-<td><code>\f</code></td>
-<td>进纸</td>
-</tr>
-<tr>
-<td><code>\\</code></td>
-<td>斜杠</td>
-</tr>
-<tr>
-<td><code>\&#39;</code></td>
-<td>转义单引号</td>
-</tr>
-<tr>
-<td><code>\&quot;</code></td>
-<td>转义双引号</td>
-</tr>
-<tr>
-<td><code>\xnn</code></td>
-<td>以十六进制代码nn表示的一个字符（其中n为0~F）。例如，<code>\x41</code>表示”A”</td>
-</tr>
-<tr>
-<td><code>\unnnn</code></td>
-<td>以十六进制代码nnnn表示的一个Unicode字符（其中n为0~F）。例如，<code>\u03a3</code>表示希腊字符Σ</td>
-</tr>
-</tbody>
-</table>
-<h2 id="5-Boolean"><a href="#5-Boolean" class="headerlink" title="5.Boolean"></a>5.Boolean</h2><table>
-<thead>
-<tr>
-<th>数据转换方式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Boolean()</code>函数</td>
-<td>将任意类型数据转换为布尔值。</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>除0和NaN以外的所有数字都转换为<code>true</code></li>
-<li>除空字符串<code>&quot;&quot;</code>以外的所有字符串，包括空格字符串，都转换为<code>true</code></li>
-<li><code>null</code>和<code>undefined</code>转换布尔型为<code>false</code></li>
-</ul>
-<p>总结起来，就是：0、NaN、空字符串、undefined、null都会转换为false。它们都是无、没有。</p>
-<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6.总结"></a>6.总结</h2><p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/2017120402.png" alt=""></p>
-<h2 id="7-补充"><a href="#7-补充" class="headerlink" title="7.补充"></a>7.补充</h2><p><strong><code>typeof</code>操作符</strong></p>
-<ul>
-<li>用来检测变量类型</li>
-<li><code>typeof</code>是一个操作符，不是函数，尽管可以使用<code>()</code>，但不是必需的。</li>
-<li>常用typeof来检测简单数据类型，对于<code>null</code>会返回<code>Object</code>,因为<code>null</code>是空对象指针。</li>
-<li>对于对象类型数据，还分为很多其他对象类型，所以，常用<code>instanceof()</code>来检测对象的具体类型。</li>
-<li>函数本质上也是对象，但是函数也确实有一些特殊属性，所以，用<code>typeof</code>检测函数会返回<code>function</code>。</li>
-<li>对于正则表达式ExpReg，用<code>typeof</code>检测，在safari5及之前的版本、Chrome7及之前的版本会返回<code>function</code>，其他浏览器返回<code>Object</code>。</li>
-</ul>
-<p><strong><code>console.log()</code></strong></p>
-<p>调试信息用，在控制台查看输出内容。</p>
-<p><strong>个人疑问</strong></p>
-<ul>
-<li>字符串本来就是简单数据类型，为什么会有String对象？</li>
-</ul>
-<h2 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h2><p>[1].<a href="https://anilway.github.io/2017/12/05/2017-12-05-js-patch-02/" target="_blank" rel="external">Number()、parseIn()和parseFloat()的区别</a><br>[2].<a href="http://www.jb51.net/article/109235.htm" target="_blank" rel="external">js中toString()和String()区别详解</a><br>[3].<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499190108eec0bdf14e704a09935cd112e501e31a000" target="_blank" rel="external">《廖雪峰的JavaScript全栈教程》</a><br>[4].<a href="https://stackoverflow.com/questions/4539253/what-is-console-log" target="_blank" rel="external">what is console log?</a><br>[5].<a href="http://www.jb51.net/article/59121.htm" target="_blank" rel="external">JavaScript中的console.log()函数详细介绍</a></p>
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="主题1"><a href="#主题1" class="headerlink" title="主题1"></a>主题1</h1><p>写东西sasasasasas</p>
 
         
     
@@ -784,8 +555,8 @@ num.toString(16); //&#39;c&#39;
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2018/01/31/主题1/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/01/31/主题1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -834,21 +605,13 @@ num.toString(16); //&#39;c&#39;
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/12/01/2017-12-01-js-base-01-yin-ru-js/" id="post_nav-older" class="next-content">
+        <a href="/2018/01/13/2018-01-13-ru-he-jiang-shouji-zuowei-dier-ping/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
