@@ -37,7 +37,7 @@
     
     <title>
         
-            JS基础总结06:强制类型转换 | 
+            JS中常见的兼容性问题总结 | 
         
         Anilway
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Anilway">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",JavaScript,JS基础总结">
+    <meta name="keywords" content=",JavaScript">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -236,18 +236,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="JS基础总结06:强制类型转换 | Anilway">
+    <meta property="og:title" content="JS中常见的兼容性问题总结 | Anilway">
     <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="JS基础总结"> 
+    <meta property="og:article:tag" content="JavaScript"> 
 
     
-        <meta property="article:published_time" content="Wed Dec 06 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Wed Dec 06 2017 15:21:28 GMT+0800" />
+        <meta property="article:published_time" content="Mon Jan 15 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Oct 10 2018 09:09:53 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="JS基础总结06:强制类型转换 | Anilway">
+    <meta name="twitter:title" content="JS中常见的兼容性问题总结 | Anilway">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -255,7 +255,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/12/06/2017-12-06-js-base-06-qiang-zhi-lei-xing-zhuan-huan/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/01/15/2018-01-15JS common compatibility issues/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -267,10 +267,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/12/06/2017-12-06-js-base-06-qiang-zhi-lei-xing-zhuan-huan/index.html",
-    "headline": "JS基础总结06:强制类型转换",
-    "datePublished": "Wed Dec 06 2017 00:00:00 GMT+0800",
-    "dateModified": "Wed Dec 06 2017 15:21:28 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/01/15/2018-01-15JS common compatibility issues/index.html",
+    "headline": "JS中常见的兼容性问题总结",
+    "datePublished": "Mon Jan 15 2018 00:00:00 GMT+0800",
+    "dateModified": "Wed Oct 10 2018 09:09:53 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -288,7 +288,7 @@
             "url": "/img/favicon1.png"
         }
     },
-    "keywords": ",JavaScript,JS基础总结",
+    "keywords": ",JavaScript",
     "description": "",
 }
 </script>
@@ -354,7 +354,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、人为数据类型转换"><span class="post-toc-text">1、人为数据类型转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、非人为的数据类型转换"><span class="post-toc-text">2、非人为的数据类型转换</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、基础部分"><span class="post-toc-text">1、基础部分</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、Array数组"><span class="post-toc-text">2、Array数组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、String字符串"><span class="post-toc-text">3、String字符串</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、RegExp正则"><span class="post-toc-text">4、RegExp正则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、Function函数"><span class="post-toc-text">5、Function函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、Date日期对象"><span class="post-toc-text">6、Date日期对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7、Math"><span class="post-toc-text">7、Math</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8、DOM中的兼容性问题"><span class="post-toc-text">8、DOM中的兼容性问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点部分"><span class="post-toc-text">节点部分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点的遍历"><span class="post-toc-text">节点的遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点查找部分"><span class="post-toc-text">节点查找部分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JS盒子模型部分"><span class="post-toc-text">JS盒子模型部分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性样式部分"><span class="post-toc-text">属性样式部分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DOM事件部分"><span class="post-toc-text">DOM事件部分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#DOM2级事件绑定"><span class="post-toc-text">DOM2级事件绑定</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MouseEvent事件对象"><span class="post-toc-text">MouseEvent事件对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#KeyboardEvent事件对象"><span class="post-toc-text">KeyboardEvent事件对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件传播"><span class="post-toc-text">事件传播</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9、其他综合部分"><span class="post-toc-text">9、其他综合部分</span></a></li></ol>
     </ul>
     
 
@@ -377,7 +377,7 @@
         <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg)">
     
             <p class="article-headline-p">
-                JS基础总结06:强制类型转换
+                JS中常见的兼容性问题总结
             </p>
         </div>
 
@@ -396,7 +396,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Anilway</strong>
-        <span>12月 06, 2017</span>
+        <span>1月 15, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -418,7 +418,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/12/06/2017-12-06-js-base-06-qiang-zhi-lei-xing-zhuan-huan/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/01/15/2018-01-15JS common compatibility issues/">
     
 </ul>
 
@@ -432,7 +432,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/JS基础总结/">JS基础总结</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
+        <a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
     </ul>
     
 
@@ -449,7 +449,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS基础总结06:强制类型转换&url=http://yoursite.com/2017/12/06/2017-12-06-js-base-06-qiang-zhi-lei-xing-zhuan-huan/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS中常见的兼容性问题总结&url=http://yoursite.com/2018/01/15/2018-01-15JS common compatibility issues/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -458,7 +458,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS基础总结06:强制类型转换&url=http://yoursite.com/2017/12/06/2017-12-06-js-base-06-qiang-zhi-lei-xing-zhuan-huan/index.html&via=Anilway" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS中常见的兼容性问题总结&url=http://yoursite.com/2018/01/15/2018-01-15JS common compatibility issues/index.html&via=Anilway" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -467,7 +467,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/06/2017-12-06-js-base-06-qiang-zhi-lei-xing-zhuan-huan/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/15/2018-01-15JS common compatibility issues/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -476,7 +476,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/06/2017-12-06-js-base-06-qiang-zhi-lei-xing-zhuan-huan/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/15/2018-01-15JS common compatibility issues/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -501,36 +501,175 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="\assets\js\APlayer.min.js"> </script><p>在前面的总结中，可以了解到我们可以使用函数转换数据类型，比如：<code>Number()</code>、<code>Boolean()</code>等等。还有时候，我们在对比数据的时候，后台会自动转换数据类型。这篇博文就来总结一下数据类型转换。</p>
-<p>一谈起数据类型转换，就常会听说强制类型转换、隐式类型转换、显式类型转换，它们之间是什么关系呢？</p>
-<p>对于强制类型转换，在<a href="https://baike.baidu.com/item/%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/1580197?fr=aladdin" target="_blank" rel="external">百度百科</a>里面是这么说的：</p>
-<blockquote>
-<p>当操作数的类型不同，而且不属于基本数据类型时，经常需要将操作数转化为所需要的类型，这个过程即为强制类型转换。强制类型转换具有两种形式：显式强制转换和隐式强制类型转换。</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/201712060101.png" alt=""></p>
-<p>但是这个词条是针对C语言的，JS也是这种关系吗？于是我又查阅了几篇文章：<br>[1].<a href="http://blog.csdn.net/sinat_29454619/article/details/74075216" target="_blank" rel="external">JS的类型转换，强制转换和隐式转换</a><br>[2].<a href="http://blog.csdn.net/u011983531/article/details/49226265" target="_blank" rel="external">JS的强制类型转换与隐式类型转换</a><br>[3].<a href="http://blog.csdn.net/yangjvn/article/details/48284163" target="_blank" rel="external">JavaScript显式类型转换与隐式类型转换</a><br>[4].<a href="http://www.cnblogs.com/yugege/p/5277883.html" target="_blank" rel="external">有趣的JavaScript隐式类型转换</a></p>
-<p>好像概念都分的不是很清楚，基本上是我们认为的主动的去转换数据类型叫做强制类型转换或者是显式类型转换，姑且成为人为数据类型转换吧。如果是系统自己悄悄的、自动的对数据类型进行的数据转换叫做隐式类型转换，姑且叫做非人为数据转换吧。</p>
-<p>（ps：对于这些数据类型转换的概念，在我弄清楚之后再在博文中修改过来）</p>
-<h3 id="1、人为数据类型转换"><a href="#1、人为数据类型转换" class="headerlink" title="1、人为数据类型转换"></a>1、人为数据类型转换</h3><ul>
-<li>转换为数值：<code>Number()</code>、<code>parseInt()</code>、<code>parseFloat()</code></li>
-<li>转换为字符串：<code>str.toString()</code>、<code>String()</code></li>
-<li>转换为布尔值：<code>Boolean()</code></li>
-<li>补充一个，对象的<code>valueOf()</code></li>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="1、基础部分"><a href="#1、基础部分" class="headerlink" title="1、基础部分"></a>1、基础部分</h2><p>待整理</p>
+<h2 id="2、Array数组"><a href="#2、Array数组" class="headerlink" title="2、Array数组"></a>2、Array数组</h2><p>待整理</p>
+<h2 id="3、String字符串"><a href="#3、String字符串" class="headerlink" title="3、String字符串"></a>3、String字符串</h2><p><code>trim()/trimLeft()/trimRight()</code>不兼容IE7/8。</p>
+<p>自己实现一个去除字符串首尾空格的方法：</p>
+<pre><code class="javascript">String.prototype.myTrim=function myTrim(){
+    return this.replace(/^\s+|\s+$/g,&quot;&quot;);
+}
+</code></pre>
+<h2 id="4、RegExp正则"><a href="#4、RegExp正则" class="headerlink" title="4、RegExp正则"></a>4、RegExp正则</h2><h2 id="5、Function函数"><a href="#5、Function函数" class="headerlink" title="5、Function函数"></a>5、Function函数</h2><p><code>bind</code>方法在IE6-8下不兼容。我们可以手写一个bind方法。</p>
+<pre><code class="javascript">Function.prototype.myBind=function myBind(context){
+    context=context||window;
+    var outerArg=Array.prototype.slice.call(arguments,1);
+    var _this=this;
+
+    // 如果bind存在，还是执行bind
+    if(&quot;bind&quot; in Function.prototype){
+        outerArg.unshift(context);
+        return _this.bind.apply(_this,outerArg);
+    }
+
+    return function(){
+        var innerArg=Array.prototype.slice.call(arguments);
+        // 如果返回的函数有默认传参，就加在最后
+        outerArg=outerArg.concat(innerArg);
+        _this.apply(context,outerArg);
+    }
+};
+
+// 使用示例
+document.body.onclick=fn.myBind(obj,100,200);
+</code></pre>
+<h2 id="6、Date日期对象"><a href="#6、Date日期对象" class="headerlink" title="6、Date日期对象"></a>6、Date日期对象</h2><p>待整理</p>
+<h2 id="7、Math"><a href="#7、Math" class="headerlink" title="7、Math"></a>7、Math</h2><p>待整理</p>
+<h2 id="8、DOM中的兼容性问题"><a href="#8、DOM中的兼容性问题" class="headerlink" title="8、DOM中的兼容性问题"></a>8、DOM中的兼容性问题</h2><h3 id="节点部分"><a href="#节点部分" class="headerlink" title="节点部分"></a>节点部分</h3><ul>
+<li>对于文本节点，高版本浏览器会把==空格==、==换行==也当做文本节点。也就是说，除了IE6~8，其他高版本浏览器会把空格和换行当做文本节点</li>
 </ul>
-<h3 id="2、非人为的数据类型转换"><a href="#2、非人为的数据类型转换" class="headerlink" title="2、非人为的数据类型转换"></a>2、非人为的数据类型转换</h3><p><a href="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/201712060102.png" target="_blank" rel="external">点击查看大图</a></p>
-<p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/201712060102.png" alt=""></p>
-<blockquote>
-<p>a&amp;&amp; b :如果执行a后返回true，则执行b并返回b的值；如果执行a后返回false，则整个表达式返回a的值，b不执行；</p>
-<p>a || b :如果执行a后返回true，则整个表达式返回a的值，b不执行；如果执行a后返回false，则执行b并返回b的值；</p>
-<p>&amp;&amp; 优先级高于 ||;</p>
-<p>转换规则:</p>
+<h3 id="节点的遍历"><a href="#节点的遍历" class="headerlink" title="节点的遍历"></a>节点的遍历</h3><p>也就是节点的关系部分。</p>
 <ul>
-<li>对象为true</li>
-<li>非零数字为true</li>
-<li>非空字符串为true</li>
-<li>其他为false</li>
+<li><code>childNodes</code>。这个本身没有兼容问题，大家都支持。问题在于节点的获取上，childNodes本身会获取容器的所有一级子节点。但是，前面说了，高版本浏览器会把空格、换行也当做文本节点。所以，如果我们在写html结构的时候，标签之间有空格或者换行，用高版本浏览器返回的结果和IE6-8浏览器返回的结果不一样，可能IE6-8返回的只有元素节点，但是高版本浏览返回的有文本节点。这样就看起来有兼容问题。（所以，在有些前端教程里面，会说这个有兼容问题，比如：高版本浏览器会算元素节点和文本节点，IE6-8会只算元素节点。当然这种说法是错的）</li>
+<li><code>children</code>。这个是用来获取容器的元素节点的。但是在IE6-8下，会把注释节点当做元素节点。</li>
+<li><code>firstElementChild</code>、<code>lastElementChild</code>、<code>previousElementSibling</code>、<code>nextElementSibling</code>，这些在IE6-8下都不兼容。我们可以自己写兼容的方法。</li>
 </ul>
-</blockquote>
+<h3 id="节点查找部分"><a href="#节点查找部分" class="headerlink" title="节点查找部分"></a>节点查找部分</h3><ul>
+<li><code>document.getElementById</code>。这个本身没有兼容性问题，但是我们用通过ID来获取元素的时候，==在IE7及更低版本==浏览器中，会把表单元素的name值当做id来识别使用（项目中尽量不要让表单的name和其他元素的id相同）</li>
+<li><code>document.querySelector</code>、<code>document.querySelectorAll</code>不兼容IE6-8</li>
+<li><code>[context].getElementsByClassName</code>在IE6~8浏览器中是不兼容的。在真实项目中如果要求兼容，需要自己实现一个兼容的方法。</li>
+<li><p><code>document.getElementsByName</code>这个本身没有兼容问题。就是对于IE浏览器来讲，只能识别表单元素的name属性值，所以我们这个方法一般都是用来操作表单元素的。</p>
+</li>
+<li><p><code>getElementsByClassName</code>在IE6~8浏览器中是不兼容的。可以自己实现一个兼容的方法。</p>
+</li>
+<li><code>querySelector &amp;&amp; querySelectorAll</code>在IE6~8下不兼容，而且也没什么特别好的办法处理它的兼容（写兼容性相当于写一个jQuery的选择器了）。所以这两个方法一般多用于移动端开发使用（不过看资料上说，这两个方法的性能没有byID之类的好）</li>
+</ul>
+<h3 id="JS盒子模型部分"><a href="#JS盒子模型部分" class="headerlink" title="JS盒子模型部分"></a>JS盒子模型部分</h3><p><code>offsetTop</code>、<code>offsetLeft</code></p>
+<p>在求偏移量的时候。在标准浏览器中，offsetLeft和offsetTop是当前元素的==外==边框到offsetParent元素的==内==边框的距离。但是对于==标准的IE8浏览器==来说，是当前元素的==外==边框到offsetParent元素的==外==边框的距离。</p>
+<h3 id="属性样式部分"><a href="#属性样式部分" class="headerlink" title="属性样式部分"></a>属性样式部分</h3><ul>
+<li><p><code>getComputedStyle</code>适用于一般浏览器，不兼容IE6-8；<code>currentStyle</code>用于IE。</p>
+<pre><code class="javascript">// 会带单位
+function getStyle(ele,prop){
+    if(ele.currentStyle){
+        return ele.currsentStyle[prop];
+    }else{
+        return getComputedStyle(ele,false)[prop];
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="DOM事件部分"><a href="#DOM事件部分" class="headerlink" title="DOM事件部分"></a>DOM事件部分</h3><h4 id="DOM2级事件绑定"><a href="#DOM2级事件绑定" class="headerlink" title="DOM2级事件绑定"></a>DOM2级事件绑定</h4><p>DOM2级事件绑定允许对同一元素的同一事件重复绑定方法，但是标准浏览器和IE低版本浏览器有所区别。</p>
+<table>
+<thead>
+<tr>
+<th>标准浏览器</th>
+<th>IE6-8浏览器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[元素].addEventListenter（’事件名’，fun，false）</td>
+<td>[元素].attachEvent(==on==+”事件名”,fun)</td>
+</tr>
+<tr>
+<td>this为当前元素，按顺序执行绑定，会忽略重复的绑定方法</td>
+<td>this为window，不按顺序执行绑定，不会忽略重复绑定的方法（this问题、执行顺序问题、绑定去重问题）</td>
+</tr>
+<tr>
+<td>可以直接在事件绑定的时候设定是否捕获，默认为false</td>
+<td>需要通过ele.setCapture()来设置捕获，ele.releaseCapture()取消捕获。</td>
+</tr>
+</tbody>
+</table>
+<p>我们可以自己写一个兼容的DOM2级事件绑定方法，通过自定义事件池来解决IE低版本浏览器下，DOM2级事件绑定的this问题、执行顺序问题和绑定去重问题。</p>
+<h4 id="MouseEvent事件对象"><a href="#MouseEvent事件对象" class="headerlink" title="MouseEvent事件对象"></a>MouseEvent事件对象</h4><table>
+<thead>
+<tr>
+<th>标准浏览器</th>
+<th>IE6-8浏览器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传入事件对象e</td>
+<td>window.event。在DOM2级事件绑定attachEvent中，也是传递事件对象，但是这个事件对象和标准浏览器传入的事件对象，在属性上有所不同。</td>
+</tr>
+<tr>
+<td>e.target（其实在标准浏览器的事件对象中，也有e.srcElement这个属性，我想大家不用它，是因为target比较好写吧）</td>
+<td>e.srcElement</td>
+</tr>
+<tr>
+<td>e.pageX、e.pageY</td>
+<td>IE浏览器没有这两个属性，一般是用clientX+scrollLeft和clientY+scrollTop来兼容代替</td>
+</tr>
+<tr>
+<td>e.preventDefault()阻止默认行为</td>
+<td>e.returnValue=false</td>
+</tr>
+<tr>
+<td>e.stopPropagation()阻止冒泡</td>
+<td>e.cancelBubble=true</td>
+</tr>
+</tbody>
+</table>
+<p>可以写一个兼容方法：</p>
+<pre><code class="javascript">function ieMouseEvent(e){
+    e=e||window.e;
+    e.target=e.srcElement;
+    e.pageX=e.clientX+winbox(&quot;scrolllLeft&quot;); // winbox是自己写的JS工具库中的方法
+    e.pageY=e.clientY+winbox(&quot;scrollTop&quot;);
+    e.preventDefault=function(){
+        e.returnValue=false;
+    };
+    e.stopPropagetion=function(){
+        e.cancelBubble=true;
+    };
+    return e; // 也可以不用return
+}
+
+// 补充一下winbox方法
+
+function winbox(attr,value){
+    if(value){
+        document.documentElement[attr]=value;
+        document.body[attr]=value;
+        return;
+    }
+    return document.documentElement[attr] || document.body[attr];
+}
+</code></pre>
+<h4 id="KeyboardEvent事件对象"><a href="#KeyboardEvent事件对象" class="headerlink" title="KeyboardEvent事件对象"></a>KeyboardEvent事件对象</h4><p>对于键盘事件对象，IE6-8下没有code、key、witch属性。（key和code都是用来存储当前的键盘按键的，witch和keyCode一样，用来存储键盘的编码值）</p>
+<p>但是好在标准浏览器和IE6-8浏览器都有keyCode属性。所以我们一般对于键盘事件都是用的keyCode。</p>
+<h4 id="事件传播"><a href="#事件传播" class="headerlink" title="事件传播"></a>事件传播</h4><p>顺便说说mouseover和mouseenter的区别。虽然不存在什么兼容问题。</p>
+<table>
+<thead>
+<tr>
+<th>mouseover</th>
+<th>mouseenter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>鼠标必须在==元素上==才触发该事件。如果该元素（假设叫ele）内部有子元素挡住了一部分，而恰好鼠标在子元素上，这个时候就算鼠标是在ele元素内部，但是没有ele元素上，就不能触发该事件</td>
+<td>只要鼠标在该元素==区域内==，就触发该元素</td>
+</tr>
+<tr>
+<td>有冒泡</td>
+<td>会阻止冒泡传播</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9、其他综合部分"><a href="#9、其他综合部分" class="headerlink" title="9、其他综合部分"></a>9、其他综合部分</h2><p>待整理</p>
 
         
     
@@ -584,8 +723,8 @@
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2017/12/06/2017-12-06-js-base-06-qiang-zhi-lei-xing-zhuan-huan/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2017/12/06/2017-12-06-js-base-06-qiang-zhi-lei-xing-zhuan-huan/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2018/01/15/2018-01-15JS common compatibility issues/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/01/15/2018-01-15JS common compatibility issues/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -634,7 +773,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/06/2017-12-06-is-patch-03/" id="post_nav-newer" class="prev-content">
+        <a href="/2018/01/20/2018-01-20some-problems-i-think/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -648,7 +787,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2017/12/05/2017-12-05-js-patch-02/" id="post_nav-older" class="next-content">
+        <a href="/2018/01/13/2018-01-13-ru-he-jiang-shouji-zuowei-dier-ping/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
