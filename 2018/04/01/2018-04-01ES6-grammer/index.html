@@ -1,0 +1,2596 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            ES6语法小结 | 
+        
+        Anilway
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Anilway">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",JavaScript,ES6">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon1.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon1.png">
+    <link rel="apple-touch-icon" href="/img/favicon1.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Anilway">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #222 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #222 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #222 !important;
+  }
+
+  .toTop {
+    background: #222 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #222;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #222;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #222;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="ES6语法小结 | Anilway">
+    <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="ES6"> 
+
+    
+        <meta property="article:published_time" content="Sun Apr 01 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Oct 10 2018 12:40:16 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="ES6语法小结 | Anilway">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/04/01/2018-04-01ES6-grammer/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/04/01/2018-04-01ES6-grammer/index.html",
+    "headline": "ES6语法小结",
+    "datePublished": "Sun Apr 01 2018 00:00:00 GMT+0800",
+    "dateModified": "Wed Oct 10 2018 12:40:16 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Anilway",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.jpg"
+        },
+        "description": "Make yourself better!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Anilway",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon1.png"
+        }
+    },
+    "keywords": ",JavaScript,ES6",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、ES6简介"><span class="post-toc-text">1、ES6简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、使用babel编译ES6"><span class="post-toc-text">2、使用babel编译ES6</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-下载安装Babel"><span class="post-toc-text">2.1 下载安装Babel</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-配置-babelrc文件"><span class="post-toc-text">2.2  配置.babelrc文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-使用命令编译JS代码"><span class="post-toc-text">2.3 使用命令编译JS代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、ES6中的基础语法"><span class="post-toc-text">3、ES6中的基础语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-let和const"><span class="post-toc-text">3.1  let和const</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用let和var创建变量的区别"><span class="post-toc-text">使用let和var创建变量的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#let不存在变量提升机制"><span class="post-toc-text">==let不存在变量提升机制==</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#块级作用域的增加有什么用？"><span class="post-toc-text">块级作用域的增加有什么用？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#const的基础语法"><span class="post-toc-text">const的基础语法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JS中创建变量方式汇总"><span class="post-toc-text">JS中创建变量方式汇总</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-ES6中的解构赋值"><span class="post-toc-text">3.2 ES6中的解构赋值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数组的解构赋值"><span class="post-toc-text">数组的解构赋值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对象的解构赋值"><span class="post-toc-text">对象的解构赋值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#其他可以进行解构赋值操作的内容"><span class="post-toc-text">其他可以进行解构赋值操作的内容</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解构赋值的作用"><span class="post-toc-text">解构赋值的作用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-快速交换两个变量的值"><span class="post-toc-text">1.快速交换两个变量的值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2、接收函数返回的多个值"><span class="post-toc-text">2、接收函数返回的多个值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3、可以快速接收到传递的多个值（我传递的是一个数组或者对象）"><span class="post-toc-text">3、可以快速接收到传递的多个值（我传递的是一个数组或者对象）</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4、在ES6中支持给函数设置默认值"><span class="post-toc-text">4、在ES6中支持给函数设置默认值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5、其他作用"><span class="post-toc-text">5、其他作用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数值结构总结"><span class="post-toc-text">数值结构总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-箭头函数"><span class="post-toc-text">3.3 箭头函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#箭头函数的基础语法"><span class="post-toc-text">箭头函数的基础语法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#箭头函数中不支持arguments"><span class="post-toc-text">箭头函数中不支持arguments</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#箭头函数this指向问题"><span class="post-toc-text">箭头函数this指向问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#箭头函数扩充"><span class="post-toc-text">箭头函数扩充</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#宿主环境"><span class="post-toc-text">宿主环境</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#箭头函数嵌套"><span class="post-toc-text">箭头函数嵌套</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-4-ES6中创建类"><span class="post-toc-text">3.4 ES6中创建类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ES5中创建类"><span class="post-toc-text">ES5中创建类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ES6中创建类"><span class="post-toc-text">ES6中创建类</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-5-ES6中的继承-extends"><span class="post-toc-text">3.5 ES6中的继承==extends==</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、总结"><span class="post-toc-text">4、总结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、promise"><span class="post-toc-text">5、promise</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本概念"><span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#promise关键字"><span class="post-toc-text">promise关键字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用promise"><span class="post-toc-text">使用promise</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、模块"><span class="post-toc-text">6、模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主JS文件的type-”module”"><span class="post-toc-text">主JS文件的type=”module”</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#export导出"><span class="post-toc-text">export导出</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#边声明边导出"><span class="post-toc-text">边声明边导出</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先声明再导出"><span class="post-toc-text">先声明再导出</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#默认导出"><span class="post-toc-text">默认导出</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#as更改导出的变量名"><span class="post-toc-text">as更改导出的变量名</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#错误导出示范"><span class="post-toc-text">错误导出示范</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#import导入"><span class="post-toc-text">import导入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#接收一个值"><span class="post-toc-text">接收一个值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#接收部分值"><span class="post-toc-text">接收部分值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#更改变量名"><span class="post-toc-text">更改变量名</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#接收整个导出整体"><span class="post-toc-text">接收整个导出整体</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#接收默认导出值"><span class="post-toc-text">接收默认导出值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一些其他补充"><span class="post-toc-text">一些其他补充</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#import-命令"><span class="post-toc-text">import 命令</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/cover.png)">
+    
+            <p class="article-headline-p">
+                ES6语法小结
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Anilway</strong>
+        <span>4月 01, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/04/01/2018-04-01ES6-grammer/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/ES6/">ES6</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=ES6语法小结&url=http://yoursite.com/2018/04/01/2018-04-01ES6-grammer/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=ES6语法小结&url=http://yoursite.com/2018/04/01/2018-04-01ES6-grammer/index.html&via=Anilway" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/01/2018-04-01ES6-grammer/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/01/2018-04-01ES6-grammer/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="1、ES6简介"><a href="#1、ES6简介" class="headerlink" title="1、ES6简介"></a>1、ES6简介</h2><p>阮一峰官网有介绍：《<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ES6标准入门（第三版）</a>》</p>
+<h2 id="2、使用babel编译ES6"><a href="#2、使用babel编译ES6" class="headerlink" title="2、使用babel编译ES6"></a>2、使用babel编译ES6</h2><p>由于浏览器更新力度赶不上JS的迭代更新，所以，在使用ES6写代码的时候，为了保证浏览器的兼容性。我们可以使用babel进行编译，把ES6语法编译成大部分浏览器支持的ES5、ES3语法。</p>
+<h3 id="2-1-下载安装Babel"><a href="#2-1-下载安装Babel" class="headerlink" title="2.1 下载安装Babel"></a>2.1 下载安装Babel</h3><p><strong>环境：</strong></p>
+<p>需要在电脑上安装node（node中一般都会自带npm包管理器）</p>
+<p><strong>安装命令：</strong></p>
+<pre><code class="javascript">//把模块安装在全局环境下(在任何项目中都可以使用命令来编译我们的代码)
+npm install babel-cli -g 
+
+// 卸载 把全局下安装的babel模块卸载掉
+npm uninstall babel-cli -g
+</code></pre>
+<p>babel有很多不同的模块，这里是安装的babel-cli，用来在命令行中对代码进行编译。更多的模块介绍，在《<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ES6标准入门（第三版）</a>》中有介绍。</p>
+<p>要注意当前模块安装在全局环境下的目录，记住这个目录（便于以后修复问题），一般路径为：</p>
+<pre><code class="javascript">C:\Users\用户名\AppData\Roaming\npm
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-12.PNG" alt=""></p>
+<p>我们查看安装目录，发现一些需要了解的细节知识点：</p>
+<ol>
+<li><p>我们后期之所以可以使用babel的命令，是因为安装在全局环境下之后，会生成一些<code>xxx.cmd</code>的文件，而这里的xxx就是可以在DOC窗口中执行的命令。</p>
+<pre><code class="javascript">babel.cmd   //以后可以使用babel命令了
+babel-node.cmd
+</code></pre>
+</li>
+<li><p>执行babel命令之后，我们可以完成一些编译或者其他的任务，主要原因是执行babel命令后，会自动加载一些处理任务的文件。</p>
+<p>babel.cmd文件里面的代码：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-13.PNG" alt=""></p>
+<p>通过查找代码中的文件路径，我们可以找到babel的源代码babel.js等一些文件。如果你想研究一下babel到底是怎么把es6编译成es5的，你就好好研究一下它的源代码。等你研究透这些源代码，你的es6和es5就可以学的很流弊了！</p>
+</li>
+</ol>
+<h3 id="2-2-配置-babelrc文件"><a href="#2-2-配置-babelrc文件" class="headerlink" title="2.2  配置.babelrc文件"></a>2.2  配置.babelrc文件</h3><p>安装一些语言解析包。</p>
+<ol>
+<li><p>我们需要把.babelrc文件配置在当前项目的根目录下（这个文件没有文件名，后缀名是.babelrc）。（也就是在自己当前项目的根目录下创建一个.babelrc文件）</p>
+<ul>
+<li><p>在电脑上不能直接创建没有文件名的文件，我们需要使用WS中的new—&gt;file来创建，或者使用命令创建（比如git中的touch命令）</p>
+</li>
+<li><p>babelrc这个后缀名在某些ws当中是不识别的，它其实是一个json文件，我们需要在ws中配置一下（让它隶属于json文件）,操作如下图所示：（注意所有的都设置好之后在设置窗口右下角还要按确认键，下图中未截到）</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-14.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>在.babelrc文件中编写一些内容</p>
+<pre><code class="json">{
+    &quot;presets&quot;:[], // 存放的是我们编译代码的时候，需要依赖的语言解析包
+    &quot;plugins&quot;:[]  // 我们编译代码的时候需要依赖的插件信息  
+}
+</code></pre>
+</li>
+<li><p>安装依赖的语言解析包</p>
+<p>（注意要先写好.babelrc配置文件，再在当前项目的根目录下安装依赖语言解析包才会成功）</p>
+<p>在==当前项目的根目录==下安装（不是安装在全局），需要特殊注意的是：<strong>要在当前项目的根目录中打开DOC命令才可以</strong></p>
+<pre><code class="javascript">// 安装最新已经帆布的语言标准解析模块
+npm install babel-preset-latest 
+
+// 安装当前还没有发布但是已经进入草案的语言解析模块（如果你的代码中用到了发布非标准的语法，我们需要安装它）
+npm install babel-preset-stage-2
+...
+
+// 一次安装多个
+npm install babel-preset-latest babel-preset-stage-2
+</code></pre>
+<p>安装成功后，在自己当前项目的根目录下，会存在一个<code>node_modules</code>文件夹，这个文件夹中会有我们安装的模块。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-15.PNG" alt=""></p>
+</li>
+<li><p>完成最后的.babelrc文件的配置</p>
+<pre><code class="json">{
+    &quot;presets&quot;:[
+        &quot;latest&quot;,
+        &quot;stage-2&quot;
+    ],
+    &quot;plugins&quot;:[] 
+}
+</code></pre>
+</li>
+</ol>
+<h3 id="2-3-使用命令编译JS代码"><a href="#2-3-使用命令编译JS代码" class="headerlink" title="2.3 使用命令编译JS代码"></a>2.3 使用命令编译JS代码</h3><p>基本上所有支持命令操作的模块都有一个命令：</p>
+<p><code>babel --help 或 babel -h</code>查看帮助</p>
+<p>常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-V,    –version</td>
+<td>查看版本号</td>
+</tr>
+<tr>
+<td>-o,   –out-file</td>
+<td>把某一个JS文件中的ES6代码进行编译</td>
+</tr>
+<tr>
+<td>-d,   –out-dir</td>
+<td>把某一个文件夹中所有的JS文件中的ES6代码进行编译</td>
+</tr>
+<tr>
+<td>-w,   –watch</td>
+<td>监听文件中代码的改变，当代码改变后，会自动进行编译</td>
+</tr>
+</tbody>
+</table>
+<p>示例：</p>
+<pre><code class="javascript">// 当前项目中文件夹1下ES6语法的1.js文件编译成ES5语法的文件，放在文件夹2中
+E:xxx\xxx\当前项目文件夹&gt;babel 文件夹1/1.js -o 文件夹2/1.js 
+
+// 批量编译：把文件夹1下的所有ES6语法的JS文件编译，放在文件夹2中
+E:xxx\xxx\当前项目文件夹&gt;babel 文件夹1 -d 文件夹2
+
+// 监听：会一直监听，只要我写的ES6文件发生改变，编译后的那个ES5文件里面也会跟着改变。一直在监听
+E:xxx\xxx\当前项目文件夹&gt;babel 文件夹1 -d 文件夹2 -w
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-16.PNG" alt=""></p>
+<p><strong>结束程序监听</strong>：</p>
+<p>如果不想监听了，不想批量编译了，只需要在键盘上按[ctrl+c]就可以终止操作。需要连续按两次（按一次会请求确认，按第二次会终止操作,第二次输入y也可以）。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-17.PNG" alt=""></p>
+<h2 id="3、ES6中的基础语法"><a href="#3、ES6中的基础语法" class="headerlink" title="3、ES6中的基础语法"></a>3、ES6中的基础语法</h2><h3 id="3-1-let和const"><a href="#3-1-let和const" class="headerlink" title="3.1  let和const"></a>3.1  let和const</h3><pre><code class="javascript">let 变量名 = 变量值;
+</code></pre>
+<h4 id="使用let和var创建变量的区别"><a href="#使用let和var创建变量的区别" class="headerlink" title="使用let和var创建变量的区别"></a>使用let和var创建变量的区别</h4><ol>
+<li><h5 id="let不存在变量提升机制"><a href="#let不存在变量提升机制" class="headerlink" title="==let不存在变量提升机制=="></a>==let不存在变量提升机制==</h5></li>
+</ol>
+<pre><code class="javascript">console.log(str); // undefined
+console.log(fn);  // fn函数本身
+console.log(avg); // undefined
+console.log(sum); // Uncaught ReferenceError: sum is not defined
+console.log(num); // Uncaught ReferenceError: num is not defined
+var str=&#39;zfpx&#39;;
+let num=12;
+function fn(){}
+var avg=function(){}
+let sum=function(){}
+</code></pre>
+<p>ES6中不存在单独的函数声明方式，还是沿用之前的function声明。如果你想声明一个没有变量提升的函数，你需要用函数表达式的方式通过let定义一个变量。</p>
+<p>ES6中只提供了创建变量的新语法标准（let），创建函数还是沿用ES5中的function（还会存在变量提升），如果想让函数也不存在变量提升，都是用函数表达式赋值的方式操作：<code>let fn=function(){}</code></p>
+<p>创建变量：<code>let xxx=xxx</code></p>
+<p>创建函数：<code>let xxx=function(){}</code></p>
+<p>好处：此时代码中就不要再考虑变量提升了，只要这样处理，就没有所谓的变量提升。</p>
+<p>自执行函数：<code>;(function sum(){})()</code>（自执行函数也没有变量提升，sum只是函数的name属性值，不是变量）</p>
+<ol>
+<li>==使用let定义的变量不允许在<strong>同一个作用域</strong>当中重复声明==</li>
+</ol>
+<pre><code class="javascript">var num=13;
+var num=13;
+console.log(num); // 13
+/*-------------------------*/
+
+let str=&#39;zf&#39;;
+let str=&#39;px&#39;;
+console.log(str);// Uncaught SyntaxError: Identifier &#39;str&#39; has already been declared
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-18.PNG" alt=""></p>
+<blockquote>
+<p>从上图上可以发现，后面的str重复声明了，连前面的num都没有输出。</p>
+</blockquote>
+<p>当前报错，上面的代码也不会执行（在JS代码执行之前就已经知道有重复声明的了，也就是==浏览器依然存在类似于变量提升的机制：在JS代码执行之前先把所有let声明的变量过一遍，发现有重复的直接报错==）。</p>
+<pre><code class="javascript">let num=12,
+    fn=function(){
+        let num=13;
+    };
+console.log(num); // 12 当前作用域下别重复声明即可，不同作用域中的变量是自己私有的，名字重复没有关系。
+</code></pre>
+<blockquote>
+<p>个人理解：如果在同一作用域下，使用ES6语法重复声明变量，会报错。而且会在该作用域下的代码执行之前报错。但是其他作用域在作用域之前的代码还是会执行的。</p>
+<pre><code class="javascript">let num=1;
+console.log(num); // fn作用域之前的代码会执行 1
+let fn=()=&gt;{
+    let str=&#39;123&#39;;
+    var str=&#39;234&#39;;
+    console.log(str); // fn作用域中出现重复声明变量，会在代码执行前直接报错。
+};
+fn();
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-29.PNG" alt=""></p>
+</blockquote>
+<p>let不允许重复声明，但允许重复赋值：</p>
+<pre><code class="javascript">let num=12;
+num=13; 
+console.log(num); // 13
+</code></pre>
+<p>==不一定是let重复声明才会报错，不管你之前使用什么方式(var function let const)在当前作用域中声明的变量，再使用let声明的时候都会报错。==</p>
+<pre><code class="javascript">var num = 12;
+let num = 13;
+console.log(num); // Uncaught SyntaxError: Identifier &#39;num&#39; has already been declared
+</code></pre>
+<pre><code class="javascript">let num = 13;
+var num = 12;
+console.log(num); // Uncaught SyntaxError: Identifier &#39;num&#39; has already been declared
+</code></pre>
+<pre><code class="javascript">function fn(){}
+let fn; // Uncaught SyntaxError: Identifier &#39;fn&#39; has already been declared
+</code></pre>
+<p>使用let声明变量，依然存在作用域链、私有作用域等概念：</p>
+<pre><code class="javascript">let att = 13,
+    sum = function(){
+        att = 14;
+    };
+sum();
+console.log(att); // 14
+</code></pre>
+<ol>
+<li>==暂时性死区==</li>
+</ol>
+<p>使用typeof检测一个未被声明的变量，ES5中返回的结果是undefined但是不报错。ES6中直接报错。</p>
+<pre><code class="javascript">console.log(typeof num); // undefined 当前变量不存在，但是使用typeof检测的时候，不会提示错误，而是返回undefined
+</code></pre>
+<pre><code class="javascript">// 严格模式下也不会报错
+&quot;use strict&quot;
+console.log(typeof num);// undefined
+</code></pre>
+<p>但是，如果我们在let声明num之前使用<code>typeof num</code>，因为使用let不会变量提升，那么按上面暂时性死区的特点，在let之前使用<code>typeof num</code>应该不会报错，但是实际上是报错的：</p>
+<pre><code class="javascript">&quot;use strict&quot;
+
+console.log(typeof num);// Uncaught ReferenceError: num is not defined
+let num;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-19.PNG" alt=""></p>
+<p>==ES6中检测一个没有被声明的变量，直接会报错==，不会再像ES5中的值是undefiend一样了。</p>
+<pre><code class="javascript">let num;
+console.log(typeof num); // undefined  只声明没有定义（赋值），默认值是undefined
+</code></pre>
+<ol>
+<li><p>==ES6语法创建的变量（let）存在块级作用域，ES5语法创建变量（var、function）没有块级作用域==</p>
+<p>[ES5]</p>
+<ul>
+<li>window全局作用域</li>
+<li>函数执行形成的私有作用域</li>
+</ul>
+<p>[ES6]</p>
+<p>除了ES5中的两个作用域，ES6中新增加块级作用域（我们可以把块级作用域理解为之前学习的私有作用域：存在私有变量和作用域链的一些机制）。==ES6语法中把大部分用大括号包起来都称之为块级作用域==</p>
+</li>
+</ol>
+<pre><code class="javascript">let num=12,
+    str=&#39;&#39;;
+let fn=function(str){
+    str=&#39;zf123&#39;
+    console.log(arguments[0]); // &#39;zf123&#39; 当前JS并没有开启严格模式，所以形参变量和实参集合arguments存在映射机制。但是我们以后尽量不要这样处理，因为ES6编译为ES5之后，会默认的开始严格模式，映射机制会中断，此处的结果依然是&#39;zf&#39;，这样导致我们的ES6结果和ES5结果不一致
+    console.log(num); //Uncaught ReferenceError: num is not defined 这里会报错，因为使用let声明的变量不会进行变量提升。为什么不会按照作用域链去找全局下的num呢？因为私有作用域已经有num了，虽然没有进行变量提升，但是代码在执行前，浏览器还是会把所有的声明过一遍。发现当前作用域下有num了，就不会从上级作用域中找。所以虽然此时num没有变量提升，在num声明之前使用num会找不到num，也不会从上级作用域中找。
+    let num = 13;
+    console.log(num,str); // 13 &#39;zf123&#39;
+};
+fn(&#39;zf&#39;);
+console.log(num,str); // 12,&#39;&#39;
+</code></pre>
+<blockquote>
+<p>上面的例子表明，在非严格模式下，ES6中的arguments和形参存在映射机制。在严格模式下就不存在映射机制了，<code>console.log(arguments[0]);</code>会打印’zf’</p>
+<p>补充一下映射机制：</p>
+<p>在非严格模式下，函数中的arguments和形参有映射机制：参数被重新赋值，arguments中的值也会跟着改变，被重新赋值</p>
+<pre><code class="javascript">var str=&#39;123&#39;;
+function fn(str){
+    str=100;
+    console.log(arguments[0]); // 100 重新赋值的值
+    console.log(str);  // 100
+}
+fn(str);
+</code></pre>
+<p>在严格模式下，函数中的arguments和形参没有映射机制：就算参数被重新赋值，arguments仍然是原先的值。</p>
+<pre><code class="javascript">&quot;use strict&quot;;
+
+var str=&#39;123&#39;;
+function fn(str){
+    str=100;
+    console.log(arguments[0]); // 123 仍然是原先的值
+    console.log(str);  // 100
+}
+fn(str);
+</code></pre>
+</blockquote>
+<p>==判断体也是一个块级私有作用域，在这个作用域中声明的变量是私有变量，在块级作用域之外是无法使用的==</p>
+<pre><code class="javascript">// ES5下
+if(10&gt;=10){
+    var total=100;
+}
+console.log(total); // 100
+</code></pre>
+<pre><code class="javascript">// ES6下
+if(10&gt;=10){
+    let total=100;
+}
+console.log(total); // Uncaught ReferenceError: total is not defined
+</code></pre>
+<p>循环体也是一个块级作用域：每一次循环都会形成一个新的块级作用域。</p>
+<p>当前案例形成5个块级作用域，每一个块级作用域都有一个私有变量，分别存储的是0-4.</p>
+<pre><code class="javascript">for(let i =0;i&lt;5;i++){
+    console.log(i); 0 1 2 3 4
+}
+console.log(i);// Uncaught ReferenceError: i is not defined
+</code></pre>
+<p>ES6中标准的块级作用域：</p>
+<pre><code class="javascript">{
+    let i =12;
+}
+console.log(i);// Uncaught ReferenceError: i is not defined
+</code></pre>
+<p>虽然ES6没有变量提升，但是每一个次进入当前作用域都会把let定义的变量找一遍（不提升但是找了，找到了说明当前作用域中是有这个变量的，提前使用都会报错）</p>
+<pre><code class="javascript">let i =10;
+{
+    let i =20;
+    {
+        {
+            console.log(i);// 20;
+        }
+    }
+}
+</code></pre>
+<pre><code class="javascript">let i =10;
+{
+    let i =20;
+    {
+        {
+            console.log(i);// Uncaught ReferenceError: i is not defined
+        }
+        let i =30;
+    }
+}
+</code></pre>
+<p><code>try catch</code>也是块级作用域：<code>try catch</code>中任何一个大括号都是块级作用域。</p>
+<pre><code class="javascript">try{
+    let i=100;
+}catch(e){
+    let k=200;
+}
+console.log(i); // Uncaught ReferenceError: i is not defined
+</code></pre>
+<pre><code class="javascript">try{
+    let i=100;
+}catch(e){
+    let k=200;
+}
+console.log(k); // Uncaught ReferenceError: k is not defined
+</code></pre>
+<p>switch也是块级作用域：</p>
+<pre><code class="javascript">switch(10){
+    case 10:
+        let i=20;
+        break;
+}
+console.log(i); // Uncaught ReferenceError: i is not defined
+</code></pre>
+<p>for-in循环:</p>
+<pre><code class="javascript">let obj={name:&#39;joy&#39;};
+for(let key in obj){
+
+}
+console.log(key); // Uncaught ReferenceError: key is not defined
+</code></pre>
+<p>==大部分我们遇到的大括号都是块级作用域==</p>
+<h4 id="块级作用域的增加有什么用？"><a href="#块级作用域的增加有什么用？" class="headerlink" title="块级作用域的增加有什么用？"></a>块级作用域的增加有什么用？</h4><p>形成一个不销毁的私有作用域。对于像循环事件绑定这种异步操作会带来便利。</p>
+<pre><code class="javascript">for(let i=0;i&lt;5;i++){
+    oBox[i].onclick=function(){
+        console.log(i);
+    }
+}
+</code></pre>
+<blockquote>
+<p>个人理解：</p>
+<p>每次循环都会形成一个块级作用域，相当于：</p>
+<pre><code class="javascript">{
+    i=3;
+    {
+        oBox[i].onclick=function(){
+            console.log(i); // 从上级作用域找到i=3； 
+        }
+    }
+}
+</code></pre>
+<p>这就相当于一个闭包：</p>
+<pre><code class="javascript">for(var i=0;i&lt;5;i++){
+    (function(i){
+        oBox[i].onclick=function(){
+            console.log(i);
+        }
+    })(i)
+}
+</code></pre>
+</blockquote>
+<h4 id="const的基础语法"><a href="#const的基础语法" class="headerlink" title="const的基础语法"></a>const的基础语法</h4><p>const的细节知识点和let一样。和let的主要区别在于：let创建的是变量，const创建的是常量。</p>
+<ul>
+<li>变量：值可以被修改</li>
+<li>常量：值不能被修改</li>
+</ul>
+<pre><code class="javascript">let num=12;
+num=13;
+console.log(num); // 13
+const str=&#39;Bob&#39;;
+str=&#39;Anna&#39;; // 而且使用babel如果遇到了const设置的常量再进行修改，就无法进行编译了。
+console.log(str); // Uncaught TypeError: Assignment to constant variable.
+</code></pre>
+<pre><code class="javascript">console.log(str); // Uncaught ReferenceError: str is not defined
+const str=&#39;Bob&#39;;
+</code></pre>
+<h4 id="JS中创建变量方式汇总"><a href="#JS中创建变量方式汇总" class="headerlink" title="JS中创建变量方式汇总"></a>JS中创建变量方式汇总</h4><pre><code class="javascript">var      ES5中创建变量
+function ES5中创建函数
+</code></pre>
+<p>ES5中创建变量或者函数存在：变量提升、重复声明等特征。</p>
+<pre><code class="javascript">let   ES6中创建变量
+const ES6创建常量
+</code></pre>
+<p>ES6中创建的变量或者常量都不可以变量提升，也不可以重复声明，而且还存在块级作用域。</p>
+<pre><code class="javascript">class  ES6中创建类的方法
+import ES6中导入模块的方式
+</code></pre>
+<p>比如：用class创建类（后面会讲到）</p>
+<pre><code class="javascript">class Parent(){
+    constructor(){
+        // 创建实例的属性 this.xxx=xxx
+    }
+    // 创建原型上的公有属性 Parent.prototype
+    aa(){}
+
+    // 创建Parent自己的属性
+    static bb(){}
+}
+</code></pre>
+<h3 id="3-2-ES6中的解构赋值"><a href="#3-2-ES6中的解构赋值" class="headerlink" title="3.2 ES6中的解构赋值"></a>3.2 ES6中的解构赋值</h3><p>按照原有值的结构，把原有值中的某一部分内容快速获取到（快速赋值个一个变量）。</p>
+<h4 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h4><p>结构赋值本身是ES6的语法规范，使用什么关键字来声明这些变量是无所谓的。</p>
+<pre><code class="javascript">// 传统的取值赋值操作
+let ary = [12,23,34];
+let a=ary[0],
+    b=ary[1],
+    c=ary[2];
+console.log(a,b,c); // 12 23 34
+
+/*-------------------------------------------*/
+// 解构赋值基本语法
+let [a,b,c]=[12,23,34];
+console.log(a,b,c); // 12 23 34
+
+/*-------------------------------------------*/
+// 结构赋值的基础语法是ES6本身的语法，和let没有关系，用var也可以
+var [a,b,c]=[12,23,34];
+console.log(a,b,c); // 12 23 34
+
+// 甚至不声明，也能使用：
+[a,b,c]=[12,23,34]; // 相当于给window增加的全局属性
+console.log(a,b,c); // 12 23 34
+
+// 但是不声明，a/b/c就是全局变量，使用babel编译成ES5语法是这样的：
+a=12;
+b=23;
+c=34;
+console.log(a,b,c);
+
+/*-------------------------------------------*/
+// 我们把它放在函数里面看看：
+// 没有声明
+~function(){
+    [a,b,c]=[12,23,34];
+}();
+console.log(a,b,c); // 12 23 34
+
+// 有声明：
+~function(){
+    let [a,b,c]=[12,23,34];
+}();
+console.log(a,b,c); // Uncaught ReferenceError: a is not defined
+</code></pre>
+<p>不声明使用解构赋值，在JS的严格模式下是不允许的，因为严格模式下不允许出现不使用var/let等声明的变量。(ES5中严格模式下也不允许使用未声明的变量)</p>
+<pre><code class="javascript">&quot;use strict&quot;
+[a,b,c]=[12,23,34]; 
+console.log(a,b,c); // Uncaught ReferenceError: a is not defined
+</code></pre>
+<p><strong>多维数组的解构赋值</strong></p>
+<p>可以让我们快速获取到需要的结果。</p>
+<pre><code class="javascript">// [12,[23,34],[45,56,[67,78]]]把多维数组中的34/56/78获取到，并且分别赋值给A，B，C
+let [,[,A],[,B,[,C]]] = [12,[23,34],[45,56,[67,78]]];
+console.log(A,B,C); // 34 56 78
+</code></pre>
+<p>细节知识：</p>
+<p>==如果只想获取数组中前面的某一项内容，后面的结构不需要补全。==</p>
+<pre><code class="javascript">let [D]=[12,23,34];
+console.log(D); // 12
+
+let [,e]=[12,23,34];
+console.log(e); // 23
+</code></pre>
+<p>==在解构赋值当中，我们可以给某一项设置默认值。==</p>
+<pre><code class="javascript">let [,,,a]=[12,23,34];
+console.log(a); // undefined
+
+let [,,,b=0]=[12,23,34];
+console.log(b);  // 0
+</code></pre>
+<p>在解构赋值中，支持<code>...xxx</code>的==拓展运算符==（又叫展开运算符、剩余运算符）</p>
+<pre><code class="javascript">// 把第一项赋值给a，剩下的凑成一个新数组
+let [a,...b]=[12,23,34,45,56,67];
+console.log(a,b); // 12  [23,34,45,56,67]
+</code></pre>
+<p>数组克隆：</p>
+<pre><code class="javascript">let [...a]=[12,23,34,45,56,67];
+console.log(a); // [12,23,34,45,56,67]
+</code></pre>
+<p>==拓展运算符==只能出现在只能出现在解构赋值中的结构==末尾的位置==：</p>
+<pre><code class="javascript">// 比如我想把第0项、倒数两项单独获取，中间的凑成新数组，用拓展运算符可不可以呢？
+let [a,...b,c,d]=[12,23,34,45,56,67];
+console.log(a,b,c); // Uncaught SyntaxError: Rest element must be last element
+</code></pre>
+<h4 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h4><pre><code class="javascript">let {name,age}={name:&#39;Anna&#39;,age:9};
+console.log(name,age); // Anna 9
+</code></pre>
+<p>在babel中编译的结果为：</p>
+<pre><code class="javascript">&quot;use strict&quot;;
+
+var _name$age={name:&#39;Anna&#39;,age:9},
+    name=_name$age.name,
+    age=_name$age.age;
+console.log(name,age);
+</code></pre>
+<p>细节知识：</p>
+<p>在对象结构赋值中需要注意的是：==赋值的变量需要和对象中的属性名吻合，否则无法获取对应的属性值。==</p>
+<pre><code class="javascript">let {a,b}={name:&#39;Anna&#39;,age:9};
+console.log(a,b); // undefined undefined
+</code></pre>
+<p>在对象的解构赋值当中，我们可以给对象的属性名起一个小名（a和b相当于小名或者别名）。</p>
+<pre><code class="javascript">let {name:a,age:b}={name:&#39;Anna&#39;,age:9};
+console.log(a,b); // Anna 9
+
+// 不能在给属性名起小名的时候，同时设置默认值{name:a=&#39;Bob&#39;,age};这样是不可以的，语法上不支持，你要么就设置默认值{name=&#39;Bob&#39;,age},要么就设置小名{name:a,age}
+</code></pre>
+<p>和数组的结构赋值一样，我们可以把后面不需要获取的结构省略掉，而且也可以给当前的变量设置默认值。</p>
+<pre><code class="javascript">let {c=0}={name:&#39;Anna&#39;,age:9};
+console.log(c); // 0
+
+let {name}={name:&#39;Anna&#39;,age:9};
+console.log(name);// Anna
+</code></pre>
+<p>和数组的解构赋值不一样的地方在于，==对象前面不允许出现空来占位==（因为对象获取需要通过具体的属性名获取，写成空的话，浏览器不知道怎么识别）</p>
+<pre><code class="javascript">let {,age}={name:&#39;Anna&#39;,age:9};
+console.log(age); // Uncaught SyntaxError: Unexpected token ,
+</code></pre>
+<p>但是可以只写一个属性名来获取值：</p>
+<pre><code class="javascript">let {age}={name:&#39;Anna&#39;,age:9};
+console.log(age); // 9
+</code></pre>
+<blockquote>
+<p>个人理解：解构赋值只需要能和对象的属性名匹配即可，不用管顺序。加逗号占位，浏览器就会把undefined和对象的属性进行匹配，肯定是匹配不到的。</p>
+<pre><code class="javascript">let {height,name:a,like=&#39;unknow&#39;,sex}={name:&#39;Anna&#39;,age:26,sex:&#39;girl&#39;,height:190};
+console.log(height,a,like,sex); // 190 &quot;Anna&quot; &quot;unknow&quot; &quot;girl&quot;
+</code></pre>
+<p>==注意不要混淆给变量设置别名和设置默认值，设置别名用冒号，设置默认值用等号。==</p>
+</blockquote>
+<p>支持拓展运算符：</p>
+<pre><code class="javascript">let {name,...aaa}={name:&#39;Anna&#39;,age:9,sex:&#39;girl&#39;};
+console.log(name,aaa); // Anna  {age: 9, sex: &quot;girl&quot;}
+</code></pre>
+<p>拓展运算符可以把对象进行==浅克隆==（只把第一级克隆了）。</p>
+<pre><code class="javascript">let obj={name:&#39;Anna&#39;,age:9,sex:&#39;girl&#39;,score:[10,20,30]};
+let {...arg}=obj;
+console.log(arg,obj); //{name: &quot;Anna&quot;, age: 9, sex: &quot;girl&quot;, score: Array(3)} {name: &quot;Anna&quot;, age: 9, sex: &quot;girl&quot;, score: Array(3)}
+console.log(arg===obj); // false
+console.log(arg.score===obj.score); // true  第二级里面的引用类型值还是一样的
+</code></pre>
+<p>思考：如何把一个对象或者一个数组进行深度克隆？</p>
+<blockquote>
+<p>自己实现的一个简单的深拷贝函数，可能考虑的还不太完全：</p>
+<p>比如，只考虑了数组和普通对象类型的属性值的深拷贝。函数就没有考虑了。</p>
+<p>只拷贝了对象的私有属性。如果对象不是普通对象，而是一个构造函数的话，原型上的属性没有拷贝。</p>
+<pre><code class="javascript">function deepCopy(obj){
+    var ele=Array.isArray(obj)?[]:{};
+    for(key in obj){
+        if(obj.hasOwnProperty(key)){
+            if(Object.prototype.toString.call(obj[key])===&#39;[object Object]&#39;||Object.prototype.toString.call(obj[key])===&#39;[object Array]&#39;){
+                ele[key]=deepCopy(obj[key]);
+            }else{
+                ele[key]=obj[key];
+            }
+
+        }
+    }
+    return ele;
+}
+</code></pre>
+<p>还有一种简单的深拷贝方法：<code>targetObj=JSON.parse(JSON.stringify(copyObj));</code></p>
+<p>这种方法有两个问题：</p>
+<ol>
+<li>如果你的对象里有函数,函数无法被拷贝下来</li>
+<li>无法拷贝copyObj对象原型链上的属性和方法</li>
+</ol>
+<p>参考文章：《<a href="https://segmentfault.com/a/1190000012828382" target="_blank" rel="external">一篇文章彻底说清JS的深拷贝/浅拷贝</a>》（说的不是特别好，基本上我自己都考虑到）</p>
+</blockquote>
+<p>练习：</p>
+<pre><code class="javascript">// JSON格式数据，属性名用双引号引起来
+let data=[
+    {
+        &quot;name&quot;:&quot;张三&quot;,
+        &quot;age&quot;:25,
+        &quot;score&quot;:{
+            &quot;english&quot;:[100,90,95],
+            &quot;math&quot;:[100,100,100],
+            &quot;Chinese&quot;:[98,99,100]
+        }
+    },
+    {
+        &quot;name&quot;:&quot;李四&quot;,
+        &quot;age&quot;:24,
+        &quot;score&quot;:{
+            &quot;english&quot;:[8,9,1],
+            &quot;math&quot;:[149,150,148],
+            &quot;Chinese&quot;:[98,99,100]
+        } 
+    }
+];
+// 获取张三的英语的第一次考试成绩，数学第二次考试成绩，语文第三次考试成绩
+let [{score:{english:[A],math:[,B],Chinese:[,,C]}}]=data;
+console.log(A,B,C); // 100 100 100
+</code></pre>
+<h4 id="其他可以进行解构赋值操作的内容"><a href="#其他可以进行解构赋值操作的内容" class="headerlink" title="其他可以进行解构赋值操作的内容"></a>其他可以进行解构赋值操作的内容</h4><ul>
+<li>字符串的解构赋值</li>
+<li>数值和布尔值的解构赋值</li>
+<li>函数参数的解构赋值</li>
+</ul>
+<p>这三部分在真实项目中使用的很少，可以在阮一峰官网《<a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="external">ES6标准入门（第三版）</a>》查看。</p>
+<h4 id="解构赋值的作用"><a href="#解构赋值的作用" class="headerlink" title="解构赋值的作用"></a>解构赋值的作用</h4><h5 id="1-快速交换两个变量的值"><a href="#1-快速交换两个变量的值" class="headerlink" title="1.快速交换两个变量的值"></a>1.快速交换两个变量的值</h5><pre><code class="javascript">let a=12,
+    b=13;
+[a,b]=[b,a];
+console.log(a,b);// 13,12
+</code></pre>
+<h5 id="2、接收函数返回的多个值"><a href="#2、接收函数返回的多个值" class="headerlink" title="2、接收函数返回的多个值"></a>2、接收函数返回的多个值</h5><pre><code class="javascript">let fn=function(){
+    let a=12,
+        b=13,
+        c=14;
+    return [a,b,c];
+};
+let [a,b,c]=fn();
+console.log(a,b,c); // 12 13 14
+</code></pre>
+<h5 id="3、可以快速接收到传递的多个值（我传递的是一个数组或者对象）"><a href="#3、可以快速接收到传递的多个值（我传递的是一个数组或者对象）" class="headerlink" title="3、可以快速接收到传递的多个值（我传递的是一个数组或者对象）"></a>3、可以快速接收到传递的多个值（我传递的是一个数组或者对象）</h5><pre><code class="javascript">let fn=function([a,b,c]){
+    console.log(a,b,c); // 12 23 34
+}
+fn([12,23,34]);
+console.log(a); // Uncaught ReferenceError: a is not defined函数中的a/b/c是私有变量
+</code></pre>
+<p>还可以设置参数的默认值：</p>
+<pre><code class="javascript">// 如果没有传递d的值，默认为0；如果传递了d的值，d就为传递的值
+let fn=function([a,b,c,d=0]){
+    console.log(a,b,c,d); 
+}
+fn([12,23,34]);// 12 23 34 0
+fn([12,&#39;qwqw&#39;,&#39;qwqw&#39;,&#39;123&#39;]); // 12 &quot;qwqw&quot; &quot;qwqw&quot; &quot;123&quot;
+</code></pre>
+<h5 id="4、在ES6中支持给函数设置默认值"><a href="#4、在ES6中支持给函数设置默认值" class="headerlink" title="4、在ES6中支持给函数设置默认值"></a>4、在ES6中支持给函数设置默认值</h5><p>快速处理options参数的初始化操作</p>
+<p>一般的参数初始化操作：</p>
+<pre><code class="javascript">// 一般处理参数初始化的操作：
+let animate=function (options){
+    let _default={
+        curEle:null,
+        target:{},
+        duration:1000,
+        callBack:null
+    };
+    for(let key in options){
+        if(options.hasOwnProperty(key)){
+            _default[key]=options[key];
+        }
+    }
+    let curEle=_default[&#39;curEle&#39;],
+        target=_default[&#39;target&#39;];
+    ...
+}
+</code></pre>
+<p>使用解构赋值快速处理函数初始化操作：</p>
+<pre><code class="javascript">let animate=function({curEle=null,target={},duration=1000,callBack=null}){
+    console.log(curEle,target,duration,callBack);  //body {opacity: 1} 500 null
+};
+animate({
+    curEle:document.body,
+    duration:500,
+    target:{opacity:1}
+});
+
+// 但是如果不传值的话会出错
+animate();// Cannot destructure property `curEle` of &#39;undefined&#39; or &#39;null&#39;.
+</code></pre>
+<blockquote>
+<p>个人理解：如果不传值进来的话，值就默认为undefined，对undefined当做对象解构赋值，肯定会报错，因为undefined没有这些属性。</p>
+</blockquote>
+<p>为了避免这个问题，我们只需要让整个的等于一个空对象就可以了：</p>
+<pre><code class="javascript">let animate=function({curEle=null,target={},duration=1000,callBack=null}={}){
+    ...
+};
+</code></pre>
+<p>为什么这样可以避免出问题呢？我们看看下面这个简单的例子：</p>
+<pre><code class="javascript">let fn=function(x){
+    console.log(x); // undefined
+    x=x||0;
+    console.log(x); // 0
+}
+fn(); // 如果我们没有传值进去的话。x为undefiend。但是我们想给x设置一个默认值，传统的做法是x=x||0
+
+// 其实不用这么麻烦，我们可以这样做：
+let fn2=function(x=0){ // 直接在这里设置一个默认值就可以了
+    console.log(x); // 0
+}
+fn2();
+</code></pre>
+<p>所以，同样的道理，我们给animate函数的参数设置一个<code>{}</code>作为参数解构赋值的默认值，就能避免不传参报错的问题：</p>
+<pre><code class="javascript">let animate=function({curEle=null,target={},duration=1000,callBack=null}={}){
+    console.log(curEle,target,duration,callBack); // null {} 1000 null
+};
+animate();
+</code></pre>
+<h5 id="5、其他作用"><a href="#5、其他作用" class="headerlink" title="5、其他作用"></a>5、其他作用</h5><ul>
+<li><p><a href="http://es6.ruanyifeng.com/#docs/destructuring#%E7%94%A8%E9%80%94" target="_blank" rel="external">遍历Map结构</a></p>
+<pre><code class="javascript">let obj=new Map();
+obj.set(&#39;x&#39;,10);
+obj.set(&#39;y&#39;,20);
+for(let [key,value] of obj){
+    console.log(key,value);
+}
+// x 10
+// y 20
+</code></pre>
+</li>
+<li><p>提取JSON数据</p>
+<p>参看前面的提取成绩的练习。</p>
+</li>
+</ul>
+<h3 id="数值结构总结"><a href="#数值结构总结" class="headerlink" title="数值结构总结"></a>数值结构总结</h3><blockquote>
+<p>个人理解：</p>
+<p>数组是按==对应顺序==解构的，对象是按==对应属性==解构的。</p>
+<p>我们解构的目的，是取到引用数据类型中对应的值。</p>
+<p>对数组解构来讲，因为其属性名是安索引顺序固定排列的数字。所以，对数组的解构，只要保证结构顺序一致，就能正确取值。取值变量可按命名规则任意设置。</p>
+<pre><code class="javascript">let [a,age,sex]=[12,28,&#39;girl&#39;];
+</code></pre>
+<p>但是对于普通对象来讲，属性是没有排列顺序的，它们知识堆砌在一个对象容器里面而已。比如：</p>
+<pre><code class="javascript">// 对于对象obj,你写成
+obj={name:&#39;Anna&#39;,age:26,sex:&#39;girl&#39;};
+// 也可以写成
+obj={age:26,sex:&#39;girl&#39;,name:&#39;Anna&#39;};
+</code></pre>
+<p>所以，普通对象没有像数组那样的唯一固定结构，就不能像数组那样去解构：</p>
+<ol>
+<li>你按我们看起来对应的书写顺序来结构是没有用的：<code>let{a,b}={name:&quot;Anna&quot;,age:9}</code>这就不行，a既可以等于’Anna’，也可以等于9，就无法正确取值。</li>
+</ol>
+<p>所以，我们只能通过去对应普通对象的属性名来正确取值。所以，取值的变量名必须和对象中的属性名对应（也就是相同）才可以正确取值。</p>
+<pre><code class="javascript">let {sex,age}={name:&#39;Anna&#39;,age:9,sex:&#39;girl&#39;};
+// 不管顺序如何，我们都能正确取到sex=&#39;girl&#39;,agg=9;
+</code></pre>
+<p>至于其他的结构赋值规则就在此基础上延伸开来。</p>
+</blockquote>
+<h3 id="3-3-箭头函数"><a href="#3-3-箭头函数" class="headerlink" title="3.3 箭头函数"></a>3.3 箭头函数</h3><h4 id="箭头函数的基础语法"><a href="#箭头函数的基础语法" class="headerlink" title="箭头函数的基础语法"></a>箭头函数的基础语法</h4><pre><code class="javascript">// 正常定义一个函数
+let fn=function(x,y){
+    return x+y;
+}
+
+// 使用箭头函数改写
+let fn =(x,y)=&gt;{
+    return x+y
+}
+
+// 如果只有return，可以简写成
+let fn=(x,y)=&gt;x+y;
+</code></pre>
+<p>只有一个形参，并且没有设置默认值，箭头函数可以省略括号。</p>
+<pre><code class="javascript">// 正常定义函数
+let fn=function(n){
+    let x=10,
+        y=20;
+    return x+y+n;
+}
+
+// 使用箭头函数语法改写
+let fn=(n)=&gt;{
+    let x=10,
+        y=20;
+    return x+y+n;
+}
+
+//只有一个参数，并且没有设置默认值，可以省略括号
+let fn=n=&gt;{
+    let x=10,
+        y=20;
+    return x+y+n;
+}
+
+// 如果设置默认值了，就不能省略
+let fn=(n=0)=&gt;{
+    let x=10,
+        y=20;
+    return x+y+n;
+}
+</code></pre>
+<h4 id="箭头函数中不支持arguments"><a href="#箭头函数中不支持arguments" class="headerlink" title="箭头函数中不支持arguments"></a>箭头函数中不支持arguments</h4><pre><code class="javascript">// 正常函数
+let fn=function(){
+    console.log(arguments);// Arguments(4) [10, 20, 30, 40, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+}
+fn(10,20,30,40);
+</code></pre>
+<pre><code class="javascript">// 箭头函数中不支持arguments
+let fn=()=&gt;{
+    console.log(arguments);// Uncaught ReferenceError: arguments is not defined
+}
+fn(10,20,30,40);
+</code></pre>
+<p>如果我们现在要实现任意数求和，在传统的函数中，只需要：</p>
+<pre><code class="javascript">let sum=function(){
+    var ary=Array.prototype.slice.call(arguments);
+    return eval(ary.join(&quot;+&quot;));
+}
+sum(10,20,30,40); // 100
+</code></pre>
+<p>箭头函数不支持arguments，如何用箭头函数来实现呢？</p>
+<p>==我们使用ES6中的剩余运算符<code>...</code>来获取传递进来的所有参数值。（优势：使用剩余运算符获取到的结果本身就是一个数组，不需要再转换了）==</p>
+<pre><code class="javascript">// 和我们在前面讲解构赋值的用法类似
+let fn=(a,...b)=&gt;{
+    console.log(b);//  [20, 30, 40]
+    console.log(b instanceof Array); // true
+}
+fn(10,20,30,40); 
+
+// 我们要获取所有的参数，只需要
+let fn=(...b)=&gt;{
+    console.log(b);//  [10，20, 30, 40]
+    console.log(b instanceof Array); // true
+}
+fn(10,20,30,40);
+</code></pre>
+<p>所以，用箭头函数实现任意数求和可以写为：</p>
+<pre><code class="javascript">let fn=(...arg)=&gt;eval(arg.join(&#39;+&#39;)); // 直接return，可以简写 
+console.log(fn(10,20,30,40)); // 100
+</code></pre>
+<h4 id="箭头函数this指向问题"><a href="#箭头函数this指向问题" class="headerlink" title="箭头函数this指向问题"></a>箭头函数this指向问题</h4><p>ES6中在给对象编写方法的简略写法：</p>
+<pre><code class="javascript">// 传统写法
+let obj={
+    name:&#39;obj&#39;,
+    fn:function(){
+        // 执行代码
+    }
+}
+</code></pre>
+<pre><code class="javascript">// ES6中简略写法
+let obj={
+    name:&#39;obj&#39;,
+    fn(){
+        // 这样写还是属于普通函数，不是箭头函数
+    }
+}
+
+/*--------------------------------------------*/
+// 编译成ES5就是
+let obj={
+    name:&#39;obj&#39;,
+    fn:function fn(){
+
+    }
+}
+</code></pre>
+<p>普通函数执行this的指向：看执行函数前面是否有点，有点，点前面是谁，this就是谁，没有点this指向window或者undefined（严格模式下）。</p>
+<pre><code class="javascript">let obj={
+    name:&#39;obj&#39;,
+    fn(){
+        console.log(this);
+    }
+};
+obj.fn(); // this:obj
+document.body.onclick=obj.fn; // this:body
+setTimeout(obj.fn,1000); // this:window  这个是把obj.fn作为一个整体传参。后面看看回调函数的window就知道了
+obj.fn.call(12); // this:12
+</code></pre>
+<p>现在我们把函数改写为箭头函数：</p>
+<blockquote>
+<p>个人理解：（也许有误）</p>
+<p>箭头函数的this始终指向宿主环境，无论怎么操作，无论是谁调用、无论是否使用call、apply、bind，箭头函数的this始终指向宿主环境。</p>
+</blockquote>
+<pre><code class="javascript">let obj={
+    name:&#39;obj&#39;,
+    fn:()=&gt;{
+        console.log(this); // 不管怎么操作，最后都指向window（开不开启严格模式都一样）
+    }
+};
+obj.fn(); // this:window
+document.body.onclick=obj.fn; // this:window
+setTimeout(obj.fn,1000); // this:window
+obj.fn.call(12); // this:window
+</code></pre>
+<p>==箭头函数中没有自己的this指向，用到的this都是所在宿主环境（它的上级作用域）中的this。==</p>
+<p>==以后实战项目中，不是要把所有的函数都改为箭头函数，根据自身需要来修改即可。==（例如：我们需要让函数中的this是宿主环境中的this，我们才来使用箭头函数；或者不涉及this问题，我们想让代码写起来简单一些也可以使用箭头函数）</p>
+<pre><code class="javascript">let obj={
+    name:&#39;obj&#39;,
+    fn(){
+      // this:obj  
+        setTimeout(function(){
+            // this:window
+        },1000);
+    }
+};
+obj.fn(); // 直接这样使用，fn中的this是obj;但是内部定时器的回调函数的this是window
+
+/*------------------------------------------------*/
+// 但是如果我们想要使定时器的回调函数的this也是obj，该怎么做呢？
+// 传统方式一：bind
+function(){}.bind(this); // 但是这种方式不兼容IE6-8。
+setTimeout(function(){}.bind(obj),1000);
+
+/*------------------------------------------------*/
+// 传统方式二：_this=this
+fn(){
+    var _this=this;
+    setTimeout(function(){
+        // 在里面用_this:obj
+    },1000);
+}
+
+/*------------------------------------------------*/
+// ES6中的箭头函数：
+fn(){
+    setTimeout(()=&gt;{
+        // this:obj 继承宿主环境中的this
+    },1000);
+}
+</code></pre>
+<h4 id="箭头函数扩充"><a href="#箭头函数扩充" class="headerlink" title="箭头函数扩充"></a>箭头函数扩充</h4><h5 id="宿主环境"><a href="#宿主环境" class="headerlink" title="宿主环境"></a>宿主环境</h5><p>==宿主环境不是执行的环境，而是定义的环境。==</p>
+<pre><code class="javascript">let fn=()=&gt;{
+    console.log(this);
+};
+let obj={
+    name:&#39;obj&#39;,
+    sum:function(){
+        // this:obj
+        fn(); // this:window 宿主环境不是执行的环境，而是定义的环境。fn虽然是在这里执行的，但是是在window下定义的，所以它的宿主环境还是window
+    }
+};
+obj.sum();
+</code></pre>
+<blockquote>
+<p>个人理解：定义函数所在的作用域就是函数的宿主环境。至于函数在哪个作用域执行，和宿主环境没有太多关系。这就和上级作用域是一样的。</p>
+</blockquote>
+<p>如果是箭头函数里面的箭头函数，它的this又是多少呢？</p>
+<blockquote>
+<p>需要逐级向上查找，我认为和最外层箭头函数的this一样。</p>
+</blockquote>
+<h5 id="箭头函数嵌套"><a href="#箭头函数嵌套" class="headerlink" title="箭头函数嵌套"></a>箭头函数嵌套</h5><p>对于层级嵌套的箭头函数 </p>
+<pre><code class="javascript">let fn=function(i){
+    return function(n){
+        return n+(++i);
+    }
+};
+
+// 修改为箭头函数
+let fn=(i)=&gt;{
+    return (n)=&gt;{
+        return n+(++i);
+    }
+};
+
+// 只有return，还可以继续简化
+let fn=(i)=&gt;{
+    return (n)=&gt;n+(++i);
+}
+// 这样的话，外层函数也只有一个return，也可以简化
+let fn= (i)=&gt; (n)=&gt; n + (++i);
+</code></pre>
+<p>所以，之后可以简化为：_(¦3」∠)_</p>
+<pre><code class="javascript">let fn= (i)=&gt; (n)=&gt; n + (++i);
+// 只有一个参数，可以不写小括号，只有return，可以不写大括号。
+let fn=i=&gt;n=&gt;n+(++i);
+</code></pre>
+<h3 id="3-4-ES6中创建类"><a href="#3-4-ES6中创建类" class="headerlink" title="3.4 ES6中创建类"></a>3.4 ES6中创建类</h3><h4 id="ES5中创建类"><a href="#ES5中创建类" class="headerlink" title="ES5中创建类"></a>ES5中创建类</h4><p>ES5中创建类和实例，以及如何禁止用户把类当做普通函数执行：<code>new.target</code></p>
+<pre><code class="javascript">function Person(name,age){
+    console.log(new.target); // ES6中新增语法，如果是通过new执行的，返回的结果是当前创建的类，如果是当做普通函数执行的，返回的是undefined.(如果把函数当做对象，执行方法，new.target什么也不会返回)
+    // new执行的时候，this是当前类的实例，this.xxx=xxx是给当前实例增加的私有属性
+    this.name=name;
+    this.age=age;
+}
+// 原型上存放的是共有的属性和方法：给创建的实例使用
+Person.prototype={
+    constructor:Person,
+    say:function(){
+        console.log(`my name is ${this.name},i am ${this.age} years old~`)
+    }
+};
+
+// 把Person当做一个普通对象，给对象设置私有属性
+Person.study=function(){
+    console.log(`good good study,day day up~`);
+};
+
+
+var p1=new Person(&#39;王雪超&#39;,80);
+</code></pre>
+<p>==new.target==</p>
+<p>ES6中新增语法，如果是通过new执行的，返回的结果是当前创建的类，如果是当做普通函数执行的，返回的是undefined。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-20.PNG" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-21.PNG" alt=""></p>
+<p>根据此特性，我们可以禁止类当做普通函数执行：</p>
+<pre><code class="javascript">if(typeof new.target===&#39;undefined&#39;){
+    throw new SyntaxError(&#39;当前Person不作为普通函数执行，返回的结果是当前创建的类，请使用new Person来执行&#39;)
+}
+</code></pre>
+<p>添加到类里面面：</p>
+<pre><code class="javascript">function Person(name,age){
+       if(typeof new.target===&#39;undefined&#39;){
+    throw new SyntaxError(&#39;当前Person不能作为普通函数执行，请使用new Person来执行&#39;)
+}
+    this.name=name;
+    this.age=age;
+}
+
+Person.prototype={
+    constructor:Person,
+    say:function(){
+        console.log(`my name is ${this.name},i am ${this.age} years old~`)
+    }
+};
+
+Person.study=function(){
+    console.log(`good good study,day day up~`);
+};
+</code></pre>
+<p>执行结果：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-22.PNG" alt=""></p>
+<h4 id="ES6中创建类"><a href="#ES6中创建类" class="headerlink" title="ES6中创建类"></a>ES6中创建类</h4><p>在ES6中创建类用关键字<code>class</code>,而且类直接用大括号包起来，没有小括号。在大括号中，构造函数用<code>constructor</code>创建。其实就是类本身，因为<code>xxx.prototype.constructor===xxx</code>为true。</p>
+<ul>
+<li>设置实例的私有属性，在constructor函数里面创建</li>
+<li>设置原型上的公有属性，直接在类的大括号里面加</li>
+<li>设置类本身当做普通对象的私有属性，在属性前加上<code>static</code>关键字</li>
+</ul>
+<pre><code class="javascript">console.log(Person); // Uncaught ReferenceError: Person is not defined 用class创建类也不存在变量提升
+class Person{
+    constructor(name=&#39;张三&#39;,age=9){
+        // 给实例设置的私有属性
+        this.name=name;
+        this.age=age;
+    }
+    // 直接在大括号里编写的属性都设置在类的原型上：ES6默认把constructor的问题解决了，此时原型上construtor的指向就是person
+    say(){
+        console.log(`my name is ${this.name},i am ${this.age} years old~`)
+    // 把person当做普通对象设置属性和方法，只需要在设置的方法前面加static即可
+    static study(){
+        console.log(`good good study,day day up~`);
+    }
+}
+let p1=new Person(&#39;王雪超&#39;,60);
+Person(); // Uncaught TypeError: Class constructor Person cannot be invoked without &#39;new&#39;   ES6中创建类，天生自带new.target的验证，不允许把创建的类当做普通函数执行
+</code></pre>
+<p>==ES6中创建类，天生自带new.target的验证，不允许把创建的类当做普通函数执行。==</p>
+<blockquote>
+<p>我在想，要是想添加属性，而不是方法，要怎么做呢？</p>
+<ul>
+<li>给实例添加属性，就是<code>this.xxx=xxx</code></li>
+<li>给原型添加属性呢？</li>
+<li>给Person本身添加属性呢？ 直接<code>Person.xx=xx</code>吗？有没有专门的方式呢？</li>
+</ul>
+<p>通过查看《<a href="http://es6.ruanyifeng.com/#docs/class" target="_blank" rel="external">ES6标准入门（第三版）</a>》，了解到目前只能通过<code>Person.xx=xx</code>的方式给类添加私有属性（或者称之为静态属性）</p>
+<blockquote>
+<pre><code class="javascript">class Foo {
+}
+
+Foo.prop = 1;
+Foo.prop // 1
+</code></pre>
+<p>目前，只有这种写法可行，因为 ES6 明确规定，Class 内部只有静态方法，没有静态属性。 </p>
+</blockquote>
+</blockquote>
+<p>补充：</p>
+<blockquote>
+<p>自己经过试验发现，在用for-in循环遍历Person的属性的时候（把Person做为普通对象），定义在class中的静态属性不可枚举。只有用<code>Person.xx=xx</code>这种传统方式添加的属性才可以枚举。</p>
+<p>对于Person的实例p1，也对齐进行遍历，只能遍历其私有属性（Person中在constructor函数中定义的属性可枚举），不能遍历其共有属性（原型上的属性不可枚举）。</p>
+<p>这是ES6的特性吗？</p>
+</blockquote>
+<h3 id="3-5-ES6中的继承-extends"><a href="#3-5-ES6中的继承-extends" class="headerlink" title="3.5 ES6中的继承==extends=="></a>3.5 ES6中的继承==extends==</h3><p>创建一个类：</p>
+<pre><code class="javascript">class Person{
+    constructor(x=0,y=0){ // 如果constructor不写，浏览器也会默认加上
+        this.x=x;
+        this.y=y;
+    } 
+}
+/*----------------------------------------------------*/
+// 我们传进来的值可能不止x和y，我想把其他的值都加给this，我们可以使用解构赋值
+class Person{
+    constructor(...arg){
+        let [x=0,y=0]=arg;
+        this.x=x;
+        this.y=y;
+    }
+    sum(){
+        return this.x+this.y;
+    }
+    /*
+    有同学想说，我在这里面用箭头函数行不行，比如：
+    fn:()=&gt;{
+
+    }
+    这样不行。ES6中目前只能用`函数名(){}`这种形式来给原型添加方法。当然，你用Person.prototype.xxx=xxx也可以。
+
+    当然，你如果用Person.prototype.fn=()=&gt;{}这样写，没有语法问题。但是这样写，fn中的this就不会是实例。
+    var p1=new Person();
+    p1.fn();  
+    fn中的this是window。fn是箭头函数，this继承宿主环境，宿主环境是谁，this就是谁，或者说箭头函数的上级作用域是谁，this就指向谁。在这里，fn是在window下定义的，所以，fn中的this永远指向window。Person的实例来调用fn，fn的this不会指向实例，只会指向window。
+    所以，我们要杜绝在原型上使用箭头函数添加方法。
+
+    还有同学说，我在方法之间用逗号隔开行不行？
+    这样也不行。ES6中，目前在创建的类中，方法之间不需要用逗号隔开。
+    */ 
+}
+</code></pre>
+<p>接着，我们创建一个子类：</p>
+<pre><code class="javascript">// 创建Child类，并且让Child类继承Person类
+class Child extends Person{
+    // 1、把Person中的私有属性继承过来，设置给了子类实例的私有属性，
+    // 2、让子类实例的__proto__（原型链）上能够找到Person父类的原型（这样子类的实例就可以调用父类原型上的方法了）
+    fn(){
+
+    }
+}
+</code></pre>
+<p>我们来试试看：</p>
+<pre><code class="javascript">// 父类Person
+class Person{
+    constructor(...arg){
+        let [x=0,y=0]=arg;
+        this.x=x;
+        this.y=y;
+    }
+    sum(){
+        return this.x+this.y;
+    }    
+}
+
+// 自类Child类继承Person类
+class Child extends Person{
+    fn(){
+
+    }
+}
+
+// 创建Child的实例
+let c=new Child(10,20);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-23.PNG" alt=""></p>
+<p>通过结果发现，Child继承了Person的私有属性，所以，在其实例c上有x和y两个私有属性。实例的c的原型指向Person的原型。</p>
+<p>上面的fn是给Child设置的共有属性。我们还想给Child的实例设置私有属性，如何设置呢？</p>
+<pre><code class="javascript">// 比如：子类继承了父类的x、y私有属性。我现在像给Child添加一个私有属性z：
+class Child extends Person{
+    constructor(){
+        // 直接这么写会报错。Uncaught ReferenceError: Must call super constructor in derived class before accessing &#39;this&#39; or returning from derived constructor
+    }
+    fn(){
+
+    }
+}
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-24.PNG" alt=""></p>
+<p>原因是因为要求加constructor的第一行要加<code>super()</code>:</p>
+<pre><code class="javascript">class Child extends Person{
+    constructor(){
+        super();
+    }
+    fn(){
+
+    }
+}
+</code></pre>
+<p>现在我们<code>let c1=new Chila(10,20,30)</code>:</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-25.PNG" alt=""></p>
+<p>执行之后，我们来看c1的属性，发现里面的x和y都变为0，但是之前的c的x和y都还有10,20的值的啊。而且我们在创建c1的时候是传递了10/20/30这些实参的，为什么x和y的值会是0呢？</p>
+<p>这是因为：</p>
+<pre><code class="javascript">// Child的constructor相当于做了一件事：把x、y、z的默认值都设为了0。super里面继承了父类Person的私有属性，但是没有赋值。我们需要把传进来的x和y传给super才行。
+constructor(x=0,y=0,z=0){
+    super(x,y); // 相当于在ES5中用的call继承：Person.call(this,x,y)
+}
+</code></pre>
+<p>再来<code>let c1=new Chila(10,20,30)</code>得到结果：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-26.PNG" alt=""></p>
+<p>现在就有值了。我们传进去的x和y是10和20，设置给了子类的实例。</p>
+<p>这就说明：==之前没有给子类Child设定constructor，浏览器默认帮我们做了super(x,y)这样的事情。但是如果我们自己给子类设定写了constructor，那就需要我们自己手动写super()去继承父类的私有属性，而且要手动传参进去。==</p>
+<p>那有的同学就会想，我以后不写constructor就行了呗。但是你要明白我们写constructor的作用：我们是想给子类的实例设置私有属性才写constructor的。</p>
+<pre><code class="javascript">// 我们给子类再添加一个属性z
+constructor(x=0,y=0,z=0){
+    super(x,y);
+    this.z=z;
+}
+</code></pre>
+<p>再来<code>let c1=new Chila(10,20,30)</code>得到结果：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-27.PNG" alt=""></p>
+<p>一定要注意的是：==我们可以不写constructor，浏览器会默认创建它，而且会默认把父类的私有属性继承过来（而且把传递给子类的参数值也传递给父类了）。但是，如果你自己写了constructor，就一定要写super()，而且super()一定要在constructor的第一句，不能写在后面==</p>
+<pre><code class="javascript">constructor(x=0,y=0,z=0){
+    this.z=z;
+    super(x,y);  // Uncaught ReferenceError: Must call super constructor in derived class before accessing &#39;this&#39; or returning from derived constructor 
+}
+</code></pre>
+<p>constructor中第一句不是super，就直接报错。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-28.PNG" alt=""></p>
+<p>我们不给子类写constructor，浏览器会默认帮我们做类似下面的事情：</p>
+<pre><code class="javascript">constructor(...arg){
+    // arg:传递给子类的参数（数组）[剩余运算符]
+    super(...arg);// [展开运算符] arg相当于一个数组， 把arg中的每一项展开，分别传给父类方法。
+}
+</code></pre>
+<p>很多时候，我们不仅要继承父类私有的，还需要给子类增加私有的，此时就必须写constructor，但是一定要在constructor中的第一行写上super，否则会报错。</p>
+<pre><code class="javascript">constructor(..arg){
+    super(...arg);
+    let [,,z]=arg;
+    this.z=z;
+}
+</code></pre>
+<p><code>super()</code>等价于<code>Person.prototype.constructor.call(this);</code>call里面的this是就是子类的实例。</p>
+<pre><code class="javascript">constructor(..arg){
+    super(...arg); // Person.prototype.constructor.call(this)
+    let [,,z]=arg;
+    this.z=z;
+}
+</code></pre>
+<h2 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h2><p><del>点击查看：<a href="ES6基础语法总结.xmind">ES6基础语法总结</a>思维导图（按ctrl键点击）</del></p>
+<p>扩展阅读：《<a href="https://blog.csdn.net/zyy_0725/article/details/78066799" target="_blank" rel="external">ES6中的class创建类</a>》（讲的很详细，扩充了很多细节知识点）</p>
+<h2 id="5、promise"><a href="#5、promise" class="headerlink" title="5、promise"></a>5、promise</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>promise是一种异步流程的控制手段。</p>
+<ol>
+<li><p>回调地狱，代码难以维护 第一个的输入是第二个的输入。</p>
+<p>promise链式调用。</p>
+</li>
+<li><p>promise可以支持多个并发的请求，获取并发请求中的数据</p>
+</li>
+<li><p>这个promise可以解决异步的问题，本身不能说promise是异步的</p>
+</li>
+</ol>
+<h3 id="promise关键字"><a href="#promise关键字" class="headerlink" title="promise关键字"></a>promise关键字</h3><p>promise表示承诺。</p>
+<ul>
+<li>resolve成功</li>
+<li>reject失败</li>
+<li>pending等待态</li>
+</ul>
+<p>一旦promise成功了，就不能失败，相反也是一样的。只有状态是等待的状态时，才可以转化状态。</p>
+<blockquote>
+<p>个人理解：</p>
+<p>promise是一个类。</p>
+<pre><code class="javascript">console.dir(Promise);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-30.PNG" alt=""></p>
+</blockquote>
+<h3 id="使用promise"><a href="#使用promise" class="headerlink" title="使用promise"></a>使用promise</h3><p>Promise的参数只有一个，叫做executor（执行器），默认new时就会调用。</p>
+<pre><code class="javascript">let p = new Promise((resolve,reject)=&gt;{
+   // 默认promise中的executor是同步的执行的 
+    console.log(1);
+});
+console.log(2);
+</code></pre>
+<p>因为默认是同步执行的，所以，输出结果为：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-31.PNG" alt=""></p>
+<p>每一个promise的实例上都有一个then方法，then方法中有两个参数，一个叫成功的函数，一个是失败的函数。</p>
+<h2 id="6、模块"><a href="#6、模块" class="headerlink" title="6、模块"></a>6、模块</h2><p>ES6中提供了模块的导入（import）和导出（export）。按我个人的理解，就是将js文件当做一个个的模块，将里面的内容（变量、对象、函数）导出（发出去），另一个JS文件将这些内容导入（接收）。对于模块化开发很有好处。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-38.PNG" alt=""></p>
+<h3 id="主JS文件的type-”module”"><a href="#主JS文件的type-”module”" class="headerlink" title="主JS文件的type=”module”"></a>主JS文件的type=”module”</h3><p>一般，我们开发的时候，会有一个主JS文件，和若干模块JS文件。我们在html中引用的时候，只需要引入主JS文件即可。由于我们是作为模块使用的，所以其type=”module”。</p>
+<p>比如：<code>main.js</code>中引入了<code>1.js</code>和<code>2.js</code>。我们只需要在html文件中引入<code>main.js</code></p>
+<pre><code class="html">&lt;!--示例--&gt;
+&lt;script src=&#39;JS/main.js&#39; type=&quot;module&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="export导出"><a href="#export导出" class="headerlink" title="export导出"></a>export导出</h3><p>我们首先要将模块中的内容导出。</p>
+<p>导出，其实就相当于我们把导出的内容放在一个看不见的对象里面。既然如此，我们导出的每一个内容就相当于这个对象中的一个键值对，有属性名和属性值。所以，我们不能直接导出一个值（比如<code>export 12</code>），我们导出的内容它得有一个变量名才行，当然任何数据类型都是可以导出的。</p>
+<h4 id="边声明边导出"><a href="#边声明边导出" class="headerlink" title="边声明边导出"></a>边声明边导出</h4><pre><code class="javascript">export let str1=&#39;asdf&#39;;
+export let str2=&#39;abc&#39;;
+</code></pre>
+<p> 其实这就相当于，我们导出的是<code>{str1:&quot;asdf&quot;,str2:&quot;abc&quot;};</code></p>
+<h4 id="先声明再导出"><a href="#先声明再导出" class="headerlink" title="先声明再导出"></a>先声明再导出</h4><pre><code class="javascript">let str3=&#39;hello&#39;;
+export {str3};
+
+let str4=&#39;world&#39;;
+export {str4};
+
+let str5=&#39;name&#39;;
+let str6=&#39;age&#39;;
+export {str5,str6};
+</code></pre>
+<p>这个例子还是对应哪个原则，导出的时候，相当于把导出的内容放在一个看不见的对象里面，再导出。所以，就算这里是先声明再导出，一次只导出一个，我们也要加上<code>{str3}</code>包裹起来。你可以理解为包裹起来相当于把内容放入那个看不见的对象里面。</p>
+<p>这里虽然我们分了三次导出，其实也相当于导出了一个看不见的对象：</p>
+<p><code>{str3:&quot;hello&quot;,str4:&quot;world&quot;,str5:&quot;name&quot;,str6:&quot;age&quot;}</code></p>
+<h4 id="默认导出"><a href="#默认导出" class="headerlink" title="默认导出"></a>默认导出</h4><pre><code class="javascript">let str7=&#39;zxcv&#39;;
+export default str7=&#39;123&#39;;
+</code></pre>
+<p>如果整个模块只需要导出一个内容，那么就可使使用默认导出。如例子所示。</p>
+<ul>
+<li><p>默认导出，只能使用一次，不能多次默认导出，会报错。但是可以和前面的导出方式一起使用。</p>
+<p>我们可以理解为，在哪个导出的隐形对象中，default属性已经存在了；使用两次默认导出，就相当于同时给default属性赋值，那我们在import的是时候，就取不到这两个导出的值，所以不能使用。</p>
+<pre><code class="javascript">// 这样会报错，同时使用了两次default
+let str7=&#39;zxcv&#39;;
+export default str7=&#39;123&#39;;
+let str8=&#39;ased&#39;;
+export default str8;
+</code></pre>
+<p>混用是没有问题的</p>
+<pre><code class="javascript">// 这样混用是没有问题的
+let str7=&#39;zxcv&#39;;
+export default str7=&#39;123&#39;;
+export let str1=&#39;asdf&#39;;
+export let str2=&#39;abc&#39;;
+let str5=&#39;name&#39;;
+let str6=&#39;age&#39;;
+export {str5,str6};
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-32.PNG" alt=""></p>
+</li>
+<li><p>可以在默认导出时，修改内容。比如示例中我们把str7的值改为<code>&#39;123&#39;</code>。</p>
+</li>
+<li><p>默认导出，需要先声明，再导出。不能使用<code>export default let str7=&#39;123&#39;</code>，这样会报错。</p>
+</li>
+</ul>
+<h4 id="as更改导出的变量名"><a href="#as更改导出的变量名" class="headerlink" title="as更改导出的变量名"></a>as更改导出的变量名</h4><p>我们可以使用as更改导出的变量名。</p>
+<p>比如：</p>
+<pre><code class="javascript">let str3=&#39;hello&#39;;
+export {str3 as s1};
+
+let str4=&#39;world&#39;;
+export {str4 as s2};
+
+let str5=&#39;name&#39;;
+let str6=&#39;age&#39;;
+export {str5 as s3,str6 as s4};
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-33.PNG" alt=""></p>
+<p>只能在先声明再导出这种情况下更改变量名。</p>
+<p>在边声明边导出和默认导出这种情况下不能使用as更改变量名，会出现语法错误。</p>
+<pre><code class="javascript">// 错误
+export let str as s=&#39;asd&#39;; 
+
+// 错误
+let num=10;
+export default num as n;
+</code></pre>
+<h4 id="错误导出示范"><a href="#错误导出示范" class="headerlink" title="错误导出示范"></a>错误导出示范</h4><pre><code class="javascript">// 错误  不能直接导出值，添加到隐形对象里面，没有属性名接收
+export {&#39;asd&#39;,12};
+
+// 错误  不能直接导出值，也没有用{}包裹
+export &#39;hello&#39;;
+
+// 错误  没有用{}包裹，不能添加到隐形对象里面
+let str=&#39;asdf&#39;;
+export str;
+</code></pre>
+<p>因为我们相当于把导出的内容放在一个隐形对象里面，导出。上面的错误示范中，直接导出值肯定就不行，因为放在对象里面没有属性名啊。</p>
+<p>对于先声明再导出的方式，没有用<code>{}</code>包裹肯定不行，因为这是语法要求。我们也可以理解为，用<code>{}</code>包裹是为了将内容添加到隐形对象里，或者叫导出对象,没有<code>{}</code>包裹，就不知道哪些要添加。</p>
+<p>当然，对于边声明边导出的方式，是不需要用<code>{}</code>包裹的，首先语法是这样要求的。我们也可以认为这意思已经很明确了，导出声明的这个变量，那就直接添加到导出对象里面就好了。对于那种先声明的，后导出；因为你是先声明的，又没有说要导出，后来才要导出的，所以就要放在<code>{}</code>特别提醒一下，说，hey，这个里面的变量要导出，然后代码执行者才会把这个变量放入导出对象里面。</p>
+<h3 id="import导入"><a href="#import导入" class="headerlink" title="import导入"></a>import导入</h3><p>前面讲了export导出，实际上相当于导出了一个对象。我们使用import导入，实际上相当于对这个对象的解构赋值。</p>
+<ul>
+<li>import接受的变量是只读的，不能更改。</li>
+<li>import有变量提升的作用。</li>
+<li>import具有声明功能。我们既然是解构赋值，当然要对变量声明一下罗。所以，后面不能再声明同名变量名。</li>
+</ul>
+<p>既然是通过结构赋值的方式，我们就可以接受一个值，接收部分值，接收整个对象。</p>
+<h4 id="接收一个值"><a href="#接收一个值" class="headerlink" title="接收一个值"></a>接收一个值</h4><p><code>1.js</code>中导出</p>
+<pre><code class="javascript">export let str1=&#39;123&#39;;
+let str2=&#39;asd&#39;;
+let str3=&#39;zxc&#39;;
+export {str2,str3};
+
+// 相当于导出{str1:&#39;123&#39;,str2:&#39;asd&#39;,str3:&#39;zxc&#39;}
+</code></pre>
+<p><code>main.js</code>中导入</p>
+<pre><code class="javascript">console.log(str2); // &#39;asd&#39;;  可以变量提升，但一般不这么用
+
+// 相当于解构赋值：{str2}={str1:&#39;123&#39;,str2:&#39;asd&#39;,str3:&#39;zxc&#39;}
+import {str2} from &#39;./1.js&#39;;
+
+str2=10; // 报错 Uncaught TypeError: Assignment to constant variable.
+</code></pre>
+<p>这里要说一个小知识点：</p>
+<ul>
+<li>如果是我们写的模块文件，需要加<code>./</code>。如果是自带的模块、或者引入的第三方模块，是不需要加<code>./</code>的。因为<code>package.json</code>中已经设定好了引用位置。如果我们自己写的模块，在引用的时候，也不想加<code>./</code>，那么在<code>package.json</code>中设置一下即可。</li>
+<li>可以省略模块的<code>.js</code>后缀名。</li>
+</ul>
+<h4 id="接收部分值"><a href="#接收部分值" class="headerlink" title="接收部分值"></a>接收部分值</h4><p>还是用前面的<code>1.js</code>，我们看看<code>main.js</code>中如何接收。</p>
+<pre><code class="javascript"> // 相当于解构赋值：{str1,str3}={str1:&#39;123&#39;,str2:&#39;asd&#39;,str3:&#39;zxc&#39;}
+import {str1,str3} from &#39;./1.js&#39;;
+console.log(str1,str3); // &quot;123&quot; &quot;zxc&quot;
+</code></pre>
+<h4 id="更改变量名"><a href="#更改变量名" class="headerlink" title="更改变量名"></a>更改变量名</h4><p>既然是结构赋值，那就肯定可以更改变量名罗，只不过这里更改变量名和纯解构赋值的不一样，这里要使用as，和export中的使用方式一样。（皆有赋值使用的是冒号）</p>
+<pre><code class="javascript">import {str1 as s1,str3 as s3} from &#39;./1.js&#39;;
+console.log(s1,s3); // &quot;123&quot; &quot;zxc&quot;
+
+let str1=&#39;abc&#39;;
+console.log(str1); // &quot;abc&quot;
+</code></pre>
+<p>我们使用as更改变量名之后，原先的变量名就作废了，相当于没有声明过。我们是可以再次声明的。</p>
+<h4 id="接收整个导出整体"><a href="#接收整个导出整体" class="headerlink" title="接收整个导出整体"></a>接收整个导出整体</h4><p>我们使用通配符<code>*</code>代表所有的导出内容，然后更改名字即可。接收的是一个对象。里面包含了所有的导出内容。</p>
+<pre><code class="javascript">import * as obj from &#39;./1.js&#39;;
+console.log(obj);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-34.PNG" alt=""></p>
+<p>接收导出整体的好处在于，我们不需要像前面那样一个个的接收。当导出的内容增加了，我们也不需要新增接收，obj对象里面会接收到的，我们只需要调用obj的属性即可。</p>
+<p>==并且，我们可以从打印的结果看出，每个值都设置了get和set，我们接收的值相当于是和export的那边绑定了的，如果export那边的值发生变化，那么这边接收的值也会跟着变化。==</p>
+<blockquote>
+<p><code>export</code>语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值。</p>
+<pre><code class="javascript">export var foo = &#39;bar&#39;;
+setTimeout(() =&gt; foo = &#39;baz&#39;, 500);
+</code></pre>
+<p>上面代码输出变量<code>foo</code>，值为<code>bar</code>，500 毫秒之后变成<code>baz</code>。</p>
+</blockquote>
+<p>看一个我自己写的例子：</p>
+<p><code>1.js</code>中：</p>
+<pre><code class="javascript">let str=&#39;asdf&#39;;
+
+setTimeout(()=&gt;{
+    str=&#39;123&#39;;
+},1000);
+
+export {str};
+</code></pre>
+<p><code>main.js</code>中</p>
+<pre><code class="javascript">import {str} from &#39;./1.js&#39;;
+console.log(str); // &quot;asdf&quot;
+setTimeout(()=&gt;{
+    console.log(str); // &quot;123&quot;
+},1000);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-35.PNG" alt=""></p>
+<p>个人理解：</p>
+<p>==但是要注意，不适用于默认导出的方式。==因为默认导出的，相当于导出了那个值，import接收的是一个值，不是一个变量。所以之后export中变量再变化，也不会改变。</p>
+<p><code>1.js</code></p>
+<pre><code class="javascript">let str=&#39;123&#39;;
+setTimeout(function(){
+    str=&#39;asdf&#39;;
+},1000);
+export default str;
+</code></pre>
+<p><code>main.js</code></p>
+<pre><code class="javascript">import str from &#39;./1.js&#39;;
+console.log(str);
+
+setInterval(function(){
+    console.log(str);
+},1000);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/01/01-36.PNG" alt=""></p>
+<h4 id="接收默认导出值"><a href="#接收默认导出值" class="headerlink" title="接收默认导出值"></a>接收默认导出值</h4><p>前面都是通过解构赋值的方式来接收导出的内容。那肯定要用<code>{}</code>包裹，而且接收的变量名要和导出的变量名对应。这样写呢比较麻烦。如果我现在只导出了一个值，一个默认值，就不需要这样写了，直接使用一个变量接收即可。</p>
+<pre><code class="javascript">// 1.js中
+let str=&#39;abc&#39;;
+export default str;
+</code></pre>
+<p>main.js中接收：</p>
+<pre><code class="javascript">import s1 from &#39;./1.js&#39;;
+console.log(s1); // &#39;abc&#39;
+</code></pre>
+<p>==接收默认值的时候，可以使用其他的变量名接收，这就相当于更改了变量名==。</p>
+<p>因为这里不再是解构赋值的那种方式了，所以，我们不能使用as去更改变量名。</p>
+<pre><code class="javascript">// 错误
+import str as s1 from &#39;./1.js&#39;; // Uncaught SyntaxError: Unexpected identifier
+console.log(s1);
+</code></pre>
+<h4 id="一些其他补充"><a href="#一些其他补充" class="headerlink" title="一些其他补充"></a>一些其他补充</h4><blockquote>
+<p>来自：《<a href="http://es6.ruanyifeng.com/#docs/module#import-%E5%91%BD%E4%BB%A4" target="_blank" rel="external">ECMAScript入门</a>》</p>
+<h2 id="import-命令"><a href="#import-命令" class="headerlink" title="import 命令"></a>import 命令</h2><p>使用<code>export</code>命令定义了模块的对外接口以后，其他 JS 文件就可以通过<code>import</code>命令加载这个模块。</p>
+<pre><code class="javascript">// main.js
+import {firstName, lastName, year} from &#39;./profile.js&#39;;
+
+function setName(element) {
+  element.textContent = firstName + &#39; &#39; + lastName;
+}
+</code></pre>
+<p>上面代码的<code>import</code>命令，用于加载<code>profile.js</code>文件，并从中输入变量。<code>import</code>命令接受一对大括号，里面指定要从其他模块导入的变量名。大括号里面的变量名，必须与被导入模块（<code>profile.js</code>）对外接口的名称相同。</p>
+<p>==如果想为输入的变量重新取一个名字，<code>import</code>命令要使用<code>as</code>关键字，将输入的变量重命名。==</p>
+<pre><code class="javascript">import { lastName as surname } from &#39;./profile.js&#39;;
+</code></pre>
+<p>==<code>import</code>命令输入的变量都是只读的，因为它的本质是输入接口。也就是说，不允许在加载模块的脚本里面，改写接口。==</p>
+<pre><code class="javascript">import {a} from &#39;./xxx.js&#39;
+
+a = {}; // Syntax Error : &#39;a&#39; is read-only;
+</code></pre>
+<p>上面代码中，脚本加载了变量<code>a</code>，对其重新赋值就会报错，因为<code>a</code>是一个只读的接口。但是，如果<code>a</code>是一个对象，改写<code>a</code>的属性是允许的。</p>
+<pre><code class="javascript">import {a} from &#39;./xxx.js&#39;
+
+a.foo = &#39;hello&#39;; // 合法操作
+</code></pre>
+<p>上面代码中，<code>a</code>的属性可以成功改写，并且其他模块也可以读到改写后的值。不过，这种写法很难查错，建议凡是输入的变量，都当作完全只读，轻易不要改变它的属性。</p>
+<p><code>import</code>后面的<code>from</code>指定模块文件的位置，可以是相对路径，也可以是绝对路径，<code>.js</code>后缀可以省略。如果只是模块名，不带有路径，那么必须有配置文件，告诉 JavaScript 引擎该模块的位置。</p>
+<pre><code class="javascript">import {myMethod} from &#39;util&#39;;
+</code></pre>
+<p>上面代码中，<code>util</code>是模块文件名，由于不带有路径，必须通过配置，告诉引擎怎么取到这个模块。</p>
+<p>注意，<code>import</code>命令具有提升效果，会提升到整个模块的头部，首先执行。</p>
+<pre><code class="javascript">foo();
+
+import { foo } from &#39;my_module&#39;;
+</code></pre>
+<p>上面的代码不会报错，因为<code>import</code>的执行早于<code>foo</code>的调用。这种行为的本质是，<code>import</code>命令是编译阶段执行的，在代码运行之前。</p>
+<p>由于<code>import</code>是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。</p>
+<pre><code class="javascript">// 报错
+import { &#39;f&#39; + &#39;oo&#39; } from &#39;my_module&#39;;
+
+// 报错
+let module = &#39;my_module&#39;;
+import { foo } from module;
+
+// 报错
+if (x === 1) {
+  import { foo } from &#39;module1&#39;;
+} else {
+  import { foo } from &#39;module2&#39;;
+}
+</code></pre>
+<p>上面三种写法都会报错，因为它们用到了表达式、变量和<code>if</code>结构。在静态分析阶段，这些语法都是没法得到值的。</p>
+<p>最后，<code>import</code>语句会执行所加载的模块，因此可以有下面的写法。</p>
+<pre><code class="javascript">import &#39;lodash&#39;;
+</code></pre>
+<p>上面代码仅仅执行<code>lodash</code>模块，但是不输入任何值。</p>
+<p>如果多次重复执行同一句<code>import</code>语句，那么只会执行一次，而不会执行多次。</p>
+<pre><code class="javascript">import &#39;lodash&#39;;
+import &#39;lodash&#39;;
+</code></pre>
+<p>上面代码加载了两次<code>lodash</code>，但是只会执行一次。</p>
+<pre><code class="javascript">import { foo } from &#39;my_module&#39;;
+import { bar } from &#39;my_module&#39;;
+
+// 等同于
+import { foo, bar } from &#39;my_module&#39;;
+</code></pre>
+<p>上面代码中，虽然<code>foo</code>和<code>bar</code>在两个语句中加载，但是它们对应的是同一个<code>my_module</code>实例。也就是说，<code>import</code>语句是 Singleton 模式。</p>
+<p>目前阶段，通过 Babel 转码，CommonJS 模块的<code>require</code>命令和 ES6 模块的<code>import</code>命令，可以写在同一个模块里面，但是最好不要这样做。==因为<code>import</code>在静态解析阶段执行，所以它是一个模块之中最早执行的。==下面的代码可能不会得到预期结果。</p>
+<pre><code class="javascript">require(&#39;core-js/modules/es6.symbol&#39;);
+require(&#39;core-js/modules/es6.promise&#39;);
+import React from &#39;React&#39;;
+</code></pre>
+</blockquote>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #222;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" style="display: none">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/04/01/2018-04-01ES6-grammer/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/04/01/2018-04-01ES6-grammer/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.btn_click_load').css('display','none');
+        })(),
+        error: function() {
+          $('.btn_click_load').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/04/06/2018-04-06webpack-config/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/03/22/2018-03-22read-jQuery-code/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header1.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.jpg" alt="Anilway's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        更多
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hanway.robot@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="电子书">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">book</i>
+                        
+                        电子书
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="网址导航">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">tab</i>
+                        
+                        网址导航
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">20</span></a></li><li><a class="sidebar_archives-link" href="/categories/JS进阶/">JS进阶<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/其他/">其他<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/小技巧/">小技巧<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/旁征博引/">旁征博引<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程工具/">编程工具<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about/index.html" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友链接">
+                
+                友链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图片集">
+                
+                图片集
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Anilway" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Anilway
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

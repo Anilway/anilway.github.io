@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            vuex使用介绍 | 
+        
+        Anilway
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Anilway">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",JavaScript,vue,vuex">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon1.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon1.png">
+    <link rel="apple-touch-icon" href="/img/favicon1.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Anilway">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #222 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #222 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #222 !important;
+  }
+
+  .toTop {
+    background: #222 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #222;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #222;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #222;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="vuex使用介绍 | Anilway">
+    <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="vue"> <meta property="og:article:tag" content="vuex"> 
+
+    
+        <meta property="article:published_time" content="Tue Apr 17 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Oct 10 2018 12:50:53 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="vuex使用介绍 | Anilway">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/04/17/2018-04-17vuex-introduce/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/04/17/2018-04-17vuex-introduce/index.html",
+    "headline": "vuex使用介绍",
+    "datePublished": "Tue Apr 17 2018 00:00:00 GMT+0800",
+    "dateModified": "Wed Oct 10 2018 12:50:53 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Anilway",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.jpg"
+        },
+        "description": "Make yourself better!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Anilway",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon1.png"
+        }
+    },
+    "keywords": ",JavaScript,vue,vuex",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、介绍"><span class="post-toc-text">1、介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、特点"><span class="post-toc-text">2、特点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、使用"><span class="post-toc-text">3、使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建strore和state"><span class="post-toc-text">创建strore和state</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改状态"><span class="post-toc-text">修改状态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用logger插件"><span class="post-toc-text">使用logger插件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、真实项目中的使用细节"><span class="post-toc-text">4、真实项目中的使用细节</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将vuex内容抽离出来"><span class="post-toc-text">将vuex内容抽离出来</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将vuex文件中的mutations抽离出来"><span class="post-toc-text">将vuex文件中的mutations抽离出来</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建mutations的类型宏"><span class="post-toc-text">创建mutations的类型宏</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、状态计算getters"><span class="post-toc-text">5、状态计算getters</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、语法糖mapState、mapGetters"><span class="post-toc-text">6、语法糖mapState、mapGetters</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://raw.githubusercontent.com/Anilway/blogImg/master/common%20cover/vue-cover.jpeg)">
+    
+            <p class="article-headline-p">
+                vuex使用介绍
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Anilway</strong>
+        <span>4月 17, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/04/17/2018-04-17vuex-introduce/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/vue/">vue</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/vuex/">vuex</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=vuex使用介绍&url=http://yoursite.com/2018/04/17/2018-04-17vuex-introduce/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=vuex使用介绍&url=http://yoursite.com/2018/04/17/2018-04-17vuex-introduce/index.html&via=Anilway" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/17/2018-04-17vuex-introduce/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/17/2018-04-17vuex-introduce/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h2><p>之前我们学习组件交互：</p>
+<ul>
+<li>平级组件之间找共同的父级解决</li>
+<li>跨组件交互，用eventBus（发布订阅）</li>
+</ul>
+<p>但是这样写会很麻烦，eventBus会很混乱。如果项目很大，你需要满屏去监听事件，还可能造成命名冲突，很不方便。</p>
+<p>于是就有了vuex，vuex也是来解决平级组件交互和跨组件交互的。</p>
+<p>vuex主要借鉴了flus、redux。但是vuex和它们有所不同，flus、redux可以在任何地方都可以使用，但是vuex只能在vue中使用，是专门为vue开发的。</p>
+<h2 id="2、特点"><a href="#2、特点" class="headerlink" title="2、特点"></a>2、特点</h2><p>vuex为了大型项目而生，主要是状态管理，将数据统一管理。</p>
+<p>状态指的是数据，我们之前在data中写的数据其实就是这里所谓的状态。</p>
+<p>不同的组件，不管是平级组件之间（父子孙），还是夸组件（兄弟组件），都把数据放在一个地方（姑且叫做盒子（store容器）吧），里面的每一个数据就叫做状态state。</p>
+<p>然后，不管是父子组件要使用数据也好，还是兄弟组件之间要使用数据也好，都在这个store盒子里面去取就好了。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-01.png" alt=""></p>
+<p>就像是大家都把数据放在云端共享一样。</p>
+<p>当然，并不是把所有的数据都放在状态盒子里面，而是多个组件之间共用的数据放在状态里面，大家使用同步。</p>
+<h2 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h2><h3 id="创建strore和state"><a href="#创建strore和state" class="headerlink" title="创建strore和state"></a>创建strore和state</h3><p>vuex的用法和路由很像。</p>
+<pre><code class="js">import Vue from &#39;vue&#39;;
+
+// 导入Vuex
+import Vuex from &#39;vuex&#39;;
+import App from &#39;./App.vue&#39;;
+
+// 使用Vuex（注册Vuex）
+Vue.use(Vuex);
+
+
+// 容器是唯一的
+// 创建状态
+const state={
+    mun:0 // 这里就相当于我们以前在组件的data里面写的数据
+};
+// 创建一个Vuex容器
+const store=new Vuex.Store({
+    state,
+    strict:true // 只能通过mutation（相当于管理员的角色）来更改状态，mutation不支持异步
+});
+
+new Vue({
+    el:&quot;#app&quot;,
+    render:h=&gt;h(App),
+    store  // 把容器注册到vue实例上,所有组件都会有一个属性this.$store
+})
+//
+</code></pre>
+<p>==state对象和store对象是不会改变的，所以，为了避免出错，我们用const声明为常量。==</p>
+<p>我们在组件里面可以通过<code>this.$store.state.num</code>来获取到状态数据。但是由于这个数据时多个组件一起共用的，所以，如果我们直接在组件里面就把数据改变了，其他共用该数据的组件都会受到影响。</p>
+<p>所以，在vuex里面，可以通过state里面的数据去直接渲染组件，但是不能通过组件去直接更改数据。所以，数据交互是单向的，不是想组件中的data里面那样双向。</p>
+<p>如果你要修改数据，可以通过如下图所示的方式更改：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-02.png" alt=""></p>
+<p>可以说，状态的修改是Mutations管理的。</p>
+<p>也许你会发现，我在组件上修改数据也能行啊，没有报错。那是因为你修改的只是组件对象的数据，并不是状态里面的数据，状态里面还是没有改变的。</p>
+<p>我们可以在store里面使用严格模式，这样当我们在组件里面直接修改数据的时候，就会报错。</p>
+<pre><code class="js">const store=new Vuex.Store({
+    state,
+    strict:true // 只能通过mutation（相当于管理员的角色）来更改状态
+});
+</code></pre>
+<h3 id="修改状态"><a href="#修改状态" class="headerlink" title="修改状态"></a>修改状态</h3><p>如果我们在组件中需要需要修改状态，就需要将修改数据注册到mutations里面。</p>
+<p>使用示例：</p>
+<p>main.js</p>
+<pre><code class="js">import Vue from &#39;vue&#39;;
+import Vuex from &#39;vuex&#39;;
+import logger from &#39;vuex/dist/logger&#39;;
+import App from &#39;./App&#39;;
+
+Vue.use(Vuex);
+const state = {count:0};
+const mutations = {
+    // state是自动传进来的
+    add(state,plus){
+        state.count+=plus;
+    },
+    minus(state,dis){
+        state.count-=dis;
+    }
+};
+const store=new Vuex.Store({
+    // 将state、mutations注册到store里面
+    state,
+    mutations,
+    plugins:[logger()],
+    strict:true
+});
+
+new Vue({
+    el:&#39;#app&#39;,
+    render:h=&gt;h(App),
+    // 将store注册到vue实例上
+    store
+})
+</code></pre>
+<p>我们再写一个Count组件，将这个组件注册到App组件上。然后再Count里面创建一个计数器，来示例使用mutations。</p>
+<p>Count.vue</p>
+<pre><code class="vue">&lt;template&gt;
+    &lt;div&gt;
+        &lt;button @click=&#39;bigger&#39;&gt;+&lt;/button&gt;
+            &lt;br&gt;
+                {{$store.state.count}}
+            &lt;br&gt;
+        &lt;button @click=&quot;small&quot;&gt;-&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default{
+        methods:{
+            bigger(){
+                // 这里我们在组件上直接将数据改变需求提交给mutations了，
+                /*
+                    第一个参数是我们需要使用的函数的名称，这个函数就是我们在mutations里面设定的函数。
+                    第二个及以后的参数就是我们要给add函数传入的参数，官方叫做载荷（payload）。
+                    比如这里的2就是add函数里面plus的实参。
+                    要注意的是，add函数的第一个参数是默认传入的state对象，之后的参数才是载荷实参。
+                */
+                this.$store.commit(&#39;add&#39;,2)
+            },
+            small(){
+                this.$store.commit(&#39;minus&#39;,1);
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-03.gif" alt=""></p>
+<p>在上面vuex的官方示意图中，组件要修改state里面的数据，是先开发（Dispatch）一个动作（Actions），然后由这个动作再提交（Commit）给Mutations的。组件也可以直接注册，不用开发动作，就像上面的例子中一样。</p>
+<blockquote>
+<p>要注意的是，在操作状态时，一定要修改掉原来的状态，或者替换原来的状态。（我想应该是对于引用类型来说的吧）</p>
+<p>比如，vue-book项目中</p>
+<pre><code class="js">import * as Types from &#39;./mutations-type&#39;;
+const mutations={
+    [Types.ADD_CART](state,book){
+        // book是添加的一本书，如果有这本书累加的是数量，如果没有数量则为1，放在cartList中
+        let product=state.carList.find(item=&gt;item.bookId===book.bookId);
+        if(product){
+            product.bookCount+=1;
+        }else{
+        // 在操作vuex改变状态，一定要修改掉原来的数据，或者替换
+        /*
+        * 像start.carList[0].id=1这种操作就不可以
+        * start.carList.length-=1,这样也不行
+        *
+        * start.carList.push(book)这样可以
+        * */
+            book.bookCount=1;
+            // 用新数组替换老数组
+            state.carList=[...state.carList,book];
+        }
+    }
+};
+
+export default mutations;
+</code></pre>
+</blockquote>
+<p>现在我们从面相对象的角度来看看Vuex。</p>
+<p>首先看看Vuex有哪些属性：</p>
+<pre><code class="js">console.dir(Vuex);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-03.PNG" alt=""></p>
+<p>再看看<code>this.$store</code>有哪些属性：</p>
+<pre><code class="js">console.dir(this.$store);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-04.PNG" alt=""></p>
+<p>红框中的基本上就是目前我们知道的。看起来，总共也没有多少内容。</p>
+<h3 id="使用logger插件"><a href="#使用logger插件" class="headerlink" title="使用logger插件"></a>使用logger插件</h3><p>因为我们使用vuex插件，在store中数据的变化可以直接在vue的dev-tool中看到变化，但是不能直接在console中反应出来。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-05.PNG" alt=""></p>
+<p>所以，我们可以使用logger插件来让数据变化在控制台中直接打印出来，这样更直观。</p>
+<p>logger插件不用我们另外下载，它包含在vuex中，我们只要导入进来即可。其实在上面的例子中，我们已经导入了logger插件。现在再演示一遍：</p>
+<pre><code class="js">import Vue from &#39;vue&#39;;
+import Vuex from &#39;vuex&#39;;
+// 导入logger插件
+import logger from &#39;vuex/dist/logger&#39;;
+import App from &#39;./App&#39;;
+
+Vue.use(Vuex);
+const state = {...};
+const mutations = {...};
+const store=new Vuex.Store({
+    state,
+    mutations,
+    // 注册logger插件
+    plugins:[logger()],
+    strict:true
+});
+</code></pre>
+<p>我们将logger插件导入进来后，需要注册到store里面。</p>
+<pre><code class="js">plugins:[logger()]
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-06.PNG" alt=""></p>
+<h2 id="4、真实项目中的使用细节"><a href="#4、真实项目中的使用细节" class="headerlink" title="4、真实项目中的使用细节"></a>4、真实项目中的使用细节</h2><h3 id="将vuex内容抽离出来"><a href="#将vuex内容抽离出来" class="headerlink" title="将vuex内容抽离出来"></a>将vuex内容抽离出来</h3><p>在上面的例子中，我们是把vuex的内容和main.js的内容写在一起的。如果你在开发一个大型项目，那么vuex中的内容就会很多，比如有很多种状态。所以，我们最好把vuex部分内容抽离出来，放在一个单独的文件里。然后导入到main.js里面。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-07.PNG" alt=""></p>
+<p>我们创建一个store文件夹，在文件夹里面创建一个index.js文件，里面放我们抽离出来的vuex部分：</p>
+<pre><code class="js">import Vue from &#39;vue&#39;; // 因为要用到Vue，所以还要导入Vue
+import Vuex from &#39;vuex&#39;;
+import logger from &#39;vuex/dist/logger&#39;;
+
+Vue.use(Vuex);
+
+const state={count:0};
+const mutations={
+    add(state,plus){
+        state.count+=plus;
+    },
+    minus(state,dis){
+        state.count-=dis;
+    }
+};
+const store=new Vuex.Store({
+    state,
+    mutations,
+    plugins:[logger()],
+    strict:true
+});
+
+export default store; // 将store导出
+</code></pre>
+<p>这样main.js里面就很清爽了：</p>
+<pre><code class="js">import Vue from &#39;vue&#39;;
+import store from &#39;./store&#39;; // 导入store
+import App from &#39;./App.vue&#39;;
+
+let vm=new Vue({
+    el:&quot;#app&quot;,
+    render:h=&gt;h(App),
+    store
+});
+</code></pre>
+<h3 id="将vuex文件中的mutations抽离出来"><a href="#将vuex文件中的mutations抽离出来" class="headerlink" title="将vuex文件中的mutations抽离出来"></a>将vuex文件中的mutations抽离出来</h3><p>从main.js抽离出vuex部分还不够，如果项目很大，可以预见，我们要处理的状态变化有很多，那么mutations里面的方法就会非常多，我们最好抽离出来单独管理更容易维护。所以，再创建一个mutations.js文件：</p>
+<pre><code class="js">// mutations.js
+const mutations={
+    add(state,plus){
+        state.count+=plus;
+    },
+    minus(state,dis){
+        state.count-=dis;
+    }
+};
+
+export default mutations; // 导出mutations
+</code></pre>
+<p>这样，store/index.js中就成了：</p>
+<pre><code class="js">// store/index.js
+import Vue from &#39;vue&#39;;
+import Vuex from &#39;vuex&#39;;
+import logger from &#39;vuex/dist/logger&#39;;
+
+Vue.use(Vuex);
+
+const state={count:0};
+// 要注意我们导入mutations的位置，在state和store之间才行。
+// 因为ES6中没有变量提升，mutations中会用到state，store中会注册mutations。
+import mutations from &#39;./mutations&#39;;
+const store=new Vuex.Store({
+    state,
+    mutations,
+    plugins:[logger()],
+    strict:true
+});
+
+export default store;
+</code></pre>
+<h3 id="创建mutations的类型宏"><a href="#创建mutations的类型宏" class="headerlink" title="创建mutations的类型宏"></a>创建mutations的类型宏</h3><p>我们在组件中提交状态变化给mutations时，会用到mutations里面的方法，前面的例子是这样使用的：</p>
+<pre><code class="js">methods:{
+    bigger(){
+        this.$store.commit(&#39;add&#39;,2);
+    }
+}
+</code></pre>
+<p>我们使用mutations里面的方法，是用的一个字符串引用的。这样就会没有函数名提示，在写代码时很不方便，如果函数名很长，或者有类似的函数名，没有代码提示，就容易写错。</p>
+<p>为了解决这个问题，我们就可以给mutations创建一个宏。</p>
+<p><strong>什么是宏？</strong></p>
+<p>宏就相当于是快捷键。</p>
+<p>我们把mutations里面的方法名抽离出来，放在一起，这些方法名就是这些函数的宏。我们在使用的时候就可以用宏代替字符串，这样就有代码提示了。</p>
+<p>可能这样描述不容易懂。我们先来看一个例子：</p>
+<pre><code class="js">let a=&#39;b&#39;;
+let obj={a:1};
+</code></pre>
+<p>我们有a等于b，obj有个属性a等于1。既然<code>a=&#39;b&#39;</code>，我希望是在obj中，把a的值取出来，既让的值b作为key，等于1。</p>
+<p>可以这样实现：</p>
+<pre><code class="js">let a=&#39;b&#39;;
+let obj={[a]:1};
+console.log(obj); //{b:1}
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-08.PNG" alt=""></p>
+<p>基于这个原理，我们可以把mutations里面的方法全部抽离出来,放在mutatios-types.js文件里。</p>
+<p>现在我们新建一个mutatios-types.js。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-09.PNG" alt=""></p>
+<pre><code class="js">// mutations-types.js
+
+// 增加
+export const INCREMENT =&quot;INCREMENT&quot;;
+
+// 减少
+export const DECREMENT =&quot;DECREMENT&quot;;
+</code></pre>
+<p>在types文件中专门写所有的方法名。这样一是可以很方便的查看mutations中有哪些方法，而是可以解决上面说的没有代码提示的问题。</p>
+<p>==注意宏一般大写。==</p>
+<p>然后在mutations中引入type文件。现在mutations里面的代码就有所改动：</p>
+<pre><code class="js">// mutations.js
+
+// 引入mutations-types.js
+import * as Types from &#39;./mutations-types.js&#39;;
+
+const mutations={
+    [Types.INCREMENT](state,plus){
+        state.count+=plus;
+    },
+    [Types.DECREMENT](state,dis){
+        state.count-=dis;
+    }
+};
+
+export default mutations;
+</code></pre>
+<p>我们在计数器组件里面提交方法也改变了，也需要先引入type文件：</p>
+<pre><code class="vue">&lt;!--计数器组件--&gt;
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;button @click=&#39;add&#39;&gt;+&lt;/button&gt;
+            &lt;br&gt;
+                {{$store.state.count}}
+            &lt;br&gt;
+        &lt;button @click=&quot;minus&quot;&gt;-&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    // 引入mutations-types文件
+    import * as Types from &#39;../store/mutations-types.js&#39;;
+    export default{
+        methods:{
+            add(){
+                 // 这里在提交方法的时候，就可以用Types.INCREMENT来代替方法名了，这样就有了代码提示。
+                 // 当然，你也可以用字符串的写法&#39;INCREMENT&#39;，那这就是原来的老方法了。
+                this.$store.commit(Types.INCREMENT,2);
+            },
+            minus(){
+                this.$store.commit(Types.DECREMENT,1);
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<h2 id="5、状态计算getters"><a href="#5、状态计算getters" class="headerlink" title="5、状态计算getters"></a>5、状态计算getters</h2><p>getters就相当于store中的computed。用于计算状态。</p>
+<p>在使用时，我们需要将getters注册到store里面。</p>
+<pre><code class="js">// store/index.js
+
+import Vue from &#39;vue&#39;;
+import Vuex from &#39;vuex&#39;;
+import logger from &#39;vuex/dist/logger&#39;;
+
+Vue.use(Vuex);
+
+const state={count:0};
+import mutations from &#39;./mutations&#39;;
+
+// 创建getters对象
+const getters={
+    // 这里的state就是我们创建的那个state对象。
+    // 虽然这里写的是一个方法，但是就像computed中的一样，使用时val作为属性使用
+    /*
+        这里再次说明一下，这里是ES6中的简写方式。
+        其实就是val:(state)=&gt;{...}
+        或者是 val:function(state){...}
+    */
+    val(state){
+        return state.count%2?&#39;奇数&#39;:&#39;偶数&#39;;
+    }
+}
+
+const store=new Vuex.Store({
+    state,
+    mutations,
+    // 将getters对象注册到store中。
+    // 再说明一下，其实是getters:getters,在ES6中可以简写为getters
+    getters,
+    plugins:[logger()],
+    strict:true
+});
+
+export default store;
+</code></pre>
+<p>getters也可以抽离出来放在一个文件里面进行管理。</p>
+<p>然后我们在计数器组件中使用。其实这时val数据，我们可以通过<code>this.$store.getters.val</code>获取到。</p>
+<pre><code class="vue">&lt;!--计数器组件--&gt;
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;button @click=&#39;add&#39;&gt;+&lt;/button&gt;
+            &lt;br&gt;
+                {{$store.state.count}}
+                &lt;!--使用val--&gt;
+                {{$store.getters.val}}
+            &lt;br&gt;
+        &lt;button @click=&quot;minus&quot;&gt;-&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import * as Types from &#39;../store/mutations-types.js&#39;;
+    export default{
+        methods:{
+            add(){
+                this.$store.commit(Types.INCREMENT,2);
+                console.log(this.$store.getters);
+                console.log(&#39;val: &#39;+this.$store.getters.val);
+            },
+            minus(){
+                this.$store.commit(Types.DECREMENT,1);
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-10.gif" alt=""></p>
+<p>当然，你可能会想，那我直接在组件的computed里面计算不就得了。那我就要再提醒一句，在getters里面计算的是大家都会用到的，在computed里面计算的是只能你自己用，比人无法使用。</p>
+<h2 id="6、语法糖mapState、mapGetters"><a href="#6、语法糖mapState、mapGetters" class="headerlink" title="6、语法糖mapState、mapGetters"></a>6、语法糖mapState、mapGetters</h2><p>当我们在组件中要使用计算状态时，按之前学习的，会使用computed：</p>
+<pre><code class="js">computed:{
+    cartList(){
+        return this.$store.state.cartList;
+    }
+}
+</code></pre>
+<p>要写很长一串，如果数据很多，写起来就很麻烦。这个时候我们可以使用语法糖，获取状态，我们使用mapState。</p>
+<pre><code class="js">import {mapState} from &#39;vuex&#39;;
+...
+computed:{
+    ...mapState([&#39;cartList&#39;]),
+    // 如果想改名字，可以这样使用：
+    ...mapState({cart:&#39;carList&#39;})
+},
+...
+</code></pre>
+<p>我们可以打印<code>mapState([&#39;cartList&#39;])</code>，得到的结果其实就是<code>this.$store.state.cartList</code>。上面的写法看起来很怪异。是因为<code>mapState([&#39;cartList&#39;])</code>是cartList对象，我们不能直接在computed里面写一个对象，所以要把<code>mapState([&#39;cartList&#39;])</code>展开。</p>
+<p>mapGetters的用法和mapState一样。</p>
+<p>我们在前面打印过vuex，它上面还有其他几个辅助函数。去看看<a href="https://vuex.vuejs.org/zh/api/#%E7%BB%84%E4%BB%B6%E7%BB%91%E5%AE%9A%E7%9A%84%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0" target="_blank" rel="external">官方文档</a>学习一下吧！</p>
+<p><code>Vuex</code></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-03.PNG" alt=""></p>
+<p><code>this.$store</code></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/17/13-04.PNG" alt=""></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #222;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" style="display: none">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/04/17/2018-04-17vuex-introduce/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/04/17/2018-04-17vuex-introduce/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.btn_click_load').css('display','none');
+        })(),
+        error: function() {
+          $('.btn_click_load').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/12/2018-04-12dev-vue-plugin/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header1.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.jpg" alt="Anilway's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        更多
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hanway.robot@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="电子书">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">book</i>
+                        
+                        电子书
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="网址导航">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">tab</i>
+                        
+                        网址导航
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">20</span></a></li><li><a class="sidebar_archives-link" href="/categories/JS进阶/">JS进阶<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/其他/">其他<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/小技巧/">小技巧<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/旁征博引/">旁征博引<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程工具/">编程工具<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about/index.html" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友链接">
+                
+                友链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图片集">
+                
+                图片集
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Anilway" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Anilway
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

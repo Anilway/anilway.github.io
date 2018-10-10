@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            手动配置webpack | 
+        
+        Anilway
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Anilway">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",JavaScript,webpack,构建工具">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon1.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon1.png">
+    <link rel="apple-touch-icon" href="/img/favicon1.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Anilway">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #222 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #222 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #222 !important;
+  }
+
+  .toTop {
+    background: #222 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #222;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #222;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #222;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="手动配置webpack | Anilway">
+    <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="webpack"> <meta property="og:article:tag" content="构建工具"> 
+
+    
+        <meta property="article:published_time" content="Fri Apr 06 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Oct 10 2018 12:40:51 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="手动配置webpack | Anilway">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/04/06/2018-04-06webpack-config/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/04/06/2018-04-06webpack-config/index.html",
+    "headline": "手动配置webpack",
+    "datePublished": "Fri Apr 06 2018 00:00:00 GMT+0800",
+    "dateModified": "Wed Oct 10 2018 12:40:51 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Anilway",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.jpg"
+        },
+        "description": "Make yourself better!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Anilway",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon1.png"
+        }
+    },
+    "keywords": ",JavaScript,webpack,构建工具",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、webpack、vue-cli安装"><span class="post-toc-text">1、webpack、vue-cli安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#webpack"><span class="post-toc-text">webpack</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vue-cli"><span class="post-toc-text">vue-cli</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用vue-cli初始化项目步骤"><span class="post-toc-text">使用vue-cli初始化项目步骤</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#webStorm中允许未签名的请求设置"><span class="post-toc-text">webStorm中允许未签名的请求设置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、模块基本概念"><span class="post-toc-text">2、模块基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、模块导入"><span class="post-toc-text">3、模块导入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#type-”module”"><span class="post-toc-text">type=”module”</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#export"><span class="post-toc-text">export</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#import"><span class="post-toc-text">import</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#import拥有声明功能"><span class="post-toc-text">import拥有声明功能</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#import-命令"><span class="post-toc-text">import 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模块的整体加载"><span class="post-toc-text">模块的整体加载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#默认导出"><span class="post-toc-text">默认导出</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、webpack配置"><span class="post-toc-text">4、webpack配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置"><span class="post-toc-text">配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建webpack-config-js"><span class="post-toc-text">创建webpack.config.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#package中脚本配置"><span class="post-toc-text">package中脚本配置</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、webpack打包"><span class="post-toc-text">5、webpack打包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-单入口打包"><span class="post-toc-text">5.1 单入口打包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备一个简单的项目"><span class="post-toc-text">准备一个简单的项目</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用webpack进行打包"><span class="post-toc-text">使用webpack进行打包</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-多入口打包"><span class="post-toc-text">5.2 多入口打包</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、webpack转译ES6到ES5"><span class="post-toc-text">6、webpack转译ES6到ES5</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装-1"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置-babelrc"><span class="post-toc-text">配置.babelrc</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#打包文件配置"><span class="post-toc-text">打包文件配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7、webpack解析css样式"><span class="post-toc-text">7、webpack解析css样式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装css-loader"><span class="post-toc-text">安装css-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加解析规则"><span class="post-toc-text">添加解析规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8、webpack解析css预编译语言"><span class="post-toc-text">8、webpack解析css预编译语言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装预编译语言"><span class="post-toc-text">安装预编译语言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加解析规则-1"><span class="post-toc-text">添加解析规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9、webpack解析图片"><span class="post-toc-text">9、webpack解析图片</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装-2"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加解析规则-2"><span class="post-toc-text">添加解析规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加图片解析限制"><span class="post-toc-text">添加图片解析限制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图片不被解析的情况"><span class="post-toc-text">图片不被解析的情况</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11、webpack自动化配置"><span class="post-toc-text">11、webpack自动化配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解析html插件"><span class="post-toc-text">解析html插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装-3"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#引入HtmlWebpackPlugin插件"><span class="post-toc-text">引入HtmlWebpackPlugin插件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置HtmlWebpackPlugin"><span class="post-toc-text">配置HtmlWebpackPlugin</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#webpack-dev-server"><span class="post-toc-text">webpack-dev-server</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装-4"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置-1"><span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开启服务"><span class="post-toc-text">开启服务</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12、在webpack中使用vue"><span class="post-toc-text">12、在webpack中使用vue</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#引入vue-js"><span class="post-toc-text">引入vue.js</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在-vue文件中编写组件"><span class="post-toc-text">在.vue文件中编写组件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#webpack解析vue文件"><span class="post-toc-text">webpack解析vue文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装vue-loader-、vue-template-compiler"><span class="post-toc-text">安装vue-loader 、vue-template-compiler</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置解析规则"><span class="post-toc-text">配置解析规则</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/cover.png)">
+    
+            <p class="article-headline-p">
+                手动配置webpack
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Anilway</strong>
+        <span>4月 06, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/04/06/2018-04-06webpack-config/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/webpack/">webpack</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/构建工具/">构建工具</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=手动配置webpack&url=http://yoursite.com/2018/04/06/2018-04-06webpack-config/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=手动配置webpack&url=http://yoursite.com/2018/04/06/2018-04-06webpack-config/index.html&via=Anilway" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/06/2018-04-06webpack-config/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/06/2018-04-06webpack-config/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="1、webpack、vue-cli安装"><a href="#1、webpack、vue-cli安装" class="headerlink" title="1、webpack、vue-cli安装"></a>1、webpack、vue-cli安装</h2><h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p>手工安装webpack。这里的<code>package.json</code>文件中提供了一个基本的，你可以依次来安装配置webpack。在接下来的内容里会一步步的讲解webpack的配置。</p>
+<pre><code class="json">// 手动搭建webpack
+{
+  &quot;name&quot;: &quot;vue-load&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;:&quot;webpack-dev-server&quot;,
+    &quot;build&quot;:&quot;webpack&quot;,
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;keywords&quot;: [],
+  &quot;devDependencies&quot;: {
+      &quot;babel-core&quot;:&quot;^6.26.0&quot;,
+      &quot;babel-loader&quot;:&quot;^7.1.2&quot;, 
+      &quot;babel-preset-es2015&quot;:&quot;^6.24.1&quot;, 
+      &quot;babel-preset-stage-0&quot;:&quot;^6.24.1&quot;, 
+      &quot;css-loader&quot;:&quot;^0.28.7&quot;, 
+      &quot;file-loader&quot;:&quot;^1.1.5&quot;, 
+      &quot;html-webpack-plugin&quot;:&quot;^2.30.1&quot;, 
+      &quot;less&quot;:&quot;^3.0.0-alpha.3&quot;, 
+      &quot;less-loader&quot;:&quot;^4.0.5&quot;, 
+      &quot;style-loader&quot;:&quot;^0.19.0&quot;, 
+      &quot;url-loader&quot;:&quot;^0.6.2&quot;, 
+      &quot;vue-loader&quot;:&quot;^13.3.0&quot;, 
+      &quot;vue-template-compiler&quot;:&quot;^2.5.2&quot;, 
+      &quot;webpack&quot;:&quot;^3.8.1&quot;, 
+      &quot;webpack-dev-server&quot;:&quot;^2.9.2&quot;
+  },
+  &quot;dependencies&quot;: {
+      &quot;animate.css&quot;: &quot;^3.7.0&quot;,
+      &quot;bootstrap&quot;: &quot;^4.1.3&quot;,
+      &quot;vue&quot;: &quot;^2.5.17&quot;,
+      &quot;vue-router&quot;: &quot;^3.0.1&quot;
+  }
+}
+</code></pre>
+<p>在项目里添加这个package.json文件，然后再该项目中打开cmd，输入命令：</p>
+<pre><code>npm install
+</code></pre><p>下载依赖即可。</p>
+<h3 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a>vue-cli</h3><p>vue-cli叫做全局生成vue项目的脚手架。</p>
+<p>vue-cli需要在全局安装：</p>
+<pre><code class="c">npm install vue-cli -g
+</code></pre>
+<h3 id="使用vue-cli初始化项目步骤"><a href="#使用vue-cli初始化项目步骤" class="headerlink" title="使用vue-cli初始化项目步骤"></a>使用vue-cli初始化项目步骤</h3><p>这里演示的初始化步骤和视频中不一样，因为视频中是17年的初始化方式，现在略微有些变动。</p>
+<p>安装完成之后就可以初始化项目：</p>
+<pre><code>vue init webpack &lt;项目名字&gt;
+</code></pre><p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-1.PNG" alt=""></p>
+<p>然后选择安装工具的方式：一般选择npm</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-2.PNG" alt=""></p>
+<p>然后等待安装一些工具、包之类的，安装好之后会告诉你如何开启这个项目：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-3.PNG" alt=""></p>
+<p>根据操作说明，先进入项目文件夹：</p>
+<pre><code>cd &lt;项目文件夹名&gt;
+</code></pre><p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-4.PNG" alt=""></p>
+<p>然后跑这个项目：</p>
+<pre><code>npm run dev
+</code></pre><p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-5.PNG" alt=""></p>
+<p>等到加载完毕，会给你一个浏览地址：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-6.PNG" alt=""></p>
+<p>我们在浏览器打开：<a href="http://localhost:8080/，就能打开一个默认项目页面了：" target="_blank" rel="external">http://localhost:8080/，就能打开一个默认项目页面了：</a></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-7.PNG" alt=""></p>
+<h3 id="webStorm中允许未签名的请求设置"><a href="#webStorm中允许未签名的请求设置" class="headerlink" title="webStorm中允许未签名的请求设置"></a>webStorm中允许未签名的请求设置</h3><p>因为我们需要在后面引入模块进行学习，会在一个js文件中请求其他的js文件。如果你在使用webStorm学习时，遇到下面的弹窗：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-9.PNG" alt=""></p>
+<p>那就需要进行允许未签名设置。设置如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-8.PNG" alt=""></p>
+<h2 id="2、模块基本概念"><a href="#2、模块基本概念" class="headerlink" title="2、模块基本概念"></a>2、模块基本概念</h2><p>前端中的模块一般指的JS文件。</p>
+<ul>
+<li>node模块的规范：commonjs（定义：如何引用，如何导出，如何定义）</li>
+<li>前端模块规范<ul>
+<li>cmd规范： seaJS库</li>
+<li>amd规范： require库</li>
+<li>基于前面这些，出现umd。umd 为了做兼容处理的，既支持cmd，又支持amd，还支持commonjs规范</li>
+<li>ES6已经实现模块兼容 esmodule（可以在浏览器使用）<ul>
+<li>如何定义模块：一个JS文件就是一个模块</li>
+<li>如何导出模块：export</li>
+<li>如何使用模块：import</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3、模块导入"><a href="#3、模块导入" class="headerlink" title="3、模块导入"></a>3、模块导入</h2><h3 id="type-”module”"><a href="#type-”module”" class="headerlink" title="type=”module”"></a>type=”module”</h3><p>假设现在我们有3个JS文件：</p>
+<ul>
+<li>main.js</li>
+<li>1.js</li>
+<li>2.js</li>
+</ul>
+<p>我们只要把main.js引入到html文件中，在main.js文件中引入1.js和2.js即可。既然现在js文件是作为模块加载的，所以，我们在js文件类型上，==要特别标明是<code>module</code>==</p>
+<pre><code class="html">&lt;script src=&quot;../main.js&quot; type=&quot;module&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="export"><a href="#export" class="headerlink" title="export"></a>export</h3><p>接着我们要将<code>1.js</code>和<code>2.js</code>引入到<code>main.js</code>中，那么首先我们要将<code>1.js</code>和<code>2.js</code>中的内容通过<code>export</code>关键字导出到一个对象中。我们以<code>1.js</code>为例导出，然后<code>main.js</code>接收。</p>
+<pre><code class="javascript">// 1.js中
+export let str1=&#39;我很帅&#39;;
+export let str2=&#39;我很英俊&#39;;
+
+// 会将str1和str2放到一个对象内导出
+// {str1:&#39;我很帅&#39;,str2:&#39;我很英俊&#39;}
+</code></pre>
+<blockquote>
+<p>阮一峰《<a href="http://es6.ruanyifeng.com/#docs/module#export-%E5%91%BD%E4%BB%A4" target="_blank" rel="external">ECMAScript6 入门</a>》</p>
+<p>需要特别注意的是，<code>export</code>命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。</p>
+<pre><code class="javascript">// 报错
+export 1;
+
+// 报错
+var m = 1;
+export m;
+</code></pre>
+<p>上面两种写法都会报错，因为没有提供对外的接口。第一种写法直接输出 1，第二种写法通过变量<code>m</code>，还是直接输出 1。<code>1</code>只是一个值，不是接口。正确的写法是下面这样。</p>
+<pre><code class="javascript">// 写法一
+export var m = 1;
+
+// 写法二
+var m = 1;
+export {m};
+
+// 写法三
+var n = 1;
+export {n as m};
+</code></pre>
+<p>上面三种写法都是正确的，规定了对外的接口<code>m</code>。其他脚本可以通过这个接口，取到值<code>1</code>。它们的实质是，在接口名与模块内部变量之间，建立了一一对应的关系。</p>
+<p>同样的，<code>function</code>和<code>class</code>的输出，也必须遵守这样的写法。</p>
+<pre><code class="javascript">// 报错
+function f() {}
+export f;
+
+// 正确
+export function f() {};
+
+// 正确
+function f() {}
+export {f};
+</code></pre>
+<p>另外，<code>export</code>语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值。</p>
+<pre><code class="javascript">export var foo = &#39;bar&#39;;
+setTimeout(() =&gt; foo = &#39;baz&#39;, 500);
+</code></pre>
+<p>上面代码输出变量<code>foo</code>，值为<code>bar</code>，500 毫秒之后变成<code>baz</code>。</p>
+</blockquote>
+<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><p>然后main.js中通过import关键字导入。</p>
+<ul>
+<li>如果是第三方模块不需要加<code>./</code>，如果是自己写的文件模块，需要加<code>./</code></li>
+</ul>
+<pre><code class="javascript">// main.js中引入（接收）1.js中导出的内容
+import {str1,str2} from &#39;./1.js&#39;;
+console.log(str1,str2);
+
+// 如果是第三方模块，不需要加./，如果是自己写的文件模块需要加./
+// 在另一个文件中将内容解构出来使用即可
+</code></pre>
+<p>可以看到，我们在引入1.js文件中的内容的时候，就相当于是一个解构赋值的过程：</p>
+<pre><code class="javascript">{str1,str2}={str1:&#39;我很帅&#39;,str2:&#39;我很英俊&#39;}
+</code></pre>
+<p>不过，直接这样引用虽然可以，但是如果1.js中有上百个变量，我们再这样引入就很麻烦了。</p>
+<h4 id="import拥有声明功能"><a href="#import拥有声明功能" class="headerlink" title="import拥有声明功能"></a>import拥有声明功能</h4><p>第二点，<code>import</code>方式其实也是声明变量的方式。我们之前学习解构赋值的时候，是这样用的：</p>
+<pre><code class="javascript">let {str1,str2}={str1:&#39;我很帅&#39;,str2:&#39;我很英俊&#39;}
+</code></pre>
+<p>现在呢是：也是一样，左边的名字要和1.js中对应。</p>
+<pre><code class="javascript">import {str1,str2} form &#39;./1.js&#39;;
+</code></pre>
+<p>那么我们就不能在后面再重复声明变量，在ES6中会报错，比如：</p>
+<pre><code class="javascript">import {str1,str2} from &#39;./1.js&#39;;
+console.log(str1,str2);
+
+let ste1=&quot;a&quot;;
+</code></pre>
+<p>这样就不行！</p>
+<p>虽然在ES6中没有变量提升，但是使用import就有变量提升：</p>
+<blockquote>
+<p>《<a href="http://es6.ruanyifeng.com/#docs/module#import-%E5%91%BD%E4%BB%A4" target="_blank" rel="external">ECMAScript入门</a>》中写到：</p>
+<p>注意，<code>import</code>命令具有提升效果，会提升到整个模块的头部，首先执行。</p>
+<pre><code class="javascript">foo();
+
+import { foo } from &#39;my_module&#39;;
+</code></pre>
+</blockquote>
+<p>一些其他补充：</p>
+<blockquote>
+<p>来自：《<a href="http://es6.ruanyifeng.com/#docs/module#import-%E5%91%BD%E4%BB%A4" target="_blank" rel="external">ECMAScript入门</a>》</p>
+<h2 id="import-命令"><a href="#import-命令" class="headerlink" title="import 命令"></a>import 命令</h2><p>使用<code>export</code>命令定义了模块的对外接口以后，其他 JS 文件就可以通过<code>import</code>命令加载这个模块。</p>
+<pre><code class="javascript">// main.js
+import {firstName, lastName, year} from &#39;./profile.js&#39;;
+
+function setName(element) {
+  element.textContent = firstName + &#39; &#39; + lastName;
+}
+</code></pre>
+<p>上面代码的<code>import</code>命令，用于加载<code>profile.js</code>文件，并从中输入变量。<code>import</code>命令接受一对大括号，里面指定要从其他模块导入的变量名。大括号里面的变量名，必须与被导入模块（<code>profile.js</code>）对外接口的名称相同。</p>
+<p>==如果想为输入的变量重新取一个名字，<code>import</code>命令要使用<code>as</code>关键字，将输入的变量重命名。==</p>
+<pre><code class="javascript">import { lastName as surname } from &#39;./profile.js&#39;;
+</code></pre>
+<p>==<code>import</code>命令输入的变量都是只读的，因为它的本质是输入接口。也就是说，不允许在加载模块的脚本里面，改写接口。==</p>
+<pre><code class="javascript">import {a} from &#39;./xxx.js&#39;
+
+a = {}; // Syntax Error : &#39;a&#39; is read-only;
+</code></pre>
+<p>上面代码中，脚本加载了变量<code>a</code>，对其重新赋值就会报错，因为<code>a</code>是一个只读的接口。但是，如果<code>a</code>是一个对象，改写<code>a</code>的属性是允许的。</p>
+<pre><code class="javascript">import {a} from &#39;./xxx.js&#39;
+
+a.foo = &#39;hello&#39;; // 合法操作
+</code></pre>
+<p>上面代码中，<code>a</code>的属性可以成功改写，并且其他模块也可以读到改写后的值。不过，这种写法很难查错，建议凡是输入的变量，都当作完全只读，轻易不要改变它的属性。</p>
+<p><code>import</code>后面的<code>from</code>指定模块文件的位置，可以是相对路径，也可以是绝对路径，<code>.js</code>后缀可以省略。如果只是模块名，不带有路径，那么必须有配置文件，告诉 JavaScript 引擎该模块的位置。</p>
+<pre><code class="javascript">import {myMethod} from &#39;util&#39;;
+</code></pre>
+<p>上面代码中，<code>util</code>是模块文件名，由于不带有路径，必须通过配置，告诉引擎怎么取到这个模块。</p>
+<p>注意，<code>import</code>命令具有提升效果，会提升到整个模块的头部，首先执行。</p>
+<pre><code class="javascript">foo();
+
+import { foo } from &#39;my_module&#39;;
+</code></pre>
+<p>上面的代码不会报错，因为<code>import</code>的执行早于<code>foo</code>的调用。这种行为的本质是，<code>import</code>命令是编译阶段执行的，在代码运行之前。</p>
+<p>由于<code>import</code>是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。</p>
+<pre><code class="javascript">// 报错
+import { &#39;f&#39; + &#39;oo&#39; } from &#39;my_module&#39;;
+
+// 报错
+let module = &#39;my_module&#39;;
+import { foo } from module;
+
+// 报错
+if (x === 1) {
+  import { foo } from &#39;module1&#39;;
+} else {
+  import { foo } from &#39;module2&#39;;
+}
+</code></pre>
+<p>上面三种写法都会报错，因为它们用到了表达式、变量和<code>if</code>结构。在静态分析阶段，这些语法都是没法得到值的。</p>
+<p>最后，<code>import</code>语句会执行所加载的模块，因此可以有下面的写法。</p>
+<pre><code class="javascript">import &#39;lodash&#39;;
+</code></pre>
+<p>上面代码仅仅执行<code>lodash</code>模块，但是不输入任何值。</p>
+<p>如果多次重复执行同一句<code>import</code>语句，那么只会执行一次，而不会执行多次。</p>
+<pre><code class="javascript">import &#39;lodash&#39;;
+import &#39;lodash&#39;;
+</code></pre>
+<p>上面代码加载了两次<code>lodash</code>，但是只会执行一次。</p>
+<pre><code class="javascript">import { foo } from &#39;my_module&#39;;
+import { bar } from &#39;my_module&#39;;
+
+// 等同于
+import { foo, bar } from &#39;my_module&#39;;
+</code></pre>
+<p>上面代码中，虽然<code>foo</code>和<code>bar</code>在两个语句中加载，但是它们对应的是同一个<code>my_module</code>实例。也就是说，<code>import</code>语句是 Singleton 模式。</p>
+<p>目前阶段，通过 Babel 转码，CommonJS 模块的<code>require</code>命令和 ES6 模块的<code>import</code>命令，可以写在同一个模块里面，但是最好不要这样做。==因为<code>import</code>在静态解析阶段执行，所以它是一个模块之中最早执行的。==下面的代码可能不会得到预期结果。</p>
+<pre><code class="javascript">require(&#39;core-js/modules/es6.symbol&#39;);
+require(&#39;core-js/modules/es6.promise&#39;);
+import React from &#39;React&#39;;
+</code></pre>
+</blockquote>
+<h3 id="模块的整体加载"><a href="#模块的整体加载" class="headerlink" title="模块的整体加载"></a>模块的整体加载</h3><p>像前面的那种引入方式比较麻烦，我们可以使用整体加载的方式：</p>
+<pre><code class="javascript">import * as obj form &#39;./1.js&#39;;
+console.log(obj);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-10.PNG" alt=""></p>
+<p>补充内容中讲过：</p>
+<p>==如果想为输入的变量重新取一个名字，<code>import</code>命令要使用<code>as</code>关键字，将输入的变量重命名。==</p>
+<pre><code class="javascript">import { lastName as surname } from &#39;./profile.js&#39;;
+</code></pre>
+<p>所以，我们在这里使用通配符<code>*</code>来代表所有引入的变量，并重命名为obj，那么obj就是一个变量，里面代表了所有的引入的变量。</p>
+<h3 id="默认导出"><a href="#默认导出" class="headerlink" title="默认导出"></a>默认导出</h3><p>如果只导出一个变量，可以使用默认导出。</p>
+<pre><code class="javascript">// 2.js 中导出
+let num=1;
+export default num;
+</code></pre>
+<p>main.js中接收也很简单：直接设定一个变量接收即可，名字可以随便起。</p>
+<pre><code class="javascript">// main.js中
+import xxx form &#39;./2.js&#39;;
+</code></pre>
+<h2 id="4、webpack配置"><a href="#4、webpack配置" class="headerlink" title="4、webpack配置"></a>4、webpack配置</h2><p>本文中演示的是<code>webpack@3.9.0</code>版本。4+版本会有变动。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>npm init -y
+npm install webpack@3.9.0 --save-dev
+</code></pre><p>安装webpack，最好不要安装全局的，否则可能导致webpack版本差异。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>我们安装完成之后，可以在node_modules文件夹里面看到下载了很多文件：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-11.PNG" alt=""></p>
+<p>其中，灰色的文件夹里面是webpack主文件，其他的橙色的文件夹里面都是webpack的依赖。</p>
+<p>在webpack文件夹中的bin文件夹中，可以找webpack.js:</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-12.PNG" alt=""></p>
+<p>看起来只要运行这个文件就可以了，但是实际运行的时候会报错。我们需要进行一些配置才可以。</p>
+<pre><code class="javascript">// 运行webpack.js报的错误
+No configuration file found and no output filename configured via CLI option.
+A configuration file could be named &#39;webpack.config.js&#39; in the current directory.
+Use --help to display the CLI options.
+</code></pre>
+<h4 id="创建webpack-config-js"><a href="#创建webpack-config-js" class="headerlink" title="创建webpack.config.js"></a>创建webpack.config.js</h4><p>在当前项目的根目录下创建一个文件：<code>webpack.config.js</code>。这个是指定的名字，不能更改！这个文件将会用于webpack打包配置（比如：指定需要打包的文件、指定打包后的文件名、指定打包输出的文件夹等）。</p>
+<p>现在我们希望当webpack.js运行的时候能够找到webpack.config.js文件。但是目前运行webpack.js还是会报错。我们还需要在package.json中进行配置。</p>
+<h4 id="package中脚本配置"><a href="#package中脚本配置" class="headerlink" title="package中脚本配置"></a>package中脚本配置</h4><p>在<code>package.json</code>中配置一个脚本，这个脚本的命令是<code>webpack</code>，会去当前的<code>node_modules</code>下找<code>bin</code>对应的<code>webpack</code>名字让其执行，执行的就是<code>bin/webpack.js</code>。</p>
+<pre><code class="json">// package.json中进行脚本配置
+&quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;webpack&quot; // 这里的dev名字可以随便起，比如：build什么的都可以。
+  }
+// 当我们在cmd中通过命令 npm run dev执行这个脚本的时候，它会自动到当前项目文件根目录下去找node_modules &gt; .bin &gt; webpack.cmd,执行webpack.cmd，webpack.cmd就会根据内部代码，在node中运行webpack.js。那么它找webpack.config.js文件也会在当前项目的根目录下查找
+</code></pre>
+<p><code>webpack.js</code>需要找到当前目录下名字叫<code>webpack.config.js</code>的文件，我们通过<code>npm run dev</code>执行的目录是当前文件的目录，所以会去当前目录下查找。</p>
+<p>到这里，webpack最基本的配置就完成了。</p>
+<h2 id="5、webpack打包"><a href="#5、webpack打包" class="headerlink" title="5、webpack打包"></a>5、webpack打包</h2><h3 id="5-1-单入口打包"><a href="#5-1-单入口打包" class="headerlink" title="5.1 单入口打包"></a>5.1 单入口打包</h3><p>我们先来看看一般项目的文件目录结构，以jQuery为例：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-13.PNG" alt=""></p>
+<p>我们在进行生产的时候，会有一个源码文件夹，这个文件夹一般叫做src，这个文件夹中的文件是生产时使用的。还有一个打包后的文件夹，这个文件夹叫dist，这个文件夹里面的文件一般是生产完毕后的最终文件；dist文件夹不是我们自己建立的，是打包后生成的。</p>
+<h4 id="准备一个简单的项目"><a href="#准备一个简单的项目" class="headerlink" title="准备一个简单的项目"></a>准备一个简单的项目</h4><p>现在我们创建一个简单的项目，看看如何使用webpack打包。</p>
+<p>我们先给自己当前的目录下创建src文件夹，里面创建main.js/1.js/2.js。文件结构如下：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-14.PNG" alt=""></p>
+<p>然后让<code>main.js</code>引用<code>1.js</code>和<code>2.js</code>。</p>
+<p>因为我们在生产环境编写的文件，最终会被webpack打包成一个文件——一个能够被浏览器解析的文件；又由于webpack支持所有模块的写法，所以。我们在js中引入模块的时候，可以使用ES6的模块引入方法，又可以使用node中的模块引入方法（commonjs的写法），或者使用其他的模块引入写法，都可以，反正最后都会打包成浏览器能够解析的文件。</p>
+<p>之前我们讲了ES6的模块引入方法，现在我们用另外一种commonjs的写法来引入模块，作为学习：</p>
+<p><code>1.js中</code></p>
+<pre><code class="javascript">// 1.js中导出
+let str=&#39;我爱橘猫！&#39;;
+module.exports=str;
+</code></pre>
+<p><code>main.js中</code></p>
+<pre><code class="javascript">let str=require(&#39;./1.js&#39;);
+console.log(str);
+</code></pre>
+<p>好了，到这里，就写好了一个简单的项目，mian.js中引入了1.js模块。</p>
+<p>假设我们的项目完成了，我们就需要通过webpack进行打包。</p>
+<h4 id="使用webpack进行打包"><a href="#使用webpack进行打包" class="headerlink" title="使用webpack进行打包"></a>使用webpack进行打包</h4><p>所谓的打包，简单的理解就是将多个js文件合并成一个文件。</p>
+<p>使用webpack进行打包，我们就需要告诉webpack要打包那个文件，打包后的文件叫什么名字，打包后的文件导出到哪里。这些，统统1都在我们之前创建的<code>webpack.config.js</code>文件中设置完成。</p>
+<p>==要注意的是，因为webpack在node中运行，所以，webpack.config.js中要是用node的语法。==说白了就是在webpack.config.js中引入要打包的模块的时候，要使用commonjs的写法，不能使用ES6的写法（node不支持）。</p>
+<p><code>webpack.config.js中</code></p>
+<pre><code class="javascript">// webpack.config.js
+// 必须采用commonjs写法来导出模块，进行打包配置
+
+// node有个path内置模块，专门用来处理路径用的
+// 可以根据当前路径解析出处一个绝对路径
+let path=require(&#39;path&#39;); // 引入path模块
+
+// 使用：path.resolve(&#39;./path&#39;);返回这个相对路径的绝对路径
+
+module.exports={
+    entry:&#39;./src/main.js&#39;, // 打包的入口文件，我们不需要写出所有需要打包的文件，webpack会制动查找相关的依赖进行打包
+    output:{
+        filename:&#39;test.js&#39;, // 打包后的文件名
+        path:path.resolve(&#39;./dist&#39;) // 必须是一个绝对路径，我们用path模块将相对路径转换为绝对路径
+    }
+};
+</code></pre>
+<p>这个配置文件中通过entry进行引入main.js，然后webpack会自动查找文件之间的依赖关系，将它们打包。</p>
+<p>通过output设置打包后的文件名，以及打包后的输出地址。由于这个输出地址要是绝对路径。所以，我们引入path模块，来将相对路径转换成绝对路径。</p>
+<p>设置完成后，我们就在当前项目根目录下打开cmd，输入命令<code>npm run dev</code>进行打包。这里的dev就是之前我们设置的脚本名，你可以设置成其他的，比如build，那么命令就是<code>npm run build</code>。</p>
+<p>动图演示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-15.gif" alt=""></p>
+<p>可以看到打包结果：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-16.PNG" alt=""></p>
+<p>生成了一个test.js文件。打包的是main.js和1.js，webpack找到了main.js依赖的1.js文件。</p>
+<p>到这里，打包就完成了。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-17.PNG" alt=""></p>
+<p>我们可以在这个项目中看到生成了一个dist文件夹，test.js文件就在里面。</p>
+<p>我们来看看打包后的文件内容：</p>
+<pre><code class="javascript">/******/ (function(modules) { // webpackBootstrap
+/******/     // The module cache
+/******/     var installedModules = {};
+/******/
+/******/     // The require function
+/******/     function __webpack_require__(moduleId) {
+/******/
+/******/         // Check if module is in cache
+/******/         if(installedModules[moduleId]) {
+/******/             return installedModules[moduleId].exports;
+/******/         }
+/******/         // Create a new module (and put it into the cache)
+/******/         var module = installedModules[moduleId] = {
+/******/             i: moduleId,
+/******/             l: false,
+/******/             exports: {}
+/******/         };
+/******/
+/******/         // Execute the module function
+/******/         modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/         // Flag the module as loaded
+/******/         module.l = true;
+/******/
+/******/         // Return the exports of the module
+/******/         return module.exports;
+/******/     }
+/******/
+/******/
+/******/     // expose the modules object (__webpack_modules__)
+/******/     __webpack_require__.m = modules;
+/******/
+/******/     // expose the module cache
+/******/     __webpack_require__.c = installedModules;
+/******/
+/******/     // define getter function for harmony exports
+/******/     __webpack_require__.d = function(exports, name, getter) {
+/******/         if(!__webpack_require__.o(exports, name)) {
+/******/             Object.defineProperty(exports, name, {
+/******/                 configurable: false,
+/******/                 enumerable: true,
+/******/                 get: getter
+/******/             });
+/******/         }
+/******/     };
+/******/
+/******/     // getDefaultExport function for compatibility with non-harmony modules
+/******/     __webpack_require__.n = function(module) {
+/******/         var getter = module &amp;&amp; module.__esModule ?
+/******/             function getDefault() { return module[&#39;default&#39;]; } :
+/******/             function getModuleExports() { return module; };
+/******/         __webpack_require__.d(getter, &#39;a&#39;, getter);
+/******/         return getter;
+/******/     };
+/******/
+/******/     // Object.prototype.hasOwnProperty.call
+/******/     __webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/     // __webpack_public_path__
+/******/     __webpack_require__.p = &quot;&quot;;
+/******/
+/******/     // Load entry module and return exports
+/******/     return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+let str=__webpack_require__(1);
+console.log(str);
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+let str =&#39;我喜欢橘猫&#39;;
+
+module.exports=str;
+
+/***/ })
+/******/ ]);
+</code></pre>
+<p>这就是打包后的内容。</p>
+<p>==要注意的是，不要在这个文件里面进行修改。因为后面再次打包后会被覆盖掉，和没修改一样。==需要修改，就在自己的源代码文件里面修改。</p>
+<p>我们来实际运行一下这个文件：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-18.gif" alt=""></p>
+<p>输出”我喜欢橘猫”。完全正常！</p>
+<h3 id="5-2-多入口打包"><a href="#5-2-多入口打包" class="headerlink" title="5.2 多入口打包"></a>5.2 多入口打包</h3><p>上面演示的是单文件入口打包。有时还会遇到多入口打包的情况，比如要打包main.js和main1.js。</p>
+<p>配置如下：</p>
+<pre><code class="javascript">let path=require(&#39;path&#39;); 
+module.exports={
+    entry:{
+        main:&#39;./src/main.js&#39;,
+        main1:&#39;./src/main1.js&#39;
+    },
+    output:{
+        filename:&#39;[name].js&#39;, 
+        path:path.resolve(&#39;./dist&#39;) 
+    }
+}
+</code></pre>
+<p>打包后会生成两个文件。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-19.PNG" alt=""></p>
+<h2 id="6、webpack转译ES6到ES5"><a href="#6、webpack转译ES6到ES5" class="headerlink" title="6、webpack转译ES6到ES5"></a>6、webpack转译ES6到ES5</h2><p>webpack在打包时，将JS文件解析成ES5语法的文件。我们要使用babel。首先安装babel。</p>
+<p>在这里演示使用的版本是：</p>
+<pre><code>babel-core&quot;: &quot;^6.26.0&quot;,
+&quot;babel-loader&quot;: &quot;^7.1.2&quot;,
+</code></pre><p>如果你此处学习遇到问题，很可能是因为版本问题。webpack4和webpack3支持的版本不一样。</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><pre><code class="c">npm install babel-core --save-dev
+npm install babel-loader --save-dev         // 翻译官
+npm install babel-preset-es2015 --save-dev  // 解析ES6语法
+npm install babel-preset-stage-0 --save-dev // 解析ES7语法
+</code></pre>
+<h3 id="配置-babelrc"><a href="#配置-babelrc" class="headerlink" title="配置.babelrc"></a>配置.babelrc</h3><p>在src文件夹中建立一个.babelrc文件</p>
+<pre><code class="json">// 这里相当于配置语言包，配置了哪种，babel就能将哪种版本的JS转译成ES5语法
+{
+    &quot;presets&quot;:[&quot;es2015&quot;,&quot;stage-0&quot;]
+}
+</code></pre>
+<h3 id="打包文件配置"><a href="#打包文件配置" class="headerlink" title="打包文件配置"></a>打包文件配置</h3><p>然后在webpack打包配置文件中设置打包规则：</p>
+<pre><code class="javascript">// 模块的解析规则
+// 匹配所有的js文件，用babel-loader转义，排除掉node_modules
+module:{
+    rules:[
+        {test:/\.js$/,use:&#39;babel-loader&#39;,exclude:/node_modules/}
+    ]
+}
+</code></pre>
+<p>完整的配置文件是：</p>
+<pre><code class="javascript">let path=require(&#39;path&#39;);
+
+module.exports={
+    entry:&#39;./src/main.js&#39;,
+    output:{
+        filename:&#39;test1.js&#39;,
+        path:path.resolve(&#39;./dist&#39;)
+    },
+    module:{
+        rules:[
+            {test:/\.js$/,use:&#39;babel-loader&#39;,exclude:/node_modules/}
+        ]
+    }
+}
+</code></pre>
+<h2 id="7、webpack解析css样式"><a href="#7、webpack解析css样式" class="headerlink" title="7、webpack解析css样式"></a>7、webpack解析css样式</h2><p>我们在开发的时候，除了引用js文件，还会引用css文件。我们现在是把js文件当做模块看待的，最终webpack会把所有的文件打包成一个文件或几种文件：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-20.PNG" alt=""></p>
+<p>css也是通过js引入：</p>
+<pre><code class="javascript">import &#39;./style.css&#39;;
+</code></pre>
+<p>然后进行打包处理。不过现在无法直接进行打包处理的，webpack不会把css当做模块，所以不识别。</p>
+<h3 id="安装css-loader"><a href="#安装css-loader" class="headerlink" title="安装css-loader"></a>安装css-loader</h3><p>css-loader将css解析成模块。</p>
+<p>我们需要安装一个解析css的依赖<code>css-loader</code>、<code>style-loader</code>：</p>
+<pre><code class="c">npm install css-loader style-loader --save-dev
+</code></pre>
+<h3 id="添加解析规则"><a href="#添加解析规则" class="headerlink" title="添加解析规则"></a>添加解析规则</h3><pre><code class="javascript">module:{
+    rules:[
+        // use是从右往左写，先转换成css模块，再转换成style标签内的样式
+        {test:/\.css$/,usse:[&#39;style-loader&#39;,&#39;css-loader&#39;]}
+    ]
+}
+</code></pre>
+<p>使用示例：</p>
+<p>先在src文件夹下建立一个style.css文件</p>
+<pre><code class="css">body{
+    background:greenyellow;
+}
+</code></pre>
+<p>再在main.js中引入：</p>
+<pre><code class="javascript">import &#39;./style.css&#39;; // 因为css文件不需要用变量接收，所以直接引入即可
+</code></pre>
+<p>再配置webpack打包解析规则：</p>
+<pre><code class="javascript">let path=require(&#39;path&#39;);
+
+module.exports={
+    entry:&#39;./src/main.js&#39;,
+    output:{
+        filename:&#39;test1.js&#39;,
+        path:path.resolve(&#39;./dist&#39;)
+    },
+    module:{
+        rules:[
+            {test:/\.js$/,use:&#39;babel-loader&#39;,exclude:/node_modules/},
+            {test:/\.css$/,use:[&#39;style-loader&#39;,&#39;css-loader&#39;]}
+        ]
+    }
+}
+</code></pre>
+<p>在当前项目根目录下打开cmd，输入命令<code>npm run dev</code>进行打包。</p>
+<p>打包结果：我们的样式也放在test1.js文件中。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-21.PNG" alt=""></p>
+<p>可以正常使用。我们在dist文件夹中创建一个html文件，并引入test1.js，样式正常渲染。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-22.PNG" alt=""></p>
+<h2 id="8、webpack解析css预编译语言"><a href="#8、webpack解析css预编译语言" class="headerlink" title="8、webpack解析css预编译语言"></a>8、webpack解析css预编译语言</h2><h3 id="安装预编译语言"><a href="#安装预编译语言" class="headerlink" title="安装预编译语言"></a>安装预编译语言</h3><p>常用的预编译工具有less、sass、stylus。</p>
+<ul>
+<li>less-loader 、less</li>
+<li>sass-loader、sass</li>
+<li>styles-loader</li>
+</ul>
+<p>我们以less为例：</p>
+<p>需要安装less、less-loader、css-loader、style-loader。</p>
+<pre><code class="npm">npm i less less-loader --save-dev
+</code></pre>
+<p>因为前面已经安装过css-loader和style-loader了。这里只需要安装less和less-loader。</p>
+<h3 id="添加解析规则-1"><a href="#添加解析规则-1" class="headerlink" title="添加解析规则"></a>添加解析规则</h3><pre><code class="javascript">module:{
+    rules:[
+        {test:/\.less$/,use:[&#39;style-loader&#39;,&#39;css-loader&#39;,&#39;less-loader&#39;]}
+    ]
+}
+</code></pre>
+<p>使用演示：</p>
+<p>我们先在src中创建一个lesstest.less文件</p>
+<pre><code class="less">body{
+  &amp;:after{
+    content:&#39;我是使用less编写的&#39;;
+    color:chocolate;
+  }
+  div{
+    width: 100px;
+    height: 100px;
+    background: aqua;
+  }
+}
+</code></pre>
+<p>然后在main.js中引入less文件：</p>
+<pre><code class="javascript">import &#39;./lesstest.less&#39;;
+</code></pre>
+<p>接着在webpack.config.js中添加解析规则：</p>
+<pre><code class="javascript">let path=require(&#39;path&#39;);
+
+module.exports={
+    entry:&#39;./src/main.js&#39;,
+    output:{
+        filename:&#39;test1.js&#39;,
+        path:path.resolve(&#39;./dist&#39;),
+    },
+    module:{
+        rules:[
+            {test:/\.less$/,use:[&#39;style-loader&#39;,&#39;css-loader&#39;,&#39;less-loader&#39;]}
+        ]
+    }
+}
+</code></pre>
+<p>运行webpack：</p>
+<pre><code>npm run dev
+</code></pre><p>得到解析文件。</p>
+<h2 id="9、webpack解析图片"><a href="#9、webpack解析图片" class="headerlink" title="9、webpack解析图片"></a>9、webpack解析图片</h2><p>图片文件一般会用<code>file-loader</code>和<code>url-loader</code>。但是我们在用的时候，一般会用<code>url-loader</code>，<code>url-loader</code>是依赖于<code>file-loader</code>的，会自动引用<code>file-loader</code>。</p>
+<h3 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h3><pre><code>npm i file-loader url-loader --save-dev
+</code></pre><h3 id="添加解析规则-2"><a href="#添加解析规则-2" class="headerlink" title="添加解析规则"></a>添加解析规则</h3><p>只使用<code>url-loader</code>即可。</p>
+<pre><code class="javascript">modul:{
+    rules:[
+        {test:/\.(jpg|png|gif)$/,use:&#39;url-loader&#39;},
+        {test:/\.(eot|svg|woff|woff2|wtf)$/,use:&#39;url-loader&#39;}
+    ]
+}
+</code></pre>
+<p>字体文件、图标文件也是使用<code>url-loader</code>解析，但是呢，我们并不要把它们转换成64base的图片文件，这个以后再讲。我们在这里先演示常见的图片解析。</p>
+<p>使用演示：</p>
+<p>我们在src中放入一张图片1.jpg，在样式里面引入这张图片：</p>
+<pre><code class="less">body{
+  background:url(./1.jpg); // 在样式里面引入这张图片
+  &amp;:after{
+    content:&#39;我是使用less编写的&#39;;
+    color:chocolate;
+  }
+  div{
+    width: 100px;
+    height: 100px;
+    background: aqua;
+  }
+}
+</code></pre>
+<p>然后再main.js中引入样式文件：</p>
+<pre><code class="javascript">import &#39;./lesstest.less&#39;; // 之前引入过
+</code></pre>
+<p>在webpack.config.js中添加图片解析规则：</p>
+<pre><code class="javascript">let path=require(&#39;path&#39;);
+
+module.exports={
+    entry:&#39;./src/main.js&#39;,
+    output:{
+        filename:&#39;test1.js&#39;,
+        path:path.resolve(&#39;./dist&#39;)
+    },
+    module:{
+        rules:[
+            {test:/\.js$/,use:&#39;babel-loader&#39;,exclude:/node_modules/},
+            {test:/\.css$/,use:[&#39;style-loader&#39;,&#39;css-loader&#39;]},
+            {test:/\.less$/,use:[&#39;style-loader&#39;,&#39;css-loader&#39;,&#39;less-loader&#39;]},
+            // 图片解析规则
+            {test:/\.(jpg|png|gif)/i,use:&#39;url-loader&#39;},
+            {test:/\.(eot|svg|woff|woff2|wtf)$/,use:&#39;url-loader&#39;}
+        ]
+    }
+}
+</code></pre>
+<p>运行webpack进行打包：</p>
+<pre><code>npm run dev
+</code></pre><p>运行的结果发现只生成了一个test1.js文件。图片被编译成base64格式的文件了，放在js文件里：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-23.PNG" alt=""></p>
+<p>实际上，这张图片比较大，有23kb，不需要转换成base64，独立存在即可。</p>
+<p>所以我们要添加解析限制。在8kb（8192字节）以下大小的图片才转换。</p>
+<h3 id="添加图片解析限制"><a href="#添加图片解析限制" class="headerlink" title="添加图片解析限制"></a>添加图片解析限制</h3><p>图片转化base64只在8192字节（8kb）以下才转换，其他情况下输出图片。</p>
+<pre><code class="javascript">{test:/\.(jpg|png|gif)/i,use:&#39;url-loader?limit=8192&#39;},
+</code></pre>
+<p>在规则中添加限制后，再使用webpack打包，如果图片大小超过8kb，就会生成一张独立的图片文件出来。引用的路径也会被自动更换。</p>
+<h3 id="图片不被解析的情况"><a href="#图片不被解析的情况" class="headerlink" title="图片不被解析的情况"></a>图片不被解析的情况</h3><p>前面我们是使用样式引入图片，可以被解析到。但是如果我们在js中引入图片，比如：</p>
+<pre><code class="javascript">let img = new Image();
+img.src = &#39;./2.jpg&#39;; // 这里写了一个字符串，webpack不会进行查找
+</code></pre>
+<p>所以，在JS中引入图片，需要使用import，或者使用线上路径。</p>
+<pre><code class="javascript">import page from &#39;./2.jpg&#39;; // page就是打包后图片的路径
+let img = new Image();
+img.src = page;
+</code></pre>
+<h2 id="11、webpack自动化配置"><a href="#11、webpack自动化配置" class="headerlink" title="11、webpack自动化配置"></a>11、webpack自动化配置</h2><h3 id="解析html插件"><a href="#解析html插件" class="headerlink" title="解析html插件"></a>解析html插件</h3><p>插件的作用：是以我们自己的html为模板，将打包后的结果自动引入到html中产出到dist目录下。</p>
+<h4 id="安装-3"><a href="#安装-3" class="headerlink" title="安装"></a>安装</h4><pre><code>npm install html-webpack-plugin --save-dev
+</code></pre><p>==以管理员身份运行cmd安装==。</p>
+<h4 id="引入HtmlWebpackPlugin插件"><a href="#引入HtmlWebpackPlugin插件" class="headerlink" title="引入HtmlWebpackPlugin插件"></a>引入HtmlWebpackPlugin插件</h4><p>在webpack.config.js中手动引入：</p>
+<pre><code class="javascript">let HtmlWebpackPlugin=require(&#39;html-webpack-plugin&#39;);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-24.PNG" alt=""></p>
+<p>我们可以查看这个插件源代码，里面创建了一个类，最后将这个类导出了。所以，我们在配置文件中引入的是一个类。</p>
+<h4 id="配置HtmlWebpackPlugin"><a href="#配置HtmlWebpackPlugin" class="headerlink" title="配置HtmlWebpackPlugin"></a>配置HtmlWebpackPlugin</h4><p>我们在webpack.config.js中引入后还需要进行配置：</p>
+<pre><code class="javascript">let HtmlWebpackPlugin=require(&#39;html-webpack-plugin&#39;);
+let path=require(&#39;path&#39;);
+
+module.exports={
+    entry:&#39;./src/main.js&#39;,
+    output:{...},
+    module:{...},
+    plugins:[
+        new HtmlWebpackPlugin({
+            template:&#39;./src/index.html&#39;,// 我们在源代码里面的html
+            filename:&#39;login.html&#39; // 产出文件的名字，自己设置
+        })
+    ]
+}
+</code></pre>
+<p>plugins里面对插件进行配置。</p>
+<p>这里有更详细的使用示例：<a href="https://www.npmjs.com/package/html-webpack-plugin" target="_blank" rel="external">html-webpack-plugin</a></p>
+<h3 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h3><p>webpack中内置了webpack-dev-server服务，可以帮我们启动一个端口号，当代码更新时，可以自动打包（内存中打包），代码有变化就重新执行。</p>
+<p>使用这个服务的好处是，我们在开发时不需要时时打包去看编写的效果，可以在生产时，就边更改边看代码效果。一般使用webpack打包是开发完成后才进行的，可以直接上线的。（打包了之后对dist中的文件进行修改也没有用啊，因为再次打包会被覆盖掉）</p>
+<h4 id="安装-4"><a href="#安装-4" class="headerlink" title="安装"></a>安装</h4><pre><code>npm install webpack-dev-server --save-dev
+</code></pre><p>==以管理员身份运行cmd安装==。</p>
+<p>我们这里安装的是==@2.9.4==。如果你运行出错，比如提示说：Error: Cannot find module ‘webpack-cli/bin/config-yargs’,那是因为在webpack@4+</p>
+<h4 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h4><p>我们只需要在package.json里面添加一个脚本即可：</p>
+<pre><code class="json">&quot;scripts&quot;:{
+    &quot;build&quot;:&quot;webpack&quot;,
+    &quot;dev&quot;:&quot;webpack-dev-server&quot;
+}
+</code></pre>
+<p>之前在配置webpack的时候，我们给webpack的脚本命名为dev，实际上命名为build更好。我们给这个服务命名为dev更为合适。当然，看你的喜好了。一般是这样命名的，算是一个约定俗成吧！</p>
+<h4 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h4><p>在当前项目根目录下打开cmd，执行命令：</p>
+<pre><code>npm run dev
+</code></pre><p>服务开启成功后，会给我们一个项目运行地址：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-25.PNG" alt=""></p>
+<p>默认情况下，我们只需要打开：<a href="http://localhost:8080/即可看到我们的前端项目。" target="_blank" rel="external">http://localhost:8080/即可看到我们的前端项目。</a></p>
+<p>但是我们在之前配置html-webpack-plugin的例子中,给输出的html命名为login.html了，所以在我这个例子中要打开<a href="http://localhost:8080/login.html才能看到项目。" target="_blank" rel="external">http://localhost:8080/login.html才能看到项目。</a></p>
+<p>之后我们再对项目文件进行更改的时候，就不需要每次都重新打开页面刷新了，也不需要每次都运行webpack查看了。这个服务会实时帮我们刷新，我们只需要专注于编写代码，想查看编写效果就随时看一下即可！</p>
+<h2 id="12、在webpack中使用vue"><a href="#12、在webpack中使用vue" class="headerlink" title="12、在webpack中使用vue"></a>12、在webpack中使用vue</h2><p>假设我们现在已经按照前面的讲解配置好了基础的webpack环境，项目结构如下：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-26.PNG" alt=""></p>
+<p>在源代码src文件夹中，我们创建了index.html和main.js。现在我们需要使用vue来开发我们的项目，该如何引入使用呢？（首先我们肯定要安装vue依赖包）</p>
+<p>因为我们现在是使用webpack，开启webpack-dev-server服务查看我们的项目的，也就相当于是我们是通过webpack打包后再进行查看的。因为最后webpack会将打包后的main.js引入到index.html中，所以，我们不需要在index.html中引入vue。</p>
+<h3 id="引入vue-js"><a href="#引入vue-js" class="headerlink" title="引入vue.js"></a>引入vue.js</h3><p>在index.html中只需要有：</p>
+<pre><code class="html">&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>我们需要将vue.js文件作为模块导入到main.js中去。</p>
+<pre><code class="javascript">import Vue from &#39;vue&#39;;
+</code></pre>
+<p>vue不是一个内置模块，按道理说应该加上<code>./</code>。但是我们在这里是直接引用的。为什么可以直接引用呢？</p>
+<p>因为直接引用，读取的是：</p>
+<pre><code>node_modules &gt; vue &gt; package.json &gt; &quot;main&quot;
+</code></pre><p>vue的package.json中的main是这么写的：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-28.PNG" alt=""></p>
+<p>所以，这样直接引用vue，不是引用的并不是vue.js，引用的是vue.runtime.js</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-27.PNG" alt=""></p>
+<p>vue由<code>compiler +runtime</code>两部分组成。其中compiler可以编译模板。</p>
+<p>如果按目前这样引用vue，没有compiler，就无法使用模板，比如：</p>
+<pre><code class="javascript">import Vue from &#39;vue&#39;;
+
+let vm=new Vue({
+    tempalte:&#39;&lt;h1&gt;你好&lt;/h1&gt;&#39;
+}).$mount(&#39;#app&#39;);
+</code></pre>
+<p>这样使用就会报错：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-29.PNG" alt=""></p>
+<p>错误中说，要么使用render函数，要么引入包含compiler的vue文件。</p>
+<p>如果我们使用render函数，就比较麻烦，我们在这里可以稍稍演示一下，如果你感兴趣，可以在官方文档（<a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank" rel="external">渲染函数&amp;JSX</a>）中查看详细的使用方式。</p>
+<pre><code class="javascript">import Vue from &#39;vue&#39;;
+
+let vm=new Vue({
+    render:function(createElement){
+        return createElement(&#39;h1&#39;,[
+            &#39;hello&#39;,
+            createElement(&#39;span&#39;,&#39;一则头条&#39;)
+        ])
+    }
+}).$mount(&#39;#app&#39;);
+
+// 可以简化一下，用箭头函数，参数名设为h，不用createElement那么长的
+let vm=new Vue({
+    render:h=&gt;h(&#39;h1&#39;,[&#39;hello&#39;,h(&#39;span&#39;,&#39;一则头条&#39;)])
+}).$mount(&#39;#app&#39;);
+</code></pre>
+<p>这就是所谓的虚拟dom。render函数的作用是将虚拟的dom渲染成真实的dom，createElement返回的是虚拟dom。</p>
+<p>我们肯定一般不会这样使用。vue为了简便，给我们提供一个.vue文件，我们可以在这个文件里面编写组件。</p>
+<h3 id="在-vue文件中编写组件"><a href="#在-vue文件中编写组件" class="headerlink" title="在.vue文件中编写组件"></a>在.vue文件中编写组件</h3><p>我们先在src文件夹中新建一个App.vue的文件。项目文件结构如下：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-30.PNG" alt=""></p>
+<p>我们以前写组件，是在一个对象中编写组件，比如：</p>
+<pre><code class="javascript">let child={
+    template:&#39;&lt;div&gt;hello&lt;/div&gt;&#39;,
+    data(){
+        return {...}
+    },
+    methods:{...}      
+}
+</code></pre>
+<p>现在，我们可以把App.vue也看成一个对象，我们在里面编写组件。</p>
+<p>基本代码模板：</p>
+<pre><code class="vue">&lt;!--在这里编写模板的html部分--&gt;
+&lt;template&gt;
+    &lt;div&gt;
+
+    &lt;/div&gt;
+&lt;/template&gt;
+
+
+&lt;script&gt;
+    // 默认要导出一个对象
+    export default {
+        data(){
+            return{}
+        },
+        methods:{},
+        computed:{},
+        components:{}
+    }
+&lt;/script&gt;
+
+&lt;!--在这里编写模板的样式部分，scoped表示是当前作用域下的样式，否则我们写的就是全局样式了--&gt;
+&lt;style scoped&gt;
+
+&lt;/style&gt;
+</code></pre>
+<p>因为每次新建vue文件都会用到这个基本模板，所以我们可以在webStorm中保存为文件模板，设置如下：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-31.jpg" alt=""></p>
+<p>点击编辑文件模板会弹出编辑窗口：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-32.PNG" alt=""></p>
+<p>设置好之后再创建vue文件就很方便了：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-04/06/10-33.gif" alt=""></p>
+<p>我们是在<code>.vue</code>文件中写的组件，所以，需要在main.js中将<code>.vue</code>文件引入：</p>
+<pre><code class="javascript">import App from &#39;./App.vue&#39;;
+</code></pre>
+<p>那么，这个时候，我们就不需要在render函数中写组件了，只需要把App引入到render函数中即可。</p>
+<p>演示代码如下：</p>
+<pre><code class="javascript">import Vue from &#39;vue&#39;;
+import App from &#39;./App.vue&#39;
+
+let vm=new Vue({
+    render:function(createElement){
+        return createElement(App);
+    }
+}).$mount(&#39;#app&#39;);
+</code></pre>
+<p>用ES6箭头函数可以更简便：</p>
+<pre><code class="javascript">import Vue from &#39;vue&#39;;
+import App from &#39;./App.vue&#39;;
+
+let vm=new Vue({
+    render:h=&gt;h(App)
+}).$mount(&#39;#app&#39;);
+</code></pre>
+<h3 id="webpack解析vue文件"><a href="#webpack解析vue文件" class="headerlink" title="webpack解析vue文件"></a>webpack解析vue文件</h3><h4 id="安装vue-loader-、vue-template-compiler"><a href="#安装vue-loader-、vue-template-compiler" class="headerlink" title="安装vue-loader 、vue-template-compiler"></a>安装vue-loader 、vue-template-compiler</h4><ul>
+<li>vue-loader用来解析.vue文件（会自动调用vue-template-compiler）</li>
+<li>vue-template-compiler用来解析vue模板</li>
+</ul>
+<pre><code>npm install vue-loader vue-template-compiler --save-dev
+</code></pre><p>我在这里安装的版本是：</p>
+<ul>
+<li>vue-loader==@13.5.0==（版本不一样，可能需要不同的webpack版本）</li>
+<li>vue-template-compiler==@2.5.17==</li>
+</ul>
+<h4 id="配置解析规则"><a href="#配置解析规则" class="headerlink" title="配置解析规则"></a>配置解析规则</h4><pre><code class="javascript">module:{
+    rules:[
+        {test:/\.vue$/,use:&#39;vue-loader&#39;}
+    ]
+}
+</code></pre>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #222;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" style="display: none">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/04/06/2018-04-06webpack-config/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/04/06/2018-04-06webpack-config/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.btn_click_load').css('display','none');
+        })(),
+        error: function() {
+          $('.btn_click_load').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/04/12/2018-04-12dev-vue-plugin/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/01/2018-04-01ES6-grammer/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header1.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.jpg" alt="Anilway's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        更多
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hanway.robot@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="电子书">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">book</i>
+                        
+                        电子书
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="网址导航">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">tab</i>
+                        
+                        网址导航
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">20</span></a></li><li><a class="sidebar_archives-link" href="/categories/JS进阶/">JS进阶<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/其他/">其他<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/小技巧/">小技巧<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/旁征博引/">旁征博引<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程工具/">编程工具<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about/index.html" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友链接">
+                
+                友链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图片集">
+                
+                图片集
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Anilway" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Anilway
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

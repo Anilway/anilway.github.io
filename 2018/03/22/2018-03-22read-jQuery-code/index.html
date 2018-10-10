@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            jQuery源码小探 | 
+        
+        Anilway
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Anilway">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",JavaScript,jQuery,源码解读">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon1.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon1.png">
+    <link rel="apple-touch-icon" href="/img/favicon1.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Anilway">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #222 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #222 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #222 !important;
+  }
+
+  .toTop {
+    background: #222 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #222;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #222;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #222;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="jQuery源码小探 | Anilway">
+    <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="jQuery"> <meta property="og:article:tag" content="源码解读"> 
+
+    
+        <meta property="article:published_time" content="Thu Mar 22 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Oct 10 2018 12:27:32 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="jQuery源码小探 | Anilway">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/03/22/2018-03-22read-jQuery-code/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/03/22/2018-03-22read-jQuery-code/index.html",
+    "headline": "jQuery源码小探",
+    "datePublished": "Thu Mar 22 2018 00:00:00 GMT+0800",
+    "dateModified": "Wed Oct 10 2018 12:27:32 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Anilway",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.jpg"
+        },
+        "description": "Make yourself better!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Anilway",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon1.png"
+        }
+    },
+    "keywords": ",JavaScript,jQuery,源码解读",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、JQ的版本和下载"><span class="post-toc-text">1、JQ的版本和下载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何学习JQ"><span class="post-toc-text">如何学习JQ</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、JQ的核心原理解读"><span class="post-toc-text">2、JQ的核心原理解读</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jQuery本身是一个类"><span class="post-toc-text">jQuery本身是一个类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jQuery选择器"><span class="post-toc-text">jQuery选择器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JQ对象和原生JS对象转换"><span class="post-toc-text">JQ对象和原生JS对象转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selector是一个方法"><span class="post-toc-text">selector是一个方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JQ既是一个类也是一个对象"><span class="post-toc-text">JQ既是一个类也是一个对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jQuery-prototype"><span class="post-toc-text">jQuery.prototype</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在对象上的方法"><span class="post-toc-text">写在对象上的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JQ常用的三种筛选方法"><span class="post-toc-text">JQ常用的三种筛选方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JQ中的each"><span class="post-toc-text">JQ中的each</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、用JQ完成选项卡操作"><span class="post-toc-text">3、用JQ完成选项卡操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、JQ完成选项卡插件"><span class="post-toc-text">4、JQ完成选项卡插件</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://raw.githubusercontent.com/Anilway/blogImg/master/2018-03/22/cover.jpg)">
+    
+            <p class="article-headline-p">
+                jQuery源码小探
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Anilway</strong>
+        <span>3月 22, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/03/22/2018-03-22read-jQuery-code/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/jQuery/">jQuery</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/源码解读/">源码解读</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=jQuery源码小探&url=http://yoursite.com/2018/03/22/2018-03-22read-jQuery-code/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=jQuery源码小探&url=http://yoursite.com/2018/03/22/2018-03-22read-jQuery-code/index.html&via=Anilway" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/22/2018-03-22read-jQuery-code/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/22/2018-03-22read-jQuery-code/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="\assets\js\APlayer.min.js"> </script><p>JQ的基本语法、核心原理、及项目实战。</p>
+<h2 id="1、JQ的版本和下载"><a href="#1、JQ的版本和下载" class="headerlink" title="1、JQ的版本和下载"></a>1、JQ的版本和下载</h2><p>全称：jQuery</p>
+<p>版本：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">版本</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1.x</td>
+<td>兼容IE6-8，是目前PC端开发常用的类库</td>
+</tr>
+<tr>
+<td style="text-align:center">2.x / 3.x</td>
+<td>不支持IE6-8的兼容了，目前市场上应用的特别少（移动端开发一般我们都会用zepto.js）</td>
+</tr>
+<tr>
+<td style="text-align:center">jQuery-1.9.3.min.js</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">jQuery-1.11.3.min.js</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">jQuery.min.js</td>
+<td>这个没有具体的版本号，只是把JQ中常用的方法放在里面</td>
+</tr>
+</tbody>
+</table>
+<p>jQuery的下载：</p>
+<table>
+<thead>
+<tr>
+<th>下载方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>官网下载</td>
+<td><a href="http://jquery.com/download" target="_blank" rel="external">http://jquery.com/download</a></td>
+</tr>
+<tr>
+<td>Github</td>
+<td><a href="https://github.com/jquery/jquery" target="_blank" rel="external">https://github.com/jquery/jquery</a>（可以分模块查看jq的源码，进行学习和分析）</td>
+</tr>
+<tr>
+<td>百度搜索</td>
+<td>或者在<a href="http://code.jquery.com/jquery-1.11.1.min.js" target="_blank" rel="external">http://code.jquery.com/jquery-1.11.1.min.js</a>（地址后面放入的是对应的JQ版本号）</td>
+</tr>
+<tr>
+<td>npm</td>
+<td>基于Node的npm包管理器也可以下载JQ（后文介绍）</td>
+</tr>
+</tbody>
+</table>
+<p>npm下载命令：</p>
+<pre><code class="javascript">// 在cmd输入此命令，保存所有jq版本号（前提是装了node）
+npm view jquery&gt;jquery.version.json
+
+// 下载最新版本jQuery
+npm install jquery
+
+// 下载指定版本的jQuery
+npm install jquery@1.11.3
+</code></pre>
+<h3 id="如何学习JQ"><a href="#如何学习JQ" class="headerlink" title="如何学习JQ"></a>如何学习JQ</h3><ul>
+<li>研究JQ的源码：研究的过程更多是学习JQ的精华，促进自己的原生JS能力，以及插件或者类库的封装能力</li>
+<li>看JQ的API手册：<a href="http://jquery.cuishifeng.cn" target="_blank" rel="external">http://jquery.cuishifeng.cn</a></li>
+<li>《锋利的jQuery》（第2版）：对于JQ的基础知识和实战应用讲解的非常好</li>
+<li>看一些JQ的视频</li>
+<li>看看一些JQ的插件啊、JQ写的网站啊，模仿着写一写，练一练</li>
+</ul>
+<h2 id="2、JQ的核心原理解读"><a href="#2、JQ的核心原理解读" class="headerlink" title="2、JQ的核心原理解读"></a>2、JQ的核心原理解读</h2><p>分析源代码。</p>
+<p>JQ是一个常用类库（常用那个的DOM库），提供了很多真实项目开发中需要使用的属性和方法（这些方法JQ已经帮我们完善了浏览器兼容处理以及一些细节优化）</p>
+<h3 id="jQuery本身是一个类"><a href="#jQuery本身是一个类" class="headerlink" title="jQuery本身是一个类"></a>jQuery本身是一个类</h3><p>JQ是基于构造函数模式构建的类库。</p>
+<pre><code class="javascript">var jQuery=function(selector,context){
+    return new jQuery.fn.init( selector, context );
+}
+
+jQuery.fn = jQuery.prototype = {
+    jquery:version,
+    constructor:jQuery,
+    ...
+};
+...
+init=jQuery.fn.init=function(selector,context){
+    if(typeof selector ===&#39;string&#39;){
+        ...
+    }else if(selector.nodeType){
+        ...
+    }else if(jQuery.isFunction(selector)){
+        ...
+    }
+    return jQuery.markArray(selector,this);
+        //返回的是一个类数组
+}
+
+init.prototype==jQuery.fn;
+...
+window.jQuery=window.$=jQuery;
+</code></pre>
+<p>当我们在JS中执行：<code>$()</code>、<code>jQuery()</code>,都是在创建JQ类的实例（\$===jQuery）。这些实例都是一个类数组（我们把这个类数组称之为JQ对象），JQ的实例可以使用JQ原型上提供的共有的属性和方法。</p>
+<p>项目中我们把<code>$()</code>称之为JQ的选择器，因为执行这个方法可以传递一个selector参数进去，通过selector我们可以获取到需要操作的DOM元素集合（JQ类数组集合）。传递的第二个1参数context它是当前获取元素的上下文（不传递默认是document，如果传递，我们传递一个JS元素对象即可）</p>
+<p>但是把它叫做JQ选择器有点笼统，因为传递的selector支持三种格式：</p>
+<ul>
+<li>传递的是一个字符串，就是我们所谓的选择器，能够通过选择器获取到元素</li>
+<li>传递的是一个元素对象，它的意思是把JS原生对象转换为JQ对象</li>
+<li>传递的是个函数，它代表等DOM加载完成再执行对应的JS代码（类似于window。onload）</li>
+<li>……</li>
+</ul>
+<h3 id="jQuery选择器"><a href="#jQuery选择器" class="headerlink" title="jQuery选择器"></a>jQuery选择器</h3><pre><code class="javascript">$===jQuery;            // true
+$()===jQuery();        // false 不同的实例
+$() instanceof jQuery; // true
+$().jquery; // 获取版本号
+
+var $example=$(); // 我们用JQ选择器获取的值，一般都是用以$开头的变量名来存储（以后看见变量名是以$揩油的，我们就知道是JQ获取的实例[JQ对象]）
+
+// dir($(&#39;*&#39;))查看实例的所有私有属性
+$example
+    xx:xx 私有属性
+    0：某一元素对象
+    ...
+    length:类数组的长度
+    context:document
+    selector:&#39;&#39; 传递的选择器内容
+    __proto__: jQuery.prototype
+        [xxx:xxx公有属性和方法]
+        add
+        addClass
+        ...
+        __proto__:Object.prototype
+</code></pre>
+<p>第一个参数[selector]传递的是一个字符串，就是通过选择器获取需要的元素集合（获取的结果怎么着都是类数组集合：获取多个元素也就是索引多点，获取一个元素也就是只有索引0，一个都没获取到就是一个空的类数组集合，而不是null）</p>
+<pre><code class="javascript">//传统的判断是否获取到元素的方式是：
+var aa=document.getElementById(&#39;box&#39;);
+if(aa){}; // 传统的方式如果没有获取到元素，就为undefiend，可以作为判断条件。
+
+// 但是在jQuery中如果没有获取到元素，结果为空类数组集合，不为null，所以不能作为判断条件
+var bb=$(&#39;#box&#39;);
+if(bb){}; // 条件恒成立
+
+// 我们要通过类数组的长度来判断时否获取到
+if(bb.length&gt;0){}; // 如果没有获取到bb，长度就为0。
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-03/22/01-3.PNG" alt=""></p>
+<pre><code class="javascript">// jQuery公有属性
+dir(jQuery.prototype);// 执行获得
+/*-------------------------------------*/
+           add:ƒ ( selector, context )
+       addBack:ƒ ( selector )
+      addClass:ƒ ( value )
+         after:ƒ ()
+  ajaxComplete:ƒ ( fn )
+     ajaxError:ƒ ( fn )
+      ajaxSend:ƒ ( fn )
+     ajaxStart:ƒ ( fn )
+      ajaxStop:ƒ ( fn )
+   ajaxSuccess:ƒ ( fn )
+       andSelf:ƒ ( selector )
+       animate:ƒ ( prop, speed, easing, callback )
+        append:ƒ ()
+      appendTo:ƒ ( selector )
+          attr:ƒ ( name, value )
+        before:ƒ ()
+          bind:ƒ ( types, data, fn )
+          blur:ƒ ( data, fn )
+        change:ƒ ( data, fn )
+      children:ƒ ( until, selector )
+    clearQueue:ƒ ( type )
+         click:ƒ ( data, fn )
+         clone:ƒ ( dataAndEvents, deepDataAndEvents )
+       closest:ƒ ( selectors, context )
+   constructor:ƒ ( selector, context )
+      contents:ƒ ( until, selector )
+   contextmenu:ƒ ( data, fn )
+           css:ƒ ( name, value )
+          data:ƒ ( key, value )
+      dblclick:ƒ ( data, fn )
+         delay:ƒ ( time, type )
+      delegate:ƒ ( selector, types, data, fn )
+       dequeue:ƒ ( type )
+        detach:ƒ ( selector )
+      domManip:ƒ ( args, callback )
+          each:ƒ ( callback, args )
+         empty:ƒ ()
+           end:ƒ ()
+            eq:ƒ ( i )
+         error:ƒ ( data, fn )
+        extend:ƒ ()
+        fadeIn:ƒ ( speed, easing, callback )
+       fadeOut:ƒ ( speed, easing, callback )
+        fadeTo:ƒ ( speed, to, easing, callback )
+    fadeToggle:ƒ ( speed, easing, callback )
+        filter:ƒ ( selector )
+          find:ƒ ( selector )
+        finish:ƒ ( type )
+         first:ƒ ()
+         focus:ƒ ( data, fn )
+       focusin:ƒ ( data, fn )
+      focusout:ƒ ( data, fn )
+           get:ƒ ( num )
+           has:ƒ ( target )
+      hasClass:ƒ ( selector )
+        height:ƒ ( margin, value )
+          hide:ƒ ( speed, easing, callback )
+         hover:ƒ ( fnOver, fnOut )
+          html:ƒ ( value )
+         index:ƒ ( elem )
+          init:ƒ ( selector, context )
+   innerHeight:ƒ ( margin, value )
+    innerWidth:ƒ ( margin, value )
+   insertAfter:ƒ ( selector )
+  insertBefore:ƒ ( selector )
+            is:ƒ ( selector )
+        jquery:&quot;1.11.3&quot;
+       keydown:ƒ ( data, fn )
+      keypress:ƒ ( data, fn )
+         keyup:ƒ ( data, fn )
+          last:ƒ ()
+        length:0
+          load:ƒ ( url, params, callback )
+           map:ƒ ( callback )
+     mousedown:ƒ ( data, fn )
+    mouseenter:ƒ ( data, fn )
+    mouseleave:ƒ ( data, fn )
+     mousemove:ƒ ( data, fn )
+      mouseout:ƒ ( data, fn )
+     mouseover:ƒ ( data, fn )
+       mouseup:ƒ ( data, fn )
+          next:ƒ ( until, selector )
+       nextAll:ƒ ( until, selector )
+     nextUntil:ƒ ( until, selector )
+           not:ƒ ( selector )
+           off:ƒ ( types, selector, fn )
+        offset:ƒ ( options )
+  offsetParent:ƒ ()
+            on:ƒ ( types, selector, data, fn, /*INTERNAL*/ one )
+           one:ƒ ( types, selector, data, fn )
+   outerHeight:ƒ ( margin, value )
+    outerWidth:ƒ ( margin, value )
+        parent:ƒ ( until, selector )
+       parents:ƒ ( until, selector )
+  parentsUntil:ƒ ( until, selector )
+      position:ƒ ()
+       prepend:ƒ ()
+     prependTo:ƒ ( selector )
+          prev:ƒ ( until, selector )
+       prevAll:ƒ ( until, selector )
+     prevUntil:ƒ ( until, selector )
+       promise:ƒ ( type, obj )
+          prop:ƒ ( name, value )
+          push:ƒ push()
+     pushStack:ƒ ( elems )
+         queue:ƒ ( type, data )
+         ready:ƒ ( fn )
+        remove:ƒ ( selector, keepData /* Internal Use Only */ )
+    removeAttr:ƒ ( name )
+   removeClass:ƒ ( value )
+    removeData:ƒ ( key )
+    removeProp:ƒ ( name )
+    replaceAll:ƒ ( selector )
+   replaceWith:ƒ ()
+        resize:ƒ ( data, fn )
+        scroll:ƒ ( data, fn )
+    scrollLeft:ƒ ( val )
+     scrollTop:ƒ ( val )
+        select:ƒ ( data, fn )
+      selector:&quot;&quot;
+     serialize:ƒ ()
+serializeArray:ƒ ()
+          show:ƒ ( speed, easing, callback )
+      siblings:ƒ ( until, selector )
+          size:ƒ ()
+         slice:ƒ ()
+     slideDown:ƒ ( speed, easing, callback )
+   slideToggle:ƒ ( speed, easing, callback )
+       slideUp:ƒ ( speed, easing, callback )
+          sort:ƒ sort()
+        splice:ƒ splice()
+          stop:ƒ ( type, clearQueue, gotoEnd )
+        submit:ƒ ( data, fn )
+          text:ƒ ( value )
+       toArray:ƒ ()
+        toggle:ƒ ( speed, easing, callback )
+   toggleClass:ƒ ( value, stateVal )
+       trigger:ƒ ( type, data )
+triggerHandler:ƒ ( type, data )
+        unbind:ƒ ( types, fn )
+    undelegate:ƒ ( selector, types, fn )
+        unload:ƒ ( data, fn )
+        unwrap:ƒ ()
+           val:ƒ ( value )
+         width:ƒ ( margin, value )
+          wrap:ƒ ( html )
+       wrapAll:ƒ ( html )
+     wrapInner:ƒ ( html )
+     __proto__:Object
+</code></pre>
+<p>一般CSS或者CSS3中支持的选择器，JQ都支持</p>
+<pre><code class="javascript">// 基本选择器
+$(&#39;#xxx&#39;);      // ID选择器
+$(&#39;.xxx&#39;);      // 类选择器
+$(&#39;xxx&#39;);       // 元素选择器
+$(&#39;*&#39;);         // 通配符选择器
+$(&#39;.xxx,#xxx&#39;); // 群组选择器
+
+// 后代选择器
+$(&#39;.box a&#39;); //
+$(&#39;.box&gt;a&#39;);
+$(&#39;.box~a&#39;); // 不常用
+$(&#39;.box+a&#39;);
+
+// 伪类选择器
+$(&#39;.box:contains(xxx)&#39;); // 包含xxx内容的
+$(&#39;a:first&#39;);
+$(&#39;a:last&#39;);
+$(&#39;a:eq(1)&#39;); // 索引为1的
+$(&#39;a:gt(1)&#39;); // 索引大于10的
+$(&#39;a:lt(10)&#39;); // 索引小于10的
+$(&#39;a:not(xxx)&#39;); // 不包含什么的
+$(&#39;a:not(:gt(5))&#39;); // 获取所有的a，但是不包含索引大于5的（前六个）
+
+// 属性选择器
+</code></pre>
+<h3 id="JQ对象和原生JS对象转换"><a href="#JQ对象和原生JS对象转换" class="headerlink" title="JQ对象和原生JS对象转换"></a>JQ对象和原生JS对象转换</h3><p><strong>JQ对象</strong></p>
+<p>通过$()获取JQ实例（类数组）</p>
+<p><strong>原生JS对象</strong></p>
+<p>通过ES中提供的属性或者方法获取的JS元素对象（nodeType===1）</p>
+<p><strong>把原生JS对象转换为JQ对象</strong></p>
+<pre><code class="javascript">var oBox=document.getElementById(&#39;box&#39;); // 原生JS对象
+oBox.addClass(); // 报错：oBox不是JQ对象，不能使用JQ原型上的方法
+var $box=$(oBox); // 把原生JS独享转化为JQ对象
+$box.addClass(&#39;bg&#39;);
+</code></pre>
+<p>JQ中源代码是这样写的：</p>
+<pre><code class="javascript">else if ( selector.nodeType ) {
+    this.context = this[0] = selector;
+    this.length = 1;
+    return this;
+
+    // HANDLE: $(function)
+    // Shortcut for document ready
+}
+</code></pre>
+<p><strong>把JQ对象转换为原生JS对象</strong></p>
+<pre><code class="javascript">var $body=$(&#39;body&#39;);
+$body.className; // undefined,因为className是JS原生内置的属性，JQ对象不能直接用
+
+$body[索引]：在集合中获取指定索引的内容（获取的内容就是原生JS对象）
+$body.get(索引):等价于$body[索引]:获取指定索引位置的元素（原生JS对象）
+$body.eq(索引)：获取指定索引位置的元素对象（获取的结果还是一个新的JQ对象）
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-03/22/01-4.PNG" alt=""></p>
+<h3 id="selector是一个方法"><a href="#selector是一个方法" class="headerlink" title="selector是一个方法"></a>selector是一个方法</h3><pre><code class="javascript">$(function(){
+   // 当页面中的DOM结构加载完成，就会执行回调函数中的JS代码  
+});
+
+$(document).ready(function(){
+   // 这种写法和上面的写法一模一样 
+});
+</code></pre>
+<p>类似于<code>window.onload</code>，但是它是等到页面中的DOM结构以及资源文件都加载完成才会执行对应的JS代码。</p>
+<p>JQ的只需要等页面中的DOM结构加载完成，就可以操作了。这个操作比<code>window.onload</code>更好，更常用。</p>
+<p>\$(fun)和\$(document).ready(fun)写法是一模一样的，我们可以看源代码中如何实现的：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-03/22/01-5.PNG" alt=""></p>
+<p><strong>\$(document).ready(fun)和window.onload的区别</strong></p>
+<ol>
+<li><p><code>$(function(){})</code>可以在同一个页面中使用多次，多次都生效（所以在使用JQ完成代码的时候，我们一般都会把代码放在回调函数中：首先不仅是等到结构加载完再执行，而且还形成了一个闭包）</p>
+<p>原理：利用了DOM二级事件绑定（可以执行多次），监听的是==DOMContentLoaded==事件（DOM结构加载完成就会触发执行）</p>
+</li>
+<li><p><code>window.onload</code>本身就是资源都加载完成才会执行，使用的是DOM零级事件绑定，在同一个页面中只能使用一次。</p>
+<pre><code class="javascript">window.onload=function()...
+window.onload=function()...
+// 只能留最后一个，最后一次赋值替换了原有赋值
+</code></pre>
+</li>
+</ol>
+<h3 id="JQ既是一个类也是一个对象"><a href="#JQ既是一个类也是一个对象" class="headerlink" title="JQ既是一个类也是一个对象"></a>JQ既是一个类也是一个对象</h3><p><code>jQuery.prototype</code>上设置了很多属性和方法，这些是供JQ实例（DOM集合或者DOM元素）使用的属性和方法。</p>
+<pre><code class="javascript">addClass
+css
+removeClasss
+attr
+...
+</code></pre>
+<p>jQuery也是一个普通的对象，在对象上也有一些自己的属性和方法，这些都是工具类的方法。</p>
+<pre><code class="javascript">ajax
+isFunction
+unique
+...
+</code></pre>
+<h3 id="jQuery-prototype"><a href="#jQuery-prototype" class="headerlink" title="jQuery.prototype"></a>jQuery.prototype</h3><p><strong>$(‘ele’).index()</strong></p>
+<pre><code class="javascript">$(&#39;a&#39;).index():获取当前元素的索引（是在自己兄弟元素中的索引，它有几个哥哥，索引就是几）
+
+$(&#39;body&#39;).data(key,value)
+只传key是获取，如果传递了value是设置。(如果是设置值，不会出现在元素结构上，也不会出现在元素作为普通对象上，可能就缓存在什么地方)
+我们通过这个方法可以获取到再HTML结构上设置的data-xxx的自定义属性值
+&lt;body data-index=&#39;12&#39;&gt;&lt;/body&gt;
+
+$(&#39;body&#39;).data(&#39;index&#39;);// 12
+</code></pre>
+<p><strong>$(‘#box’).attr()</strong></p>
+<p>设置或者批量设置或者获取当前元素的自定义属性。</p>
+<p><strong>$(‘#box’).removeAttr()</strong></p>
+<p><strong>$(‘#box’).prop()</strong></p>
+<p>和attr一样也是操作元素属性的，但是prop一般都操作表单元素的内置或者自定义属性</p>
+<p><strong>$(‘#box’).removeProp()</strong></p>
+<p>addClass：增加样式类</p>
+<p>removeClass：移除样式类</p>
+<p>toggleClass：当前样式类有就是移除，没有就是增加</p>
+<p>hasClass：验证是否有某个样式类名</p>
+<p>$(‘#box’).html([val])：不传val就是获取内容，传递val就是设置内容，等价于原生的innerHTML</p>
+<p>$(‘input’).val([val])：表单元素value值的操作（设置或者获取）</p>
+<p>css：设置或者批量设置或者获取元素的样式（获取的结果没有去单位）</p>
+<p>offset()：获取当前元素距离body的偏移，返回的也是top、left</p>
+<p>position():获取距离父级参照物的偏移，返回的也是top、left</p>
+<p>scrollTop/scrollLeft([val])：获取或者设置当前元素卷去的高度或者宽度</p>
+<p>height/width([val])：</p>
+<p>innerWidth/innerHeight：等价于clientWidth/clientHeight</p>
+<p>outerWidth/outerHeight：等价于offsetWidthoffsetHeight</p>
+<p>$(‘#box’).on(‘click’,function…)：JQ中的事件绑定</p>
+<p>$(‘#box’).remove():把当前盒子在容器中移除，和原生JS中的removeChild不一样。</p>
+<p>$(‘#box’).clone(true):把当前盒子深度克隆一份</p>
+<p>$(‘#box’).animate():动画</p>
+<p>筛选：</p>
+<ul>
+<li>filter</li>
+<li>children</li>
+<li>find</li>
+</ul>
+<h3 id="写在对象上的方法"><a href="#写在对象上的方法" class="headerlink" title="写在对象上的方法"></a>写在对象上的方法</h3><p><strong>noConflict</strong>  转让$使用权</p>
+<pre><code class="javascript">$.noConflict():如果当前项目中引入了两个类库，都是使用$操作的，为了防止$使用权的冲突，JQ做了一个处理，可以让我们转让$的使用权。
+
+var j=$.noConflict(); 此处返回的值j就是代表原始$的变量，以后可以使用j()执行（使用jQuery执行也可以）
+
+var j=$.noConflict(true); 深度转让，把jQuery和$的使用权都转让了，此时只能使用j()执行了。
+</code></pre>
+<p>源码：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-03/22/01-6.PNG" alt=""></p>
+<p><strong>$.ajax()</strong>帮助我们发送ajax请求</p>
+<h3 id="JQ常用的三种筛选方法"><a href="#JQ常用的三种筛选方法" class="headerlink" title="JQ常用的三种筛选方法"></a>JQ常用的三种筛选方法</h3><p>filter：同级过滤</p>
+<p>children：子集过滤</p>
+<p>find：后代过滤</p>
+<pre><code class="javascript">var $links=$(&#39;a&#39;);  // 获取当前文档的所有a标签
+$link.filter(&#39; .bg&#39;); // 首先获取所有的a，在所有的a中把具备样式类为bg的获取到（二次筛选）
+
+$(&#39;#box&#39;).children(&#39;a&#39;); // 首先获取#box所有的子元素，在所有的子元素中筛选出标签名为a的元素集合，等价于$(&#39;#box&gt;a&#39;)
+
+$(&#39;#box&#39;).find(&#39; .bg&#39;); // 首先获取#box后代中所有的元素，在所有的元素中筛选出样式类名中具备bg的元素集合 等价于$(&#39;#box .bg&#39;)
+</code></pre>
+<p>prev:获取上一个哥哥</p>
+<pre><code class="javascript">$(&#39;#box&#39;).prev();    // 获取上一个哥哥
+$(&#39;#box&#39;).prev(&#39;a&#39;); // 获取上一个哥哥，并且标签名为a。如果紧挨的哥哥元素不是a，会一直往前找，一直找到标签为a的哥哥元素
+</code></pre>
+<p>prevAll:所有的哥哥</p>
+<p>next：下一个弟弟</p>
+<p>nextAll：所有的弟弟</p>
+<p>siblings：所有的兄弟</p>
+<p>parent：父亲元素</p>
+<p>parents：所有的祖先元素（一直到html为止）</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-03/22/01-7.PNG" alt=""></p>
+<h3 id="JQ中的each"><a href="#JQ中的each" class="headerlink" title="JQ中的each"></a>JQ中的each</h3><p>JQ中的each有两种</p>
+<ol>
+<li>写在原型上的each：遍历JQ对象中的每一项</li>
+<li>写在对象上的each：工具方法，可以用来遍历数组、类数组、对象等</li>
+<li>内置的each，其实也是调用原型上的each处理的，只不过JQ在处理的时候会内部自己调用</li>
+</ol>
+<pre><code class="javascript">// 内置each
+$(&#39;a&#39;).addClass(&#39;select&#39;); // 我们获取的a可能有很多个，执行一次addClass，相当于给每个获取的a都增加了一个叫做select的样式类（JQ中大部分方法在执行的时候，都会把获取的JQ集合中的每一项调用each进行遍历，把需要操作的任务对每一个遍历的元素进行操作）
+
+$(&#39;a&#39;).css(&#39;width&#39;); // 获取的时候只返回第一个元素的样式（设置走内置each批量处理，获取只处理第一个）
+
+/*-----------------------------------*/
+
+// 原型上的each
+
+$(&#39;a&#39;).each(function(index,item){
+    // 传递参数的顺序和数组内置的forEach顺序相反：ary.forEach(funcion(item,index){...});
+    // 获取的a有多少个，回调函数被触发执行多少次：index当前遍历这一项的索引，item是当前遍历这一项的内容
+    // this ——&gt; item（原生JS对象），方法中的this是当前遍历的这一项
+    // $(this) 也是当前遍历这一项，但是属于JQ对象
+})；
+
+/*-----------------------------------*/
+
+// JQ对象上提供的工具方法：each
+$.each([数组/类数组],function(index,item){
+    // this:item
+});
+$.each([对象],function(key,value){
+    // this:value
+    // JQ也是采用for in循环用来遍历对象的，这样的话就存在可能把共有属性和方法遍历到的问题
+    if([对象].hasOwnProperty(key)){
+
+    }
+});
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-03/22/01-8.PNG" alt=""></p>
+<p>这个例子里面，this虽然是数字或者字符串，但是也是当做<code>new Number()</code>和<code>new String()</code>出来的对象。this只能是引用类型，不会是基本类型。</p>
+<p>我们可以看看原生JS里面的例子：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-03/22/01-9.PNG" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-03/22/01-10.PNG" alt=""></p>
+<p>在$.each中，JQ也是采用for in循环用来遍历对象的，这样的话就存在可能把共有属性和方法遍历到的问题：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-03/22/01-11.PNG" alt=""></p>
+<h2 id="3、用JQ完成选项卡操作"><a href="#3、用JQ完成选项卡操作" class="headerlink" title="3、用JQ完成选项卡操作"></a>3、用JQ完成选项卡操作</h2><pre><code class="javascript">$tabList.on(&#39;click&#39;,function(){
+    // this:当前点击的这个li
+    var $this=$(this); // 把$(this)存起来优化性能。因为内次执行$(this)都要重新执行JQ方法，里面会有一系列的逻辑判断，耗费性能。所以，提前存起来更好。
+    var index=$this.index();
+    $this.addClass(&#39;select&#39;)
+        .siblings().removeClass(&#39;select&#39;); // 链式操作，可以从主体操作后面断行，方便阅读
+})
+</code></pre>
+<h2 id="4、JQ完成选项卡插件"><a href="#4、JQ完成选项卡插件" class="headerlink" title="4、JQ完成选项卡插件"></a>4、JQ完成选项卡插件</h2><p>JQ中扩展：</p>
+<pre><code class="javascript">$.extend():把方法扩展到JQ对象上，这个操作一般是用来完善类库的
+
+$.fn.extend():把方法扩展到JQ的原型上，供JQ实例（DOM集合）使用，这个操作一般是用来写JQ插件的
+</code></pre>
+<p>示例：</p>
+<pre><code class="javascript">// 扩展工具方法，用来完善类库
+$.extend({
+    aa.function(){}
+});
+$.aa();
+
+
+$.fn.extend({
+    bb:function(){
+        // this:操作当前这个方法的JQ实例，是一个JQ对象，此处不需要再$(this)转换为JQ对象
+    }
+});
+$(&#39;xxx&#39;).bb();
+</code></pre>
+<p>扩展插件的小技巧：</p>
+<pre><code class="javascript">~function($){
+    function pluginTab(selector){
+        ...
+    }
+    $.fn.extend({
+         pluginTab:pluginTab;   
+    })
+}(jQuery);
+</code></pre>
+<p>这里传入了jQuery，在自执行函数里面使用\$，这样可以防止其他类库也使用\$出现冲突。</p>
+<p>在线压缩代码：<a href="https://tool.css-js.com" target="_blank" rel="external">https://tool.css-js.com</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #222;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" style="display: none">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/03/22/2018-03-22read-jQuery-code/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/03/22/2018-03-22read-jQuery-code/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.btn_click_load').css('display','none');
+        })(),
+        error: function() {
+          $('.btn_click_load').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/04/01/2018-04-01ES6-grammer/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/03/20/2018-03-20lazy-load/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header1.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.jpg" alt="Anilway's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        更多
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hanway.robot@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="电子书">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">book</i>
+                        
+                        电子书
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="网址导航">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">tab</i>
+                        
+                        网址导航
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">20</span></a></li><li><a class="sidebar_archives-link" href="/categories/JS进阶/">JS进阶<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/其他/">其他<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/小技巧/">小技巧<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/旁征博引/">旁征博引<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程工具/">编程工具<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about/index.html" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友链接">
+                
+                友链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图片集">
+                
+                图片集
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Anilway" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Anilway
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

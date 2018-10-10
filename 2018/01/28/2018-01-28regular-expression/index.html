@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            正则捕获与匹配 | 
+        
+        Anilway
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Anilway">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",JavaScript">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon1.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon1.png">
+    <link rel="apple-touch-icon" href="/img/favicon1.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Anilway">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #222 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #222 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #222 !important;
+  }
+
+  .toTop {
+    background: #222 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #222;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #222;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #222;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="正则捕获与匹配 | Anilway">
+    <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="JavaScript"> 
+
+    
+        <meta property="article:published_time" content="Sun Jan 28 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Oct 10 2018 11:23:12 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="正则捕获与匹配 | Anilway">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/01/28/2018-01-28regular-expression/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/01/28/2018-01-28regular-expression/index.html",
+    "headline": "正则捕获与匹配",
+    "datePublished": "Sun Jan 28 2018 00:00:00 GMT+0800",
+    "dateModified": "Wed Oct 10 2018 11:23:12 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Anilway",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.jpg"
+        },
+        "description": "Make yourself better!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Anilway",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon1.png"
+        }
+    },
+    "keywords": ",JavaScript",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建正则"><span class="post-toc-text">创建正则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则的元字符和修饰符"><span class="post-toc-text">正则的元字符和修饰符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修饰符"><span class="post-toc-text">修饰符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#元字符"><span class="post-toc-text">元字符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#量词元字符"><span class="post-toc-text">量词元字符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#特殊意义的元字符"><span class="post-toc-text">特殊意义的元字符</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#元字符详细解读"><span class="post-toc-text">元字符详细解读</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#和"><span class="post-toc-text">^和$</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转义字符"><span class="post-toc-text">转义字符\:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#x-y"><span class="post-toc-text">x|y</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-text">()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#-1"><span class="post-toc-text">[]</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用正则表达式表编写"><span class="post-toc-text">常用正则表达式表编写</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#验证是否为有效数字"><span class="post-toc-text">验证是否为有效数字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#手机号码"><span class="post-toc-text">手机号码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户名：真实姓名"><span class="post-toc-text">用户名：真实姓名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#邮箱"><span class="post-toc-text">邮箱</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#身份证号码"><span class="post-toc-text">身份证号码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则捕获"><span class="post-toc-text">正则捕获</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#捕获原理："><span class="post-toc-text">捕获原理：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#exec捕获结果格式"><span class="post-toc-text">exec捕获结果格式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#正则捕获存在懒惰性"><span class="post-toc-text">正则捕获存在懒惰性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决正则捕获的懒惰性"><span class="post-toc-text">解决正则捕获的懒惰性</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#批量捕获"><span class="post-toc-text">批量捕获</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用字符串match实现捕获"><span class="post-toc-text">使用字符串match实现捕获</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用test也可以实现正则捕获"><span class="post-toc-text">使用test也可以实现正则捕获</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#replace实现正则捕获"><span class="post-toc-text">replace实现正则捕获</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#所有支持正则的方法都可以实现正则的捕获（一般都是字符串的方法）"><span class="post-toc-text">所有支持正则的方法都可以实现正则的捕获（一般都是字符串的方法）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#只匹配不捕获"><span class="post-toc-text">只匹配不捕获</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何数小分组"><span class="post-toc-text">如何数小分组</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实战案例"><span class="post-toc-text">实战案例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单词首字母大写"><span class="post-toc-text">单词首字母大写</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#格式化时间（format-time）"><span class="post-toc-text">格式化时间（format time）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模板引擎实现原理"><span class="post-toc-text">模板引擎实现原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#去除字符串的首尾空格"><span class="post-toc-text">去除字符串的首尾空格</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#queryURLParameter"><span class="post-toc-text">queryURLParameter</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则的两种创建方式的区别"><span class="post-toc-text">正则的两种创建方式的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/cover.png)">
+    
+            <p class="article-headline-p">
+                正则捕获与匹配
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Anilway</strong>
+        <span>1月 28, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/01/28/2018-01-28regular-expression/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=正则捕获与匹配&url=http://yoursite.com/2018/01/28/2018-01-28regular-expression/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=正则捕获与匹配&url=http://yoursite.com/2018/01/28/2018-01-28regular-expression/index.html&via=Anilway" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/28/2018-01-28regular-expression/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/28/2018-01-28regular-expression/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="\assets\js\APlayer.min.js"> </script><p>正则就是一个规则，用来处理<code>字符串</code>的规则。</p>
+<ol>
+<li><strong>正则匹配</strong></li>
+</ol>
+<p>编写一个规则，验证某个字符串是否符合这个规则，正则匹配使用的是test方法。</p>
+<ol>
+<li><strong>正则捕获</strong></li>
+</ol>
+<p>编写一个规则，在一个字符串中把符合规则的内容都获取到。正则捕获使用的方法：</p>
+<ul>
+<li>正则的exec方法</li>
+<li>字符串中的split、replace、match、search等方法都支持正则</li>
+</ul>
+<h2 id="创建正则"><a href="#创建正则" class="headerlink" title="创建正则"></a>创建正则</h2><pre><code class="javascript">// 字面量方式
+var reg=/^$/; // 两个斜杠中间包含一些内容就是正则。两个斜杠之间包含的全部内容都是元字符。
+</code></pre>
+<p>正则的方法：</p>
+<p><code>console.dir(/^$/)</code></p>
+<pre><code class="javascript">    dotAll: (...)
+     flags: (...)
+    global: (...)
+ignoreCase: (...)
+ lastIndex: 0
+ multiline: (...)
+    source: (...)
+    sticky: (...)
+   unicode: (...)
+ __proto__: Object
+</code></pre>
+<h2 id="正则的元字符和修饰符"><a href="#正则的元字符和修饰符" class="headerlink" title="正则的元字符和修饰符"></a>正则的元字符和修饰符</h2><p>任何一个正则都是由元字符和修饰符组成的。</p>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">修饰符</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">g</td>
+<td>global   全局匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">i</td>
+<td>ignoreCase   忽略大小写匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">m</td>
+<td>multiline  多行匹配</td>
+</tr>
+</tbody>
+</table>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><h4 id="量词元字符"><a href="#量词元字符" class="headerlink" title="量词元字符"></a>量词元字符</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">量词元字符</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">+</td>
+<td>让前面的元字符出现<strong>1到多次</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">?</td>
+<td>让前面的元字符出现<strong>0到1次</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td>让前面的元字符出现<strong>0到多次</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">{n}</td>
+<td>让前面的元字符出现<strong>n次</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">{n,}</td>
+<td>让前面的元字符出现<strong>n到多次</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">{n,m}</td>
+<td>让前面的元字符出现<strong>n到m次</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="特殊意义的元字符"><a href="#特殊意义的元字符" class="headerlink" title="特殊意义的元字符"></a>特殊意义的元字符</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">特殊意义的元字符</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\</td>
+<td>转义字符（把一个普通字符转变为有特殊意义的字符，或者把一个有意义字符转换为普通字符）</td>
+</tr>
+<tr>
+<td style="text-align:center">.</td>
+<td>除了\n（换行符）以外的任意字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\d</td>
+<td>匹配一个0-9之间的数字</td>
+</tr>
+<tr>
+<td style="text-align:center">\D</td>
+<td>匹配任意一个非0-9之间的数字（大写字母和小写字母组合意思正好是相反的）</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td>匹配一个<code>0-9</code>或<code>字母</code>或<code>_</code>之间的字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">\s</td>
+<td>匹配一个任意空白字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\S</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">\b</td>
+<td>匹配一个边界符</td>
+</tr>
+<tr>
+<td style="text-align:center">\B</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">x\</td>
+<td>y</td>
+<td>匹配x或者y中的一个</td>
+</tr>
+<tr>
+<td style="text-align:center">[a-z]</td>
+<td>匹配a-z中的任意一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[^a-z]</td>
+<td>和上面的相反，匹配任意一个非a-z的字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[^xyz]</td>
+<td>匹配除了xyz以外的任意字符</td>
+</tr>
+<tr>
+<td style="text-align:center">（   ）</td>
+<td>正则的小分组，匹配一个小分组（小分组可以理解为大正则中的一个小正则）</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td>以某一个元字符开始</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td>以某一个元字符结束</td>
+</tr>
+<tr>
+<td style="text-align:center">?:</td>
+<td>只匹配不捕获</td>
+</tr>
+<tr>
+<td style="text-align:center">?=</td>
+<td>正向预查</td>
+</tr>
+<tr>
+<td style="text-align:center">?!</td>
+<td>负向预查</td>
+</tr>
+</tbody>
+</table>
+<p>除了以上特殊元字符和量词元字符，其余的都叫做普通元字符：代表本身意义的元字符。</p>
+<h2 id="元字符详细解读"><a href="#元字符详细解读" class="headerlink" title="元字符详细解读"></a>元字符详细解读</h2><p>检测字符串是否匹配正则：</p>
+<p><code>reg.test(str);</code></p>
+<h3 id="和"><a href="#和" class="headerlink" title="^和$"></a><code>^</code>和$</h3><pre><code class="javascript">var reg=/\d+/; // 包含某某即可，这里说明只要包含1到多个数字即可
+var str=&#39;hello2017hello2018&#39;;
+reg.test(str); // true
+
+var reg2=/^d+/; // 必须以一个或多个数字开头
+reg2.test(str); // false
+</code></pre>
+<p>只能是XXX：</p>
+<pre><code class="javascript">reg=/^\d+$/;  // 只能是某某某，这里说明只能是1搭配多个数字
+reg.test(&#39;2017&#39;);        // true
+reg.test(&#39;2017hello2017&#39;); // false
+</code></pre>
+<p><code>^</code>或者<code>$</code>只是一个修饰或者声明，不会占据字符串的位置</p>
+<pre><code class="javascript">reg=/^\d+$/; 
+reg.test(&#39;2&#39;); // true
+</code></pre>
+<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符\:"></a>转义字符<code>\</code>:</h3><pre><code class="javascript">var reg = /^2.3$/; // 点在正则中的意思：匹配除了\n以外的任意字符，而不是单纯的小数点。
+reg.test(&#39;2.3&#39;);   // true
+reg.test(&#39;2+3&#39;);   // true 
+
+reg = /^2\.3$/;  // 使用转义字符把点转换为本身小数点的意思
+reg.test(&#39;2.3&#39;); // true
+reg.test(&#39;2+3&#39;); // false 
+
+reg=/^d$/
+reg=/^\d$/
+</code></pre>
+<p>==如果在正则中出现<code>\\</code>，就表示两个斜杠，虽然第一个斜杠用来转义第二个斜杠，按道理应该只表示一个斜杠才对，但是正则的机制是这样的这样设置的，表示两个斜杠。==</p>
+<pre><code class="javascript">var reg=/^\\d$/;
+reg.test(&#39;9&#39;);   // false
+reg.test(&#39;\d&#39;);  // false
+reg.test(&#39;\\d&#39;); // true
+reg.test(&#39;\\9&#39;); // false
+
+/*--------------------------------*/
+
+var reg=/^\\\d$/;
+reg.test(&#39;9&#39;);    // false
+reg.test(&#39;\d&#39;);   // false
+reg.test(&#39;\\d&#39;);  // false
+reg.test(&#39;\\\d&#39;); // false
+reg.test(&#39;\\9&#39;);  // true
+</code></pre>
+<p>正因为转义的作用，正则中不能只写一个斜杠，会出现语法错误：</p>
+<pre><code class="javascript">var reg=/\/; 
+// Uncaught SyntaxError: Invalid regular expression: missing /
+</code></pre>
+<p>所以，正则无法匹配只有一个斜杠的字符串。当然，本来也无法写出只有一个斜杠的字符串。</p>
+<pre><code class="javascript">var str=&#39;\&#39;; 
+// Uncaught SyntaxError: Invalid or unexpected token
+var str=&#39;\\&#39;; // 表示两个斜杠
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-10.PNG" alt=""></p>
+<h3 id="x-y"><a href="#x-y" class="headerlink" title="x|y"></a><code>x|y</code></h3><pre><code class="javascript">var reg=/^18|19$/; // 18,19,189,119,181,819,1819...很多都符合这个规则
+reg.test(&#39;18&#39;);  // true  相当于 ^(18|19)$
+reg.test(&#39;19&#39;);  // true  相当于 ^(18|19)$
+reg.test(&#39;189&#39;); // true  相当于 ^1(8|1)9$
+reg.test(&#39;119&#39;); // true  相当于 ^1(8|1)9$
+reg.test(&#39;181&#39;); // true  相当于 (^18)|(19$)
+reg.test(&#39;819&#39;); // true  相当于 (^18)|(19$)
+reg.test(&#39;1819&#39;); // true 相当于 (^18)|(19$)
+reg.test(&#39;81&#39;);  // false
+reg.test(&#39;8&#39;);   // false
+</code></pre>
+<p>用小括号：</p>
+<pre><code class="javascript">var reg=/^(18|19)$/; // 此时只有18或者19符合我们的规则了
+reg.test(&#39;18&#39;);  // true  
+reg.test(&#39;19&#39;);  // true  
+reg.test(&#39;189&#39;); // false  
+reg.test(&#39;119&#39;); // false
+</code></pre>
+<h3 id=""><a href="#" class="headerlink" title="()"></a><code>()</code></h3><p>正则中的分组，也可以理解为一个大正则中的一个正则（包起来的部分是一个整体）；在正则中我们可以使用小括号==改变一些默认的优先级==。</p>
+<p>小括号第二个作用：==分组引用==</p>
+<p>小括号第三个作用：==分组捕获==</p>
+<p><strong>分组引用</strong>：\1或者\2…出现和第N个分组一模一样的内容</p>
+<pre><code class="javascript">var reg=/^([a-z])([a-z])\2([a-z])$/;
+// 符合规则的字符串：food、good、book、http、attr...
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-11.PNG" alt=""></p>
+<h3 id="-1"><a href="#-1" class="headerlink" title="[]"></a><code>[]</code></h3><pre><code class="javascript">[xyz]  // xyz中的任意一个字符
+[^xyz] // 不是xyz中的任意一个字符
+[a-z]  // a-z中的任意一个字符
+[^a-z] // 不是a-z中的任意一个字符
+</code></pre>
+<pre><code class="javascript">// \w:数字字母下划线中的任意一个字符
+var reg=/^[a-zA-Z0-9_]$/; // 等价于 \w
+</code></pre>
+<p>中括号中出现的元字符，一般都代表本身的含义：</p>
+<p>（==当然也不是所有的都是这样，\w就还是表示字母数字下划线了==）</p>
+<pre><code class="javascript">var reg=/^[.?+&amp;&amp;]+$/; // 里面的四个元字符都是本身的含义，例如：点就是小数点了，不是所谓的任意字符。。。
+</code></pre>
+<p>需求：描述样式类名（class名）的规则（数字、字母、下划线、<code>-</code>）,并且不能以<code>-</code>开头</p>
+<pre><code class="javascript">var reg=/^[\w-]+$/;
+var reg=/^[0-9a-zA-Z_-]+$/; // 没有处理以-开头的情况
+
+/*----------------------------*/
+var reg=/^\w[\W-]*$/;
+</code></pre>
+<p>匹配<code>-</code>的技巧:</p>
+<p>因为<code>-</code>有表示范围的作用，所以，如果要匹配<code>-</code>，只要让其左右中的一边没有普通元字符就可以了：</p>
+<pre><code class="javascript">var reg=/^[-]$/;
+</code></pre>
+<p>需求：验证18-65之间的年龄</p>
+<pre><code class="javascript">var reg=/^[18-65]$/; // 这个正则表示1或者8-6或者5中的任意一个字符，中括号中出现的18不是数字18，而是1或者8，当前正则是非法的：因为不能设置8-6这种范围
+
+/*-------------------------------*/
+var reg=/^[(18)-(65)]$/; // 这样也是非法的,它会认为是)-(之间
+
+// 分三个阶段处理：
+/*
+    18或者19
+    20-58
+    60-65
+*/
+var reg=/^((18|19)|([2-5]\d)|(6[0-5]))$/;
+</code></pre>
+<p>中括号中出现转义字符：</p>
+<pre><code class="javascript">var reg=/^[\]$/;  // 语法错误
+var reg=/^\[\]$/; // 把两个中括号转义了，把中括号变成了没有意义的字符
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-12.PNG" alt=""></p>
+<h2 id="常用正则表达式表编写"><a href="#常用正则表达式表编写" class="headerlink" title="常用正则表达式表编写"></a>常用正则表达式表编写</h2><h3 id="验证是否为有效数字"><a href="#验证是否为有效数字" class="headerlink" title="验证是否为有效数字"></a>验证是否为有效数字</h3><pre><code class="javascript">/*
+    可能是整数、可能为负数  12   -12
+    整数或者小数 0  12   0.2   -12.3
+    只要出现小数点，后面至少要跟一位数字
+    小数点前面必须有数字
+*/
+
+var reg=/^-?(\d|([1-9]\d+))(\.\d+)?$/;
+/*
+    -? 负号 可有可无
+
+    (\d|([1-9]\d+)) 表示：
+        \d 一位数可以是0-9任何值
+        ([1-9]\d+) 多位数不能以0开头
+
+    (\.\d+)? 小数部分可有可无，有的话点后面必须跟一位数字
+*/
+</code></pre>
+<p>如果需求改了，只需要在上面这个正则的基础上进行修改就可以了：</p>
+<p>比如：</p>
+<ul>
+<li>只能是正数</li>
+<li>只能是小数</li>
+<li>只能是负数</li>
+<li>…</li>
+</ul>
+<h3 id="手机号码"><a href="#手机号码" class="headerlink" title="手机号码"></a>手机号码</h3><pre><code class="javascript">/*
+    11为数字
+    1开头
+*/
+var reg=/^1\d{10}$/;
+</code></pre>
+<h3 id="用户名：真实姓名"><a href="#用户名：真实姓名" class="headerlink" title="用户名：真实姓名"></a>用户名：真实姓名</h3><pre><code class="javascript">/*
+  \u4E00 - \u9FA5 中文汉字编码范围
+  支持英文艺名，比如： 尼古拉斯·赵四
+  新疆等少数名字没有考虑
+*/
+
+var reg=/^[\u4E00-\u9FA5]{2,5}(·[\u4E00-\u9FA5]{2,5})?$/
+</code></pre>
+<h3 id="邮箱"><a href="#邮箱" class="headerlink" title="邮箱"></a>邮箱</h3><pre><code class="javascript">/*
+    @163.com.cn
+    @zhu-feng-pei-xun.com.cn
+*/
+</code></pre>
+<h3 id="身份证号码"><a href="#身份证号码" class="headerlink" title="身份证号码"></a>身份证号码</h3><pre><code class="javascript">/*
+    二代身份证：18位
+    前17位必须是数字，最后一位可以数字或者大写X（代表数字10）
+    130828  19901204 0617
+    前六位：省市县 130828
+    接下来八位 出生年、月、日
+    倒数第二位：奇数代表男，偶数代表女
+*/
+// 简单写法，并不精确
+var reg = /^(\d{6})(\d{4})(\d{2})(\d{2})\d{2}(\d)(\d|X)$/
+// 这样写不仅可以匹配，而且以后再捕获的时候，不仅可以把大正则匹配的结果捕获到，里面的每一个小分组（小正则）匹配的结果也可以单独的捕获到[分组捕获]
+
+// 年 1950——2017
+/*
+    第一段    1950-1999
+    第二段 2000-2017
+            2000-2009
+            2010-2017
+*/
+var reg=/^((19[5-9]\d)|(20((0\d)|(1[0-7]))))$/;
+</code></pre>
+<p>在上面身份证的例子中，用了很多括号包起来，括号就是分组。这样做的目的是方便正则捕获。</p>
+<pre><code class="javascript">reg.exec(str);
+</code></pre>
+<p>比如：</p>
+<pre><code class="javascript">var reg= /^(\d{6})(\d{4})(\d{2})(\d{2})\d{2}(\d)(\d|X)$/;
+reg.exec(&#39;130828199012040617&#39;);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-13.PNG" alt=""></p>
+<h2 id="正则捕获"><a href="#正则捕获" class="headerlink" title="正则捕获"></a>正则捕获</h2><p>把当前字符串中符合正则的字符捕获到。</p>
+<p><code>RegExp.prototype</code>.==exec==实现正则捕获的方法</p>
+<pre><code class="javascript">var str=&#39;zfpx2017yfqh2018&#39;;
+var reg=/\d+/;
+</code></pre>
+<h4 id="捕获原理："><a href="#捕获原理：" class="headerlink" title="捕获原理："></a>捕获原理：</h4><p><code>reg.exec(str)</code></p>
+<p>当正则捕获的时候:</p>
+<ol>
+<li>先去验证当前字符串和正则是否匹配，如果不匹配，返回的结果是==null==（没有捕获到任何内容）</li>
+<li>如果匹配，从字符串最左边开始，向右查找到匹配的内容，并且把匹配的内容返回</li>
+</ol>
+<blockquote>
+<p>我理解的是：如果匹配，从字符串最左边开始匹配，查找匹配的内容，从匹配的内容开始收集，一旦遇到不匹配的，就不再往右查找，返回匹配到的内容</p>
+</blockquote>
+<h4 id="exec捕获结果格式"><a href="#exec捕获结果格式" class="headerlink" title="exec捕获结果格式"></a>exec捕获结果格式</h4><ol>
+<li>获取的结果是个数组</li>
+<li>数组中的第一项是当前本次==大正则在字符串中匹配到的结果==</li>
+<li>index：记录了当前本次捕获到结果的==起始索引==</li>
+<li>input：当前正则操作的==原始字符==</li>
+<li>如果当前正则当中有分组，获取的数组中，==从第二项==开始都是每个==小分组==，本次匹配到的结果（通过exec可以把分组中的内容捕获到）</li>
+</ol>
+<p>没有分组的情况：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-14.PNG" alt=""></p>
+<p>有分组的情况：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-13.PNG" alt=""></p>
+<p>==执行一次exec只能把第一个符合正则规则中的内容捕获到，如果还有其他符合规则的，需要再次执行exec才有可能捕获到==</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-15.PNG" alt=""></p>
+<h3 id="正则捕获存在懒惰性"><a href="#正则捕获存在懒惰性" class="headerlink" title="正则捕获存在懒惰性"></a>正则捕获存在懒惰性</h3><p>执行一次exec捕获到第一个符合规则的内容，第二次执行exec，捕获到的依然是第一个匹配的内容，后面匹配的内容不管执行多少次exec都无法捕获到。</p>
+<h4 id="解决正则捕获的懒惰性"><a href="#解决正则捕获的懒惰性" class="headerlink" title="解决正则捕获的懒惰性"></a>解决正则捕获的懒惰性</h4><p>需要在正则的末尾加修饰符<code>g</code>，全局匹配。</p>
+<p><strong>正则为什么会存在懒惰性？</strong></p>
+<p>原因是正则本身有一个属性：<code>lastIndex</code>（下一次正则在字符串中匹配查找的开始索引）。</p>
+<p>默认值：0（从字符串第一个字符开始查找匹配的内容）</p>
+<p>默认不管执行多少遍exec方法，正则的<code>lastIndex</code>值都不会变（也就是第二次以后查找的时候还是从第一个字符找，所以找到的结果永远都是第一个匹配的内容）</p>
+<p>==而且当我们手动把<code>lastIndex</code>进行修改的时候，不会起到任何作用==</p>
+<pre><code class="javascript">var str=&#39;zfpx2017yfqh2018&#39;;
+var reg=/\d+/;
+
+console.log(reg.lastIndex);    // 0
+console.log(reg.exec(str)[0]); // &#39;2017&#39;
+console.log(reg.lastIndex);    // 0
+
+// 手动修改lastIndex
+reg.lastIndex=8;
+console.log(reg.lastIndex);    // 8
+console.log(reg.exec(str)[0]); // &#39;2017&#39;
+console.log(reg.lastIndex);    // 8
+console.log(reg.exec(str)[0]); // &#39;2017&#39;
+</code></pre>
+<p><strong>为什么加修饰符g就解决了懒惰性？</strong></p>
+<p>加了修饰符g，每一次exec结束后，浏览器默认会把lastIndex值进行修改，下一次从上一次结束的位置开始查找，所以可以得到后面匹配的内容了。</p>
+<pre><code class="javascript">var str=&#39;zfpx2017yfqh2018&#39;;
+var reg=/\d+/g;
+
+console.log(reg.lastIndex);    // 0
+console.log(reg.exec(str)[0]); // &#39;2017&#39;
+console.log(reg.lastIndex);    // 8
+console.log(reg.exec(str)[0]); // &#39;2018&#39;
+console.log(reg.lastIndex);    // 16
+console.log(reg.exec(str));    // null  找到null。就说明全部找完了
+console.log(reg.lastIndex);    // 0     会继续从0开始找
+console.log(reg.exec(str)[0]); // &#39;2017&#39;
+</code></pre>
+<h3 id="批量捕获"><a href="#批量捕获" class="headerlink" title="批量捕获"></a>批量捕获</h3><p>exec有自己的局限性：执行一次exec只能捕获到一个和正则匹配的结果（即使加了修饰符g），如果需要都捕获到，我们需要执行N次方法才可以。</p>
+<p>下面封装的myExecAll方法，目的是执行一次这个方法，可以把当前正则匹配到全部内容都捕获到。</p>
+<pre><code class="javascript">RegExp.prototype.myExecAll=function(){
+    // this:当前需要处理的正则
+    // str：当前要处理的字符串
+    var str=arguments[0] || &#39;&#39;, // 如果不传参数，就是空字符串
+        result=[];
+    var ary=this.exec(str);
+    while(ary){  
+        // ary!==null,还可以捕获到内容，我们继续下一次捕获
+        result.push(ary[0]); // 把当前捕获到的结果存放在result数组中
+        ary=this.exec(str); // 继续执行下一次捕获
+    }
+    return result;   
+};
+</code></pre>
+<p>使用示例：</p>
+<pre><code class="javascript">var str=&#39;zfpx2017yfqh2018zfpx2019yfqh2020&#39;;
+var reg=/\d+/g;
+reg.myExecAll(str); // [&quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, &quot;2020&quot;]
+</code></pre>
+<p>但是，我们写的这个批量捕获方法还有一个问题，如果正则没有加g，那么lastIndex永远是0，上面的方法中的while方法永远可以执行，形成死循环。所以，我们在执行循环之前，还需要判断一下正则是否加了修饰符g：</p>
+<pre><code class="javascript">RegExp.prototype.myExecAll=function(){
+    var str=arguments[0] || &#39;&#39;, 
+        result=[];
+    // 首先判断this是否加了全局修饰符g，如果没有加，为了防止下面执行出现死循环，我们只让其执行一次
+    if(!this.global) return this.exec(str);
+
+    var ary=this.exec(str);
+    while(ary){  
+        result.push(ary[0]); 
+        ary=this.exec(str); 
+    }
+    return result;   
+};
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-16.PNG" alt=""></p>
+<p>判断正则是否加了全局修饰符的方法有很多种。上面的方法是直接根据其global属性判断。还可以记录其执行完一次exec后的lastIndex值，如果再次执行exec，其lastIndex值仍然是0，也说明没有加全局修饰符g。</p>
+<p>还可以把正则表达式转换为字符串，然后判断字符串最后一个字符是否为g也可以：</p>
+<pre><code class="javascript">var regStr=reg.toString();
+regStr.charAt(regStr.length-1);
+
+// 或者用slice
+var regStr=reg.toString().slice(this.length-1);
+</code></pre>
+<h2 id="使用字符串match实现捕获"><a href="#使用字符串match实现捕获" class="headerlink" title="使用字符串match实现捕获"></a>使用字符串match实现捕获</h2><p>使用字符串match捕获：</p>
+<ol>
+<li>如果正则加了修饰符g，执行一次match会把所有正则匹配的内容捕获到</li>
+<li>如果没有修饰符g，执行一次match只能把第一个匹配的结果捕获到（==得到的结果和执行正则exec获取的结果一样，是一个数组==）</li>
+</ol>
+<pre><code class="javascript">var str=&#39;zfpx2017yfqh2018zfpx2019yfqh2020&#39;;
+var reg=/\d+/g;
+str.match(reg); // [&quot;2017&quot;, &quot;2018&quot;, &quot;2019&quot;, &quot;2020&quot;]
+
+/*-------------------------------------*/
+// 不加g
+var str=&#39;zfpx2017yfqh2018zfpx2019yfqh2020&#39;;
+var reg=/\d+/;
+str.match(reg); // [&quot;2017&quot;, index: 4, input: &quot;zfpx2017yfqh2018zfpx2019yfqh2020&quot;, groups: undefined]
+</code></pre>
+<p>局限性：</p>
+<p>在==加了修饰符g的情况下，执行match方法只能把====大正则==匹配的内容捕获到，对于小分组捕获的内容match方法给其自动忽略了。</p>
+<pre><code class="javascript">var str = &#39;my name is {0}, i am {1} years old~&#39;
+// 需求：把{n}整体捕获到，而且还要把括号中的数字也获取到
+var reg=/\{(\d+)\}/g;
+str.match(reg); // [&quot;{0}&quot;, &quot;{1}&quot;]
+</code></pre>
+<p>想获取小分组的内容，我们只能使用exec处理了</p>
+<pre><code class="javascript">function fn(reg,str){
+    var ary=reg.exec(str),
+        result=[];
+    while(ary){
+        result.push(ary);
+        ary=reg.exec(str);
+    }
+    return result;
+}
+
+var res=fn(reg,str); //  [Array(2), Array(2)]
+res[0][1]; // 0
+res[1][1]; // 1
+</code></pre>
+<p>执行match，如果不加g，可以得到小分组的内容。加g就无法获取小分组的内容。因为不加g，获取的结果是一个数组，结果和执行一次exec获得的结果一样，数组的第1项是大正则匹配的内容，如果有小分组，后面紧跟着的是小分组获取的匹配内容。如果加g，就只能获得大正则匹配的内容，无法或取小分组匹配的内容。</p>
+<h2 id="使用test也可以实现正则捕获"><a href="#使用test也可以实现正则捕获" class="headerlink" title="使用test也可以实现正则捕获"></a>使用test也可以实现正则捕获</h2><p>不管是正则的匹配还是正则的捕获，在处理时候的原理是没区别的：==从字符串的第一个字符向后查找，找到符合正则规则的字符，如果可以找到，说明正则和字符串匹配（test检测返回true、exec捕获返回捕获的内容），如果找到末尾都没有匹配的，说明正则和字符串不匹配（test检测返回false、exec捕获返回null）==</p>
+<p>==如果正则设置了修饰符g，不管使用test还是exec中的任何方法，都会修改<code>lastIndex</code>值（下一次查找是基于上一次匹配结果的末尾开始查找的）==</p>
+<pre><code class="javascript">var reg=/\{(\d+)\}/g;
+var str = &#39;my name is {0}~&#39;;
+
+// 项目中在匹配前先进行test
+if(reg.test(str)){
+    // reg.test(str) ：true
+    console.log(reg.lastIndex); // 14
+    // 如果当前字符串和正则是匹配的，我们进行捕获
+    console.log(reg.exec(str));  // null
+}
+
+// 你会发现，在判断条件中执行了一次test，正则的lastIndex发生改变，判断体里面再执行exec，就得不到匹配的内容了。
+
+/*--------------------------------------------*/
+// 不加g
+var reg=/\{(\d+)\}/;
+var str = &#39;my name is {0}~&#39;;
+
+if(reg.test(str)){
+    console.log(reg.lastIndex); // 0
+    console.log(reg.exec(str));  // [&quot;{0}&quot;, &quot;0&quot;, index: 11, input: &quot;my name is {0}~&quot;, groups: undefined]
+}
+</code></pre>
+<p>使用test不仅可以找到匹配的内容，也能像exec一样把找到的内容获取到。</p>
+<p>test返回结果是true/false，所以靠返回结果肯定不行。</p>
+<pre><code class="javascript">var reg=/\{(\d+)\}/g;
+var str = &#39;my name is {0}~,i am {1} years old~&#39;;
+var flag=reg.test(str); // true
+console.log(RegExp.$1); // 0 获取当前匹配内容中第一个小分组捕获的内容
+var flag=reg.test(str); // true
+console.log(RegExp.$1); // 1
+</code></pre>
+<p>test可以实现捕获，但是每一次只能获取到当前本次匹配结果中，第N个分组捕获的内容$1第一个分组，\$2第二个分组…</p>
+<p>没有\$0一说，只能获取到小分组的内容，不能获取到大分组的内容。（下图为RegExp部分属性，可以得到9个分组的内容。还有很多属性没有截取）</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-17.PNG" alt=""></p>
+<p>如果只想得到第一个分组的内容，只需要：</p>
+<pre><code class="javascript">var reg=/\{(\d+)\}/g;
+var str = &#39;my name is {0}~,i am {1} years old~&#39;;
+var result=[];
+while(reg.test(str)){
+    result.push(RegExp.$1);
+}
+console.log(result); // [&quot;0&quot;,&quot;1&quot;]
+
+/*----------------------------------------------*/
+// 使用exec实现
+var reg=/\{(\d+)\}/g;
+var str = &#39;my name is {0}~,i am {1} years old~&#39;;
+var result=[],
+    ary=reg.exec(str);
+while(ary)){
+    result.push(ary[1]);
+    ary=reg.exec(str);
+}
+console.log(result); // [&quot;0&quot;,&quot;1&quot;]
+</code></pre>
+<h2 id="replace实现正则捕获"><a href="#replace实现正则捕获" class="headerlink" title="replace实现正则捕获"></a>replace实现正则捕获</h2><p>replace：字符串中原有字符的替换。</p>
+<p>语法：</p>
+<pre><code class="javascript">str.replace(old,new);
+</code></pre>
+<p>例子：</p>
+<pre><code class="javascript">var str=&#39;祝福2017祝福2018&#39;;
+str=str.replace(&#39;祝福&#39;,&#39;祝福~~&#39;); // &#39;祝福~~2017祝福2018&#39;
+str=str.replace(&#39;祝福&#39;,&#39;祝福~~&#39;); // &#39;祝福~~~~2017祝福2018&#39;
+
+// 在不使用正则的情况下，执行一次replace只能替换一个原有字符，第二次执行replace，还是从字符串的开始位置查找，把最新找到的字符替换为新字符（类似于正则捕获时候的懒惰性：每一次执行都是从字符串最开始的位置查找）
+</code></pre>
+<p>真实项目中，replace一般都是和正则搭配在一起使用的。</p>
+<pre><code class="javascript">var str=&#39;祝福2017祝福2018&#39;;
+str = str.replace(/祝福/g,&#39;祝福~~&#39;); // &quot;祝福~~2017祝福~~2018&quot;
+</code></pre>
+<p>replace原理：</p>
+<ol>
+<li><p>当replace方法执行，第一项传递一个正则</p>
+<ul>
+<li>正则不加g：把当前字符串中第一个和正则匹配的结果捕获到，替换成新的字符。</li>
+<li>正则加g：把当前字符串中所有和正则匹配的内容都分别的捕获到，而且每一次捕获，都会把当前捕获的内容替换为新字符。</li>
+</ul>
+</li>
+<li><p>当replace方法执行，第二个参数传递的是一个函数（回调函数）</p>
+<p>首先用正则到字符串中进行查找匹配，匹配到一个符合规则的，就把传递的函数执行一次。</p>
+<p>不仅执行这个函数，而且还把正则本次捕获的结果（和执行exec捕获的结果一样：数组、大正则匹配、小分组匹配的都有）当做实参传递给这个函数（这样就可以在函数中获取这些值：而这些值就是正则每一次捕获的结果）</p>
+</li>
+</ol>
+<pre><code class="javascript">var str = &#39;my name is {0}, i am {1} years old, i can {2}!&#39;;
+var reg=/\{(\d+)\}/g; // 加g了
+str.replace(reg,function(){
+    // 传递的函数一共被执行三次
+    console.log(&#39;ok&#39;); // ok 3次
+    // 每一次匹配捕获到结果，不仅把这个方法执行了，而且还会把当前捕获的结果当做实参传递给这个函数arguments
+    /*
+        第一次执行函数，获取的arguments类数组
+        0：’{0}‘ 本次大正则匹配的结果
+        1：’0‘   本次第一个想分组匹配的结果
+        2：11    本次大正则匹配结果在字符串中的索引 index
+        3：&#39;my nam...&#39;  原始字符串 input
+
+        和每一次执行exec实现捕获或的结果非常类似
+    */
+    console.log(arguments);
+
+    // return xxx; 每一次执行函数，函数中return的结果，都相当于把本次大正则匹配的内容替换掉（原始字符串不变）
+});
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-18.PNG" alt=""></p>
+<p>例子：</p>
+<pre><code class="javascript">var str=&#39;祝福2017祝福2018&#39;;
+str=str.replace(/祝福/g,function(){
+    console.log(arguments[0]); // 当前本次大正则匹配的结果
+    return &#39;zhufu&#39;;
+});
+
+console.log(str); // &quot;zhufu2017zhufu2018&quot;
+</code></pre>
+<p>真正项目中使用replace比exec用的多。</p>
+<h3 id="所有支持正则的方法都可以实现正则的捕获（一般都是字符串的方法）"><a href="#所有支持正则的方法都可以实现正则的捕获（一般都是字符串的方法）" class="headerlink" title="所有支持正则的方法都可以实现正则的捕获（一般都是字符串的方法）"></a>所有支持正则的方法都可以实现正则的捕获（一般都是字符串的方法）</h3><p>字符串中常用的支持正则的方法：</p>
+<ul>
+<li>match</li>
+<li>split</li>
+<li>replace</li>
+<li>search</li>
+<li>……</li>
+</ul>
+<pre><code class="javascript">var str = &#39;name=zhufu&amp;age=8&amp;lx=teacher&#39;;
+str.split(/&amp;|=/); // [&quot;name&quot;, &quot;zhufu&quot;, &quot;age&quot;, &quot;8&quot;, &quot;lx&quot;, &quot;teacher&quot;]
+</code></pre>
+<p>在使用split进行拆分的时候，如果正则中包含小分组，会把小分组中的内容都捕获到，放在最后的数组中。</p>
+<pre><code class="javascript">str.split(/(&amp;|=)/); // [&quot;name&quot;, &quot;=&quot;, &quot;zhufu&quot;, &quot;&amp;&quot;, &quot;age&quot;, &quot;=&quot;, &quot;8&quot;, &quot;&amp;&quot;, &quot;lx&quot;, &quot;=&quot;, &quot;teacher&quot;]
+</code></pre>
+<p>有时候加小括号仅仅是为了实现改变默认的优先级问题，但是我们不想把分组中的符号捕获到：我们只想匹配，不想捕获。我们可以使用<code>?:</code></p>
+<pre><code class="javascript">str.split(/(?:&amp;|=)/);
+// [&quot;name&quot;, &quot;zhufu&quot;, &quot;age&quot;, &quot;8&quot;, &quot;lx&quot;, &quot;teacher&quot;]
+</code></pre>
+<h3 id="只匹配不捕获"><a href="#只匹配不捕获" class="headerlink" title="只匹配不捕获"></a>只匹配不捕获</h3><p>在当前分组当中加了<code>?:</code>，在正则检测匹配的时候，小分组可以起到自己应有的作用（例如：改变优先级…），但是在捕获的时候，遇到带<code>?:</code>的小分组，浏览器不会把当前这个分组中匹配的内容单独去捕获了。</p>
+<pre><code class="javascript">var reg = /^(\d{6})(\d{4})(\d{2})(\d{2})\d{2}(\d)(\d|X)$/;
+reg.exec(&#39;130828199012040617&#39;); // [&quot;130828199012040617&quot;, &quot;130828&quot;, &quot;1990&quot;, &quot;12&quot;, &quot;04&quot;, &quot;1&quot;, &quot;7&quot;, index: 0, input: &quot;130828199012040617&quot;, groups: undefined]
+
+
+var reg = /^(\d{6})(\d{4})(\d{2})(\d{2})(?:\d{2})(\d)(?:\d|X)$/;
+reg.exec(&#39;130828199012040617&#39;); //  [&quot;130828199012040617&quot;, &quot;130828&quot;, &quot;1990&quot;, &quot;12&quot;, &quot;04&quot;, &quot;1&quot;, index: 0, input: &quot;130828199012040617&quot;, groups: undefined]
+</code></pre>
+<h3 id="如何数小分组"><a href="#如何数小分组" class="headerlink" title="如何数小分组"></a>如何数小分组</h3><p>计算是第几个分组的时候，我们从左向右找<code>(</code>即可。</p>
+<pre><code class="javascript">var reg = /^-?(\d|([1-9]\d+))(\.\d+)?$/;
+reg.exec(&#39;-12.5&#39;);
+// [&quot;-12.5&quot;, &quot;12&quot;, &quot;12&quot;, &quot;.5&quot;, index: 0, input: &quot;-12.5&quot;, groups: undefined]
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-19.PNG" alt=""></p>
+<pre><code class="javascript">var reg= /^-?(?:\d|(?:[1-9]\d+))(?:\.\d+)?$/;
+</code></pre>
+<h2 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h2><h3 id="单词首字母大写"><a href="#单词首字母大写" class="headerlink" title="单词首字母大写"></a>单词首字母大写</h3><p>\b代表的是边界：</p>
+<ul>
+<li>单词的左右两边是边界</li>
+<li><code>-</code>的左右两边也是边界</li>
+</ul>
+<p>所以，下面的例子会把zhu-mu-lang-ma-feng当做五个词（我们想把它当做一个）</p>
+<pre><code class="javascript">var str = &#39;my name is zhu-mu-lang-ma-feng,i am 8 years old,i am the best font-end school in china!&#39;;
+
+str = str.match(/\w+\b/g); //  [&quot;my&quot;, &quot;name&quot;, &quot;is&quot;, &quot;zhu&quot;, &quot;mu&quot;, &quot;lang&quot;, &quot;ma&quot;, &quot;feng&quot;, &quot;i&quot;, &quot;am&quot;, &quot;8&quot;, &quot;years&quot;, &quot;old&quot;, &quot;i&quot;, &quot;am&quot;, &quot;the&quot;, &quot;best&quot;, &quot;font&quot;, &quot;end&quot;, &quot;school&quot;, &quot;in&quot;, &quot;china&quot;]
+</code></pre>
+<pre><code class="javascript">var str = &#39;my name is zhu-mu-lang-ma-feng,i am 8 years old,i am the best font-end school in china!&#39;;
+
+// 1、先把混淆边界符的中杠替换为下划线
+str=str.replace(/-/g,&#39;_&#39;);
+
+// 2、通过边界符匹配到每个单词
+str=str.replace(/\b(\w)(\w*)\b/g,function(){
+   return arguments[1].toUpperCase()+arguments[2]; 
+});
+
+// 3、再把之前替换的下划线还原为中杠
+str=str.replace(/_/g,&#39;-&#39;); // &quot;My Name Is Zhu-mu-lang-ma-feng,I Am 8 Years Old,I Am The Best Font-end School In China!&quot;
+</code></pre>
+<h3 id="格式化时间（format-time）"><a href="#格式化时间（format-time）" class="headerlink" title="格式化时间（format time）"></a>格式化时间（format time）</h3><p>在真实项目当中，服务器给我们返回的时间，我们要格式化成需要的格式：</p>
+<pre><code class="javascript">var str = &#39;2018-08-05 16:56:42&#39;; // &#39;2018年08月05日 下午16时56分42秒&#39;
+</code></pre>
+<p><strong>思路一：不使用正则，字符串拆分</strong></p>
+<ol>
+<li><p>先按照空格把字符串拆成两部分: str.split(‘ ‘) = &gt; [‘2018-08-05’,’16:56:42’]</p>
+</li>
+<li><p>再把上面数组中的第一项和第二项分别获取到</p>
+<ul>
+<li><p>str1=’2018-08-05’</p>
+<p>把这个字符串按照<code>-</code>拆 str1.split(‘-‘) =&gt; [‘2018’ , ‘08’ , ‘05’]</p>
+</li>
+<li><p>str2=’16:56:42’</p>
+<p>把这个字符串按照<code>:</code>拆 str2.split(‘:’) =&gt; [‘16’ , ‘56’ , ‘42’]</p>
+</li>
+</ul>
+</li>
+<li><p>最后把两个数组中的每一项按照执行格式拼接起来</p>
+</li>
+</ol>
+<p><strong>思路二：使用日期数据完成操作</strong></p>
+<ol>
+<li><p>首先把str变为标准的日期格式数据 <code>new Date(str)</code>=&gt; <code>Sun Aug 05 2018 16:56:42 GMT+0800 (中国标准时间)</code></p>
+<p>在IE浏览器中需要把原始字符串中的<code>-</code>替换为<code>/</code>才可以转换 str.replace(/-/g,’/‘)</p>
+</li>
+<li><p>使用Date类中提供的方法：</p>
+<ul>
+<li><p>getFullYear</p>
+</li>
+<li><p>getMonth</p>
+</li>
+<li><p>getDate</p>
+</li>
+<li><p>getHours</p>
+</li>
+<li><p>getMinutes</p>
+</li>
+<li><p>getSeconds</p>
+</li>
+<li><p>…</p>
+<p>获取到年、月、日、小时、分钟、秒。最后拼接成我们需要字符串</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>思路三：使用正则实现需求</strong></p>
+<pre><code class="javascript">var str = &#39;2018-08-05 16:56:42&#39;; // &#39;2018年08月05日 16时56分42秒&#39;
+
+// 1、执行一次捕获操作，得到需要的留个结果
+var reg=/^(\d{4})-(\d{1,2})-(\d{1,2})\s+(\d{1,2}):(\d{1,2}):(\d{1,2})$/g;
+str = str.replace(reg,function(){
+    return arguments[1]+&#39;年&#39;+arguments[2]+&#39;月&#39;+arguments[3]+&#39;日 &#39;+arguments[4]+&#39;时&#39;+arguments[5]+&#39;分&#39;+arguments[6]+&#39;秒&#39;;
+});
+// &quot;2018年08月05日 16时56分42秒&quot;
+</code></pre>
+<p>简写方式：</p>
+<pre><code class="javascript">var str = &#39;2018-08-05 16:56:42&#39;; 
+var reg=/^(\d{4})-(\d{1,2})-(\d{1,2})\s+(\d{1,2}):(\d{1,2}):(\d{1,2})$/g;
+str = str.replace(reg,&#39;$1年$2月$3日 $4时$5分$6秒&#39;); 
+// $1等价于第一个分组中获取的内容，类似于上面代码的arguments[1]；
+</code></pre>
+<p>使用match实现</p>
+<pre><code class="javascript">var str = &#39;2018-08-05 16:56:42&#39;;
+var reg=/\d+/g;
+var ary=str.match(reg); // [&quot;2018&quot;, &quot;08&quot;, &quot;05&quot;, &quot;16&quot;, &quot;56&quot;, &quot;42&quot;]
+
+str=ary[0]+&#39;年&#39;+ary[1]+&#39;月&#39;+ary[2]+&#39;日 &#39;+ary[3]+&#39;时&#39;+ary[4]+&#39;分&#39;+ary[5]+&#39;秒&#39;;
+
+console.log(str); // 2018年08月05日 16时56分42秒
+</code></pre>
+<h2 id="模板引擎实现原理"><a href="#模板引擎实现原理" class="headerlink" title="模板引擎实现原理"></a>模板引擎实现原理</h2><pre><code class="javascript">var reg=/\d+/g;
+var ary=str.match(reg);
+
+var template = &#39;{0}年{1}月{2}日 {3}时{4}分{5}秒&#39;;
+/*
+    {0} -&gt;ary[0] -&gt;2018
+    {1} -&gt;ary[1] -&gt;08
+    ...
+
+    我们首先获取模板中的{n}（同时获取数字n），把数字n作为ary的索引，获取到需要的日期数据，把获取的日期数据整体替换{n}即可。
+*/
+template = template.replace(/\{(\d+)\}/g,function(){
+    var index=arguments[1],
+        value=ary[index];
+    return value;
+}); // &quot;2018年08月05日 16时56分42秒&quot;
+</code></pre>
+<p>我们知道的vue和ES6中的模板字符串都是按照此原理来实现的：</p>
+<pre><code class="javascript">// vue
+person={
+    aa:&#39;123&#39;
+}
+&lt;div&gt;{{person.aa}}&lt;/div&gt;
+// 用正则匹配 /\{\{(.+)\}\}/
+
+// ES6模板字符串
+`&lt;div&gt;${xxx}&lt;/div&gt;`
+// 用正则匹配： /\$\{(.+)\}/
+</code></pre>
+<p>可以自己写一个属于自己的模板引擎。</p>
+<pre><code class="javascript">String.prototype.myFormatTime=function myFormatTime(){
+    var ary=this.match(/\d+/g),
+        template =arguments[0] || &#39;{0}年{1}月{2}日 {3}时{4}分{5}秒&#39;;
+    // 用户传递自己的格式模板，就按用户传递的来解析，否则按照默认解析即可
+
+    template=template.replace(/\{(\d+)\}/g,function(){
+       var value = ary[arguments[1]] || &#39;0&#39;;
+        value.length&lt;2?value=&#39;0&#39;+value:null;
+        return value;
+    });
+
+    return template;
+};
+
+/*-------------------------------------------*/
+var str = &#39;2018-08-05&#39;;
+str.myFormatTime(); // &quot;2018年08月05日 00时00分00秒&quot;
+
+str.myFormatTime(&#39;{1}月{2}日 {3}:{4}:{5}&#39;); // &quot;08月05日 00:00:00&quot;
+
+var str=&#39;17:55:33&#39;;
+str.myFormatTime(&#39;{0}时{1}分{2}秒&#39;); // &quot;17时55分33秒&quot;
+</code></pre>
+<h3 id="去除字符串的首尾空格"><a href="#去除字符串的首尾空格" class="headerlink" title="去除字符串的首尾空格"></a>去除字符串的首尾空格</h3><ul>
+<li><code>str.trim()</code>  去除首尾空格</li>
+<li><code>str.trimLeft()</code>   去除左边空格</li>
+<li><code>str.trimRight()</code>  去除右边空格</li>
+</ul>
+<p>好用但是不兼容。</p>
+<pre><code class="javascript">var str = &#39;    China  中国   &#39;;
+console.log(str.trim());
+console.log(str.trimLeft());
+console.log(str.trimRight());
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-20.PNG" alt=""></p>
+<p>用正则实现：</p>
+<pre><code class="javascript">var reg = /^\s+|\s+$/g;
+str=str.replace(reg,&#39;&#39;);
+</code></pre>
+<p>这个方法很常用，真实项目中，我们常把这个方法封装在内置类的原型上：</p>
+<pre><code class="javascript">String.prototype.myTrim=function myTrim(){
+  return this.replace(/^\s+|\s+$/g,&#39;&#39;);  
+};
+
+var str = &#39;    China  中国   &#39;;
+console.log(str.myTrim());
+</code></pre>
+<h3 id="queryURLParameter"><a href="#queryURLParameter" class="headerlink" title="queryURLParameter"></a>queryURLParameter</h3><p>解析get数据。</p>
+<pre><code class="javascript">String.prototype.myQueryURLParameter=function myQueryURLParameter(){
+    var obj={};
+    this.replace(/([^?&amp;=#]+)=([^?&amp;=#]+)/g,function(){
+        obj[arguments[1]]=arguments[2];
+    });
+    obj[&#39;HASH&#39;]=(/#([^?=&amp;#]+)/g).exec(this)[1];
+    // 老师写的是：this.replace(/#([^?=&amp;#]+)/g,function(){obj[&#39;HASH&#39;]=arguments[1];});
+    return obj;
+};
+
+
+var url=&#39;http://www.google.com/stu/index.html?name=Anna&amp;age=26&amp;sex=1#student&#39;;
+// 我们希望解析成：{name:&#39;Anna&#39;,age:26,sex:1,HASH:&#39;student&#39;};
+
+url.myQueryURLParameter(); // {name: &quot;Anna&quot;, age: &quot;26&quot;, sex: &quot;1&quot;, HASH: &quot;student&quot;}
+</code></pre>
+<h2 id="正则的两种创建方式的区别"><a href="#正则的两种创建方式的区别" class="headerlink" title="正则的两种创建方式的区别"></a>正则的两种创建方式的区别</h2><p><strong>字面量方式：</strong></p>
+<pre><code class="javascript">var reg = /\d+/img;
+</code></pre>
+<p><strong>构造函数创建：</strong></p>
+<p>使用构造函数创建和使用字面创建最主要的区别是：构造函数创建，用到转义字符需要写两个斜杠<code>\\</code>才可以。（因为用构造函数创建，传递的参数都是字符串，写一个<code>\</code>代表的是普通字符串斜杠）</p>
+<pre><code class="javascript">var reg = new RegExp(&#39;元字符&#39;,&#39;修饰符&#39;);
+
+var reg = new RegExp(&#39;\\d+&#39;,&#39;img&#39;);
+</code></pre>
+<p>使用构造函数方式写出验证是否为有效数字的正则：</p>
+<pre><code class="javascript">var reg = new RegExp(&#39;^-?(\\d|([1-9]\\d+))(\\.\\d+)?$&#39;,&#39;&#39;);
+reg.toString(); // &quot;/^-?(\d|([1-9]\d+))(\.\d+)?$/&quot;
+</code></pre>
+<p>我们发现用构造函数创建正则还不如用字面量方式创建正则来的方便，为什么还要用这种方式创建呢？</p>
+<blockquote>
+<p>因为这样可以在正则中动态加入一个变量的值，作为正则的一部分</p>
+</blockquote>
+<pre><code class="javascript">var strClass = &#39;Number&#39;; // strClass可以变
+var reg = /^\[object &#39;+strClass+&#39;\]$/; // 字面量方式中出现的所有字符都叫做元字符，例如：在当前案例中&#39;+ 不是字符串拼接，属于让单引号出现一到多次。。。
+
+var reg = new RegExp(&#39;^\\[object &#39;+strClass+&#39;\\]$&#39;);
+reg.toString(); // &quot;/^\[object Number\]$/&quot;
+
+
+// 也可以用ES6中的模板字符串：
+var strClass = &#39;String&#39;;
+var reg = new RegExp(`^\\[object ${strClass}\\]$`);
+reg.toString(); // &quot;/^\[object String\]$/&quot;
+</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><a href="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-21.png" target="_blank" rel="external">查看大图</a></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-01/28/02-21.png" alt=""></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #222;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" style="display: none">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/01/28/2018-01-28regular-expression/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/01/28/2018-01-28regular-expression/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.btn_click_load').css('display','none');
+        })(),
+        error: function() {
+          $('.btn_click_load').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/03/05/2018-03-05function-three-roles/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/01/20/2018-01-20some-problems-i-think/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header1.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.jpg" alt="Anilway's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        更多
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hanway.robot@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="电子书">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">book</i>
+                        
+                        电子书
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="网址导航">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">tab</i>
+                        
+                        网址导航
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">20</span></a></li><li><a class="sidebar_archives-link" href="/categories/JS进阶/">JS进阶<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/其他/">其他<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/小技巧/">小技巧<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/旁征博引/">旁征博引<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程工具/">编程工具<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about/index.html" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友链接">
+                
+                友链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图片集">
+                
+                图片集
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Anilway" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Anilway
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
