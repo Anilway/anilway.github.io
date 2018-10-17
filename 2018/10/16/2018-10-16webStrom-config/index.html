@@ -37,7 +37,7 @@
     
     <title>
         
-            JS基础总结02:基本概念 | 
+            WebStorm配置详解 | 
         
         Anilway
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Anilway">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",JavaScript,JS基础总结">
+    <meta name="keywords" content=",JavaScript,IDE,webStrom,编辑器">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -236,18 +236,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="JS基础总结02:基本概念 | Anilway">
+    <meta property="og:title" content="WebStorm配置详解 | Anilway">
     <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="JS基础总结"> 
+    <meta property="og:article:tag" content="JavaScript"> <meta property="og:article:tag" content="IDE"> <meta property="og:article:tag" content="webStrom"> <meta property="og:article:tag" content="编辑器"> 
 
     
-        <meta property="article:published_time" content="Mon Dec 04 2017 00:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Thu Jan 11 2018 12:27:13 GMT+0800" />
+        <meta property="article:published_time" content="Tue Oct 16 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Oct 17 2018 10:22:18 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="JS基础总结02:基本概念 | Anilway">
+    <meta name="twitter:title" content="WebStorm配置详解 | Anilway">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -255,7 +255,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/10/16/2018-10-16webStrom-config/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -267,10 +267,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/index.html",
-    "headline": "JS基础总结02:基本概念",
-    "datePublished": "Mon Dec 04 2017 00:00:00 GMT+0800",
-    "dateModified": "Thu Jan 11 2018 12:27:13 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/10/16/2018-10-16webStrom-config/index.html",
+    "headline": "WebStorm配置详解",
+    "datePublished": "Tue Oct 16 2018 00:00:00 GMT+0800",
+    "dateModified": "Wed Oct 17 2018 10:22:18 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Anilway",
@@ -288,7 +288,7 @@
             "url": "/img/favicon1.png"
         }
     },
-    "keywords": ",JavaScript,JS基础总结",
+    "keywords": ",JavaScript,IDE,webStrom,编辑器",
     "description": "",
 }
 </script>
@@ -354,7 +354,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、基本语法规则"><span class="post-toc-text">1、基本语法规则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-区分大小写"><span class="post-toc-text">1.1 区分大小写</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-标识符"><span class="post-toc-text">1.2 标识符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-注释"><span class="post-toc-text">1.3 注释</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4严格模式"><span class="post-toc-text">1.4严格模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-5语句"><span class="post-toc-text">1.5语句</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、关键字和保留字"><span class="post-toc-text">2、关键字和保留字</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、变量"><span class="post-toc-text">3、变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、数据类型"><span class="post-toc-text">4、数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、总结"><span class="post-toc-text">5、总结</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0、注意事项"><span class="post-toc-text">0、注意事项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、代码模板的配置"><span class="post-toc-text">1、代码模板的配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、代码片段快捷键设置"><span class="post-toc-text">2、代码片段快捷键设置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、设置JS语言版本"><span class="post-toc-text">3、设置JS语言版本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、开启Node-js代码提示"><span class="post-toc-text">4、开启Node.js代码提示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、设置括号匹配样式"><span class="post-toc-text">5、设置括号匹配样式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、设置缩进线"><span class="post-toc-text">6、设置缩进线</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7、代码折叠设置"><span class="post-toc-text">7、代码折叠设置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8、设置背景图片"><span class="post-toc-text">8、设置背景图片</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9、设置自己喜欢的代码显示样式"><span class="post-toc-text">9、设置自己喜欢的代码显示样式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10、设置终端、run-tool界面字体大小"><span class="post-toc-text">10、设置终端、run tool界面字体大小</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11、设置光标行高亮和光标选中高亮"><span class="post-toc-text">11、设置光标行高亮和光标选中高亮</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12、允许未签名的请求"><span class="post-toc-text">12、允许未签名的请求</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#13、设置不自动保存"><span class="post-toc-text">13、设置不自动保存</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#14、设置-vue文件模板"><span class="post-toc-text">14、设置.vue文件模板</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#15、安装markdown插件"><span class="post-toc-text">15、安装markdown插件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#16、设置Tab缩进量"><span class="post-toc-text">16、设置Tab缩进量</span></a></li></ol>
     </ul>
     
 
@@ -374,10 +374,10 @@
     <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://t1.picb.cc/uploads/2017/11/29/bohRd.jpg)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/webstorm-cover.png)">
     
             <p class="article-headline-p">
-                JS基础总结02:基本概念
+                WebStorm配置详解
             </p>
         </div>
 
@@ -396,7 +396,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Anilway</strong>
-        <span>12月 04, 2017</span>
+        <span>10月 16, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -418,7 +418,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/10/16/2018-10-16webStrom-config/">
     
 </ul>
 
@@ -432,7 +432,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/JS基础总结/">JS基础总结</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a>
+        <a class="post_tag-link" href="/tags/IDE/">IDE</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/JavaScript/">JavaScript</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/webStrom/">webStrom</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/编辑器/">编辑器</a>
     </ul>
     
 
@@ -449,7 +449,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS基础总结02:基本概念&url=http://yoursite.com/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=WebStorm配置详解&url=http://yoursite.com/2018/10/16/2018-10-16webStrom-config/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -458,7 +458,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS基础总结02:基本概念&url=http://yoursite.com/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/index.html&via=Anilway" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=WebStorm配置详解&url=http://yoursite.com/2018/10/16/2018-10-16webStrom-config/index.html&via=Anilway" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -467,7 +467,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/10/16/2018-10-16webStrom-config/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -476,7 +476,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/10/16/2018-10-16webStrom-config/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -501,54 +501,175 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <script src="\assets\js\APlayer.min.js"> </script><h2 id="1、基本语法规则"><a href="#1、基本语法规则" class="headerlink" title="1、基本语法规则"></a>1、基本语法规则</h2><h3 id="1-1-区分大小写"><a href="#1-1-区分大小写" class="headerlink" title="1.1 区分大小写"></a>1.1 区分大小写</h3><p>ECMAscript中的一切（变量、函数名、操作符）都区分大小写。</p>
-<h3 id="1-2-标识符"><a href="#1-2-标识符" class="headerlink" title="1.2 标识符"></a>1.2 标识符</h3><p>指变量、函数、属性的名字或函数参数。</p>
-<p><strong>命名规则：</strong></p>
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="0、注意事项"><a href="#0、注意事项" class="headerlink" title="0、注意事项"></a>0、注意事项</h2><ol>
+<li><p>在对webStorm进行设置的时候，如果是经常使用的配置，我们最好在默认设置（Default Settings）里面进行设置。否则，每次打开项目都要重新配置。</p>
+</li>
+<li><p>如果你更新了webStrom，出现了bug，比如：打不出来汉字、一打开就死机、一打开就报错等等，可以在官网下载往期版本：<a href="https://www.jetbrains.com/webstorm/download/previous.html" target="_blank" rel="external">https://www.jetbrains.com/webstorm/download/previous.html</a></p>
+</li>
+</ol>
+<h2 id="1、代码模板的配置"><a href="#1、代码模板的配置" class="headerlink" title="1、代码模板的配置"></a>1、代码模板的配置</h2><p>File &gt; Settings 进入设置窗口：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-1.PNG" alt=""> </p>
+<p>在设置窗口选择Editor(编辑器)：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-2.PNG" alt=""></p>
+<p>在Editor里面选择File and Code Templates（文件和代码模板）：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-3.PNG" alt=""></p>
+<p>在右面的界面里面，就可以选择你需要的文件，在里面修改成你需要的默认模板。以后你每次创建新的文件的时候，都会默认为你设置的代码。</p>
+<h2 id="2、代码片段快捷键设置"><a href="#2、代码片段快捷键设置" class="headerlink" title="2、代码片段快捷键设置"></a>2、代码片段快捷键设置</h2><p>还是在编辑器里面，选择Live  Templates：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-4.PNG" alt=""></p>
+<p>然后可以再右边选择你需要设置哪种文件里面的代码快捷键。在这里我以JavaScript作为演示，选择进入：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-5.PNG" alt=""></p>
+<p>我们可以直接修改里面现有的代码快捷键里面的代码片段，我们也可以自己添加新的代码片段快捷键：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-6.PNG" alt=""></p>
+<p>在代码片段的设置中，有一些<code>$ARRAY$</code>这种的占位代码，当在输入代码片段的时候，会让你自己输入。详细看后文的动图演示。</p>
+<p>设置完之后，还要设定可以在哪些文件中使用，一般选择Everywhere，所有的文件都可使用这个代码快捷键：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-7.PNG" alt=""></p>
+<p>我在这里设置了一个for-in循环的代码片段快捷键，按tab键展开。来看一下演示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-8.gif" alt=""></p>
+<h2 id="3、设置JS语言版本"><a href="#3、设置JS语言版本" class="headerlink" title="3、设置JS语言版本"></a>3、设置JS语言版本</h2><p>在WebStorm中使用ES6语法如果报错，那是因为你没有开启对ES6语法的支持，需要进行开启。</p>
+<blockquote>
+<p>File（文件） &gt; Settings（设置） &gt; Languages &amp; Frameworks（语言&amp;框架）&gt; JavaScript &gt; JavaScript language version（JS语言版本）&gt; 选择ES6</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-9.gif" alt=""></p>
+<h2 id="4、开启Node-js代码提示"><a href="#4、开启Node-js代码提示" class="headerlink" title="4、开启Node.js代码提示"></a>4、开启Node.js代码提示</h2><p>为了方便学习vue，我们将webStorm中的node.js代码提示打开（前提是先要安装node）。</p>
+<p>版本要求：</p>
 <ul>
-<li>不能以数字开头</li>
-<li>其他部分可以是数字、字母、下划线(_)、美元符号($)</li>
-<li>不能与关键字、保留字重名</li>
+<li>webStorm最好是2017版本以上</li>
+<li>node最好是8.0版本以上</li>
 </ul>
-<p>另外，习惯上将变量以驼峰大小写格式命名。</p>
-<h3 id="1-3-注释"><a href="#1-3-注释" class="headerlink" title="1.3 注释"></a>1.3 注释</h3><ul>
-<li>单行注释：//</li>
-<li>多行注释：/<em> ……</em>/ （注意提高阅读性写法）</li>
-</ul>
-<pre><code class="javascript">//这是单行注释。
-
-
-/*多行注释第一行
-  多行注释第二行*/
-
-
-//为了提高阅读性，多行注释可以写为：
-
-/*
- *多行注释第一行
- *多行注释第二行
- */
+<p>如果图中步骤5中的node路径一般默认路径就是整的。不正确，会报红色警告，你需要手动选择自己的node安装路径。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-10.jpg" alt=""></p>
+<h2 id="5、设置括号匹配样式"><a href="#5、设置括号匹配样式" class="headerlink" title="5、设置括号匹配样式"></a>5、设置括号匹配样式</h2><p>WS默认的是描边样式，影响光标显示：</p>
+<table>
+<thead>
+<tr>
+<th>描边配置</th>
+<th>下划线配置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-11.PNG" alt=""></td>
+<td><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-12.PNG" alt=""></td>
+</tr>
+</tbody>
+</table>
+<p>设置方法：</p>
+<pre><code class="c">文件 &gt; 设置 &gt; 编辑器 &gt; 切换配色方案 &gt; 常规 &gt; 代码 &gt; 匹配的括号 &gt; 选择下划线匹配效果
 </code></pre>
-<h3 id="1-4严格模式"><a href="#1-4严格模式" class="headerlink" title="1.4严格模式"></a>1.4严格模式</h3><p><code>&quot;use srtict&quot;</code></p>
-<p>在JS代码顶部或者函数内部顶部添加（可指定函数在严格模式下执行）。</p>
-<h3 id="1-5语句"><a href="#1-5语句" class="headerlink" title="1.5语句"></a>1.5语句</h3><ul>
-<li>以分号<code>;</code>结尾</li>
-<li>可以使用花括号<code>{}</code>把多条语句组合到代码块中</li>
-</ul>
-<p><br></p>
-<h2 id="2、关键字和保留字"><a href="#2、关键字和保留字" class="headerlink" title="2、关键字和保留字"></a>2、关键字和保留字</h2><p>关键字：具有特定用途。可用于控制语句的开始或结束，或用于执行特定操作符等。</p>
-<p>保留字：虽然没有特定用途，但将来可能作为关键字。</p>
-<p><br></p>
-<h2 id="3、变量"><a href="#3、变量" class="headerlink" title="3、变量"></a>3、变量</h2><ul>
-<li>ECMAScript的变量是<strong>松散类型</strong>的，既可用来保存任何类型的数据</li>
-<li>用<code>var</code>操作符定义的变量为该作用域下的局部变量（也可以是全局作用域下的全局变量），但如果省略<code>var</code>定义的变量，则为全局变量</li>
-<li>变量分为局部变量和全局变量</li>
-<li>变量的值分为：基本类型值和引用类型值</li>
-</ul>
-<p><br></p>
-<h2 id="4、数据类型"><a href="#4、数据类型" class="headerlink" title="4、数据类型"></a>4、数据类型</h2><p>简单数据类型：undefined、null、number、string、boolean、symbol（ES6）</p>
-<p>复杂数据类型：object</p>
-<p><br></p>
-<h2 id="5、总结"><a href="#5、总结" class="headerlink" title="5、总结"></a>5、总结</h2><p><img src="https://raw.githubusercontent.com/Anilway/anilway.github.io/master/post_img/2017120401.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-13.jpg" alt=""></p>
+<h2 id="6、设置缩进线"><a href="#6、设置缩进线" class="headerlink" title="6、设置缩进线"></a>6、设置缩进线</h2><p>在sublime上用习惯了缩进线，缩进线可以方便我们查看代码。</p>
+<p>我们来看看WS设置缩进线后和sublime效果对比：</p>
+<table>
+<thead>
+<tr>
+<th>WS设置缩进线</th>
+<th>sublime缩进线</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-13.PNG" alt=""></td>
+<td><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-14.PNG" alt=""></td>
+</tr>
+</tbody>
+</table>
+<p>设置方式：</p>
+<pre><code class="c">文件 &gt; 编辑器 &gt; 常规 &gt; 外观 &gt; 勾选 show indent guides
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-15.PNG" alt=""></p>
+<p>我们可以在上图中看到，在外观里面还可以设置很多其他的，比如，显示代码行号、显示预览css背景色等等。在编辑器&gt;切换配色方案中，还可以设定很多和颜色有关的配置。比如行号的颜色等等。</p>
+<h2 id="7、代码折叠设置"><a href="#7、代码折叠设置" class="headerlink" title="7、代码折叠设置"></a>7、代码折叠设置</h2><p>当我们引入其他的主题文件，可能没有了代码折叠。这在编写长段代码的时候非常不方便。</p>
+<table>
+<thead>
+<tr>
+<th>代码折叠前</th>
+<th>代码折叠后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-16.PNG" alt=""></td>
+<td><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-17.PNG" alt=""></td>
+</tr>
+</tbody>
+</table>
+<p>设置方法：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-18.PNG" alt=""></p>
+<h2 id="8、设置背景图片"><a href="#8、设置背景图片" class="headerlink" title="8、设置背景图片"></a>8、设置背景图片</h2><p>WS编辑器还支持自定义背景。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-19.PNG" alt=""></p>
+<p>设置方法：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-20.PNG" alt=""></p>
+<p>弹出的设置窗口如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-21.PNG" alt=""></p>
+<h2 id="9、设置自己喜欢的代码显示样式"><a href="#9、设置自己喜欢的代码显示样式" class="headerlink" title="9、设置自己喜欢的代码显示样式"></a>9、设置自己喜欢的代码显示样式</h2><p>我们刚开始用这个编辑器的时候，编辑器的样式往往并不让人称心如意。我们总会想办法对其进行调整。前面已经介绍了很多样式设置方法。</p>
+<p>但是最重要的是对代码框内的代码高亮等显示样式进行设置。尤其是当我们之前已经习惯了某一款编辑器的风格之后，更加无法忍受其他的样式风格。就我自己而言，我更加喜欢sublime Text这款编辑器的风格。</p>
+<p>于是乎，我们可能会在网上找已经配置好的界面主题。比如我就会找sublime风格的主题导入进来。但是，这个时候你和sublime编辑器的样式对比，可能大部分配色符合sublime风格了，但是还有很多样式并不相同，比如关键字的倾斜等等。</p>
+<p>这个时候，我们就需要亲自动手去调整了。调整也很简单，进入下图界面调整即可：</p>
+<pre><code class="c">文件 &gt; 设置 &gt; 编辑器 &gt; 切换颜色方案 &gt; 找到你需要调整的文件代码。前端的话，经常用到的就是JS、html、css、json等格式的文件
+</code></pre>
+<p>下图以调整JavaScript文件代码格式为例进行演示，其他格式的（HTML、CSS……）文件调整方法同样如此。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-22.PNG" alt=""></p>
+<p>设置完成之后，我们可以到处自己的设置，作为备份。下次再重装的时候，就可以直接导入这次设置好的配置方案。</p>
+<h2 id="10、设置终端、run-tool界面字体大小"><a href="#10、设置终端、run-tool界面字体大小" class="headerlink" title="10、设置终端、run tool界面字体大小"></a>10、设置终端、run tool界面字体大小</h2><pre><code class="c">文件 &gt; 设置 &gt; 编辑器 &gt; 切换颜色方案 &gt; Console Font（控制台字体）&gt; 设置字体大小 &gt; 确认
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-23.PNG" alt=""></p>
+<p>设置完成后，需要把终端、run tool重启后才会生效。下图为终端的重启演示，run tool重启同样操作即可。run tool关闭之后再开启按快捷键<code>ctrl+shift+F10</code>可以打开。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-24.gif" alt=""></p>
+<h2 id="11、设置光标行高亮和光标选中高亮"><a href="#11、设置光标行高亮和光标选中高亮" class="headerlink" title="11、设置光标行高亮和光标选中高亮"></a>11、设置光标行高亮和光标选中高亮</h2><p>在webStorm中，默认是有光标行高亮的。如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-26.gif" alt=""></p>
+<p>光标行高亮有一个不方便的地方是和选中的样式重叠，看不清楚自己选中的部分。另外有很多人是从sublime过来的，不习惯光标行高亮。可以按一下图示取消光标行高亮背景色，或者设置成其他的颜色：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-25.PNG" alt=""></p>
+<p>在上图中，插入符所在行就是用来设置光标行高亮的背景色的。在这个选项下面，还有选中项前景、选中项背景，是用来设置选中的代码的颜色的。</p>
+<h2 id="12、允许未签名的请求"><a href="#12、允许未签名的请求" class="headerlink" title="12、允许未签名的请求"></a>12、允许未签名的请求</h2><p>因为我们需要在后面引入模块进行学习，会在一个js文件中请求其他的js文件。如果你在使用webStorm学习时，遇到下面的弹窗：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-27.PNG" alt=""></p>
+<p>那就需要进行允许未签名设置。设置如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-28.PNG" alt=""></p>
+<h2 id="13、设置不自动保存"><a href="#13、设置不自动保存" class="headerlink" title="13、设置不自动保存"></a>13、设置不自动保存</h2><p>webStorm默认会对我们的修改进行自动保存。这样会造成一些延迟，所以，我们将保存设置为不自动保存。</p>
+<p>设置入下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-30.PNG" alt=""></p>
+<p>设置完之后，我们还需要设置未保存的提示，一旦文件被改动没有保存，文件标签处就有※号提示。</p>
+<p>设置如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-29.PNG" alt=""></p>
+<h2 id="14、设置-vue文件模板"><a href="#14、设置-vue文件模板" class="headerlink" title="14、设置.vue文件模板"></a>14、设置.vue文件模板</h2><p>基本代码模板：</p>
+<pre><code class="vue">&lt;!--在这里编写模板的html部分--&gt;
+&lt;template&gt;
+    &lt;div&gt;
+
+    &lt;/div&gt;
+&lt;/template&gt;
+
+
+&lt;script&gt;
+    // 默认要导出一个对象
+    export default {
+        data(){
+            return{}
+        },
+        methods:{},
+        computed:{},
+        components:{}
+    }
+&lt;/script&gt;
+
+&lt;!--在这里编写模板的样式部分，scoped表示是当前作用域下的样式，否则我们写的就是全局样式了--&gt;
+&lt;style scoped&gt;
+
+&lt;/style&gt;
+</code></pre>
+<p>因为每次新建vue文件都会用到这个基本模板，所以我们可以在webStorm中保存为文件模板，设置如下：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-31.jpg" alt=""></p>
+<p>点击编辑文件模板会弹出编辑窗口：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-32.PNG" alt=""></p>
+<p>设置好之后再创建vue文件就很方便了：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-33.gif" alt=""></p>
+<h2 id="15、安装markdown插件"><a href="#15、安装markdown插件" class="headerlink" title="15、安装markdown插件"></a>15、安装markdown插件</h2><p>打开<code>文件 &gt; 设置 &gt; 搜索plugin &gt; 点击Install JetBrains plugin &gt; 输入markdown &gt; 点击install安装</code>。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-33.PNG" alt=""></p>
+<h2 id="16、设置Tab缩进量"><a href="#16、设置Tab缩进量" class="headerlink" title="16、设置Tab缩进量"></a>16、设置Tab缩进量</h2><p>webStorm的默认缩进是2，一般我们常用的缩进量是4个空格。我们以在Code Style里面设置，以JS代码为例：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-34.png" alt=""></p>
+<p>我们把tab和缩进都设置为4，就ok了。</p>
+<p>但是，如果你在写代码时，按tab键并没有缩进4个空格，就需要在Code Style主界面，取消一些选项，如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-10/16/ws-35.png" alt=""></p>
+<p>现在就ok啦！</p>
 
         
     
@@ -602,8 +723,8 @@
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2017/12/04/2017-12-03-01-js-base-02-ji-ben-gai-nian/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2018/10/16/2018-10-16webStrom-config/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/10/16/2018-10-16webStrom-config/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -652,21 +773,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/05/2017-12-05-js-base-04-fu-za-shu-ju-lei-xing/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/12/04/2017-12-03--02js-base-03-jian-dan-shu-ju-lei-xing/" id="post_nav-older" class="next-content">
+        <a href="/2018/04/17/2018-04-17vuex-introduce/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
