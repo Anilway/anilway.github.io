@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            angularJS学习笔记（一） | 
+        
+        Anilway
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Anilway">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",angularJS,入门,框架">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon1.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon1.png">
+    <link rel="apple-touch-icon" href="/img/favicon1.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Anilway">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #222 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #222 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #222 !important;
+  }
+
+  .toTop {
+    background: #222 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #222;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #222;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #222;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="angularJS学习笔记（一） | Anilway">
+    <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="angularJS"> <meta property="og:article:tag" content="入门"> <meta property="og:article:tag" content="框架"> 
+
+    
+        <meta property="article:published_time" content="Sun Nov 04 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Nov 05 2018 03:12:00 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="angularJS学习笔记（一） | Anilway">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/11/04/2018-11-04angularJS-learn-note-part1/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/11/04/2018-11-04angularJS-learn-note-part1/index.html",
+    "headline": "angularJS学习笔记（一）",
+    "datePublished": "Sun Nov 04 2018 00:00:00 GMT+0800",
+    "dateModified": "Mon Nov 05 2018 03:12:00 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Anilway",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.jpg"
+        },
+        "description": "Make yourself better!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Anilway",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon1.png"
+        }
+    },
+    "keywords": ",angularJS,入门,框架",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、简介"><span class="post-toc-text">1、简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#特点"><span class="post-toc-text">特点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相关资源"><span class="post-toc-text">相关资源</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、MVC模式"><span class="post-toc-text">2、MVC模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、作用域"><span class="post-toc-text">3、作用域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#局部作用域-scope"><span class="post-toc-text">局部作用域$scope</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#全局作用域-rootScope"><span class="post-toc-text">全局作用域$rootScope</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#作用域嵌套"><span class="post-toc-text">作用域嵌套</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、依赖注入"><span class="post-toc-text">4、依赖注入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、指令与双向数据绑定"><span class="post-toc-text">5、指令与双向数据绑定</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指令的基本概念"><span class="post-toc-text">指令的基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ng-controller"><span class="post-toc-text">ng-controller</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ng-app"><span class="post-toc-text">ng-app</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#双向数据绑定"><span class="post-toc-text">双向数据绑定</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#apply"><span class="post-toc-text">$apply</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ng-click"><span class="post-toc-text">ng-click</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ng-model"><span class="post-toc-text">ng-model</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、过滤器与数据监听"><span class="post-toc-text">6、过滤器与数据监听</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#过滤器"><span class="post-toc-text">过滤器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据监听"><span class="post-toc-text">数据监听</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#购物金额案例演示"><span class="post-toc-text">购物金额案例演示</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7、模块化"><span class="post-toc-text">7、模块化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#声明模块"><span class="post-toc-text">声明模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#压缩处理"><span class="post-toc-text">压缩处理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8、常用的工具方法"><span class="post-toc-text">8、常用的工具方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bind"><span class="post-toc-text">bind()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#copy"><span class="post-toc-text">copy()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#extend"><span class="post-toc-text">extend()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类型判断"><span class="post-toc-text">类型判断</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#version"><span class="post-toc-text">version()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#equals"><span class="post-toc-text">equals()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#forEach"><span class="post-toc-text">forEach()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSON解析"><span class="post-toc-text">JSON解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#辅助函数identity-noop"><span class="post-toc-text">辅助函数identity/noop</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#lowercase-uppercase"><span class="post-toc-text">lowercase/uppercase</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#angular-element"><span class="post-toc-text">angular.element</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bootstrap"><span class="post-toc-text">bootstrap</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#injector注册器"><span class="post-toc-text">injector注册器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9、run方法操作"><span class="post-toc-text">9、run方法操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10、过滤器详解"><span class="post-toc-text">10、过滤器详解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-1-常用内置过滤器"><span class="post-toc-text">10.1 常用内置过滤器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#number"><span class="post-toc-text">number</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#uppercase-lowercase"><span class="post-toc-text">uppercase/lowercase</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#json"><span class="post-toc-text">json</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#limitTo"><span class="post-toc-text">limitTo</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#date"><span class="post-toc-text">date</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#orderBy"><span class="post-toc-text">orderBy</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#filter"><span class="post-toc-text">filter</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-2-过滤器组合使用"><span class="post-toc-text">10.2 过滤器组合使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-3-在JS中使用过滤器"><span class="post-toc-text">10.3 在JS中使用过滤器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-4-自定义过滤器"><span class="post-toc-text">10.4 自定义过滤器</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://raw.githubusercontent.com/Anilway/blogImg/master/common%20cover/js-cover.gif)">
+    
+            <p class="article-headline-p">
+                angularJS学习笔记（一）
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Anilway</strong>
+        <span>11月 04, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/11/04/2018-11-04angularJS-learn-note-part1/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/angularJS/">angularJS</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/入门/">入门</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/框架/">框架</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=angularJS学习笔记（一）&url=http://yoursite.com/2018/11/04/2018-11-04angularJS-learn-note-part1/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=angularJS学习笔记（一）&url=http://yoursite.com/2018/11/04/2018-11-04angularJS-learn-note-part1/index.html&via=Anilway" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/11/04/2018-11-04angularJS-learn-note-part1/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/11/04/2018-11-04angularJS-learn-note-part1/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><ul>
+<li><p>angularJS是基于JS开发的客户端应用框架，使我们更加快捷，简单的开发web应用。</p>
+</li>
+<li><p>诞生于2009年，后被google收购，用在了很多项目中。</p>
+</li>
+<li><p>适用于CRUD应用或者SPA单页面网站的开发。</p>
+</li>
+</ul>
+<p>angularJS重点是做前后端分离式的开发方式，所以适用于CRUD应用或者SPA单页面网站的开发。因为这些应用中前后端交互是比较频繁的，比如增删改查，前后盾数据的ajax操作。</p>
+<p>angularJS不太适合做一些很酷的特效，游戏、可视化的图形界面的开发，它更适合前后端数据交互的方案。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>MVC模式</li>
+<li>模块系统</li>
+<li>指令系统</li>
+<li>依赖注入</li>
+<li>双向数据绑定</li>
+</ul>
+<h3 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">资源</th>
+<th>链接地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">官网</td>
+<td><a href="https://angularjs.org/" target="_blank" rel="external">https://angularjs.org/</a></td>
+</tr>
+<tr>
+<td style="text-align:center">github主页</td>
+<td><a href="https://github.com/angular" target="_blank" rel="external">https://github.com/angular</a></td>
+</tr>
+<tr>
+<td style="text-align:center">AngularJS中文版</td>
+<td><a href="https://angular.cn/" target="_blank" rel="external">https://angular.cn/</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2、MVC模式"><a href="#2、MVC模式" class="headerlink" title="2、MVC模式"></a>2、MVC模式</h2><p>MVC就是model-view-controller.</p>
+<p>我们看一个简单的例子：</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html ng-app=&#39;app&#39;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;source\angular-1.6.9\angular.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div ng-controller=&#39;Aaa&#39;&gt;
+        &lt;p&gt;{{name}}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        let app=angular.module(&#39;app&#39;,[]);
+        app.controller(&#39;Aaa&#39;,function($scope){
+            $scope.name=&#39;Anna&#39;;
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>从这个例子中，我们可以看到：</p>
+<p><code></code>在双大括号中的name和<code>$scope.name</code>对应。name就不是字符串，更像是一个变量。我们就可以把它理解为变量。这类似于模板的方式。在angularJS系统融入了模板的概念。</p>
+<p>模板的特点就是通过一个双大括号形成一个表达式，在这个表达式中我们写的值就可以看做一个变量，就跟我们在JS中写的变量是一样，它会被解析成对应的值。</p>
+<blockquote>
+<p>这和vue是一样的。我认为双括号里面就相当于一个小的代码执行环境，因为里面可以做简单的代码运算，比如加减乘除。</p>
+</blockquote>
+<p>如果我们想真正输出name，就给name加上引号即可，这样就会把name当做字符串输出出来。</p>
+<p><code>$scope.name=&#39;Anna&#39;</code>就是数据，<code>&lt;p&gt;&lt;p&gt;</code>就是显示到页面上的值。它们之间是通过控制器联系到一起的，也就是<code>ng-controller=&#39;Aaa&#39;</code>来关联的。</p>
+<p>这就是一种MVC的方式。MVC的特点就是让model、view、conroller三者进行分离。</p>
+<ul>
+<li>model指的就是数据，就是<code>$scope.name=&#39;Anna&#39;</code>部分</li>
+<li>view值的是视图，就相当于<code>&lt;p&gt;&lt;p&gt;</code>部分（因为我们会在页面上看到，这就是视图嘛！）</li>
+<li>controller就是控制器，它就把数据和视图联系到一起了，那就是<code>ng-controller=&#39;Aaa&#39;</code>部分</li>
+</ul>
+<p>至于控制器是如何实现将数据对应到视图上的，我们可以不用关心，是源码实现的。在初学阶段我们不用过于关心。当你深入学习的时候，可以研究源码的实现方式。</p>
+<h2 id="3、作用域"><a href="#3、作用域" class="headerlink" title="3、作用域"></a>3、作用域</h2><p>在上面的例子中，我们可以看到，数据是挂载在<code>$scope</code>上的（作为<code>$scope</code>的属性），这样视图才能找到。如果我们写的是变量name（定义一个name变量），视图就找不到数据。</p>
+<pre><code class="js">app.controller(&#39;Aaa&#39;,function($scope){
+    $scope.name=&#39;Anna&#39;; // 视图可以找到挂载在$scope上的数据
+    let name=&#39;Bob&#39;; // 这种方式视图就无法找到数据,这个name就是一个普通的变量，不是一个数据
+});
+</code></pre>
+<p>所以==在angularJS中，数据必须挂载到$scope对象上面，我们的视图才能找到数据。==</p>
+<h3 id="局部作用域-scope"><a href="#局部作用域-scope" class="headerlink" title="局部作用域$scope"></a>局部作用域<code>$scope</code></h3><p><code>$scope</code>实际上是一种作用域（局部作用域），它只在自己的控制器函数中起作用。对应到视图上，就是它只对使用该控制器的标签范围内起作用。</p>
+<p>比如前面的例子中：</p>
+<pre><code class="html">&lt;div ng-controller=&quot;Aaa&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>那么，这个div标签内部就是控制器Aaa中的<code>$scope</code>对应的作用域。</p>
+<p>如果我们在这个标签外部去取控制器Aaa中<code>$scope</code>上的数据，是取不到的。比如：</p>
+<pre><code class="html">&lt;div ng-controller=&quot;Aaa&quot;&gt;
+
+&lt;/div&gt;
+&lt;p&gt;{{name}}&lt;/p&gt;
+</code></pre>
+<p>这样就取不到控制器Aaa中<code>$scope</code>上对应的name的数据，不起作用。这个JS中函数作用域的概念类似。</p>
+<p>同样的，如果我再写一个控制器Bbb，那么这个控制器也有自己的作用域<code>$scope</code>。它也只对使用该控制器的标签起作用。Aaa和Bbb之间的作用域互不干扰。</p>
+<p>比如：</p>
+<pre><code class="html">&lt;div ng-controller=&#39;Aaa&#39;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;div ng-controller=&quot;Bbb&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+    &lt;p&gt;{{age}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app=angular.module(&#39;app&#39;,[]);
+
+    // 控制器Aaa
+    app.controller(&#39;Aaa&#39;,function($scope){
+        $scope.name=&#39;Anna&#39;;
+        $scope.age=20;
+    });
+
+    // 控制器Bbb
+    app.controller(&#39;Bbb&#39;,function($scope){
+        $scope.name=&#39;Bob&#39;;
+    });
+&lt;/script&gt;
+</code></pre>
+<p>这个例子中，虽然都是<code></code>，但是对应的作用域不一样，视图对应的数据也不一样。</p>
+<p>而且两个平行的作用域之间是互不关扰的，比如上例中Aaa控制器的作用域挂载的age数据，使用Bbb控制的标签就取不到这个age数据。</p>
+<h3 id="全局作用域-rootScope"><a href="#全局作用域-rootScope" class="headerlink" title="全局作用域$rootScope"></a>全局作用域<code>$rootScope</code></h3><p>在上面的例子中，我们可以把age数据挂载在全局作用域下，这样局部作用域就能访问到。</p>
+<pre><code class="html">&lt;div ng-controller=&#39;Aaa&#39;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;div ng-controller=&quot;Bbb&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+    &lt;p&gt;{{age}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app=angular.module(&#39;app&#39;,[]);
+
+    // 控制器Aaa
+    app.controller(&#39;Aaa&#39;,function($scope,$rootScope){
+        $scope.name=&#39;Anna&#39;;
+        $rootScope.age=20;
+    });
+
+    // 控制器Bbb
+    app.controller(&#39;Bbb&#39;,function($scope){
+        $scope.name=&#39;Bob&#39;;
+    });
+&lt;/script&gt;
+</code></pre>
+<p>这样，虽然在Bbb控制器中没有设置age这个数据，使用Bbb控制器的div标签中还是可以使用挂载在全局作用域下的age数据。</p>
+<p>当然啦，如果Bbb控制器中有自己私有的age数据，那么这个div标签中就会使用私有的age数据，而不是全局age数据。这和JS的作用域概念是一样的。</p>
+<pre><code class="HTML">&lt;div ng-controller=&quot;Bbb&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+    &lt;p&gt;{{age}}&lt;/p&gt; &lt;!--显示30--&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    app.controller(&#39;Bbb&#39;,function($scope,$rootScope){
+        $scope.name=&#39;Bob&#39;;
+        $rootScope.age=20;
+        $scope.age=30;
+    });
+&lt;/script&gt;
+</code></pre>
+<p>对于全局作用域<code>$rootScope</code>来说，不管你写在那个控制器中都可以，挂载在<code>$rootScope</code>中的数据就是全局可以访问的。</p>
+<h3 id="作用域嵌套"><a href="#作用域嵌套" class="headerlink" title="作用域嵌套"></a>作用域嵌套</h3><p>这个概念和JS中的作用域链是一样的。</p>
+<p>具体从代码上来看，是使用控制器的标签进行嵌套，形成了作用域的嵌套。在写控制器JS代码的时候，还是单独写的，并不嵌套在一起。</p>
+<p>比如：</p>
+<pre><code class="html">&lt;div ng-controller=&quot;Aaa&quot;&gt;
+    &lt;div ng-controller=&quot;Bbb&quot;&gt;
+        &lt;p&gt;{{name}}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app=angular.module(&#39;app&#39;,[]);
+    app.controller(&#39;Aaa&#39;,function($scope,$rootScope){
+        $rootScope.name=&#39;全局&#39;;
+        // $scope.name=&#39;Aaa&#39;;
+    });
+    app.controller(&#39;Bbb&#39;,function($scope){
+        // $scope.name=&#39;Bbb&#39;;
+    });
+&lt;/script&gt;
+</code></pre>
+<p>在这个例子中，可以看到，在标签关系上可以看到，Bbb的上级作用域是Aaa，Aaa的上级作用域是全局作用域。</p>
+<p>使用Bbb控制器的div标签中的<code></code>会先在自己的作用域（Bbb）中找name数据，如果没有，就像上级作用域（Aaa）查找，如果还是没有，就继续像上级作用域查找，一直找到全局作用域（<code>$rootScope</code>）为止。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/01.png" alt=""></p>
+<h2 id="4、依赖注入"><a href="#4、依赖注入" class="headerlink" title="4、依赖注入"></a>4、依赖注入</h2><p>对于前面的例子，我们可以发现，控制器的函数表达式（controller方法的第二个参数）中有参数<code>$scope</code>、<code>$rootScope</code>。</p>
+<pre><code class="js">app.controller(&#39;Bbb&#39;,function($scope){
+    $scope.name=&#39;asdf&#39;;
+    alert(123); // 可以说明这个函数确实被内部调用了
+});
+</code></pre>
+<p>我们知道，函数的形参是可以更改的，那么这里的<code>$scope</code>是否可以更改呢？</p>
+<p>在angularJS中是不能更改这些形参的。因为angularJS用到了依赖注入，这也是AngularJS的核心。</p>
+<p>这个函数表达式的执行不是我们去执行的，而是angular内部去执行它，angular内部在执行这个函数的时候，已经自动把参数依赖注入进去了，不需要我们自己去给函数写参数。</p>
+<p>那么这些参数已经自己注入进去了，我们如果想要得到自己想要的参数，就是根据我们写的形参来决定的。假如我们写的形参是<code>$scope</code>，那么这个时候就注入了一个局部作用域的对象。</p>
+<p>在angularJS中，这些注入的对象有一个统一的名字，叫做服务。一般服务都是以<code>$</code>开头的，后面加上一个名字。这些服务一般是用来实现一个特定功能，来服务于我们实际的开发的。</p>
+<p>依赖注入最简单的例子如下：</p>
+<blockquote>
+<p>什么是依赖注入呢，我的理解，简单点就是说我的东西我自己并不像来拿着，我想要我依赖的那个人来帮我拿着，当我需要的时候，他给我就行了。当然这只是简单的理解，还是用代码解释比较清楚一些。</p>
+<p>这里有一个function，很简单。</p>
+<pre><code class="js">var a = function(name){
+    console.log(name);
+}
+</code></pre>
+<p>我们调用它：</p>
+<pre><code class="js">a(&#39;abc&#39;)；//abc
+</code></pre>
+<p>那么，就像我上面说的，我能不能自己不传参数呢，例如：</p>
+<pre><code class="js">a();//undefined
+</code></pre>
+<p>如何才能实现让别人帮我们注入这个参数呢：</p>
+<pre><code class="js">var inject = function(name,callback){  
+    return function(){     
+        callback(name);  
+    }
+}
+</code></pre>
+<p>像这样，我们在定义参数的时候这样传：</p>
+<pre><code class="js">a = inject(&#39;abc&#39;,a)
+</code></pre>
+<p>我们再调用a方法：</p>
+<pre><code class="js">a()；//abc
+</code></pre>
+<p>这其实就是最简单的依赖注入了，当然这么简单是不行的，其实这是很无意义的，下面我们来看一下高深的angularjs：</p>
+<p>…</p>
+<p>详细请参看：<a href="http://www.alloyteam.com/2015/09/angularjs-study-of-dependency-injection/" target="_blank" rel="external">AngularJS依赖注入研究</a></p>
+</blockquote>
+<h2 id="5、指令与双向数据绑定"><a href="#5、指令与双向数据绑定" class="headerlink" title="5、指令与双向数据绑定"></a>5、指令与双向数据绑定</h2><h3 id="指令的基本概念"><a href="#指令的基本概念" class="headerlink" title="指令的基本概念"></a>指令的基本概念</h3><p>我们在DOM标签中写的以<code>ng-</code>开头的属性就是angularJS的指令。指令是用来完成一些功能的，与前面讲到的服务是类似的。</p>
+<h4 id="ng-controller"><a href="#ng-controller" class="headerlink" title="ng-controller"></a><code>ng-controller</code></h4><p>我们在前面已经熟悉了，<code>ng-controller</code>的作用就是连接数据和视图的桥梁；</p>
+<h4 id="ng-app"><a href="#ng-app" class="headerlink" title="ng-app"></a><code>ng-app</code></h4><p><code>ng-app</code>的作用是初始化的指令，如果我们不写<code>ng-app</code>指令的话，angularJS是不会执行的，因为没有初始化，无法调用。</p>
+<p><code>ng-app</code>是不仅可以加在html标签上，也可以加在其他标签上，比如body标签。你也可以加在一个div标签上，那么这个时候angularJS只对局部标签起作用，在这个div标签之外不起作用。</p>
+<pre><code class="html">&lt;div ng-app=&#39;app&#39; ng-controller=&quot;Bbb&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>这样对程序开发是有好处的，因为有时候我们可能只在局部用到了angularJS，在其他地方用的是其他的框架。那么，我们就可以把<code>ng-app</code>放在局部标签，让angularJS只对局部起作用。</p>
+<p>一般我们会写在html标签当中，这样是针对整个页面对angularJS的调用。</p>
+<h3 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h3><p>双向数据绑定是一种MVVM的设计模式，这种模式的特点是，当模型发生改变的时候，会影响视图的变化；当视图变化的时候，也会让模型数据发生改变。</p>
+<p>我们以定时器为例：</p>
+<pre><code class="html">&lt;div  ng-controller=&quot;Aaa&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;Script&gt;
+    let app=angular.module(&#39;app&#39;,[]);
+    app.controller(&#39;Aaa&#39;,function($scope,$timeout){
+        $scope.name=&quot;Anna&quot;;
+        // let timer=setTimeout(function(){
+        //     $scope.name=&quot;Bob&quot;;
+        //     clearTimeout(timer);
+        // },1000);
+        $timeout(function(){
+            $scope.name=&quot;Bob&quot;;
+        },1000);
+    })
+&lt;/Script&gt;
+</code></pre>
+<p>这里要注意的是，我们如果直接使用延迟定时器来写，页面不会发生变化，因为直接使用原生定时器，就算数据改变了，页面也不会刷新。</p>
+<p>所以，我们要使用angularJS中的<code>$timeout</code>服务来编写。<code>$timeout</code>和原生的定时器的用法是一样的。我们在使用<code>$timeout</code>的时候，需要先注入进来，也就是在控制器的函数中添加<code>$timeout</code>参数。</p>
+<h4 id="apply"><a href="#apply" class="headerlink" title="$apply"></a><code>$apply</code></h4><p>如果我们非要使用原生JS或者第三方库的时候，使页面数据刷新呢，就可以使用<code>$scope.$apply</code>方法。</p>
+<p>还是上面的例子，我们修改一下：</p>
+<pre><code class="js">let app=angular.module(&#39;app&#39;,[]);
+app.controller(&#39;Aaa&#39;,[&#39;$scope&#39;,function($scope){
+    $scope.name=&#39;Anna&#39;;
+    setTimeout(function(){
+        $scope.$apply(function(){
+            $scope.name=&#39;Bob&#39;
+        })
+    },2000)
+}])
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/11.gif" alt=""></p>
+<p>==<code>$scope.$apply</code>中的回调函数可以监听挂载在<code>$scope</code>上的数据变化，一般数据发生变化，就能影响到视图。==所以，<code>$apply</code>的好处是可以在第三方库或者原生JS中使用。</p>
+<p>其实，我们在使用<code>$timeout</code>服务或者下面的<code>$ng-click</code>的时候，内部都会调用<code>$scope.$apply</code>来实现影响视图的变化。我们直接使用<code>$scope.$apply</code>当然也可以啦。</p>
+<h4 id="ng-click"><a href="#ng-click" class="headerlink" title="ng-click"></a><code>ng-click</code></h4><pre><code class="HTML">&lt;div ng-controller=&quot;Aaa&quot; ng-click=&quot;show()&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app=angular.module(&#39;app&#39;,[]);
+    app.controller(&#39;Aaa&#39;,function($scope){
+        $scope.name=&quot;Anna&quot;;
+        $scope.show=function(){
+            alert(this.name);
+        }
+    })
+&lt;/script&gt;
+</code></pre>
+<p><code>ng-click</code>相当于给该标签元素添加一个点击事件，它的值就是事件绑定函数。这个函数挂载在<code>$scope</code>上，<code>ng-click</code>会自动在<code>$scope</code>上去找到函数。</p>
+<p>这个<code>ng-click</code>后面双引号的区域更像一个小的执行环境，它会把里面的字符串代码转换成代码执行。</p>
+<p>所以，我们不仅可以写执行函数，写其他的代码也可以执行，比如：</p>
+<pre><code class="html">&lt;div ng-controller=&quot;Aaa&quot; ng-click=&quot;name=&#39;Bob&#39;&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>点击标签的时候，name数据就会变成Bob。</p>
+<p>当然，也不是所有的代码都会执行，比如写成：</p>
+<pre><code class="html">&lt;div ng-controller=&quot;Aaa&quot; ng-click=&quot;alert(123)&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>点击页面上的标签，并不会弹出弹窗。这和内部的实现方式有关，在此入门笔记中不继续追究。</p>
+<p>除了<code>ng-click</code>指令之外，关于事件的，都会有相应的指令与其对应。</p>
+<h4 id="ng-model"><a href="#ng-model" class="headerlink" title="ng-model"></a><code>ng-model</code></h4><p>前面在讲双向数据绑定的时候，只讲了数据影响视图，现在来看看视图如何影响数据。我们需要用到<code>ng-model</code>指令。</p>
+<p>直接看例子：</p>
+<pre><code class="html">&lt;div ng-controller=&quot;Aaa&quot;&gt;
+    &lt;input type=&quot;text&quot; ng-model=&#39;name&#39;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app=angular.module(&#39;app&#39;,[]);
+    app.controller(&#39;Aaa&#39;,function($scope){
+        $scope.name=&quot;Anna&quot;;
+    })
+&lt;/script&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/02.gif" alt=""></p>
+<p>我们给input标签添加<code>ng-model</code>指令，让该指令和name数据绑定，当视图上name数据改变时，$scope上的name也发生改变。</p>
+<p>这和vue中的双向数据绑定是类似的。</p>
+<h2 id="6、过滤器与数据监听"><a href="#6、过滤器与数据监听" class="headerlink" title="6、过滤器与数据监听"></a>6、过滤器与数据监听</h2><h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p>过滤器主要是用来对我们的数据进行格式化处理的。比如：把数字用金额格式表示，日期的格式化表示。</p>
+<p>示例：</p>
+<pre><code class="html">&lt;div ng-controller=&quot;Aaa&quot;&gt;
+    价格：&lt;input type=&quot;text&quot; ng-model=&#39;goods.price&#39;&gt;&lt;br&gt;
+    个数：&lt;input type=&quot;text&quot; ng-model=&#39;goods.num&#39;&gt;&lt;br&gt;
+    总额：&lt;span&gt;{{sum()| currency:'￥'}}&lt;/span&gt;&lt;br&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app=angular.module(&#39;app&#39;,[]);
+    app.controller(&#39;Aaa&#39;,function($scope){
+        $scope.goods={
+            price:10,
+            num:1
+        }
+        $scope.sum(){
+            // 注意不要用this代替$scope，因为在做其他操作时，sum的this不一定指$scope，比如在后面要讲的函数监听的时候
+            return $scope.goods.price*$scope.goods.num;
+        }
+    })
+&lt;/script&gt;
+</code></pre>
+<p>这里我们就是用currency过滤器来把数字结果转化为金额格式展现。和vue中的过滤器是类似的。</p>
+<p>angularJS中除了currency过滤器之外，还有很多其他的内置的过滤器。当这些内置的过滤器不满足我们的需求的时候，我们可以自定义过滤器。</p>
+<p>自定义过滤器示例：</p>
+<pre><code class="js">app.filter(&#39;myfilter&#39;,function(){
+    return function(val){
+        return &#39;￥&#39;+val;
+    }
+})
+</code></pre>
+<p>这就是一个简单的过滤器。要注意的是，我们的过滤函数是写在app.filter方法的第二个回调函数中返回位置上。</p>
+<p>然后我们就可以使用这个过滤器了：</p>
+<pre><code class="html">&lt;span&gt;{{sum() | myfilter}}&lt;/span&gt;
+</code></pre>
+<p>对于自定义过滤器，这只是最简单的例子；还有很多自定义过滤器的方式，在本入门笔记中不详细究。(后文有详细介绍)</p>
+<blockquote>
+<p>拓展阅读： <a href="https://blog.csdn.net/sinat_31057219/article/details/60869966" target="_blank" rel="external">angularjs-自定义过滤器示例</a></p>
+</blockquote>
+<h3 id="数据监听"><a href="#数据监听" class="headerlink" title="数据监听"></a>数据监听</h3><p>数据监听用到<code>$scope</code>的<code>$watch</code>方法。</p>
+<p>基本使用方式：</p>
+<pre><code class="js">$scope.$watch(&#39;goods.price&#39;,function(){
+    console.log(&#39;监听到！&#39;)
+})
+</code></pre>
+<p>当<code>goods.price</code>数据发生变化，就能被监听到。</p>
+<p>如果你想同时监听<code>goods.price</code>和<code>goods.num</code>，只需要监听<code>goods</code>即可，但是要添加第三个参数true，表示深度监听。</p>
+<pre><code class="js">$scope.$watch(&#39;goods&#39;,function(){
+    console.log(&#39;监听到！&#39;)
+},true)
+</code></pre>
+<p><code>$watch</code>不仅可以监听字符串，还可以监听函数：</p>
+<pre><code class="js">$scope.$watch($scope.sum,function(newVal,oldVal){
+    console.log(newVal,oldVal);    
+});
+</code></pre>
+<p>无论是监听变量，还是监听函数，监听方法的回调函数可以接收两个参数，第一个参数是监听到变化后的值，第二个参数是变化之前的值。</p>
+<h3 id="购物金额案例演示"><a href="#购物金额案例演示" class="headerlink" title="购物金额案例演示"></a>购物金额案例演示</h3><pre><code class="html">&lt;div ng-controller=&quot;Aaa&quot;&gt;
+    价格：&lt;input type=&quot;text&quot; ng-model=&#39;goods.price&#39;&gt;&lt;br&gt;
+    个数：&lt;input type=&quot;text&quot; ng-model=&#39;goods.num&#39;&gt;&lt;br&gt;
+    总额：&lt;span&gt;{{sum()| currency:'￥'}}&lt;/span&gt;&lt;br&gt;
+    邮费：&lt;span&gt;{{goods.postage |currency:'￥'}}&lt;/span&gt;&lt;br&gt;
+    支付：&lt;span&gt;{{sum()+goods.postage | currency:'￥'}}&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app=angular.module(&#39;app&#39;,[]);
+    app.controller(&#39;Aaa&#39;,function($scope){
+        $scope.goods={
+            price:10,
+            num:1,
+            postage:10
+        }
+        // 购买的总价
+        $scope.sum=function(){
+            return $scope.goods.price*$scope.goods.num
+        }
+        // 当总价超过100元，免邮费
+        $scope.$watch($scope.sum,function(newVal,oldVal){
+            return $scope.goods.postage=newVal&gt;=100?0:10;
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/03.gif" alt=""></p>
+<h2 id="7、模块化"><a href="#7、模块化" class="headerlink" title="7、模块化"></a>7、模块化</h2><p>模块化开发的好处：</p>
+<ul>
+<li>可以减少变量之间的全局污染，因为它是一个封闭的模块化方式。</li>
+<li>模块之间的互相依赖，不需要手动进行依赖处理。</li>
+</ul>
+<h3 id="声明模块"><a href="#声明模块" class="headerlink" title="声明模块"></a>声明模块</h3><p>现在我们来创建一个模块，语法如下</p>
+<pre><code class="js">angular.module(&#39;模块名称&#39;,[依赖数组])
+</code></pre>
+<p>angular就相当于jQuery中的<code>$</code>,它调用module方法来创建模块。需要两个参数才能创建模块。</p>
+<p>第一个参数就是这个模块的名称。</p>
+<p>第二个参数是一个数组，它表示当前这个模块要依赖的其他模块。</p>
+<p>我们在实际项目中会有很多模块，模块之间需要相互依赖穿插开发，需要依赖的话，就通过这个数组将需要依赖的模块写进来。如果不需要依赖任何一个模块，就只需要写一个空数组就行了。</p>
+<p>当我们有多个模块的时候，我们需要将其中一个模块作为初始模块。这个初始模块的模块名要和<code>ng-app</code>的值对应，作为初始模块。一般为：</p>
+<pre><code class="js">let app=angular.module(&#39;app&#39;,[]);
+</code></pre>
+<p>这个时候，这个app就是作为初始模块，可以被调用。</p>
+<p>接着，我们可以给这个模块添加控制器：</p>
+<pre><code class="js">app.controller(&#39;Aaa&#39;,function($scope){
+    $scope.name=&#39;Aaa&#39;;
+});
+
+app.controller(&#39;Bbb&#39;,function($scope){
+    $scope.name=&#39;Bbb&#39;;
+});
+</code></pre>
+<h3 id="压缩处理"><a href="#压缩处理" class="headerlink" title="压缩处理"></a>压缩处理</h3><p>如果我们对代码进行压缩处理，上面的代码会出现问题，比如：</p>
+<pre><code class="js">app.controller(&#39;Aaa&#39;,function($scope){
+    $scope.name=&#39;Aaa&#39;;
+});
+</code></pre>
+<p>中<code>$scope</code>可能在压缩的时候，可能会被简化为<code>$s</code>。前面我们讲到过一点依赖注入的原理，<code>$scope</code>形参是不能改变的。如果代码压缩的时候<code>$scope</code>被改变了，局部作用域就找不到了，就会出现问题。</p>
+<p>所以，为了解决这个问题，我们可以把控制器的回调函数写在数组里：</p>
+<pre><code class="js">app.controller(&#39;Aaa&#39;,[&#39;$scope&#39;,function($scope){
+    $scope.name=&#39;Aaa&#39;;
+}])
+</code></pre>
+<p>这样的话，回调函数的第一个参数和字符串<code>&#39;$scope&#39;</code>对应，在压缩的时候，就算<code>$scope</code>被压缩成<code>$s</code>，它也代表<code>$scope</code>,不受影响。</p>
+<p>所以，我们在写代码的时候，尽量写成这种方式，这样代码上线的时候，就不会因为代码压缩出现问题。</p>
+<h2 id="8、常用的工具方法"><a href="#8、常用的工具方法" class="headerlink" title="8、常用的工具方法"></a>8、常用的工具方法</h2><h3 id="bind"><a href="#bind" class="headerlink" title="bind()"></a>bind()</h3><p>bind方法用来修改this指向。</p>
+<pre><code class="js">angular.bind(this指向,函数,参数1,参数2,...)(参数a,参数b,...)
+</code></pre>
+<p>其实和原生JS中函数的bind方法类似。</p>
+<p>示例：</p>
+<pre><code class="js">function show(){
+    alert(this);
+}
+
+angular.bind(document,show)();
+</code></pre>
+<p>默认情况下，函数show的this指向window。这个例子中，我们通过angular的bind方法将函数show的this指向document。而且这个bind方法和原生JS中函数的bind方法类似，不会立即调用函数，我们需要手动调用。</p>
+<p>我们可以在bind函数中给函数传参：</p>
+<pre><code class="js">function show(n1,n2,n3){
+    console.log(n1,n2,n3);
+    alert(this);
+}
+
+// 在bind方法中给show传参
+angular.bind(document,show,1,2,3)();
+
+// 也可以在调用show函数的时候传参
+angular.bind(document,show)(1,2,3);
+
+// 也可以两边同时传参，参数都是按顺序传递的
+angular.bind(document,show,1,2)(3);
+</code></pre>
+<h3 id="copy"><a href="#copy" class="headerlink" title="copy()"></a>copy()</h3><p>用来拷贝对象。</p>
+<p>示例：</p>
+<pre><code class="js">let a={name:&quot;Anna&quot;,like:[&#39;dog&#39;,&#39;mango&#39;]};
+let b={age:27};
+let c=angular.copy(a);
+
+// a深拷贝给c
+console.log(c); // {name:&quot;Anna&quot;,like:[&#39;dog&#39;,&#39;mango&#39;]}
+console.log(c===a);           // false
+console.log(c.like===a.like); // false
+</code></pre>
+<p>还是上面的例子，我们给copy添加多个参数：</p>
+<pre><code class="js">let a={name:&quot;Anna&quot;,like:[&#39;dog&#39;,&#39;mango&#39;]};
+let b={age:27};
+let c=angular.copy(a,b);
+
+console.log(c);
+console.log(b);
+console.log(b===c); // true
+
+console.log(c===a);           // false
+console.log(c.like===a.like); // false
+
+console.log(b===a);           // false
+console.log(b.like===a.like); // false
+</code></pre>
+<p>a把所有的值覆盖给了b，也是深拷贝。</p>
+<p>如果我们在给copy添加第三个参数，是不起作用的。</p>
+<p>总结起来copy方法有两种拷贝方式，第一种是：</p>
+<pre><code class="js">// 将a拷贝给c
+let c=angular.copy(a);
+</code></pre>
+<p>第二种是：</p>
+<pre><code class="js">// 将a拷贝给b，b完全被覆盖
+angular.copy(a,b);
+</code></pre>
+<p>这两种可以同时使用：</p>
+<pre><code class="js">// 将a拷贝给了c和b
+let c=angular.copy(a,b);
+</code></pre>
+<p>实际上，拷贝过后，b和c是相等的。也就是说，copy方法将a拷贝的副本返回出来，如果copy方法有第二个形参，就将a副本赋值给第二个形参。</p>
+<h3 id="extend"><a href="#extend" class="headerlink" title="extend()"></a>extend()</h3><p>对象继承。主要和上面的copy方法对比。</p>
+<p>示例：</p>
+<pre><code class="js">let a={name:&quot;Anna&quot;};
+let b={age:27,like:[&#39;dog&#39;,&#39;mango&#39;]};
+let c=angular.extend(a,b);
+console.log(a); // {name: &quot;Anna&quot;, like: Array(2), age: 27}
+console.log(b); // {age:27,like:[&#39;dog&#39;,&#39;mango&#39;]}
+console.log(a.like===b.like); // true
+
+
+console.log(c); // {name: &quot;Anna&quot;, like: Array(2), age: 27}
+console.log(c===a); // true
+</code></pre>
+<p>可以看到，a继承了b的属性。我猜类似于<code>a[key]=b[key]</code>的方式循环过来的。因为<code>a.like===b.like</code>返回true。</p>
+<p>继承的结果也会返回出来，从<code>c===a</code>返回true可以看出。</p>
+<p>我们还可以实验一下，如果b中有和a同名的属性，b中的属性会覆盖a中的属性。</p>
+<pre><code class="js">let a={name:&#39;Anna&#39;,sex: &quot;girl&quot;};
+let b={name:&#39;Bob&#39;,age:27};
+angular.extend(a,b);
+console.log(a); // {name: &quot;Bob&quot;, sex: &quot;girl&quot;, age: 27}
+</code></pre>
+<pre><code class="js">angular.extend(b, a, z);  // b继承a和z中的属性
+</code></pre>
+<h3 id="类型判断"><a href="#类型判断" class="headerlink" title="类型判断"></a>类型判断</h3><p>主要包括：</p>
+<pre><code class="js">angular.isArray
+angular.isDate      // 判断是否为时间对象
+angular.isDefined   // 判断元素是否存在
+angular.isUndefined // 判断是否是undefined
+angular.isFunction
+angular.isNumber
+angular.isObject  // 判断是否是对象，注意，它不把null视为对象，数组是对象
+angular.isString
+angular.isElement // 判断是否是一个DOM元素或者包装的jQuery元素
+</code></pre>
+<p>示例：</p>
+<pre><code class="js">let a=[];
+console.log(angular.isArray(a)); // true
+
+angular.isElement(document.body);    // true
+angular.isElement($(document.body)); // true 如果是通过jQuery获取的元素，也能判断出来
+</code></pre>
+<h3 id="version"><a href="#version" class="headerlink" title="version()"></a>version()</h3><p>查看版本号。</p>
+<pre><code class="js">console.log(angular.version);
+
+/*
+
+返回一个对象
+{
+    codeName: &quot;fiery-basilisk&quot;
+    dot: 9
+    full: &quot;1.6.9&quot;
+    major: 1
+    minor: 6
+}
+
+
+*/
+</code></pre>
+<h3 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h3><p>判断两个值是否相等。</p>
+<pre><code class="js">let a=1,b=1,c=2;
+console.log(angular.equals(a,b)); // true
+console.log(angular.equals(a,c)); // false
+</code></pre>
+<p>但是要注意的是，它的判断和原生的判断有所区别：</p>
+<pre><code class="js">let a=NaN,b=NaN;
+console.log(angular.equals(a,b)); // true
+
+console.log(angular.equals([],[])); // true
+</code></pre>
+<p>源码：</p>
+<pre><code class="js">function equals(o1, o2) {
+  if (o1 === o2) return true;
+  if (o1 === null || o2 === null) return false;
+  // eslint-disable-next-line no-self-compare
+  if (o1 !== o1 &amp;&amp; o2 !== o2) return true; // NaN === NaN
+  var t1 = typeof o1, t2 = typeof o2, length, key, keySet;
+  if (t1 === t2 &amp;&amp; t1 === &#39;object&#39;) {
+    if (isArray(o1)) {
+      if (!isArray(o2)) return false;
+      if ((length = o1.length) === o2.length) {
+        for (key = 0; key &lt; length; key++) {
+          if (!equals(o1[key], o2[key])) return false;
+        }
+        return true;
+      }
+    } else if (isDate(o1)) {
+      if (!isDate(o2)) return false;
+      return simpleCompare(o1.getTime(), o2.getTime());
+    } else if (isRegExp(o1)) {
+      if (!isRegExp(o2)) return false;
+      return o1.toString() === o2.toString();
+    } else {
+      if (isScope(o1) || isScope(o2) || isWindow(o1) || isWindow(o2) ||
+        isArray(o2) || isDate(o2) || isRegExp(o2)) return false;
+      keySet = createMap();
+      for (key in o1) {
+        if (key.charAt(0) === &#39;$&#39; || isFunction(o1[key])) continue;
+        if (!equals(o1[key], o2[key])) return false;
+        keySet[key] = true;
+      }
+      for (key in o2) {
+        if (!(key in keySet) &amp;&amp;
+            key.charAt(0) !== &#39;$&#39; &amp;&amp;
+            isDefined(o2[key]) &amp;&amp;
+            !isFunction(o2[key])) return false;
+      }
+      return true;
+    }
+  }
+  return false;
+}
+</code></pre>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h3><p>遍历操作。数组、对象都可以遍历</p>
+<p>语法：</p>
+<pre><code class="js">angular.forEach(遍历对象，遍历函数，遍历结果);
+</code></pre>
+<p>遍历函数的第一个参数是值，第二个参数是数组的i或者对象的key</p>
+<p>示例：</p>
+<pre><code class="js">let arr=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;];
+let result=[];
+angular.forEach(arr,function(value,i){
+    console.log(value,i);
+    this.push(value+i);
+},result);
+console.log(result); // [&quot;a0&quot;, &quot;b1&quot;, &quot;c2&quot;]
+</code></pre>
+<p>要注意的是，==遍历函数中的this指的是结果参数==。</p>
+<p>遍历对象：</p>
+<pre><code class="js">// 这个例子没有写遍历结果，仅仅演示froEach可以遍历对象
+let obj={name:&#39;Anna&#39;,age:27};
+angular.forEach(obj,function(value,key){
+    console.log(value,key);
+})
+</code></pre>
+<h3 id="JSON解析"><a href="#JSON解析" class="headerlink" title="JSON解析"></a>JSON解析</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fromJson</td>
+<td>将json字符串转换为json对象</td>
+</tr>
+<tr>
+<td>toJson</td>
+<td>将json对象转换成json字符串</td>
+</tr>
+</tbody>
+</table>
+<p>示例：</p>
+<pre><code class="js">let str=&#39;{&quot;name&quot;:&quot;Anna&quot;,&quot;age&quot;:&quot;27&quot;}&#39;;
+console.log(angular.fromJson(str)); // json对象
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/04.PNG" alt=""></p>
+<pre><code class="js">let json={&quot;name&quot;:&quot;Anna&quot;,&quot;age&quot;:&quot;27&quot;};
+console.log(angular.toJson(json)); // json字符串
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/05.PNG" alt=""></p>
+<p>toJson还有一个好处是可以格式化打印结果，方便阅读，我们给第二个参数true即可：</p>
+<pre><code class="js">let json={&quot;name&quot;:&quot;Anna&quot;,&quot;age&quot;:&quot;27&quot;};
+console.log(angular.toJson(json,true));
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/06.PNG" alt=""></p>
+<h3 id="辅助函数identity-noop"><a href="#辅助函数identity-noop" class="headerlink" title="辅助函数identity/noop"></a>辅助函数identity/noop</h3><p><code>angular.identity</code>函数就是你传的是什么，返回的就是什么。</p>
+<pre><code class="js">let str=&#39;hello&#39;;
+console.log(angular.identity(str)); // hello
+</code></pre>
+<p>原理类似于：</p>
+<pre><code class="js">function identity(str){
+    return str;
+}
+</code></pre>
+<p><code>angular.noop</code>函数就是返回undefiend。</p>
+<pre><code class="js">console.log(angular.noop());// undefined
+</code></pre>
+<p>原理类似于：</p>
+<pre><code class="js">function noop(){
+}
+</code></pre>
+<p>这两个函数都是用来进行一些默认操作的,防止程序出问题。比如：</p>
+<pre><code class="js">function getResult(fn, input) {
+    //其实我们可以直接这样写：
+    //return fn(input); 但这样写有个问题，如果传入的fn参数不是一个function类型，会导致出错。
+    //官方推荐的写法如下：
+  return (fn || angular.identity)(input);//这里如果fn参数为空值，使用angular.identity，那么当传入的第一个参数不是function类型时，相当于第一个参数是function(input){return input}
+};
+</code></pre>
+<p>另外一个：</p>
+<pre><code class="js">var getResult = function (fn, val) {
+    //这里如果直接写为
+    //return fn(val); 
+    //也不会出错，但如果传入的第一个参数为空，则会出错。
+  return (fn || angular.noop)(val);//这样写，如果传入的值不是函数，也不会出错
+};
+</code></pre>
+<h3 id="lowercase-uppercase"><a href="#lowercase-uppercase" class="headerlink" title="lowercase/uppercase"></a>lowercase/uppercase</h3><p>大小写转换。</p>
+<pre><code class="js">console.log(angular.uppercase(&#39;hello&#39;)); // HELLO
+</code></pre>
+<h3 id="angular-element"><a href="#angular-element" class="headerlink" title="angular.element"></a>angular.element</h3><p>对元素进行操作。</p>
+<p>比如：</p>
+<pre><code class="js">let oDiv=document.getElementById(&#39;box&#39;);
+angular.element(oDiv).css(&#39;background&#39;,&#39;red&#39;);
+// 让oDiv的背景颜色变为红色
+</code></pre>
+<p>angualrJS中融入了一部分jQuery的代码，比如这里的css方法，还有很多其他的方法也可以使用。</p>
+<p>下图展现了一部分：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/07.PNG" alt=""></p>
+<blockquote>
+<p>更详细的可以查看：<a href="https://www.cnblogs.com/sxz2008/p/6379427.html" target="_blank" rel="external">angularjs获取元素以及angular.element()用法</a></p>
+</blockquote>
+<h3 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h3><p>动态初始化angular。</p>
+<p>我们之前是给元素添加<code>ng-app</code>来进行初始化。我们也可以使用bootstrap来进行动态初始化。</p>
+<pre><code class="js">// 比如我现在将html元素上的ng-app删掉，在js中动态初始化
+document.onclick=function(){
+    // 给html标签上初始化
+    angular.bootstrap(document.documentElement,[&#39;app&#39;]);
+}
+</code></pre>
+<p>这样当我们点击页面的时候，angular才初始化。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/08.gif" alt=""></p>
+<p><code>angular.bootstrap</code>的好处是在我们想要进行初始化的时候再进行初始化。这对于我们使用第三方的库，或者动态创建标签的时候非常有用。</p>
+<p>还有一个好处就是可以让多个初始化同时进行。</p>
+<p>如果我们直接在多个标签上进行初始化，angular只识别第一个初始化。比如：</p>
+<pre><code class="html">&lt;div ng-app=&#39;app1&#39; ng-controller=&quot;Aaa&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div ng-app=&#39;app2&#39; ng-controller=&quot;Bbb&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app1=angular.module(&#39;app1&#39;,[]);
+    app1.controller(&#39;Aaa&#39;,[&#39;$scope&#39;,function($scope){
+        $scope.name=&#39;Anna&#39;
+    }])
+
+    let app2=angular.module(&#39;app2&#39;,[]);
+    app2.controller(&#39;Bbb&#39;,[&#39;$scope&#39;,function($scope){
+        $scope.name=&#39;Bob&#39;
+    }])
+&lt;/script&gt;
+</code></pre>
+<p>页面上是：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/09.PNG" alt=""></p>
+<p>那么，我们就可以使用bootstrap来解决这个问题：</p>
+<pre><code class="html">&lt;!--标签上的ng-app就可以删掉了--&gt;
+&lt;div ng-controller=&quot;Aaa&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div ng-controller=&quot;Bbb&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app1=angular.module(&#39;app1&#39;,[]);
+    let app2=angular.module(&#39;app2&#39;,[]);
+
+    app1.controller(&#39;Aaa&#39;,[&#39;$scope&#39;,function($scope){
+        $scope.name=&#39;Anna&#39;
+    }])
+
+    app2.controller(&#39;Bbb&#39;,[&#39;$scope&#39;,function($scope){
+        $scope.name=&#39;Bob&#39;
+    }])
+
+    window.onload=function(){
+        let div=document.getElementsByTagName(&#39;div&#39;);
+        angular.bootstrap(div[0],[&#39;app1&#39;]);
+        angular.bootstrap(div[1],[&#39;app2&#39;]);
+    }
+&lt;/script&gt;
+</code></pre>
+<p>页面显示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/10.PNG" alt=""></p>
+<h3 id="injector注册器"><a href="#injector注册器" class="headerlink" title="injector注册器"></a>injector注册器</h3><p>在angular的内部使用。</p>
+<h2 id="9、run方法操作"><a href="#9、run方法操作" class="headerlink" title="9、run方法操作"></a>9、run方法操作</h2><p>我们在前面注册模块之后，就是直接来创建控制器，和页面元素关联。比如：</p>
+<pre><code class="html">&lt;div ng-controller=&quot;Aaa&quot;&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app=angular.module(&#39;app&#39;,[]);
+    app.controller(&#39;Aaa&#39;,[&#39;$scope&#39;,function($scope){
+        $scope.name=&#39;Anna&#39;;
+    }])
+&lt;/script&gt;
+</code></pre>
+<p>我们也可以不创建控制器，直接使用run方法。</p>
+<p>没有控制器和页面元素链接，把name解析成一个全局变量。</p>
+<p>比如：</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;p&gt;{{name}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    let app=angular.module(&#39;app&#39;,[]);
+    app.run([&#39;$rootScope&#39;,function($rootScope){
+        $rootScope.name=&quot;Coco&quot;;
+    }])
+&lt;/script&gt;
+</code></pre>
+<p>==run方法的作用相当于去初始化全局的数据，我们把数据挂载在<code>$rootScope</code>上，这样页面上的变量就可以直接在根作用域上找到数据，不需要通过控制器来关联。==</p>
+<p>省略了控制器指令的环境。</p>
+<p>但是要注意的是，我们用run方法，数据是挂载在全局作用域上的，不能挂载在局部作用域上，run方法没有局部作用域，所以写<code>$scope</code>是无效的。</p>
+<p>如果我们要挂载在局部作用域，还是要使用控制器来进行。</p>
+<p>对于模块来讲，我们现在学到了<code>controller</code>和<code>run</code>。但是模块还不止这些，还有丰富的东西可以操作。</p>
+<p>我们可以打印模块来看一看：</p>
+<pre><code class="js">console.dir(app);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/12.PNG" alt=""></p>
+<p>这些后面会学到。</p>
+<h2 id="10、过滤器详解"><a href="#10、过滤器详解" class="headerlink" title="10、过滤器详解"></a>10、过滤器详解</h2><p>前面我们已经提到过过滤器，比如：</p>
+<pre><code class="html">&lt;p&gt;{{price | currency:"￥"}}&lt;/p&gt;
+</code></pre>
+<p>这个冒号后面就相当于传递参数。如果我们想传递多个参数，继续用冒号衔接即可：</p>
+<pre><code class="html">&lt;p&gt;{{price | currency:"￥":参数2:参数3}}&lt;/p&gt;
+</code></pre>
+<h3 id="10-1-常用内置过滤器"><a href="#10-1-常用内置过滤器" class="headerlink" title="10.1 常用内置过滤器"></a>10.1 常用内置过滤器</h3><h4 id="number"><a href="#number" class="headerlink" title="number"></a>number</h4><p>number过滤器对数字进行处理，和货币过滤器类似。比如：</p>
+<pre><code class="html">&lt;p&gt;{{1241243.9765 | number}}&lt;/p&gt;
+</code></pre>
+<p>结果如图：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/13.PNG" alt=""></p>
+<p>可以看到，给数字自动添加了逗号分隔符，只保留三位小数。</p>
+<p>我们可以给number传参，指定保留的位数。</p>
+<pre><code class="html">&lt;p&gt;{{1241243.9765 | number:1}}&lt;/p&gt;
+</code></pre>
+<p>结果如图：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/14.PNG" alt=""></p>
+<p>会自动四舍五入。</p>
+<h4 id="uppercase-lowercase"><a href="#uppercase-lowercase" class="headerlink" title="uppercase/lowercase"></a>uppercase/lowercase</h4><p>大小写转换。</p>
+<p>比如：</p>
+<pre><code class="html">&lt;p&gt;{{'hello' | uppercase}}&lt;/p&gt;
+</code></pre>
+<p>结果如图：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/15.PNG" alt=""></p>
+<h4 id="json"><a href="#json" class="headerlink" title="json"></a>json</h4><p>将json数据按照json格式显示，方便查看。</p>
+<p>比如：</p>
+<pre><code class="html">&lt;!-- 要放在pre标签里面才能看到效果 --&gt;
+&lt;!-- 事先设定了$scope.jsonVal={&quot;name&quot;:&quot;Anna&quot;,&quot;age&quot;:27}  --&gt;
+&lt;pre&gt;{{ jsonVal | json}}&lt;/pre&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/16.PNG" alt=""></p>
+<h4 id="limitTo"><a href="#limitTo" class="headerlink" title="limitTo"></a>limitTo</h4><p>截取数组或者字符串。</p>
+<p>比如：</p>
+<p>我们先定义数组和字符串：</p>
+<pre><code class="js">$rootScope.str=&#39;hello&#39;;
+$rootScope.arr=[&#39;a&#39;,&#39;s&#39;,&#39;d&#39;,&#39;f&#39;];
+</code></pre>
+<p>页面上：</p>
+<pre><code class="html">&lt;p&gt;{{str | limitTo:3}}&lt;/p&gt; &lt;!--截取字符串前三位--&gt;
+&lt;p&gt;{{arr | limitTo:2}}&lt;/p&gt; &lt;!--截取数组前两项--&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/17.PNG" alt=""></p>
+<h4 id="date"><a href="#date" class="headerlink" title="date"></a>date</h4><p>对日期进行格式化。</p>
+<p>比如：将毫秒数格式化成日期</p>
+<pre><code class="html">&lt;p&gt;{{1212343434 | date}}&lt;/p&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/18.PNG" alt=""></p>
+<p>我们可以给date传递不同的参数，来按需要的格式显示。</p>
+<blockquote>
+<p>参考阅读：<a href="https://www.cnblogs.com/panda-zhang/p/5167965.html" target="_blank" rel="external">angularjs中的filter(过滤器)——格式化日期的date</a></p>
+</blockquote>
+<h4 id="orderBy"><a href="#orderBy" class="headerlink" title="orderBy"></a>orderBy</h4><p>排序。</p>
+<p>默认将数据从小到大排序。你需要指定排序的数据是什么。</p>
+<p>比如：</p>
+<p>我们先写一组数据：</p>
+<pre><code class="js">$rootScope.data=[
+    {name:&quot;Anna&quot;,age:10},
+    {name:&quot;Coco&quot;,age:20},
+    {name:&quot;Dane&quot;,age:40},
+    {name:&quot;Bob&quot;,age:30},
+]
+</code></pre>
+<p>然后在页面使用：</p>
+<pre><code class="html">&lt;p&gt;{{data | orderBy:'name'}}&lt;/p&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/19.PNG" alt=""></p>
+<p>默认是从小到大，我们还可以指定第二个参数，从大到小排序：</p>
+<pre><code class="html">&lt;p&gt;{{data | orderBy:'name':true}}&lt;/p&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/20.PNG" alt=""></p>
+<p>这个例子中是以name作为排序数据。我们也可以指定age为排序数据：</p>
+<pre><code class="html">&lt;p&gt;{{data | orderBy:'age':true}}&lt;/p&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/21.PNG" alt=""></p>
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><p>过滤，将符合条件的过滤出来。</p>
+<p>还是上面的数据，filter会和json中的value值进行匹配。</p>
+<p>比如：</p>
+<pre><code class="html">&lt;p&gt;{{data | filter:'Coco'}}&lt;/p&gt;
+</code></pre>
+<p>页面显示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/22.PNG" alt=""></p>
+<pre><code class="html">&lt;p&gt;{{data | filter:'10'}}&lt;/p&gt;
+</code></pre>
+<p>页面显示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/23.PNG" alt=""></p>
+<p>如果我们的条件多条数据都符合，都可以过滤出来：</p>
+<pre><code class="html">&lt;p&gt;{{data | filter:'o'}}&lt;/p&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/24.PNG" alt=""></p>
+<p>如果我们不传条件，都会被显示出来。</p>
+<p>有时候也会出现这样的情况，比如我们的数据是：</p>
+<pre><code class="js">$rootScope.data=[
+    {name:&quot;Coco&quot;,age:20},
+    {name:&quot;co&quot;,age:10}
+]
+</code></pre>
+<p>如果我们匹配co，就会都匹配上：</p>
+<pre><code class="html">&lt;p&gt;{{data | filter:'co':true}}&lt;/p&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/25.PNG" alt=""></p>
+<p>如果我们想匹配整体，就需要加上第二个参数true。这就表示匹配co这个整体。</p>
+<pre><code class="html">&lt;p&gt;{{data | filter:'co':true}}&lt;/p&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/26.PNG" alt=""></p>
+<h3 id="10-2-过滤器组合使用"><a href="#10-2-过滤器组合使用" class="headerlink" title="10.2 过滤器组合使用"></a>10.2 过滤器组合使用</h3><p>其实也很简单。通过管道符衔接即可。</p>
+<p>比如：</p>
+<pre><code class="html">&lt;!--我们事先定义 $scope.name=&#39;hello&#39; --&gt;
+&lt;p&gt;{{name | limitTo:2 | uppercase}}&lt;/p&gt;
+</code></pre>
+<p>这样就是截取name的前两个字符，并转为大写。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/27.PNG" alt=""></p>
+<h3 id="10-3-在JS中使用过滤器"><a href="#10-3-在JS中使用过滤器" class="headerlink" title="10.3 在JS中使用过滤器"></a>10.3 在JS中使用过滤器</h3><p>在JS中使用过滤器，是通过引入<code>$filter</code>服务来使用的。就像我们前面讲过的<code>$scope</code>、<code>$rootScope</code>、<code>$timeout</code>都是服务。</p>
+<p>使用示例：</p>
+<pre><code class="js">app.controller(&#39;MyController&#39;,[&#39;$scope&#39;,&#39;$filter&#39;,function($scope,$filter){
+    $scope.name=$filter(&#39;limitTo&#39;)(&#39;hello&#39;,3);
+}])
+</code></pre>
+<p>页面上：</p>
+<pre><code class="html">&lt;p&gt;{{name}}&lt;/p&gt;
+</code></pre>
+<p>显示效果：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/28.PNG" alt=""></p>
+<p>也就是说，在过滤器函数中的参数就是我们需要用到的过滤器，这个函数会返回一个函数，我们将数据传进去，比如hello。后面的参数就是过滤器的参数了。</p>
+<p>貌似在JS中，过滤器不能组合使用。暂时先留个疑问。</p>
+<h3 id="10-4-自定义过滤器"><a href="#10-4-自定义过滤器" class="headerlink" title="10.4 自定义过滤器"></a>10.4 自定义过滤器</h3><p>自定义过滤器是通过<code>angular.module</code>下的<code>filter</code>方法来实现的。</p>
+<p>示例：我们来实现一个首字母大写的过滤器firstUpper</p>
+<pre><code class="js">app.filter(&#39;firstUpper&#39;,function(){
+    return function(str,num){
+        num=num||0;
+        return str.substring(0,num).toUpperCase()+str.substring(num);
+    }
+})
+</code></pre>
+<p>编写的过滤器中，str表示要过滤的数据，后面的num就是传入的参数。</p>
+<p>这个过滤器的意思是默认将字符串的第一位字母转为大写。如果传了要转换的字符个数，就把前面num个字符转为大写。</p>
+<p>使用：</p>
+<pre><code class="html">&lt;p&gt;{{'hello' | firstUpper:2}}&lt;/p&gt;
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/29.PNG" alt=""></p>
+<p>在JS中同样可以使用：</p>
+<pre><code class="js">$scope.name=$filter(&#39;firstUpper&#39;)(&#39;hello&#39;,3);
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4-1/30.PNG" alt=""></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #222;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" style="display: none">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/11/04/2018-11-04angularJS-learn-note-part1/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/11/04/2018-11-04angularJS-learn-note-part1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.btn_click_load').css('display','none');
+        })(),
+        error: function() {
+          $('.btn_click_load').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/11/04/2018-11-04PHP-development-environment-to-build/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/10/16/2018-10-16webStrom-config/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header1.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.jpg" alt="Anilway's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        更多
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hanway.robot@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="电子书">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">book</i>
+                        
+                        电子书
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="网址导航">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">tab</i>
+                        
+                        网址导航
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">20</span></a></li><li><a class="sidebar_archives-link" href="/categories/JS框架库/">JS框架库<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/JS进阶/">JS进阶<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/其他/">其他<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/后端入门/">后端入门<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/小技巧/">小技巧<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/旁征博引/">旁征博引<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程工具/">编程工具<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about/index.html" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友链接">
+                
+                友链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图片集">
+                
+                图片集
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Anilway" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Anilway
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
