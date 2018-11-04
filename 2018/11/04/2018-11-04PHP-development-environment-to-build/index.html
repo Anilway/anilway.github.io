@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            PHP开发环境搭建 | 
+        
+        Anilway
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Anilway">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",PHP,后端">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon1.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon1.png">
+    <link rel="apple-touch-icon" href="/img/favicon1.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Anilway">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #222 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #222 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #222 !important;
+  }
+
+  .toTop {
+    background: #222 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #222;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #222;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #222;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="PHP开发环境搭建 | Anilway">
+    <meta property="og:image" content="http://yoursite.com/img/favicon1.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="PHP"> <meta property="og:article:tag" content="后端"> 
+
+    
+        <meta property="article:published_time" content="Sun Nov 04 2018 00:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Nov 05 2018 02:59:22 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="PHP开发环境搭建 | Anilway">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon1.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/11/04/2018-11-04PHP-development-environment-to-build/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/11/04/2018-11-04PHP-development-environment-to-build/index.html",
+    "headline": "PHP开发环境搭建",
+    "datePublished": "Sun Nov 04 2018 00:00:00 GMT+0800",
+    "dateModified": "Mon Nov 05 2018 02:59:22 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Anilway",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.jpg"
+        },
+        "description": "Make yourself better!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Anilway",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon1.png"
+        }
+    },
+    "keywords": ",PHP,后端",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、Apache安装"><span class="post-toc-text">1、Apache安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载"><span class="post-toc-text">下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置"><span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行"><span class="post-toc-text">运行</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、安装PHP"><span class="post-toc-text">2、安装PHP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载-1"><span class="post-toc-text">下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装-1"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置-1"><span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#测试php是否安装成功"><span class="post-toc-text">测试php是否安装成功</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、将PHP与Apache关联起来"><span class="post-toc-text">3、将PHP与Apache关联起来</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、修改php开发时区"><span class="post-toc-text">4、修改php开发时区</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、安装MySQL数据库"><span class="post-toc-text">5、安装MySQL数据库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载-2"><span class="post-toc-text">下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加环境变量"><span class="post-toc-text">添加环境变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加mysql配置文件"><span class="post-toc-text">添加mysql配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装-2"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动服务"><span class="post-toc-text">启动服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置用户及密码"><span class="post-toc-text">配置用户及密码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#测试安装效果"><span class="post-toc-text">测试安装效果</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、apache配置域名访问本地空间"><span class="post-toc-text">6、apache配置域名访问本地空间</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://raw.githubusercontent.com/Anilway/blogImg/master/common%20cover/js-cover.gif)">
+    
+            <p class="article-headline-p">
+                PHP开发环境搭建
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Anilway</strong>
+        <span>11月 04, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/11/04/2018-11-04PHP-development-environment-to-build/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/PHP/">PHP</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/后端/">后端</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=PHP开发环境搭建&url=http://yoursite.com/2018/11/04/2018-11-04PHP-development-environment-to-build/index.html&pic=http://yoursite.com/img/favicon1.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=PHP开发环境搭建&url=http://yoursite.com/2018/11/04/2018-11-04PHP-development-environment-to-build/index.html&via=Anilway" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/11/04/2018-11-04PHP-development-environment-to-build/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/11/04/2018-11-04PHP-development-environment-to-build/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="\assets\js\APlayer.min.js"> </script><h2 id="1、Apache安装"><a href="#1、Apache安装" class="headerlink" title="1、Apache安装"></a>1、Apache安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载地址：<a href="http://httpd.apache.org/" target="_blank" rel="external">http://httpd.apache.org/</a></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<li>SeverRoot：服务器所在的目录</li>
+<li>DocumentRoot：网站默认根目录</li>
+<li>Directory：访问权限</li>
+<li>ServerName：服务器的名称</li>
+</ul>
+<p>打开在Apache文件目录下conf下的httpd.conf:</p>
+<pre><code>Apache24\conf\httpd.conf
+</code></pre><p>然后在大约第38行代码可以看到：</p>
+<pre><code class="php"># Define SRVROOT &quot;/Apache24&quot;
+# ServerRoot &quot;${SRVROOT}&quot;
+
+# 上面的是默认的值，下面使我们修改后的
+
+Define SRVROOT &quot;D:/server/Apache24&quot;
+ServerRoot &quot;D:/server/Apache24&quot; # 这里配置服务器所在的目录，也就是Apache的安装目录，注意目录名不能是中文或出现空格
+</code></pre>
+<p>然后在大约248行代码可以看到：</p>
+<pre><code class="php"># DocumentRoot &quot;${SRVROOT}/htdocs&quot;
+# &lt;Directory &quot;${SRVROOT}/htdocs&quot;&gt;
+
+ DocumentRoot &quot;D:/server/Web&quot; # 我们在这里设置网站的根目录，最好不要设置在Apache里面，我们放在外面方便管理
+ &lt;Directory &quot;D:/server/Web&quot;&gt; # 这里设置访问权限也是如此
+</code></pre>
+<p>在大约224行代码可以看到：</p>
+<pre><code class="php">ServerName localhost:80 # www.exapmle.com
+</code></pre>
+<p>我们可以修改站点名称。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>我们要用管理员身份使用命令行，在<code>Apache24\bin</code>下调用httpd.exe进行安装。</p>
+<p>我们使用命令：</p>
+<pre><code>httpd.exe -k install
+</code></pre><p>进行安装，这个命令并且会将Apache安装成windows系统服务。这样的好处是，以后我们电脑开机了，就会自动启动该服务，省去了我们手动开启的过程。</p>
+<p>我们在初次安装的时候，可能会因为电脑组件不完善出现下面的弹窗提示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/01.PNG" alt=""></p>
+<p>我们需要使用下面的工具进行修复：</p>
+<blockquote>
+<p>下载：<a href="https://www.microsoft.com/zh-CN/download/details.aspx?id=30679" target="_blank" rel="external">微软官网</a></p>
+</blockquote>
+<ul>
+<li>x86： vc_redist.x86.exe  （32位系统选择此文件）</li>
+<li>x64： vc_redist.x64.exe  （64位系统选择此文件）</li>
+</ul>
+<p>在下载页面点击下载，转跳到文件列表，选择你需要的文件下载安装即可修复该问题。</p>
+<p>然后我们再次安装，就安装成功了。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/02.PNG" alt=""></p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>接着我们来运行apache服务。</p>
+<p>在命令行中输入命令：</p>
+<pre><code>httpd.exe -k start
+</code></pre><p>即可开启服务。服务开启成功后，我们可以在浏览器输入<code>localhost</code>，就可以看到：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/06.PNG" alt=""></p>
+<p>我们可以用下面的命令来检测服务器配置文件httpd.conf是否有语法错误：</p>
+<pre><code>httpd -t
+</code></pre><p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/03.PNG" alt=""></p>
+<p>每当我们修改服务器配置文件后，需要重启apache服务才会生效。</p>
+<p>我们可以使用Apache检测器软件来进行重启，还可以进行开启或关闭。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/04.PNG" alt=""></p>
+<p>这个程序位置在<code>..\Apache24\bin</code>目录下。</p>
+<p>运行界面：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/05.PNG" alt=""></p>
+<h2 id="2、安装PHP"><a href="#2、安装PHP" class="headerlink" title="2、安装PHP"></a>2、安装PHP</h2><p>如果我们要运行一个动态网站，光靠Apache是不够的，还需要借助动态语言php才可以。</p>
+<h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><p>下载地址（windows版）：<a href="https://windows.php.net/download#php-7.2" target="_blank" rel="external">https://windows.php.net/download#php-7.2</a></p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><p>将下载后的文件解压，放在server（就是你放Apache的那个文件夹）文件夹下。然后，可以将php的文件夹名称改成php7，方便管理。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/07.PNG" alt=""></p>
+<p>我们可以简单看一下php文件夹中的内容：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/08.jpg" alt=""></p>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><p>我们在使用php的时候，需要一个配置文件，php本身给我们提供了两种：</p>
+<ul>
+<li><code>php.ini-development</code>开发环境下的配置文件</li>
+<li><code>php.ini-production</code>生产环境下的配置文件</li>
+</ul>
+<p>那我们在开发的时候就是用开发环境配置文件，就复制一份<code>php.ini-development</code>,并重命名为<code>php.ini</code>。注意这里ini是后缀名。</p>
+<p>当我们以后网站上线的时候，就将配置文件换成生产环境配置文件即可。当然也需要重命名为<code>php.ini</code>。</p>
+<h3 id="测试php是否安装成功"><a href="#测试php是否安装成功" class="headerlink" title="测试php是否安装成功"></a>测试php是否安装成功</h3><p>我们在Web目录下创建一个index.php文件：</p>
+<pre><code class="php">&lt;?php  
+    // 输出
+    echo &#39;hello world&#39;;
+?&gt;
+</code></pre>
+<p>然后我们使用命令行，让php.exe调用我们创建的index.php文件，看能否正常返回。</p>
+<p>在php7目录下运行命令行，输入命令</p>
+<pre><code>php.exe -f D:\server\Web\index.php
+</code></pre><p>如果返回<code>hello world</code>，既表示php安装成功。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/09.PNG" alt=""></p>
+<h2 id="3、将PHP与Apache关联起来"><a href="#3、将PHP与Apache关联起来" class="headerlink" title="3、将PHP与Apache关联起来"></a>3、将PHP与Apache关联起来</h2><p>Apache能够进行某些操作，就是因为Apache加载了某些模块。在我们目前的安装下，PHP与Apache都是独立运行的。</p>
+<p>比如，我们现在访问<code>http://localhost/index.php</code>，页面显示如下：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/10.PNG" alt=""></p>
+<p>php本身提供了一个<code>php7apache2_4.dll</code>的这样的一个文件，用来与Apache关联起来。我们只需要在Apachce中进行配置，让Apache能够加载这个模块即可。</p>
+<blockquote>
+<p>如果你的php文件中没有<code>php7apache2_4.dll</code>文件，那是因为你下载的NOT THREAD SAFE版本的php，你需要下载 THREAD SAFE版本的php才会有。重新在这个页面查找下载<a href="https://windows.php.net/download#php-7.2。" target="_blank" rel="external">https://windows.php.net/download#php-7.2。</a></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/11.PNG" alt=""></p>
+</blockquote>
+<p>配置如下：</p>
+<p>在Apach的配置文件中添加模块。<code>Apache24\conf\httpd.conf</code></p>
+<p>大概在184行代码。</p>
+<pre><code class="php">#加载php7 注意严格区分大小写
+LoadModule php7_module D:/server/php7/php7apache2_4.dll
+</code></pre>
+<p>现在，我们可以检测一下httpd.conf有没有语法错误，还是在在<code>Apache24\bin</code>下打开命令行，输入<code>httpd -t</code>进行检测。</p>
+<p>我们前面说了，修改了服务器配置文件，需要重启才会生效。但是到目前为止，我们重启服务器，还是不会生效，php还是没有和Apache关联起来。</p>
+<p>因为我们目前只是让Apache加载php，还没有告诉php做什么事。所以，我们还要继续配置。</p>
+<p>配置如下：</p>
+<p>在Apach的配置文件中给php分配任务。<code>Apache24\conf\httpd.conf</code></p>
+<p>继续跟着上面的代码往后写：</p>
+<pre><code class="php">#分配工作给php:所有以.php为后缀的文件都交给php.exe处理
+AddType application/x-httpd-php .php
+</code></pre>
+<p>现在我们修改完配置文件后，重启Apache，再次访问：<code>http://localhost/index.php</code>，得到的结果就是：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/12.PNG" alt=""></p>
+<p>到目前为止，我们的php和Apache就关联成功了。但是现在php虽然可以完成Apache分配的任务，但是php是独立运行的。要想让php完全服从Apache，还需要将php的配置文件加载到Apache中。我们继续在<code>Apache24\conf\httpd.conf</code>中添加以下代码：</p>
+<pre><code class="php">#加载php配置文件 后面的php.ini可以不写
+PHPIniDir &quot;D:/server/php7&quot;
+</code></pre>
+<p>这样，php和Apache的关联算是完成了。我们再次重启Apache，然后访问<code>index.php</code>还是ok的。</p>
+<p>上面的配置总结起来就是：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/14.PNG" alt=""></p>
+<p>现在我们再来做个测试，看一下php的运行环境。</p>
+<p>我们把index.php的代码修改一下：</p>
+<pre><code class="php">&lt;?php  
+    phpinfo();// php自带的函数，可以查看运行环境
+?&gt;
+</code></pre>
+<p>页面就会呈现很多相关的信息。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/13.PNG" alt=""></p>
+<h2 id="4、修改php开发时区"><a href="#4、修改php开发时区" class="headerlink" title="4、修改php开发时区"></a>4、修改php开发时区</h2><p>我们可以在php运行环境中看到默认的开发时区是UTC。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/15.PNG" alt=""></p>
+<p>这个UTC是世界时区，东一区，就是以伦敦那个地方的时区为准。但是我们是在中国进行开发的，所以，要改成中国的时区。</p>
+<p>这个要在php的配置文件（php.ini）中进行修改。</p>
+<p>修改如下：</p>
+<p>大概在代码932行。</p>
+<pre><code>;增加中国时区 分号表示注释
+date.timezone=PRC
+</code></pre><p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/16.PNG" alt=""></p>
+<p>虽然我们修改的是php.ini，但修改后，也需要重启Apache才会生效。之后我们再来查看，就是中国时区了。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/17.PNG" alt=""></p>
+<h2 id="5、安装MySQL数据库"><a href="#5、安装MySQL数据库" class="headerlink" title="5、安装MySQL数据库"></a>5、安装MySQL数据库</h2><p>在前面我们已经让php和Apache进行了关联，可以进行动态网站的开发了。但是动态网站的很大一个特点就是信息交互，php作为一种程序语言，是没有办法长期保存数据的，按目前的配置，数据只能暂时保存在内存中。</p>
+<p>为了能够长期保存数据，我们需要安装MySQL进行数据的持久化保存。</p>
+<p>MySQL数据库是一个独立的软件，是一种在php需要的时候通过代码去操作的软件。因为MySQL的安装可以独立出来，不需要在安装时就与Apache或者php关联（Apache无法操作数据库）。同时MySQL也是一款免费开源的数据库产品，深受广大开发公司的喜爱。</p>
+<h3 id="下载-2"><a href="#下载-2" class="headerlink" title="下载"></a>下载</h3><p>下载地址：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">https://dev.mysql.com/downloads/mysql/</a></p>
+<p>在页面下面，需要往下滚动才能看到下载地址。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/18.PNG" alt=""></p>
+<p>注意，我们要下载第一个文件192.3M的那个。</p>
+<p>将下载后的文件解压，放在server目录下即可。为了方便管理，我们可以将MySQL文件夹名称改成mysql。</p>
+<h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h3><p>因为我们以后会经常用到<code>mysql/bin</code>文件夹下的各种程序，这些都是要在命令行中调用的。为了方便每次打开命令行能直接使用，我们可以添加环境变量。</p>
+<p>以win7为例：</p>
+<p>找到计算机，右键点击，选择属性。然后弹出控制面板：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/19.PNG" alt=""></p>
+<p>我们在控制面板的左上角选择高级系统设置，会弹出窗口：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/20.PNG" alt=""></p>
+<p>选择环境变量。然后再弹出的窗口中，选择系统环境变量中的Path，选择编辑：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/21.PNG" alt=""></p>
+<p>在弹出的窗口中添加变量：<code>;D:\server\mysql\bin</code>（分号是为了与前面隔开）</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/22.PNG" alt=""></p>
+<p>我们也可以加上Apach的：<code>;D:\server\Apache24\bin</code>。</p>
+<p>然后一路确定保存即可。</p>
+<h3 id="添加mysql配置文件"><a href="#添加mysql配置文件" class="headerlink" title="添加mysql配置文件"></a>添加mysql配置文件</h3><p>我们需要手动创建一个<code>mysql.ini</code>文件，添加以下代码：</p>
+<pre><code>[mysqld]
+port = 3306
+basedir = D:/server/mysql
+datadir = D:/server/mysql/data
+max_connections=200
+character-set-server=utf8
+default-storage-engine=INNODB
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+[mysql]
+default-character-set=utf8
+</code></pre><p>含义如下：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/23.PNG" alt=""></p>
+<blockquote>
+<p>关于参数的含义，可以查看：<a href="https://www.cnblogs.com/wyy123/p/6092976.html" target="_blank" rel="external">mysql配置文件参数详解</a></p>
+</blockquote>
+<h3 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h3><p>以管理员的身份运行CMD，执行以下命令，安装mysql：</p>
+<pre><code>mysqld.exe -install
+</code></pre><p>因为我们前面设置环境变量了，所以可以直接进行安装。不用在<code>D:\server\mysql\bin</code>目录下执行cmd。</p>
+<p>如果在安装时提示找不到<code>MSVCR120.dll</code>，需要像在安装Apache时那样，安装需要的运行库。你可以在网上查找一下。</p>
+<p>然后再重新执行命令安装mysql。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/24.PNG" alt=""></p>
+<p>安装成功后，我们还需要进行初始化操作。</p>
+<p>执行以下命令：</p>
+<pre><code>mysqld.exe --initialize-insecure --user=mysql
+</code></pre><p>初始化过程还比较长，需要等待十几秒才能完成。命令行显示如下：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/25.PNG" alt=""></p>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>安装完成后，我们需要手动启动mysql。执行一下下命令：</p>
+<pre><code>net start mysql
+</code></pre><p>这个命令是个服务命令，是windows自己的，和mysql没有关系。</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/26.PNG" alt=""></p>
+<h3 id="配置用户及密码"><a href="#配置用户及密码" class="headerlink" title="配置用户及密码"></a>配置用户及密码</h3><p>默认安装mysql有一个超级管理员用户root，但是当前没有密码，非常不安全，因此需要修改root用户的密码。</p>
+<p>输入一下命令：</p>
+<pre><code>mysqladmin -u root -p password 后面接着是新密码
+</code></pre><p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/27.jpg" alt=""></p>
+<p>操作动图演示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/28.gif" alt=""></p>
+<p>我们设置密码后回车，会提示让我们输入旧密码，因为旧密码没有，所以我们直接回车即可。它会提示说这样设置密码不安全。我们可以先不用管。</p>
+<h3 id="测试安装效果"><a href="#测试安装效果" class="headerlink" title="测试安装效果"></a>测试安装效果</h3><p>mysql是一种C/S结构软件，因此需要使用客户端去访问服务端，mysql提供了自己的客户端mysql.exe，可以在命令行（CMD）下通过mysql.exe进行访问。</p>
+<p>输入命令：</p>
+<pre><code>mysql.exe -u用户名 -h主机地址 -P端口 -p密码
+</code></pre><p>这种方式是明文输入，不安全。动图演示：</p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/29.gif" alt=""></p>
+<p>我们还可以使用密文输入的方式。其实，我们的主机地址默认是localhost时可以不写，端口号默认为3306时也可以不写。</p>
+<p>输入命令：</p>
+<pre><code>mysql -u用户名 -p
+</code></pre><p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/30.gif" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Anilway/blogImg/master/2018-11/4/31.PNG" alt=""></p>
+<h2 id="6、apache配置域名访问本地空间"><a href="#6、apache配置域名访问本地空间" class="headerlink" title="6、apache配置域名访问本地空间"></a>6、apache配置域名访问本地空间</h2><p>参考阅读：<a href="https://jingyan.baidu.com/article/7e440953d7a6712fc0e2efb7.html" target="_blank" rel="external">apache配置域名访问本地空间</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #222;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" style="display: none">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/11/04/2018-11-04PHP-development-environment-to-build/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/11/04/2018-11-04PHP-development-environment-to-build/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.btn_click_load').css('display','none');
+        })(),
+        error: function() {
+          $('.btn_click_load').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//anilway.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/10/16/2018-10-16webStrom-config/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header1.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.jpg" alt="Anilway's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        更多
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hanway.robot@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="电子书">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">book</i>
+                        
+                        电子书
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://anilway.gitbooks.io/-javascript/content/" target="_blank" title="网址导航">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">tab</i>
+                        
+                        网址导航
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/JS基础入门/">JS基础入门<span class="sidebar_archives-count">20</span></a></li><li><a class="sidebar_archives-link" href="/categories/JS进阶/">JS进阶<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/其他/">其他<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/后端入门/">后端入门<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/小技巧/">小技巧<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/旁征博引/">旁征博引<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程工具/">编程工具<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about/index.html" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友链接">
+                
+                友链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图片集">
+                
+                图片集
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Anilway" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Anilway
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
